@@ -318,6 +318,27 @@ export async function fetchAllLawyers() {
 // ─────────────────────────────────────────────────────────────
 // ADMIN — reads ALL rows regardless of status
 // ─────────────────────────────────────────────────────────────
+export async function submitContactMessage(form) {
+  const { error } = await supabase.from("contact_messages").insert({
+    country_slug: country(),
+    name: form.name,
+    email: form.email,
+    message: form.message,
+  });
+  if (error) console.error("submitContactMessage:", error);
+  return !error;
+}
+
+export async function fetchContactMessages() {
+  const { data, error } = await supabase
+    .from("contact_messages")
+    .select("*")
+    .eq("country_slug", country())
+    .order("created_at", { ascending: false });
+  if (error) console.error("fetchContactMessages:", error);
+  return data || [];
+}
+
 const ALL_TABLES = [
   "jobs", "accommodation", "temples", "lawyers",
   "doctors", "babysitters", "tutors",

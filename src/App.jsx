@@ -8,6 +8,7 @@ import VisaPage from "./pages/visa/VisaPage";
 import { ImmigrationPage, DS160Page } from "./pages/visa/TipPages";
 import HealthWellnessPage from "./pages/HealthWellnessPage";
 import GlobalLawyersPage from "./pages/GlobalLawyersPage";
+import ContactPage from "./pages/ContactPage";
 import { AdsProvider } from "./lib/AdsContext";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/ds160"                       element={<DS160Page />} />
         <Route path="/health"                      element={<HealthWellnessPage />} />
         <Route path="/lawyers"                     element={<GlobalLawyersPage />} />
+        <Route path="/contact"                     element={<ContactPage />} />
         <Route path="/admin"                       element={<AdminPage />} />
         <Route path="*"                            element={<HomePage />} />
       </Routes>

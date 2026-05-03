@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { f } from "../components/formHelpers";
-import { fetchAllSubmissions, updateStatus, fetchSettings, updateSetting, updateAdsSettings, fetchStates } from "../lib/db";
+import { fetchAllSubmissions, updateStatus, fetchSettings, updateSetting, updateAdsSettings, fetchStates, fetchContactMessages } from "../lib/db";
 import { supabase } from "../lib/supabase";
 import { useAds } from "../lib/AdsContext";
 
@@ -38,6 +38,7 @@ export default function AdminPage() {
   const [settings, setSettings]   = useState({});
   const { ads, setAds }           = useAds();
   const [states, setStates]       = useState([]);
+  const [contactMessages, setContactMessages] = useState([]);
   const [filter, setFilter]       = useState("pending");
   const [tableFilter, setTableFilter] = useState("all");
 
@@ -52,9 +53,15 @@ export default function AdminPage() {
     setSubmissions(data);
   };
 
+  const refreshContacts = async () => {
+    const data = await fetchContactMessages();
+    setContactMessages(data);
+  };
+
   useEffect(() => {
     if (authed) {
       refresh();
+      refreshContacts();
       fetchSettings().then(setSettings);
       fetchStates().then(setStates);
     }
@@ -144,6 +151,24 @@ export default function AdminPage() {
         <StatCard label="Approved"       value={approved} color="#10b981" />
         <StatCard label="Rejected"       value={rejected} color="#ef4444" />
         <StatCard label="Total"          value={submissions.length} color="#6366f1" />
+        <StatCard label="Contact Messages" value={contactMessages.length} color="#0f766e" />
+      </div>
+
+      <div style={s.settingsBox}>
+        <div style={s.panelHeader}>
+          <div>
+            <h2 style={s.settingsTitle}>Contact Messages</h2>
+            <p style={s.settingsDesc}>Messages submitted from the public Contact Us page.</p>
+          </div>
+          <button style={f.btnOutline} onClick={refreshContacts}>Refresh</button>
+        </div>
+
+        {contactMessages.length === 0
+          ? <p style={f.empty}>No contact messages yet.</p>
+          : contactMessages.map(message => (
+              <ContactMessageCard key={message.id} message={message} />
+            ))
+        }
       </div>
 
       {/* Approval settings */}
@@ -292,6 +317,21 @@ function SubmissionCard({ sub, settings, onApprove, onReject }) {
   );
 }
 
+function ContactMessageCard({ message }) {
+  return (
+    <div style={{ background:"#fafaf8", border:"0.5px solid var(--border)", borderRadius:10, padding:"1rem 1.25rem", marginTop:10 }}>
+      <div style={{ display:"flex", justifyContent:"space-between", gap:12, flexWrap:"wrap", marginBottom:8 }}>
+        <div>
+          <p style={{ fontSize:14, fontWeight:800, color:"#111", marginBottom:2 }}>{message.name}</p>
+          <p style={{ fontSize:12, color:"var(--muted)" }}>{message.email}</p>
+        </div>
+        <span style={{ fontSize:12, color:"var(--muted)", fontWeight:700 }}>{fmt(message.created_at)}</span>
+      </div>
+      <p style={{ fontSize:14, color:"#333", lineHeight:1.6, whiteSpace:"pre-wrap" }}>{message.message}</p>
+    </div>
+  );
+}
+
 const s = {
   page:       { padding:"1.5rem 1.5rem 3rem" },
   header:     { display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"1.5rem" },
@@ -299,6 +339,7 @@ const s = {
   statRow:    { display:"flex", gap:14, marginBottom:"1.5rem", flexWrap:"wrap" },
   filterRow:  { display:"grid", gridTemplateColumns:"200px 200px", gap:14, marginBottom:"1.5rem" },
   settingsBox:  { background:"#fff", border:"0.5px solid var(--border)", borderRadius:10, padding:"1.25rem 1.5rem", marginBottom:"1.5rem" },
+  panelHeader:  { display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:12, marginBottom:4 },
   settingsTitle: { fontSize:16, fontWeight:800, color:"#111", marginBottom:4 },
   settingsDesc:  { fontSize:13, color:"#666", marginBottom:"1rem" },
   settingsGrid:  { display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))", gap:10 },

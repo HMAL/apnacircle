@@ -44,6 +44,7 @@ export default function Navbar() {
               <Link to={visaStartPath} style={s.link}>Visa Experiences</Link>
               <Link to="/immigration" style={s.link}>Immigration Tips</Link>
               <Link to="/ds160"       style={s.link}>{formsResource.label}</Link>
+              <Link to="/contact"     style={s.link}>Contact</Link>
             </>
           )}
           <Link to="/admin" style={s.adminLink}>Admin</Link>
