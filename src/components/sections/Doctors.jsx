@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { f, useToast, Toast, formatPhone, MapLink } from "../formHelpers";
+import { f, useToast, Toast, formatPhone, MapLink, PhoneLink } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
 import { getSubmitError, submitListing } from "../../lib/db";
 
@@ -14,7 +14,7 @@ export default function Doctors({ stateSlug, citySlug }) {
           <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
             <span style={f.postAuthor}>{item.name}</span>
             {item.specialty && <span style={f.sub}>{item.specialty}</span>}
-            {item.phone && <span style={f.sub}>📞 {formatPhone(item.phone)}</span>}
+            <PhoneLink phone={item.phone} />
             {item.address && <span style={f.sub}>📍 <MapLink query={item.address}>{item.address}</MapLink></span>}
             {item.website && <span style={f.sub}>🌐 <a href={item.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{item.website}</a></span>}
           </div>

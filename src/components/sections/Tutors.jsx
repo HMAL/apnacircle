@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { f, useToast, Toast, formatPhone, isValidEmail } from "../formHelpers";
+import { f, useToast, Toast, formatPhone, isValidEmail, PhoneLink, EmailLink } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
 import { getSubmitError, submitListing } from "../../lib/db";
 
@@ -14,8 +14,8 @@ export default function Tutors({ stateSlug, citySlug }) {
           <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
             <span style={f.postAuthor}>{item.name}</span>
             {item.subjects && <span style={f.sub}>{item.subjects}</span>}
-            {item.phone && <span style={f.sub}>📞 {formatPhone(item.phone)}</span>}
-            {item.email && <span style={f.sub}>✉️ {item.email}</span>}
+            <PhoneLink phone={item.phone} />
+            <EmailLink email={item.email} />
             {item.website && <span style={f.sub}>🌐 <a href={item.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{item.website}</a></span>}
           </div>
           {item.notes && <p style={f.text}>{item.notes}</p>}

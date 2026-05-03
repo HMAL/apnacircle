@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { f, useToast, Toast, fmtDate } from "../components/formHelpers";
 import { fetchTips, getSubmitError, submitTip } from "../lib/db";
 import AdBlock from "../components/AdBlock";
@@ -33,6 +34,11 @@ export default function HealthWellnessPage() {
 
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
+      <Helmet>
+        <title>Health & Wellness Tips for Immigrants — {countryName} | Apnacircle</title>
+        <meta name="description" content={`Community health tips for immigrants in ${countryName} — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.`} />
+        <link rel="canonical" href="https://apnacircle.org/health" />
+      </Helmet>
       <div style={s.content}>
         <Link to="/" style={s.back}>← Home</Link>
         <div style={s.header}>

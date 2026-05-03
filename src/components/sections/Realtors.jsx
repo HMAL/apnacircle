@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { f, useToast, Toast, formatPhone, isValidEmail } from "../formHelpers";
+import { f, useToast, Toast, formatPhone, isValidEmail, PhoneLink, EmailLink } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
 import { getSubmitError, submitListing } from "../../lib/db";
 
@@ -20,8 +20,8 @@ export default function Realtors({ stateSlug, citySlug }) {
             <div style={{ display: "flex", gap: 20, flexWrap: "wrap", marginBottom: 8 }}>
               <span style={f.postAuthor}>{item.name}</span>
               {item.agency && <span style={f.sub}>{item.agency}</span>}
-              {item.phone && <span style={f.sub}>Phone: {formatPhone(item.phone)}</span>}
-              {item.email && <span style={f.sub}>Email: {item.email}</span>}
+              <PhoneLink phone={item.phone} />
+              <EmailLink email={item.email} />
             </div>
             {details.languages && <div style={s.languages}>{details.languages}</div>}
             {details.background && <p style={{ ...f.text, marginTop: 6 }}>{details.background}</p>}

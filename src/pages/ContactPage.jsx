@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { f, Toast, useToast, isValidEmail } from "../components/formHelpers";
 import { getSubmitError, submitContactMessage } from "../lib/db";
 
@@ -41,6 +42,11 @@ export default function ContactPage() {
 
   return (
     <main style={s.page}>
+      <Helmet>
+        <title>Contact Apnacircle — Get in Touch</title>
+        <meta name="description" content="Send a message to the Apnacircle team. We're here to help the immigrant community." />
+        <link rel="canonical" href="https://apnacircle.org/contact" />
+      </Helmet>
       <Link to="/" style={s.back}>Back to home</Link>
       <section style={s.panel}>
         <h1 style={s.title}>Contact Us</h1>

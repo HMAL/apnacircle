@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone, isValidEmail, isValidPhone } from "../formHelpers";
+import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone, isValidEmail, isValidPhone, PhoneLink, EmailLink } from "../formHelpers";
 import { fetchAccommodation, getSubmitError, submitAccommodation } from "../../lib/db";
 
 export default function Accommodation({ stateSlug, citySlug }) {
@@ -43,8 +43,8 @@ export default function Accommodation({ stateSlug, citySlug }) {
             <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
               <span style={f.tag}>{p.acc_type === "providing" ? "🏠 Available" : "🔍 Looking"}</span>
               <span style={f.postAuthor}>{p.name || "Anonymous"}</span>
-              {p.phone && <span style={f.sub}>📞 {formatPhone(p.phone)}</span>}
-              {p.email && <span style={f.sub}>✉️ {p.email}</span>}
+              <PhoneLink phone={p.phone} />
+              <EmailLink email={p.email} />
               <span style={f.postDate}>{fmtDate(p.created_at)}</span>
             </div>
             <p style={f.text}>{p.message}</p>

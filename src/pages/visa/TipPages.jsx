@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { f, useToast, Toast, fmtDate } from "../../components/formHelpers";
 import { fetchTips, getSubmitError, submitTip } from "../../lib/db";
 import AdBlock from "../../components/AdBlock";
@@ -22,6 +23,11 @@ export function ImmigrationPage() {
 
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
+      <Helmet>
+        <title>Immigration Tips for {countryName} — Community Advice | Apnacircle</title>
+        <meta name="description" content={`Practical immigration tips shared by the immigrant community in ${countryName} — green card, work authorization, status changes, travel and more.`} />
+        <link rel="canonical" href="https://apnacircle.org/immigration" />
+      </Helmet>
       <div style={s.content}>
         <Link to="/" style={s.back}>← Home</Link>
         <div style={{ ...s.header, flexWrap:"wrap" }}>
@@ -127,6 +133,11 @@ export function DS160Page() {
 
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
+      <Helmet>
+        <title>{formsResource.label} Tips — Community Guide | Apnacircle</title>
+        <meta name="description" content={`Tips and guidance on filling out ${formsResource.label} forms — shared by immigrants who've been through the process.`} />
+        <link rel="canonical" href="https://apnacircle.org/ds160" />
+      </Helmet>
       <div style={s.content}>
         <Link to="/" style={s.back}>← Home</Link>
         <div style={{ ...s.header, flexWrap:"wrap" }}>

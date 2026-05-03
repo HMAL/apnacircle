@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { f, useToast, Toast, formatPhone, isValidEmail, isValidPhone } from "../formHelpers";
+import { f, useToast, Toast, formatPhone, isValidEmail, isValidPhone, PhoneLink, EmailLink } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
 import { getSubmitError, submitListing } from "../../lib/db";
 
@@ -14,8 +14,8 @@ export default function Babysitters({ stateSlug, citySlug }) {
           <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
             <span style={f.postAuthor}>{item.name}</span>
             {item.availability && <span style={f.sub}>{item.availability}</span>}
-            {item.phone && <span style={f.sub}>📞 {formatPhone(item.phone)}</span>}
-            {item.email && <span style={f.sub}>✉️ {item.email}</span>}
+            <PhoneLink phone={item.phone} />
+            <EmailLink email={item.email} />
           </div>
           {item.notes && <p style={f.text}>{item.notes}</p>}
         </>

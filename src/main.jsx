@@ -1,13 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { hydrateRoot, createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import "./styles/global.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const el = document.getElementById("root");
+const app = (
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
   </React.StrictMode>
 );
+
+if (el.innerHTML.trim()) {
+  hydrateRoot(el, app);
+} else {
+  createRoot(el).render(app);
+}

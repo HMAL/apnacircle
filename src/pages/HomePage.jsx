@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { fetchStates, fetchAllEvents } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useAds } from "../lib/AdsContext";
@@ -31,6 +32,12 @@ export default function HomePage() {
 
   return (
     <div>
+      <Helmet>
+        <title>Apnacircle — Free Community Hub for Immigrants in the US & Canada</title>
+        <meta name="description" content="Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees." />
+        <meta name="keywords" content="immigrant community, visa experiences, immigration help, Indian community USA, desi community, H1B tips, F1 visa, immigration lawyers" />
+        <link rel="canonical" href="https://apnacircle.org/" />
+      </Helmet>
       {/* Hero */}
       <div style={s.hero}>
         <p style={{ ...s.sub, whiteSpace: isMobile ? "normal" : "nowrap" }}>A community-powered FREE resource for immigrants, No Ads, No fees, No Spam — visa experiences, legal help, jobs, housing and local services.</p>

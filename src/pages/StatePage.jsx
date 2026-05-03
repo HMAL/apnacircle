@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { fetchStateBySlug } from "../lib/db";
 import { citySlug } from "../data/states";
 import { getCountrySlug } from "../lib/country";
@@ -26,6 +27,11 @@ export default function StatePage() {
 
   return (
     <div style={s.page}>
+      <Helmet>
+        <title>Immigrant Community in {state.name} — Jobs, Housing, Events | Apnacircle</title>
+        <meta name="description" content={`Find local Indian and immigrant community resources in ${state.name} — visa help, immigration lawyers, jobs, accommodation, doctors, events and more.`} />
+        <link rel="canonical" href={`https://apnacircle.org/states/${stateSlug}`} />
+      </Helmet>
       <Link to="/" style={s.back}>← All {regionLabel}</Link>
       <h1 style={s.title}><span style={{ fontSize:36 }}>{state.icon}</span> {state.name}</h1>
       <p style={s.sub}>Select a city to browse local jobs, housing, lawyers, temples, and more.</p>

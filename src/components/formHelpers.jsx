@@ -90,6 +90,33 @@ export function Toast({ msg }) {
   return <div style={{ position:"fixed", bottom:"2rem", right:"2rem", background:"#111", color:"#fff", padding:"12px 20px", borderRadius:10, fontSize:14, fontWeight:600, zIndex:9999 }}>{msg}</div>;
 }
 
+// ── Clickable contact helpers ────────────────────────────────
+export function PhoneLink({ phone }) {
+  if (!phone) return null;
+  const digits = String(phone).replace(/\D/g, "");
+  return (
+    <a href={`tel:${digits}`} style={{ fontSize: 12, color: "var(--muted)", marginTop: 3, textDecoration: "none" }}>
+      📞 {formatPhone(phone)}
+    </a>
+  );
+}
+
+export function EmailLink({ email }) {
+  const [copied, setCopied] = useState(false);
+  if (!email) return null;
+  const copy = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    });
+  };
+  return (
+    <span onClick={copy} style={{ fontSize: 12, color: "var(--muted)", marginTop: 3, cursor: "pointer", userSelect: "none" }}>
+      ✉️ {copied ? "Copied!" : email}
+    </span>
+  );
+}
+
 // ── Section header + content wrapper ────────────────────────
 export function SectionWrapper({ title, icon, description, children }) {
   return (

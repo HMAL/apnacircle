@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { f, useToast, Toast, formatPhone } from "../formHelpers";
+import { f, useToast, Toast, formatPhone, PhoneLink } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
 import { getSubmitError, submitListing } from "../../lib/db";
 
@@ -13,7 +13,7 @@ export default function Photographers({ stateSlug, citySlug }) {
         <>
           <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
             <span style={f.postAuthor}>{item.name}</span>
-            {item.phone && <span style={f.sub}>📞 {formatPhone(item.phone)}</span>}
+            <PhoneLink phone={item.phone} />
             {item.website && <span style={f.sub}>🌐 <a href={item.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{item.website}</a></span>}
           </div>
           {item.notes && <p style={f.text}>{item.notes}</p>}

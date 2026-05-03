@@ -27,7 +27,10 @@ export default function Navbar() {
   return (
     <header>
       <nav style={s.nav}>
-        <Link to="/" style={s.brand}>Apnacircle</Link>
+        <Link to="/" style={s.brand}>
+          <img src="/favicon.svg" alt="" style={s.brandLogo} />
+          Apnacircle
+        </Link>
 
         {!isMobile && (
           <div style={s.flags}>
@@ -67,7 +70,8 @@ const s = {
     display: "flex", alignItems: "center", justifyContent: "space-between",
     position: "sticky", top: 0, zIndex: 100,
   },
-  brand: { color: "#3A2718", fontWeight: 800, fontSize: 20, letterSpacing: -0.3, flexShrink: 0 },
+  brand: { color: "#3A2718", fontWeight: 800, fontSize: 20, letterSpacing: -0.3, flexShrink: 0, display: "flex", alignItems: "center", gap: 8, textDecoration: "none" },
+  brandLogo: { width: 28, height: 28, flexShrink: 0 },
   flags: { display: "flex", alignItems: "center", gap: 6, flex: 1, justifyContent: "center" },
   flagImg: { width: 28, height: "auto", borderRadius: 3, boxShadow: "0 1px 3px rgba(0,0,0,0.25)" },
   links: { display: "flex", gap: 16, alignItems: "center", flexShrink: 0 },

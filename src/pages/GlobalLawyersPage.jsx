@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { f, fmtDate, formatPhone, MapLink } from "../components/formHelpers";
+import { Helmet } from "react-helmet-async";
+import { f, fmtDate, formatPhone, MapLink, PhoneLink } from "../components/formHelpers";
 import { fetchAllLawyers } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
@@ -44,6 +45,11 @@ export default function GlobalLawyersPage() {
 
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
+      <Helmet>
+        <title>Immigration Lawyers — Community Recommended | Apnacircle</title>
+        <meta name="description" content="Find community-recommended immigration lawyers across the US and Canada — vetted by immigrants, for immigrants. Specializing in H-1B, green card, family visa and more." />
+        <link rel="canonical" href="https://apnacircle.org/lawyers" />
+      </Helmet>
       <div style={s.content}>
         <Link to="/" style={s.back}>Home</Link>
         <div style={s.header}>

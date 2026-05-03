@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { f, useToast, Toast, fmtDate } from "../../components/formHelpers";
 import { fetchVisaExperiences, submitVisaExperience, fetchConsulates, getSubmitError } from "../../lib/db";
 import AdBlock from "../../components/AdBlock";
@@ -56,6 +57,11 @@ export default function VisaPage() {
 
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
+      <Helmet>
+        <title>US Visa Interview Experiences — H1B, F1, B1/B2 | Apnacircle</title>
+        <meta name="description" content="Real visa interview experiences shared by immigrants — H-1B, F-1, B-1/B-2, H-4, L-1 and more. Tips, consulate reviews and approval stories." />
+        <link rel="canonical" href="https://apnacircle.org/visa" />
+      </Helmet>
       <div style={s.content}>
         <Link to="/" style={s.back}>← Home</Link>
         <h1 style={s.title}>Visa Interview Experiences</h1>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone } from "../formHelpers";
+import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone, PhoneLink } from "../formHelpers";
 import { fetchJobs, getSubmitError, submitJob } from "../../lib/db";
 
 const HOURS = ["Full-time","Part-time","Weekends only","Evenings only","Flexible","Temporary"];
@@ -50,7 +50,7 @@ export default function Jobs({ stateSlug, citySlug }) {
               <span style={f.tag}>{p.job_type === "offering" ? "💼 Job Opening" : "🙋 Job Seeker"}</span>
               <span style={f.postAuthor}>{p.business_name || p.name || "Anonymous"}</span>
               {p.hours && <span style={f.sub}>Hours: {p.hours}</span>}
-              {p.phone && <span style={f.sub}>📞 {formatPhone(p.phone)}</span>}
+              <PhoneLink phone={p.phone} />
               <span style={f.postDate}>{fmtDate(p.created_at)}</span>
             </div>
             <p style={f.text}>{p.message}</p>
