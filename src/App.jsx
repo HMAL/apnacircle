@@ -9,10 +9,12 @@ import { ImmigrationPage, DS160Page } from "./pages/visa/TipPages";
 import HealthWellnessPage from "./pages/HealthWellnessPage";
 import GlobalLawyersPage from "./pages/GlobalLawyersPage";
 import { AdsProvider } from "./lib/AdsContext";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export default function App() {
   return (
     <AdsProvider>
+      <GoogleAnalytics />
       <Navbar />
       <Routes>
         <Route path="/"                            element={<HomePage />} />

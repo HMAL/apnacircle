@@ -5,7 +5,7 @@ import AdBlock from "../components/AdBlock";
 import { useAds } from "../lib/AdsContext";
 import { useIsMobile } from "../lib/useIsMobile";
 import { ScrollTabBar } from "../components/ScrollTabBar";
-import { fmtEventDate, daysUntilBadge } from "../components/formHelpers";
+import { fmtEventDate, daysUntilBadge, MapLink } from "../components/formHelpers";
 import { getCountrySlug, getFormsResource, getVisaStartPath } from "../lib/country";
 
 export default function HomePage() {
@@ -78,13 +78,13 @@ export default function HomePage() {
                   const badge = daysUntilBadge(e.event_date);
                   return (
                     <div key={e.id} style={s.eventCard}>
-                      <div style={{ display:"flex", gap:8, alignItems:"center", flexWrap:"wrap", marginBottom:4 }}>
+                      <div style={{ display:"flex", gap:10, alignItems:"center", flexWrap:"wrap", marginBottom:6 }}>
                         <span style={s.eventName}>{e.name}</span>
-                        <span style={{ fontSize:11, fontWeight:700, color:"#fff", background:badge.color, padding:"2px 7px", borderRadius:20, flexShrink:0 }}>{badge.label}</span>
+                        <span style={{ fontSize:11, fontWeight:700, color:"#fff", background:badge.color, padding:"2px 8px", borderRadius:20, flexShrink:0 }}>{badge.label}</span>
                       </div>
-                      <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
+                      <div style={{ display:"flex", gap:16, flexWrap:"wrap", marginBottom: e.notes ? 6 : 0 }}>
                         <span style={s.eventMeta}>📅 {fmtEventDate(e.event_date)}{e.event_time ? ` · ${e.event_time}` : ""}</span>
-                        {e.location  && <span style={s.eventMeta}>📍 {e.location}</span>}
+                        {e.location  && <span style={s.eventMeta}>📍 <MapLink query={e.location}>{e.location}</MapLink></span>}
                         {e.entry_fee && <span style={s.eventMeta}>🎟️ {e.entry_fee}</span>}
                         <span style={{ ...s.eventMeta, marginLeft:"auto" }}>
                           <Link to={`/states/${e.state_slug}/${e.city_slug}`} style={{ color:"var(--orange)", fontWeight:600 }}>
@@ -92,6 +92,12 @@ export default function HomePage() {
                           </Link>
                         </span>
                       </div>
+                      {e.notes && <p style={s.eventText}>{e.notes}</p>}
+                      {e.ticket_url && (
+                        <a href={e.ticket_url} target="_blank" rel="noopener noreferrer" style={s.ticketLink}>
+                          Get Tickets →
+                        </a>
+                      )}
                     </div>
                   );
                 })}
@@ -150,6 +156,8 @@ const s = {
   eventCard:    { background: "#fff", border: "0.5px solid var(--border)", borderRadius: 10, padding: "12px 16px" },
   eventName:    { fontSize: 14, fontWeight: 700, color: "#111" },
   eventMeta:    { fontSize: 12, color: "var(--muted)" },
+  eventText:    { fontSize: 14, color: "#333", lineHeight: 1.6, marginTop: 4 },
+  ticketLink:   { display: "inline-block", marginTop: 8, fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none" },
   mobileNavItem:{ display:"flex", flexDirection:"column", alignItems:"center", gap:3, padding:"6px 12px", flexShrink:0, textDecoration:"none", color:"#444" },
   mobileNavLabel:{ fontSize:10, fontWeight:700, whiteSpace:"nowrap" },
   footer:       { textAlign: "center", padding: "1.5rem", borderTop: "0.5px solid var(--border)", color: "#aaa", fontSize: 13, background: "#fff", marginTop: "1rem" },

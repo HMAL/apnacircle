@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { f, useToast, Toast, SectionWrapper, fmtEventDate, daysUntilBadge } from "../formHelpers";
+import { f, useToast, Toast, SectionWrapper, fmtEventDate, daysUntilBadge, MapLink } from "../formHelpers";
 import { fetchEvents, submitEvent } from "../../lib/db";
 
 export default function Events({ stateSlug, citySlug }) {
@@ -41,7 +41,7 @@ function EventCard({ event }) {
         <span style={f.postDate}>{fmtEventDate(event.event_date)}{event.event_time ? ` · ${event.event_time}` : ""}</span>
       </div>
       <div style={{ display:"flex", gap:16, flexWrap:"wrap", marginBottom: event.notes ? 6 : 0 }}>
-        {event.location  && <span style={f.sub}>📍 {event.location}</span>}
+        {event.location  && <span style={f.sub}>📍 <MapLink query={event.location}>{event.location}</MapLink></span>}
         {event.entry_fee && <span style={f.sub}>🎟️ {event.entry_fee}</span>}
       </div>
       {event.notes && <p style={{ ...f.text, marginTop:4 }}>{event.notes}</p>}

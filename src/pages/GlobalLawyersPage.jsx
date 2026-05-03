@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { f, fmtDate, formatPhone } from "../components/formHelpers";
+import { f, fmtDate, formatPhone, MapLink } from "../components/formHelpers";
 import { fetchAllLawyers } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
@@ -82,7 +82,7 @@ export default function GlobalLawyersPage() {
                 <div style={{ display:"flex", gap:16, flexWrap:"wrap", marginBottom:6, alignItems:"center" }}>
                   <span style={f.postAuthor}>{l.firm_name || l.name}</span>
                   {l.phone && <span style={f.sub}>Phone: {formatPhone(l.phone)}</span>}
-                  {l.address && <span style={f.sub}>Address: {l.address}</span>}
+                  {l.address && <span style={f.sub}>Address: <MapLink query={l.address}>{l.address}</MapLink></span>}
                   {l.website && (
                     <span style={f.sub}>
                       Website: <a href={l.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{l.website}</a>

@@ -43,6 +43,24 @@ export const formatPhone = value => {
 };
 
 // For date-only strings (event_date) — adds T00:00:00 to avoid timezone shift
+export const googleMapsSearchUrl = query =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query || "")}`;
+
+export function MapLink({ query, children, style }) {
+  if (!query) return null;
+
+  return (
+    <a
+      href={googleMapsSearchUrl(query)}
+      target="_blank"
+      rel="noreferrer"
+      style={{ color: "var(--orange)", textDecoration: "none", ...style }}
+    >
+      {children || query}
+    </a>
+  );
+}
+
 export const fmtEventDate = d =>
   d ? new Date(d + "T00:00:00").toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) : "";
 
