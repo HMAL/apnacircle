@@ -4,6 +4,7 @@ import { f, useToast, Toast, fmtDate } from "../components/formHelpers";
 import { fetchTips, submitTip } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
+import { getCountryName } from "../lib/country";
 
 const CATEGORIES = [
   "Doctors & Specialists",
@@ -21,6 +22,7 @@ export default function HealthWellnessPage() {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
   const isMobile = useIsMobile();
+  const countryName = getCountryName();
 
   const reload = () => fetchTips("health_tips").then(setPosts);
   useEffect(() => { reload(); }, []);
@@ -37,7 +39,7 @@ export default function HealthWellnessPage() {
           <span style={{ fontSize:32 }}>🏥</span>
           <div style={{ flex:1 }}>
             <h1 style={s.title}>Health & Wellness</h1>
-            <p style={s.desc}>Community tips on navigating healthcare in the US — insurance, doctors, hospitals and more.</p>
+            <p style={s.desc}>Community tips on navigating healthcare in {countryName} — insurance, doctors, hospitals and more.</p>
           </div>
           <button style={s.addBtn} onClick={() => setShowForm(v => !v)}>
             {showForm ? "✕ Cancel" : "+ Share a Tip"}

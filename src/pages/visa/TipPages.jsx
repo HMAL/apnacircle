@@ -4,12 +4,14 @@ import { f, useToast, Toast, fmtDate } from "../../components/formHelpers";
 import { fetchTips, submitTip } from "../../lib/db";
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
+import { getCountryName } from "../../lib/country";
 
 export function ImmigrationPage() {
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
   const isMobile = useIsMobile();
+  const countryName = getCountryName();
 
   const reload = () => fetchTips("immigration_tips").then(setPosts);
   useEffect(() => { reload(); }, []);
@@ -26,7 +28,7 @@ export function ImmigrationPage() {
           <span style={{ fontSize:32 }}>💡</span>
           <div style={{ flex:1 }}>
             <h1 style={s.title}>Immigration Experiences</h1>
-            <p style={s.desc}>General advice shared by the community to help navigate the US immigration process.</p>
+            <p style={s.desc}>General advice shared by the community to help navigate the {countryName} immigration process.</p>
           </div>
           <button style={s.addBtn} onClick={() => setShowForm(v => !v)}>
             {showForm ? "✕ Cancel" : "+ Your Immigration Experience"}

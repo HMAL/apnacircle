@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { fetchStateBySlug } from "../lib/db";
 import { citySlug } from "../data/states";
+import { getCountrySlug } from "../lib/country";
 
 export default function StatePage() {
   const { stateSlug } = useParams();
@@ -19,10 +20,11 @@ export default function StatePage() {
   if (!state) return <Navigate to="/" />;
 
   const cities = state.cities || [];
+  const regionLabel = getCountrySlug() === "ca" ? "Provinces" : "States";
 
   return (
     <div style={s.page}>
-      <Link to="/" style={s.back}>← All States</Link>
+      <Link to="/" style={s.back}>← All {regionLabel}</Link>
       <h1 style={s.title}><span style={{ fontSize:36 }}>{state.icon}</span> {state.name}</h1>
       <p style={s.sub}>Select a city to browse local jobs, housing, lawyers, temples, and more.</p>
       <div style={s.grid}>

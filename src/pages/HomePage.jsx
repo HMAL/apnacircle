@@ -6,6 +6,7 @@ import { useAds } from "../lib/AdsContext";
 import { useIsMobile } from "../lib/useIsMobile";
 import { ScrollTabBar } from "../components/ScrollTabBar";
 import { fmtEventDate, daysUntilBadge } from "../components/formHelpers";
+import { getCountrySlug } from "../lib/country";
 
 const LEFT_NAV = [
   { icon: "📅", label: "Events",              to: "#events" },
@@ -21,6 +22,7 @@ export default function HomePage() {
   const [events, setEvents] = useState([]);
   const { ads } = useAds();
   const isMobile = useIsMobile();
+  const regionLabel = getCountrySlug() === "ca" ? "Province" : "State";
 
   useEffect(() => {
     fetchStates().then(setStates);
@@ -62,7 +64,7 @@ export default function HomePage() {
         {/* Center */}
         <main style={s.center}>
           {/* States */}
-          <p style={s.sectionLabel}>🗺️ Browse by State</p>
+          <p style={s.sectionLabel}>🗺️ Browse by {regionLabel}</p>
           <div style={s.stateGrid}>
             {states.map(state => <StateCard key={state.slug} state={state} />)}
           </div>

@@ -4,12 +4,14 @@ import { f, fmtDate, formatPhone } from "../components/formHelpers";
 import { fetchAllLawyers } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
+import { getCountryName } from "../lib/country";
 
 export default function GlobalLawyersPage() {
   const [lawyers, setLawyers] = useState([]);
   const [search, setSearch] = useState("");
   const [stateFilter, setStateFilter] = useState("");
   const isMobile = useIsMobile();
+  const countryName = getCountryName();
 
   useEffect(() => { fetchAllLawyers().then(setLawyers); }, []);
 
@@ -30,7 +32,7 @@ export default function GlobalLawyersPage() {
           <span style={{ fontSize:32 }}>⚖️</span>
           <div>
             <h1 style={s.title}>Immigration Lawyers</h1>
-            <p style={s.desc}>Community-recommended immigration lawyers across the US. Add one from your city page.</p>
+            <p style={s.desc}>Community-recommended immigration lawyers across {countryName}. Add one from your city page.</p>
           </div>
         </div>
 

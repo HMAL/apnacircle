@@ -25,7 +25,7 @@ const TABLE_LABELS = {
 
 const SECTIONS_ALPHA = Object.entries(TABLE_LABELS).sort((a, b) => a[1].localeCompare(b[1]));
 
-const SKIP_KEYS = new Set(["id","status","created_at","state_slug","city_slug","_table"]);
+const SKIP_KEYS = new Set(["id","status","created_at","country_slug","state_slug","city_slug","_table"]);
 const fmt = d => d ? new Date(d).toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" }) : "";
 
 export default function AdminPage() {

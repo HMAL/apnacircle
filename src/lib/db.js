@@ -1,4 +1,8 @@
 import { supabase } from "./supabase";
+import { getCountrySlug } from "./country";
+
+const country = () => getCountrySlug();
+const scopedKey = key => `${key}_${country()}`;
 
 // ─────────────────────────────────────────────────────────────
 // SETTINGS — per-section auto-approve config
@@ -12,7 +16,11 @@ let _adsSettings = null;
 
 export async function fetchAdsSettings() {
   if (_adsSettings) return _adsSettings;
-  const { data } = await supabase.from("settings").select("value").eq("key", "ads").single();
+  let { data } = await supabase.from("settings").select("value").eq("key", scopedKey("ads")).maybeSingle();
+  if (!data && country() === "us") {
+    const fallback = await supabase.from("settings").select("value").eq("key", "ads").maybeSingle();
+    data = fallback.data;
+  }
   _adsSettings = data?.value || { global: false, states: {} };
   return _adsSettings;
 }
@@ -20,21 +28,29 @@ export async function fetchAdsSettings() {
 export async function updateAdsSettings(newSettings) {
   const { error } = await supabase
     .from("settings")
-    .upsert({ key: "ads", value: newSettings });
+    .upsert({ key: scopedKey("ads"), value: newSettings });
   if (!error) _adsSettings = newSettings;
   return !error;
 }
 
 async function getAutoApprove(section) {
   if (!_settings) {
-    const { data } = await supabase.from("settings").select("value").eq("key", "auto_approve").single();
+    let { data } = await supabase.from("settings").select("value").eq("key", scopedKey("auto_approve")).maybeSingle();
+    if (!data && country() === "us") {
+      const fallback = await supabase.from("settings").select("value").eq("key", "auto_approve").maybeSingle();
+      data = fallback.data;
+    }
     _settings = data?.value || {};
   }
   return _settings[section] === true;
 }
 
 export async function fetchSettings() {
-  const { data } = await supabase.from("settings").select("value").eq("key", "auto_approve").single();
+  let { data } = await supabase.from("settings").select("value").eq("key", scopedKey("auto_approve")).maybeSingle();
+  if (!data && country() === "us") {
+    const fallback = await supabase.from("settings").select("value").eq("key", "auto_approve").maybeSingle();
+    data = fallback.data;
+  }
   _settings = data?.value || {};
   return _settings;
 }
@@ -42,7 +58,7 @@ export async function fetchSettings() {
 export async function updateSetting(section, autoApprove) {
   if (!_settings) await fetchSettings();
   const updated = { ..._settings, [section]: autoApprove };
-  const { error } = await supabase.from("settings").update({ value: updated }).eq("key", "auto_approve");
+  const { error } = await supabase.from("settings").upsert({ key: scopedKey("auto_approve"), value: updated });
   if (!error) _settings = updated;
   return !error;
 }
@@ -71,6 +87,7 @@ export async function fetchStates() {
   const { data, error } = await supabase
     .from("states")
     .select("*, cities(*)")
+    .eq("country_slug", country())
     .order("name", { ascending: true });
   if (error) console.error("fetchStates:", error);
   return data || [];
@@ -81,6 +98,7 @@ export async function fetchStateBySlug(slug) {
     .from("states")
     .select("*, cities(*)")
     .eq("slug", slug)
+    .eq("country_slug", country())
     .single();
   if (error) console.error("fetchStateBySlug:", error);
   return data || null;
@@ -95,6 +113,7 @@ export async function fetchJobs(stateSlug, citySlug) {
     .select("*")
     .eq("state_slug", stateSlug)
     .eq("city_slug", citySlug)
+    .eq("country_slug", country())
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
@@ -104,6 +123,7 @@ export async function fetchJobs(stateSlug, citySlug) {
 export async function submitJob(stateSlug, citySlug, form, jobType) {
   const status = (await getAutoApprove("jobs")) ? "approved" : "pending";
   const { error } = await supabase.from("jobs").insert({
+    country_slug:   country(),
     state_slug:    stateSlug,
     city_slug:     citySlug,
     job_type:      jobType,
@@ -126,6 +146,7 @@ export async function fetchAccommodation(stateSlug, citySlug) {
     .select("*")
     .eq("state_slug", stateSlug)
     .eq("city_slug", citySlug)
+    .eq("country_slug", country())
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
@@ -135,6 +156,7 @@ export async function fetchAccommodation(stateSlug, citySlug) {
 export async function submitAccommodation(stateSlug, citySlug, form, accType) {
   const status = (await getAutoApprove("accommodation")) ? "approved" : "pending";
   const { error } = await supabase.from("accommodation").insert({
+    country_slug: country(),
     state_slug: stateSlug,
     city_slug:  citySlug,
     acc_type:   accType,
@@ -156,6 +178,7 @@ export async function fetchListings(table, stateSlug, citySlug) {
     .select("*")
     .eq("state_slug", stateSlug)
     .eq("city_slug", citySlug)
+    .eq("country_slug", country())
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
@@ -165,6 +188,7 @@ export async function fetchListings(table, stateSlug, citySlug) {
 export async function submitListing(table, stateSlug, citySlug, form) {
   const status = (await getAutoApprove(table)) ? "approved" : "pending";
   const { error } = await supabase.from(table).insert({
+    country_slug: country(),
     state_slug: stateSlug,
     city_slug:  citySlug,
     status,
@@ -181,6 +205,7 @@ export async function fetchVisaExperiences(visaType) {
     .from("visa_experiences")
     .select("*")
     .eq("visa_type", visaType)
+    .eq("country_slug", country())
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
@@ -190,6 +215,7 @@ export async function fetchVisaExperiences(visaType) {
 export async function submitVisaExperience(form, visaType) {
   const status = (await getAutoApprove("visa_experiences")) ? "approved" : "pending";
   const { error } = await supabase.from("visa_experiences").insert({
+    country_slug:    country(),
     visa_type:      visaType,
     name:           form.name          || null,
     location:       form.location      || null,
@@ -207,6 +233,7 @@ export async function fetchTips(table) {
   const { data, error } = await supabase
     .from(table)
     .select("*")
+    .eq("country_slug", country())
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
@@ -216,6 +243,7 @@ export async function fetchTips(table) {
 export async function submitTip(table, form) {
   const status = (await getAutoApprove(table)) ? "approved" : "pending";
   const { error } = await supabase.from(table).insert({
+    country_slug: country(),
     status,
     ...form,
   });
@@ -233,6 +261,7 @@ export async function fetchEvents(stateSlug, citySlug) {
     .select("*")
     .eq("state_slug", stateSlug)
     .eq("city_slug", citySlug)
+    .eq("country_slug", country())
     .eq("status", "approved")
     .gte("event_date", today())
     .order("event_date", { ascending: true });
@@ -244,6 +273,7 @@ export async function fetchAllEvents() {
   const { data, error } = await supabase
     .from("events")
     .select("*")
+    .eq("country_slug", country())
     .eq("status", "approved")
     .gte("event_date", today())
     .order("event_date", { ascending: true })
@@ -255,6 +285,7 @@ export async function fetchAllEvents() {
 export async function submitEvent(stateSlug, citySlug, form) {
   const status = (await getAutoApprove("events")) ? "approved" : "pending";
   const { error } = await supabase.from("events").insert({
+    country_slug: country(),
     state_slug:  stateSlug,
     city_slug:   citySlug,
     name:        form.name,
@@ -276,6 +307,7 @@ export async function fetchAllLawyers() {
   const { data, error } = await supabase
     .from("lawyers")
     .select("*")
+    .eq("country_slug", country())
     .eq("status", "approved")
     .order("state_slug", { ascending: true })
     .order("city_slug", { ascending: true });
@@ -299,6 +331,7 @@ export async function fetchAllSubmissions() {
       const { data } = await supabase
         .from(table)
         .select("*")
+        .eq("country_slug", country())
         .order("created_at", { ascending: false });
       return (data || []).map(row => ({ ...row, _table: table }));
     })
