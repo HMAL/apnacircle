@@ -21,7 +21,7 @@ const SECTIONS = [
   { id: "events",        icon: "📅", label: "Events" },
   { id: "jobs",          icon: "💼", label: "Local Jobs" },
   { id: "accommodation", icon: "🏠", label: "Accommodation" },
-  { id: "temples",       icon: "🛕", label: "Temples & Mosques" },
+  { id: "temples",       icon: "🛕", label: "Worship" },
   { id: "lawyers",       icon: "⚖️", label: "Immigration Lawyers" },
   { id: "doctors",       icon: "🩺", label: "Doctors" },
   { id: "babysitters",   icon: "🧸", label: "Baby Sitters" },
@@ -29,7 +29,7 @@ const SECTIONS = [
   { id: "realtors",      icon: "🏡", label: "Local Realtors" },
   { id: "priests",       icon: "🙏", label: "Priest Services" },
   { id: "photographers", icon: "📸", label: "DJ - Video - Photo" },
-];
+].sort((a, b) => a.label.localeCompare(b.label));
 
 const SECTION_MAP = {
   events: Events,

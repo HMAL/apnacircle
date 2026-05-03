@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { f, useToast, Toast, fmtDate } from "../components/formHelpers";
-import { fetchTips, submitTip } from "../lib/db";
+import { fetchTips, getSubmitError, submitTip } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
 import { getCountryName } from "../lib/country";
@@ -102,7 +102,7 @@ function HealthForm({ onSubmit }) {
       show("✓ Submitted for review! Thank you.");
       setTimeout(() => onSubmit?.(), 1500);
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
   return (

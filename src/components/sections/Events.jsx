@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { f, useToast, Toast, SectionWrapper, fmtEventDate, daysUntilBadge, MapLink } from "../formHelpers";
-import { fetchEvents, submitEvent } from "../../lib/db";
+import { fetchEvents, getSubmitError, submitEvent } from "../../lib/db";
 
 export default function Events({ stateSlug, citySlug }) {
   const [showForm, setShowForm] = useState(false);
@@ -68,7 +68,7 @@ function EventForm({ stateSlug, citySlug, onSuccess }) {
       show("✓ Hooray!");
       setTimeout(() => onSuccess?.(), 1500);
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { f, useToast, Toast, formatPhone, MapLink } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
-import { submitListing } from "../../lib/db";
+import { getSubmitError, submitListing } from "../../lib/db";
 
 const TYPES = ["Hindu Temple","Mosque","Sikh Gurdwara","Jain Temple","Buddhist Temple","Church","Other"];
 
@@ -9,7 +9,7 @@ export default function Temples({ stateSlug, citySlug }) {
   return (
     <ListingSection
       stateSlug={stateSlug} citySlug={citySlug} section="temples"
-      icon="🛕" title="Hindu Temples & Mosques"
+      icon="🛕" title="Places of Worship"
       description="Places of worship recommended by community members in this city."
       FormFields={TemplesForm}
       renderCard={item => (
@@ -49,7 +49,7 @@ function TemplesForm({ stateSlug, citySlug, section, onDone }) {
       show("✓ God Bless!");
       setTimeout(onDone, 1500);
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 

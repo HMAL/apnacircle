@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone } from "../formHelpers";
-import { fetchJobs, submitJob } from "../../lib/db";
+import { fetchJobs, getSubmitError, submitJob } from "../../lib/db";
 
 const HOURS = ["Full-time","Part-time","Weekends only","Evenings only","Flexible","Temporary"];
 
@@ -77,7 +77,7 @@ function OfferForm({ stateSlug, citySlug, onSuccess, onCancel }) {
       show("Job posted!");
       onSuccess();
     } else {
-      show("Error posting. Please try again.");
+      show(getSubmitError("Error posting. Please try again."));
     }
   };
 
@@ -118,7 +118,7 @@ function SeekForm({ stateSlug, citySlug, onSuccess, onCancel }) {
       show("Post submitted!");
       onSuccess();
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 

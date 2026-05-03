@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { f, useToast, Toast, formatPhone } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
-import { submitListing } from "../../lib/db";
+import { getSubmitError, submitListing } from "../../lib/db";
 
 export default function Priests({ stateSlug, citySlug }) {
   return (
@@ -42,7 +42,7 @@ function PriestForm({ stateSlug, citySlug, section, onDone }) {
       show("✓ Submission successful!");
       setTimeout(onDone, 1500);
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 

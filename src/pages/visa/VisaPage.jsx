@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { f, useToast, Toast, fmtDate } from "../../components/formHelpers";
-import { fetchVisaExperiences, submitVisaExperience, fetchConsulates } from "../../lib/db";
+import { fetchVisaExperiences, submitVisaExperience, fetchConsulates, getSubmitError } from "../../lib/db";
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
 import { getCountrySlug } from "../../lib/country";
@@ -155,7 +155,7 @@ function VisaForm({ visaId, groupedConsulates, onSubmit }) {
       show("✓ Submitted for review! Thank you.");
       setTimeout(() => onSubmit?.(), 1500);
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 

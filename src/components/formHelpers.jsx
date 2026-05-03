@@ -33,6 +33,12 @@ export const f = {
 export const fmtDate = d =>
   d ? new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "";
 
+export const isValidEmail = v =>
+  /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(String(v).trim());
+
+export const isValidPhone = v =>
+  String(v || "").replace(/\D/g, "").length === 10;
+
 export const formatPhone = value => {
   const digits = String(value || "").replace(/\D/g, "");
   const normalized = digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits.slice(0, 10);

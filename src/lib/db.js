@@ -4,6 +4,84 @@ import { getCountrySlug } from "./country";
 const country = () => getCountrySlug();
 const scopedKey = key => `${key}_${country()}`;
 
+const FIELD_LIMITS = {
+  address: 300,
+  business_name: 160,
+  email: 254,
+  entry_fee: 80,
+  experience: 5000,
+  firm_name: 160,
+  hours: 120,
+  location: 300,
+  message: 5000,
+  name: 160,
+  notes: 5000,
+  phone: 40,
+  place_name: 160,
+  submitted_by: 160,
+  ticket_url: 500,
+  website: 500,
+};
+
+const LINK_BLOCK_MESSAGE = "Links are not allowed in descriptions. Please remove the link and submit again.";
+const LINK_BLOCKED_CONTENT_FIELDS = new Set(["message", "notes", "tip", "experience"]);
+
+let _lastSubmitError = "";
+
+export function getSubmitError(fallback = "Error submitting. Please try again.") {
+  return _lastSubmitError || fallback;
+}
+
+function sanitizeText(value, key = "") {
+  if (typeof value !== "string") return value;
+  const limit = FIELD_LIMITS[key] || 1000;
+  return value
+    .normalize("NFC")
+    .replace(/\u0000/g, "")
+    .replace(/[\u0001-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " ")
+    .replace(/\r\n?/g, "\n")
+    .trim()
+    .slice(0, limit);
+}
+
+function cleanDbValue(value, key = "") {
+  if (Array.isArray(value)) return value.map(item => cleanDbValue(item, key));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([childKey, childValue]) => [childKey, cleanDbValue(childValue, childKey)]));
+  }
+  return sanitizeText(value, key);
+}
+
+function cleanPayload(payload) {
+  return cleanDbValue(payload);
+}
+
+function setSubmitError(message = "") {
+  _lastSubmitError = message;
+  return false;
+}
+
+function urlsInText(text) {
+  return String(text || "").match(/\b(?:https?:\/\/|www\.)[^\s<>"']+/gi) || [];
+}
+
+function hasBlockedLink(payload) {
+  return Object.entries(payload || {}).some(([key, value]) => {
+    if (!LINK_BLOCKED_CONTENT_FIELDS.has(key) || typeof value !== "string") return false;
+    return urlsInText(value).length > 0;
+  });
+}
+
+function validatePublicPayload(payload) {
+  if (hasBlockedLink(payload)) return setSubmitError(LINK_BLOCK_MESSAGE);
+  _lastSubmitError = "";
+  return true;
+}
+
+function cleanRows(rows) {
+  return (rows || []).map(row => cleanDbValue(row));
+}
+
 // ─────────────────────────────────────────────────────────────
 // SETTINGS — per-section auto-approve config
 // ─────────────────────────────────────────────────────────────
@@ -90,7 +168,7 @@ export async function fetchStates() {
     .eq("country_slug", country())
     .order("name", { ascending: true });
   if (error) console.error("fetchStates:", error);
-  return data || [];
+  return cleanRows(data);
 }
 
 export async function fetchStateBySlug(slug) {
@@ -101,7 +179,7 @@ export async function fetchStateBySlug(slug) {
     .eq("country_slug", country())
     .single();
   if (error) console.error("fetchStateBySlug:", error);
-  return data || null;
+  return data ? cleanDbValue(data) : null;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -117,12 +195,12 @@ export async function fetchJobs(stateSlug, citySlug) {
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
-  return data || [];
+  return cleanRows(data);
 }
 
 export async function submitJob(stateSlug, citySlug, form, jobType) {
   const status = (await getAutoApprove("jobs")) ? "approved" : "pending";
-  const { error } = await supabase.from("jobs").insert({
+  const payload = cleanPayload({
     country_slug:   country(),
     state_slug:    stateSlug,
     city_slug:     citySlug,
@@ -134,6 +212,8 @@ export async function submitJob(stateSlug, citySlug, form, jobType) {
     message:       form.message,
     status,
   });
+  if (!validatePublicPayload(payload)) return false;
+  const { error } = await supabase.from("jobs").insert(payload);
   return !error;
 }
 
@@ -150,12 +230,12 @@ export async function fetchAccommodation(stateSlug, citySlug) {
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
-  return data || [];
+  return cleanRows(data);
 }
 
 export async function submitAccommodation(stateSlug, citySlug, form, accType) {
   const status = (await getAutoApprove("accommodation")) ? "approved" : "pending";
-  const { error } = await supabase.from("accommodation").insert({
+  const payload = cleanPayload({
     country_slug: country(),
     state_slug: stateSlug,
     city_slug:  citySlug,
@@ -166,6 +246,8 @@ export async function submitAccommodation(stateSlug, citySlug, form, accType) {
     message:    form.message,
     status,
   });
+  if (!validatePublicPayload(payload)) return false;
+  const { error } = await supabase.from("accommodation").insert(payload);
   return !error;
 }
 
@@ -182,18 +264,20 @@ export async function fetchListings(table, stateSlug, citySlug) {
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
-  return data || [];
+  return cleanRows(data);
 }
 
 export async function submitListing(table, stateSlug, citySlug, form) {
   const status = (await getAutoApprove(table)) ? "approved" : "pending";
-  const { error } = await supabase.from(table).insert({
+  const payload = cleanPayload({
     country_slug: country(),
     state_slug: stateSlug,
     city_slug:  citySlug,
     status,
     ...form,
   });
+  if (!validatePublicPayload(payload)) return false;
+  const { error } = await supabase.from(table).insert(payload);
   return !error;
 }
 
@@ -209,12 +293,12 @@ export async function fetchVisaExperiences(visaType) {
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
-  return data || [];
+  return cleanRows(data);
 }
 
 export async function submitVisaExperience(form, visaType) {
   const status = (await getAutoApprove("visa_experiences")) ? "approved" : "pending";
-  const { error } = await supabase.from("visa_experiences").insert({
+  const payload = cleanPayload({
     country_slug:    country(),
     visa_type:      visaType,
     name:           form.name          || null,
@@ -223,6 +307,8 @@ export async function submitVisaExperience(form, visaType) {
     experience:     form.experience,
     status,
   });
+  if (!validatePublicPayload(payload)) return false;
+  const { error } = await supabase.from("visa_experiences").insert(payload);
   return !error;
 }
 
@@ -237,16 +323,18 @@ export async function fetchTips(table) {
     .eq("status", "approved")
     .order("created_at", { ascending: false });
   if (error) console.error(error);
-  return data || [];
+  return cleanRows(data);
 }
 
 export async function submitTip(table, form) {
   const status = (await getAutoApprove(table)) ? "approved" : "pending";
-  const { error } = await supabase.from(table).insert({
+  const payload = cleanPayload({
     country_slug: country(),
     status,
     ...form,
   });
+  if (!validatePublicPayload(payload)) return false;
+  const { error } = await supabase.from(table).insert(payload);
   return !error;
 }
 
@@ -266,7 +354,7 @@ export async function fetchEvents(stateSlug, citySlug) {
     .gte("event_date", today())
     .order("event_date", { ascending: true });
   if (error) console.error("fetchEvents:", error);
-  return data || [];
+  return cleanRows(data);
 }
 
 export async function fetchAllEvents() {
@@ -279,12 +367,13 @@ export async function fetchAllEvents() {
     .order("event_date", { ascending: true })
     .limit(12);
   if (error) console.error("fetchAllEvents:", error);
-  return data || [];
+  return cleanRows(data);
 }
 
 export async function submitEvent(stateSlug, citySlug, form) {
   const status = (await getAutoApprove("events")) ? "approved" : "pending";
-  const { error } = await supabase.from("events").insert({
+  setSubmitError("");
+  const payload = cleanPayload({
     country_slug: country(),
     state_slug:  stateSlug,
     city_slug:   citySlug,
@@ -297,6 +386,7 @@ export async function submitEvent(stateSlug, citySlug, form) {
     notes:       form.notes      || null,
     status,
   });
+  const { error } = await supabase.from("events").insert(payload);
   return !error;
 }
 
@@ -312,19 +402,21 @@ export async function fetchAllLawyers() {
     .order("state_slug", { ascending: true })
     .order("city_slug", { ascending: true });
   if (error) console.error("fetchAllLawyers:", error);
-  return data || [];
+  return cleanRows(data);
 }
 
 // ─────────────────────────────────────────────────────────────
 // ADMIN — reads ALL rows regardless of status
 // ─────────────────────────────────────────────────────────────
 export async function submitContactMessage(form) {
-  const { error } = await supabase.from("contact_messages").insert({
+  const payload = cleanPayload({
     country_slug: country(),
     name: form.name,
     email: form.email,
     message: form.message,
   });
+  if (!validatePublicPayload(payload)) return false;
+  const { error } = await supabase.from("contact_messages").insert(payload);
   if (error) console.error("submitContactMessage:", error);
   return !error;
 }
@@ -336,7 +428,7 @@ export async function fetchContactMessages() {
     .eq("country_slug", country())
     .order("created_at", { ascending: false });
   if (error) console.error("fetchContactMessages:", error);
-  return data || [];
+  return cleanRows(data);
 }
 
 const ALL_TABLES = [
@@ -354,7 +446,7 @@ export async function fetchAllSubmissions() {
         .select("*")
         .eq("country_slug", country())
         .order("created_at", { ascending: false });
-      return (data || []).map(row => ({ ...row, _table: table }));
+      return cleanRows(data).map(row => ({ ...row, _table: table }));
     })
   );
   return results

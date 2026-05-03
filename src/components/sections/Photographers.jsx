@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { f, useToast, Toast, formatPhone } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
-import { submitListing } from "../../lib/db";
+import { getSubmitError, submitListing } from "../../lib/db";
 
 export default function Photographers({ stateSlug, citySlug }) {
   return (
@@ -42,7 +42,7 @@ function PhotoForm({ stateSlug, citySlug, section, onDone }) {
       show("✓ Lights, Camera, Action!");
       setTimeout(onDone, 1500);
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 

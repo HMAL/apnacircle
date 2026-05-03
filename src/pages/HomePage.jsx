@@ -22,7 +22,7 @@ export default function HomePage() {
     { icon: "📋", label: `${formsResource.label} Tips`, to: "/ds160" },
     { icon: "⚖️",  label: "Immigration Lawyers", to: "/lawyers" },
     { icon: "🏥", label: "Health & Wellness",    to: "/health" },
-  ];
+  ].sort((a, b) => a.label.localeCompare(b.label));
 
   useEffect(() => {
     fetchStates().then(setStates);

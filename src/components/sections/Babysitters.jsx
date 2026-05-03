@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { f, useToast, Toast, formatPhone } from "../formHelpers";
+import { f, useToast, Toast, formatPhone, isValidEmail, isValidPhone } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
-import { submitListing } from "../../lib/db";
+import { getSubmitError, submitListing } from "../../lib/db";
 
 export default function Babysitters({ stateSlug, citySlug }) {
   return (
@@ -32,6 +32,11 @@ function BabysitterForm({ stateSlug, citySlug, section, onDone }) {
 
   const submit = async () => {
     if (!form.name || !form.notes) { show("Name and notes are required."); return; }
+    if (!isValidPhone(form.phone) && !isValidEmail(form.email)) {
+      show("Please enter a valid phone number (10 digits) or email address.");
+      return;
+    }
+    if (form.email && !isValidEmail(form.email)) { show("Please enter a valid email address (e.g. you@example.com)."); return; }
     const ok = await submitListing(section, stateSlug, citySlug, {
       name:         form.name,
       phone:        form.phone       || null,
@@ -44,7 +49,7 @@ function BabysitterForm({ stateSlug, citySlug, section, onDone }) {
       show("✓ Good luck on your search!");
       setTimeout(onDone, 1500);
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 

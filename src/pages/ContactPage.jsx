@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { f, Toast, useToast } from "../components/formHelpers";
-import { submitContactMessage } from "../lib/db";
+import { f, Toast, useToast, isValidEmail } from "../components/formHelpers";
+import { getSubmitError, submitContactMessage } from "../lib/db";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -17,6 +17,10 @@ export default function ContactPage() {
       show("Please fill in your name, email, and message.");
       return;
     }
+    if (!isValidEmail(form.email)) {
+      show("Please enter a valid email address (e.g. you@example.com).");
+      return;
+    }
 
     setSending(true);
     const ok = await submitContactMessage({
@@ -27,7 +31,7 @@ export default function ContactPage() {
     setSending(false);
 
     if (!ok) {
-      show("Message could not be sent. Please try again.");
+      show(getSubmitError("Message could not be sent. Please try again."));
       return;
     }
 

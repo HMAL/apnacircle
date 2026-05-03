@@ -18,6 +18,11 @@ export default function Navbar() {
   const isMobile = useIsMobile();
   const formsResource = getFormsResource();
   const visaStartPath = getVisaStartPath();
+  const navLinks = [
+    { to: visaStartPath, label: "Visa Experiences" },
+    { to: "/immigration", label: "Immigration Tips" },
+    { to: "/ds160", label: formsResource.label },
+  ];
 
   return (
     <header>
@@ -41,10 +46,10 @@ export default function Navbar() {
         <div style={s.links}>
           {!isMobile && (
             <>
-              <Link to={visaStartPath} style={s.link}>Visa Experiences</Link>
-              <Link to="/immigration" style={s.link}>Immigration Tips</Link>
-              <Link to="/ds160"       style={s.link}>{formsResource.label}</Link>
-              <Link to="/contact"     style={s.link}>Contact</Link>
+              {navLinks.map(link => (
+                <Link key={link.to} to={link.to} style={s.link}>{link.label}</Link>
+              ))}
+              <Link to="/contact" style={s.link}>Contact</Link>
             </>
           )}
         </div>

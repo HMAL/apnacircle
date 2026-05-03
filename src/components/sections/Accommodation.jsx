@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone } from "../formHelpers";
-import { fetchAccommodation, submitAccommodation } from "../../lib/db";
+import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone, isValidEmail, isValidPhone } from "../formHelpers";
+import { fetchAccommodation, getSubmitError, submitAccommodation } from "../../lib/db";
 
 export default function Accommodation({ stateSlug, citySlug }) {
   const [formType, setFormType] = useState(null);
@@ -65,13 +65,18 @@ function AccForm({ stateSlug, citySlug, type, onSuccess, onCancel }) {
 
   const submit = async () => {
     if (!form.message) { show("Please fill in a message."); return; }
+    if (!isValidPhone(form.phone) && !isValidEmail(form.email)) {
+      show("Please enter a valid phone number (10 digits) or email address.");
+      return;
+    }
+    if (form.email && !isValidEmail(form.email)) { show("Please enter a valid email address (e.g. you@example.com)."); return; }
     const ok = await submitAccommodation(stateSlug, citySlug, form, type);
     if (ok) {
       setForm({ name:"", phone:"", email:"", message:"" });
       show("Post submitted!");
       onSuccess();
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 

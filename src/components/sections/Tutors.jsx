@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { f, useToast, Toast, formatPhone } from "../formHelpers";
+import { f, useToast, Toast, formatPhone, isValidEmail } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
-import { submitListing } from "../../lib/db";
+import { getSubmitError, submitListing } from "../../lib/db";
 
 export default function Tutors({ stateSlug, citySlug }) {
   return (
@@ -33,6 +33,7 @@ function TutorForm({ stateSlug, citySlug, section, onDone }) {
 
   const submit = async () => {
     if (!form.name || !form.subjects) { show("Name and subjects are required."); return; }
+    if (form.email && !isValidEmail(form.email)) { show("Please enter a valid email address (e.g. you@example.com)."); return; }
     const ok = await submitListing(section, stateSlug, citySlug, {
       name:         form.name,
       subjects:     form.subjects,
@@ -46,7 +47,7 @@ function TutorForm({ stateSlug, citySlug, section, onDone }) {
       show("✓ Submitted for review!");
       setTimeout(onDone, 1500);
     } else {
-      show("Error submitting. Please try again.");
+      show(getSubmitError("Error submitting. Please try again."));
     }
   };
 
