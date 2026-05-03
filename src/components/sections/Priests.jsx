@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { f, useToast, Toast } from "../formHelpers";
+import { f, useToast, Toast, formatPhone } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
 import { submitListing } from "../../lib/db";
 
@@ -14,7 +14,7 @@ export default function Priests({ stateSlug, citySlug }) {
           <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
             <span style={f.postAuthor}>{item.name}</span>
             {item.services && <span style={f.sub}>{item.services}</span>}
-            {item.phone    && <span style={f.sub}>📞 {item.phone}</span>}
+            {item.phone && <span style={f.sub}>📞 {formatPhone(item.phone)}</span>}
           </div>
           {item.notes && <p style={f.text}>{item.notes}</p>}
         </>
@@ -27,6 +27,7 @@ function PriestForm({ stateSlug, citySlug, section, onDone }) {
   const [form, setForm] = useState({ name:"", phone:"", services:"", notes:"", submittedBy:"" });
   const { msg, show } = useToast();
   const set = k => e => setForm(p => ({...p,[k]:e.target.value}));
+  const setPhone = e => setForm(p => ({...p, phone: formatPhone(e.target.value)}));
 
   const submit = async () => {
     if (!form.name) { show("Name is required."); return; }
@@ -50,12 +51,12 @@ function PriestForm({ stateSlug, citySlug, section, onDone }) {
       <h3 style={f.sectionTitle}>Add a Priest / Religious Service</h3>
       <div style={f.grid2}>
         <div style={f.group}><label style={f.label}>Name <span style={f.req}>*</span></label><input style={f.input} value={form.name} onChange={set("name")} /></div>
-        <div style={f.group}><label style={f.label}>Phone</label><input style={f.input} value={form.phone} onChange={set("phone")} /></div>
+        <div style={f.group}><label style={f.label}>Phone</label><input style={f.input} value={form.phone} onChange={setPhone} placeholder="123-456-7890" /></div>
         <div style={{...f.group,...f.span2}}><label style={f.label}>Services Offered</label><input style={f.input} value={form.services} onChange={set("services")} placeholder="Weddings, Puja, Namaz, Nikah..." /></div>
         <div style={{...f.group,...f.span2}}><label style={f.label}>Notes</label><textarea style={f.textarea} value={form.notes} onChange={set("notes")} placeholder="Languages spoken, experience, availability..." /></div>
         <div style={{...f.group,...f.span2}}><label style={f.label}>Your Name (optional)</label><input style={f.input} value={form.submittedBy} onChange={set("submittedBy")} placeholder="Anonymous" /></div>
       </div>
-      <button style={f.btn} onClick={submit}>Submit for Review</button>
+      <button style={f.btn} onClick={submit}>Submit</button>
       <Toast msg={msg} />
     </>
   );

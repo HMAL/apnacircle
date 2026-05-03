@@ -33,6 +33,15 @@ export const f = {
 export const fmtDate = d =>
   d ? new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "";
 
+export const formatPhone = value => {
+  const digits = String(value || "").replace(/\D/g, "");
+  const normalized = digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits.slice(0, 10);
+
+  if (normalized.length <= 3) return normalized;
+  if (normalized.length <= 6) return `${normalized.slice(0, 3)}-${normalized.slice(3)}`;
+  return `${normalized.slice(0, 3)}-${normalized.slice(3, 6)}-${normalized.slice(6)}`;
+};
+
 // For date-only strings (event_date) — adds T00:00:00 to avoid timezone shift
 export const fmtEventDate = d =>
   d ? new Date(d + "T00:00:00").toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) : "";

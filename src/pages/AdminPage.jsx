@@ -7,6 +7,8 @@ import { useAds } from "../lib/AdsContext";
 
 const TABLE_LABELS = {
   accommodation:     "Accommodation",
+  babysitters:       "Baby Sitters",
+  doctors:           "Doctors",
   ds160_tips:        "DS-160 Tips",
   events:            "Events",
   health_tips:       "Health & Wellness",
@@ -17,6 +19,7 @@ const TABLE_LABELS = {
   priests:           "Priests",
   realtors:          "Realtors",
   temples:           "Temples / Mosques",
+  tutors:            "Tutors",
   visa_experiences:  "Visa Experiences",
 };
 

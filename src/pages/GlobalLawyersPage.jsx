@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { f, fmtDate } from "../components/formHelpers";
+import { f, fmtDate, formatPhone } from "../components/formHelpers";
 import { fetchAllLawyers } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
@@ -53,7 +53,7 @@ export default function GlobalLawyersPage() {
               <div key={l.id} style={f.card}>
                 <div style={{ display:"flex", gap:16, flexWrap:"wrap", marginBottom:6, alignItems:"center" }}>
                   <span style={f.postAuthor}>{l.name}</span>
-                  {l.phone && <span style={f.sub}>📞 {l.phone}</span>}
+                  {l.phone && <span style={f.sub}>📞 {formatPhone(l.phone)}</span>}
                   {l.email && <span style={f.sub}>✉️ {l.email}</span>}
                   <span style={{ ...f.tag, background:"#e8f4ff", color:"#0066cc" }}>{l.state_slug} / {l.city_slug}</span>
                   <span style={f.postDate}>{fmtDate(l.created_at)}</span>

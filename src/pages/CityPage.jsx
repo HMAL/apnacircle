@@ -9,6 +9,9 @@ import Jobs from "../components/sections/Jobs";
 import Accommodation from "../components/sections/Accommodation";
 import Temples from "../components/sections/Temples";
 import Lawyers from "../components/sections/Lawyers";
+import Doctors from "../components/sections/Doctors";
+import Babysitters from "../components/sections/Babysitters";
+import Tutors from "../components/sections/Tutors";
 import Realtors from "../components/sections/Realtors";
 import Priests from "../components/sections/Priests";
 import Photographers from "../components/sections/Photographers";
@@ -19,13 +22,28 @@ const SECTIONS = [
   { id: "jobs",          icon: "💼", label: "Local Jobs" },
   { id: "accommodation", icon: "🏠", label: "Accommodation" },
   { id: "temples",       icon: "🛕", label: "Temples & Mosques" },
-  { id: "lawyers",       icon: "⚖️",  label: "Immigration Lawyers" },
+  { id: "lawyers",       icon: "⚖️", label: "Immigration Lawyers" },
+  { id: "doctors",       icon: "🩺", label: "Doctors" },
+  { id: "babysitters",   icon: "🧸", label: "Baby Sitters" },
+  { id: "tutors",        icon: "📚", label: "Tutors" },
   { id: "realtors",      icon: "🏡", label: "Local Realtors" },
   { id: "priests",       icon: "🙏", label: "Priest Services" },
-  { id: "photographers", icon: "📸", label: "Photographers" },
+  { id: "photographers", icon: "📸", label: "DJ - Video - Photo" },
 ];
 
-const SECTION_MAP = { events: Events, jobs: Jobs, accommodation: Accommodation, temples: Temples, lawyers: Lawyers, realtors: Realtors, priests: Priests, photographers: Photographers };
+const SECTION_MAP = {
+  events: Events,
+  jobs: Jobs,
+  accommodation: Accommodation,
+  temples: Temples,
+  lawyers: Lawyers,
+  doctors: Doctors,
+  babysitters: Babysitters,
+  tutors: Tutors,
+  realtors: Realtors,
+  priests: Priests,
+  photographers: Photographers,
+};
 
 export default function CityPage() {
   const { stateSlug, citySlug: citySlugParam } = useParams();
@@ -43,7 +61,7 @@ export default function CityPage() {
 
   if (loading) return null;
 
-  const cityObj  = state?.cities?.find(c => citySlug(c.name) === citySlugParam);
+  const cityObj = state?.cities?.find(c => citySlug(c.name) === citySlugParam);
   const cityName = cityObj?.name;
 
   if (!state || !cityName) return <Navigate to="/" />;
@@ -55,7 +73,6 @@ export default function CityPage() {
       <Link to={`/states/${stateSlug}`} style={s.back}>← {state.name}</Link>
       <h1 style={s.title}>{cityName}, {state.abbr}</h1>
 
-      {/* Mobile horizontal tab bar */}
       {isMobile && (
         <ScrollTabBar style={s.mobileTabs}>
           {SECTIONS.map(sec => (
@@ -69,7 +86,6 @@ export default function CityPage() {
       )}
 
       <div style={{ ...s.layout, flexDirection: isMobile ? "column" : "row" }}>
-        {/* Left sidebar — desktop only */}
         {!isMobile && (
           <aside style={s.sidebar}>
             {SECTIONS.map(sec => (
@@ -81,12 +97,10 @@ export default function CityPage() {
           </aside>
         )}
 
-        {/* Main content */}
         <main style={s.main}>
           <ActiveComp stateSlug={stateSlug} citySlug={citySlugParam} cityName={cityName} stateName={state.name} />
         </main>
 
-        {/* Right ad rail — desktop only */}
         {!isMobile && (
           <aside style={s.rail}>
             <AdBlock stateSlug={stateSlug} />

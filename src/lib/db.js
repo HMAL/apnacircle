@@ -288,6 +288,7 @@ export async function fetchAllLawyers() {
 // ─────────────────────────────────────────────────────────────
 const ALL_TABLES = [
   "jobs", "accommodation", "temples", "lawyers",
+  "doctors", "babysitters", "tutors",
   "realtors", "priests", "photographers",
   "visa_experiences", "immigration_tips", "ds160_tips", "health_tips", "events",
 ];
