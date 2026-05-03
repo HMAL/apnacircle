@@ -39,7 +39,7 @@ function PriestForm({ stateSlug, citySlug, section, onDone }) {
       submitted_by: form.submittedBy || null,
     });
     if (ok) {
-      show("✓ Submitted for review!");
+      show("✓ Submission successful!");
       setTimeout(onDone, 1500);
     } else {
       show("Error submitting. Please try again.");

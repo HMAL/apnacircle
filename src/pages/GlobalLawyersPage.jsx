@@ -12,24 +12,41 @@ export default function GlobalLawyersPage() {
   const [stateFilter, setStateFilter] = useState("");
   const isMobile = useIsMobile();
   const countryName = getCountryName();
+  const regionLabel = countryName === "Canada" ? "Province" : "State";
 
   useEffect(() => { fetchAllLawyers().then(setLawyers); }, []);
+
+  const titleizeSlug = value =>
+    (value || "")
+      .split("-")
+      .filter(Boolean)
+      .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ");
 
   const states = [...new Set(lawyers.map(l => l.state_slug))].sort();
 
   const filtered = lawyers.filter(l => {
     const matchState = !stateFilter || l.state_slug === stateFilter;
-    const q = search.toLowerCase();
-    const matchSearch = !search || [l.name, l.phone, l.email, l.message, l.city_slug].some(v => v?.toLowerCase().includes(q));
+    const q = search.trim().toLowerCase();
+    const matchSearch = !q || [
+      l.firm_name,
+      l.name,
+      l.phone,
+      l.address,
+      l.website,
+      l.notes,
+      l.submitted_by,
+      l.state_slug,
+      l.city_slug,
+    ].some(v => v?.toLowerCase().includes(q));
     return matchState && matchSearch;
   });
 
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
       <div style={s.content}>
-        <Link to="/" style={s.back}>← Home</Link>
+        <Link to="/" style={s.back}>Home</Link>
         <div style={s.header}>
-          <span style={{ fontSize:32 }}>⚖️</span>
           <div>
             <h1 style={s.title}>Immigration Lawyers</h1>
             <p style={s.desc}>Community-recommended immigration lawyers across {countryName}. Add one from your city page.</p>
@@ -37,30 +54,46 @@ export default function GlobalLawyersPage() {
         </div>
 
         <div style={s.filterRow}>
-          <input style={{ ...f.input, flex:1 }} placeholder="Search by name, city, notes..." value={search} onChange={e => setSearch(e.target.value)} />
-          <select style={{ ...f.select, width:180, flexShrink:0 }} value={stateFilter} onChange={e => setStateFilter(e.target.value)}>
-            <option value="">All States</option>
-            {states.map(st => <option key={st} value={st}>{st}</option>)}
+          <input
+            style={{ ...f.input, flex:1 }}
+            placeholder="Search by firm, lawyer, city, notes..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
+          <select
+            style={{ ...f.select, width:180, flexShrink:0 }}
+            value={stateFilter}
+            onChange={e => setStateFilter(e.target.value)}
+          >
+            <option value="">All {regionLabel}s</option>
+            {states.map(st => <option key={st} value={st}>{titleizeSlug(st)}</option>)}
           </select>
         </div>
 
         <div style={s.card}>
           <p style={{ fontSize:13, color:"#888", marginBottom:14 }}>
             {filtered.length} lawyer{filtered.length !== 1 ? "s" : ""} found
-            {stateFilter && ` in ${stateFilter}`}
+            {stateFilter && ` in ${titleizeSlug(stateFilter)}`}
             {search && ` matching "${search}"`}
           </p>
           {filtered.length > 0 ? (
             filtered.map(l => (
               <div key={l.id} style={f.card}>
                 <div style={{ display:"flex", gap:16, flexWrap:"wrap", marginBottom:6, alignItems:"center" }}>
-                  <span style={f.postAuthor}>{l.name}</span>
-                  {l.phone && <span style={f.sub}>📞 {formatPhone(l.phone)}</span>}
-                  {l.email && <span style={f.sub}>✉️ {l.email}</span>}
-                  <span style={{ ...f.tag, background:"#e8f4ff", color:"#0066cc" }}>{l.state_slug} / {l.city_slug}</span>
+                  <span style={f.postAuthor}>{l.firm_name || l.name}</span>
+                  {l.phone && <span style={f.sub}>Phone: {formatPhone(l.phone)}</span>}
+                  {l.address && <span style={f.sub}>Address: {l.address}</span>}
+                  {l.website && (
+                    <span style={f.sub}>
+                      Website: <a href={l.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{l.website}</a>
+                    </span>
+                  )}
+                  <span style={{ ...f.tag, background:"#e8f4ff", color:"#0066cc" }}>
+                    {titleizeSlug(l.state_slug)} / {titleizeSlug(l.city_slug)}
+                  </span>
                   <span style={f.postDate}>{fmtDate(l.created_at)}</span>
                 </div>
-                {l.message && <p style={f.text}>{l.message}</p>}
+                {l.notes && <p style={f.text}>{l.notes}</p>}
               </div>
             ))
           ) : (

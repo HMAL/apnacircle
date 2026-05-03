@@ -4,14 +4,25 @@ import { f, useToast, Toast, fmtDate } from "../../components/formHelpers";
 import { fetchVisaExperiences, submitVisaExperience, fetchConsulates } from "../../lib/db";
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
+import { getCountrySlug } from "../../lib/country";
 
-const VISA_TYPES = [
+const US_VISA_TYPES = [
   { id: "h1b",  label: "H-1B",    icon: "💼", desc: "Specialty occupation, employer-sponsored work visa" },
   { id: "f1",   label: "F-1",     icon: "🎓", desc: "Student visa experiences and interview tips" },
   { id: "b1b2", label: "B-1/B-2", icon: "✈️", desc: "Business and tourist visa experiences" },
   { id: "h4",   label: "H-4",     icon: "👨‍👩‍👧", desc: "Dependent visa for H-1B spouses and children" },
   { id: "l1",   label: "L-1",     icon: "🏢", desc: "Intracompany transferee visa experiences" },
   { id: "other",label: "Other",   icon: "🗂️", desc: "EB-2, EB-3, O-1, TN and other visa categories" },
+];
+
+const CA_VISA_TYPES = [
+  { id: "visitor",       label: "Visitor Visa",       icon: "✈️", desc: "Temporary resident visitor visa experiences" },
+  { id: "study-permit",  label: "Study Permit",       icon: "🎓", desc: "Student permit applications and interview experiences" },
+  { id: "work-permit",   label: "Work Permit",        icon: "💼", desc: "Employer-specific and open work permit experiences" },
+  { id: "express-entry", label: "Express Entry",      icon: "🍁", desc: "Federal skilled worker, CEC, and PR process experiences" },
+  { id: "pnp",           label: "PNP",                icon: "📍", desc: "Provincial nominee program experiences" },
+  { id: "super-visa",    label: "Super Visa",         icon: "👨‍👩‍👧", desc: "Parent and grandparent super visa experiences" },
+  { id: "other",         label: "Other",              icon: "🗂️", desc: "Spousal sponsorship, PR cards, citizenship, and other Canadian immigration topics" },
 ];
 
 export default function VisaPage() {
@@ -21,7 +32,8 @@ export default function VisaPage() {
   const [consulates, setConsulates] = useState([]);
   const [locationFilter, setLocationFilter] = useState("");
   const isMobile = useIsMobile();
-  const activeVisa = VISA_TYPES.find(v => v.id === type) || VISA_TYPES[0];
+  const visaTypes = getCountrySlug() === "ca" ? CA_VISA_TYPES : US_VISA_TYPES;
+  const activeVisa = visaTypes.find(v => v.id === type) || visaTypes[0];
 
   useEffect(() => {
     fetchVisaExperiences(activeVisa.id).then(setPosts);
@@ -51,7 +63,7 @@ export default function VisaPage() {
 
         {/* Visa type tabs */}
         <div style={s.tabs}>
-          {VISA_TYPES.map(v => (
+          {visaTypes.map(v => (
             <Link key={v.id} to={`/visa/${v.id}`}
               style={{ ...s.tab, ...(activeVisa.id === v.id ? s.tabActive : {}) }}>
               {v.icon} {v.label}

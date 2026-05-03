@@ -9,7 +9,7 @@ const TABLE_LABELS = {
   accommodation:     "Accommodation",
   babysitters:       "Baby Sitters",
   doctors:           "Doctors",
-  ds160_tips:        "DS-160 Tips",
+  ds160_tips:        "DS-160 / IRCC Forms",
   events:            "Events",
   health_tips:       "Health & Wellness",
   immigration_tips:  "Immigration Tips",

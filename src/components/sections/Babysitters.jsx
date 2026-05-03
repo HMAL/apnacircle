@@ -41,7 +41,7 @@ function BabysitterForm({ stateSlug, citySlug, section, onDone }) {
       submitted_by: form.submittedBy || null,
     });
     if (ok) {
-      show("✓ Submitted for review!");
+      show("✓ Good luck on your search!");
       setTimeout(onDone, 1500);
     } else {
       show("Error submitting. Please try again.");

@@ -40,7 +40,7 @@ function DoctorForm({ stateSlug, citySlug, section, onDone }) {
       website:      form.website      || null,
     });
     if (ok) {
-      show("✓ Submitted for review!");
+      show("✓ Submission successful!");
       setTimeout(onDone, 1500);
     } else {
       show("Error submitting. Please try again.");

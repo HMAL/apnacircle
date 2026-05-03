@@ -4,7 +4,7 @@ import { f, useToast, Toast, fmtDate } from "../../components/formHelpers";
 import { fetchTips, submitTip } from "../../lib/db";
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
-import { getCountryName } from "../../lib/country";
+import { getCountryName, getFormsResource } from "../../lib/country";
 
 export function ImmigrationPage() {
   const [showForm, setShowForm] = useState(false);
@@ -120,6 +120,7 @@ export function DS160Page() {
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const isMobile = useIsMobile();
+  const formsResource = getFormsResource();
 
   const reload = () => fetchTips("ds160_tips").then(setPosts);
   useEffect(() => { reload(); }, []);
@@ -131,17 +132,17 @@ export function DS160Page() {
         <div style={{ ...s.header, flexWrap:"wrap" }}>
           <span style={{ fontSize:32 }}>📋</span>
           <div style={{ flex:1 }}>
-            <h1 style={s.title}>DS-160 Tips</h1>
-            <p style={s.desc}>Tips from community members who have successfully completed the DS-160 application form.</p>
+            <h1 style={s.title}>{formsResource.title}</h1>
+            <p style={s.desc}>{formsResource.description}</p>
           </div>
           <button style={s.addBtn} onClick={() => setShowForm(v => !v)}>
-            {showForm ? "✕ Cancel" : "+ Your DS-160 Tip"}
+            {showForm ? "✕ Cancel" : formsResource.addLabel}
           </button>
         </div>
 
         {showForm && (
           <div style={s.card}>
-            <DS160Form onSubmit={() => { setShowForm(false); reload(); }} />
+            <DS160Form formsResource={formsResource} onSubmit={() => { setShowForm(false); reload(); }} />
           </div>
         )}
 
@@ -158,7 +159,7 @@ export function DS160Page() {
               </div>
             ))
           ) : (
-            <p style={s.empty}>Be the first to share a DS-160 tip!</p>
+            <p style={s.empty}>{formsResource.empty}</p>
           )}
         </div>
       </div>
@@ -172,7 +173,7 @@ export function DS160Page() {
   );
 }
 
-function DS160Form({ onSubmit }) {
+function DS160Form({ formsResource, onSubmit }) {
   const [form, setForm] = useState({ name:"", context:"" });
   const { msg, show } = useToast();
   const set = k => e => setForm(p => ({...p,[k]:e.target.value}));
@@ -200,7 +201,7 @@ function DS160Form({ onSubmit }) {
         </div>
         <div style={f.group}>
           <label style={f.label}>Your Tip <span style={f.req}>*</span></label>
-          <textarea style={f.textarea} value={form.context} onChange={set("context")} placeholder="E.g., Always double-check travel history dates. Use exact passport address. Save frequently..." />
+          <textarea style={f.textarea} value={form.context} onChange={set("context")} placeholder={formsResource.placeholder} />
         </div>
       </div>
       <button style={f.btn} onClick={submit}>Submit</button>

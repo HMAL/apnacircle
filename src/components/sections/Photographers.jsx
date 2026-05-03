@@ -39,7 +39,7 @@ function PhotoForm({ stateSlug, citySlug, section, onDone }) {
       submitted_by: form.submittedBy || null,
     });
     if (ok) {
-      show("✓ Submitted for review!");
+      show("✓ Lights, Camera, Action!");
       setTimeout(onDone, 1500);
     } else {
       show("Error submitting. Please try again.");

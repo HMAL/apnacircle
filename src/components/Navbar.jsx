@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useIsMobile } from "../lib/useIsMobile";
+import { getFormsResource, getVisaStartPath } from "../lib/country";
 
 const FLAGS = [
   { code: "jp", label: "Japan" },
@@ -15,6 +16,8 @@ const FLAGS = [
 
 export default function Navbar() {
   const isMobile = useIsMobile();
+  const formsResource = getFormsResource();
+  const visaStartPath = getVisaStartPath();
 
   return (
     <header>
@@ -38,9 +41,9 @@ export default function Navbar() {
         <div style={s.links}>
           {!isMobile && (
             <>
-              <Link to="/visa/h1b"    style={s.link}>Visa Experiences</Link>
+              <Link to={visaStartPath} style={s.link}>Visa Experiences</Link>
               <Link to="/immigration" style={s.link}>Immigration Tips</Link>
-              <Link to="/ds160"       style={s.link}>DS-160</Link>
+              <Link to="/ds160"       style={s.link}>{formsResource.label}</Link>
             </>
           )}
           <Link to="/admin" style={s.adminLink}>Admin</Link>

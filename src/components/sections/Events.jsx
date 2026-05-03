@@ -65,7 +65,7 @@ function EventForm({ stateSlug, citySlug, onSuccess }) {
     const ok = await submitEvent(stateSlug, citySlug, form);
     if (ok) {
       setForm({ name:"", location:"", entryFee:"", eventDate:"", eventTime:"", ticketUrl:"", notes:"" });
-      show("✓ Event submitted for review!");
+      show("✓ Hooray!");
       setTimeout(() => onSuccess?.(), 1500);
     } else {
       show("Error submitting. Please try again.");

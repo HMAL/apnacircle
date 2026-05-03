@@ -6,16 +6,7 @@ import { useAds } from "../lib/AdsContext";
 import { useIsMobile } from "../lib/useIsMobile";
 import { ScrollTabBar } from "../components/ScrollTabBar";
 import { fmtEventDate, daysUntilBadge } from "../components/formHelpers";
-import { getCountrySlug } from "../lib/country";
-
-const LEFT_NAV = [
-  { icon: "📅", label: "Events",              to: "#events" },
-  { icon: "🪪", label: "Visa Experiences",    to: "/visa/h1b" },
-  { icon: "💡", label: "Immigration Tips",     to: "/immigration" },
-  { icon: "📋", label: "DS-160 Tips",          to: "/ds160" },
-  { icon: "⚖️",  label: "Immigration Lawyers", to: "/lawyers" },
-  { icon: "🏥", label: "Health & Wellness",    to: "/health" },
-];
+import { getCountrySlug, getFormsResource, getVisaStartPath } from "../lib/country";
 
 export default function HomePage() {
   const [states, setStates] = useState([]);
@@ -23,6 +14,15 @@ export default function HomePage() {
   const { ads } = useAds();
   const isMobile = useIsMobile();
   const regionLabel = getCountrySlug() === "ca" ? "Province" : "State";
+  const formsResource = getFormsResource();
+  const leftNav = [
+    { icon: "📅", label: "Events",              to: "#events" },
+    { icon: "🪪", label: "Visa Experiences",    to: getVisaStartPath() },
+    { icon: "💡", label: "Immigration Tips",     to: "/immigration" },
+    { icon: "📋", label: `${formsResource.label} Tips`, to: "/ds160" },
+    { icon: "⚖️",  label: "Immigration Lawyers", to: "/lawyers" },
+    { icon: "🏥", label: "Health & Wellness",    to: "/health" },
+  ];
 
   useEffect(() => {
     fetchStates().then(setStates);
@@ -39,7 +39,7 @@ export default function HomePage() {
       {/* mobile quick-nav */}
       {isMobile && (
         <ScrollTabBar style={{ padding:"0 1rem 0.75rem", borderBottom:"0.5px solid var(--border)" }}>
-          {LEFT_NAV.map(item => (
+          {leftNav.map(item => (
             item.to.startsWith("#")
               ? <a key={item.to} href={item.to} style={s.mobileNavItem}>{item.icon}<span style={s.mobileNavLabel}>{item.label}</span></a>
               : <Link key={item.to} to={item.to} style={s.mobileNavItem}>{item.icon}<span style={s.mobileNavLabel}>{item.label}</span></Link>
@@ -53,7 +53,7 @@ export default function HomePage() {
         {!isMobile && (
           <aside style={s.leftNav}>
             <p style={s.navLabel}>Resources</p>
-            {LEFT_NAV.map(item => (
+            {leftNav.map(item => (
               item.to.startsWith("#")
                 ? <a key={item.to} href={item.to} style={s.navLink}><span>{item.icon}</span> {item.label}</a>
                 : <Link key={item.to} to={item.to} style={s.navLink}><span>{item.icon}</span> {item.label}</Link>

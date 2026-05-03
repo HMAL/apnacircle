@@ -41,7 +41,7 @@ function RealtorForm({ stateSlug, citySlug, section, onDone }) {
       submitted_by: form.submittedBy || null,
     });
     if (ok) {
-      show("✓ Submitted for review!");
+      show("✓I hope your clients are thrilled with you as Realtor!");
       setTimeout(onDone, 1500);
     } else {
       show("Error submitting. Please try again.");

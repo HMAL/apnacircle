@@ -46,7 +46,7 @@ function TemplesForm({ stateSlug, citySlug, section, onDone }) {
       submitted_by: form.submittedBy || null,
     });
     if (ok) {
-      show("✓ Submitted for review!");
+      show("✓ God Bless!");
       setTimeout(onDone, 1500);
     } else {
       show("Error submitting. Please try again.");
