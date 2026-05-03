@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import StatePage from "./pages/StatePage";
 import CityPage from "./pages/CityPage";
 import AdminPage from "./pages/AdminPage";
+import AdminApprovalsPage from "./pages/admin/AdminApprovalsPage";
+import AdminMessagesPage from "./pages/admin/AdminMessagesPage";
 import VisaPage from "./pages/visa/VisaPage";
 import { ImmigrationPage, DS160Page } from "./pages/visa/TipPages";
 import HealthWellnessPage from "./pages/HealthWellnessPage";
@@ -28,6 +30,8 @@ export default function App() {
         <Route path="/lawyers"                     element={<GlobalLawyersPage />} />
         <Route path="/contact"                     element={<ContactPage />} />
         <Route path="/admin"                       element={<AdminPage />} />
+        <Route path="/admin/messages"              element={<AdminMessagesPage />} />
+        <Route path="/admin/approvals"             element={<AdminApprovalsPage />} />
         <Route path="*"                            element={<HomePage />} />
       </Routes>
     </AdsProvider>

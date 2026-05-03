@@ -47,7 +47,6 @@ export default function Navbar() {
               <Link to="/contact"     style={s.link}>Contact</Link>
             </>
           )}
-          <Link to="/admin" style={s.adminLink}>Admin</Link>
         </div>
       </nav>
     </header>
@@ -68,5 +67,4 @@ const s = {
   flagImg: { width: 28, height: "auto", borderRadius: 3, boxShadow: "0 1px 3px rgba(0,0,0,0.25)" },
   links: { display: "flex", gap: 16, alignItems: "center", flexShrink: 0 },
   link: { color: "#5C4A32", fontSize: 13, fontWeight: 600 },
-  adminLink: { color: "#7A6248", fontSize: 12, fontWeight: 600, background: "rgba(0,0,0,0.07)", padding: "4px 10px", borderRadius: 6 },
 };
