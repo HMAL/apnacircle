@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { f, savePost, useToast, Toast } from "../formHelpers";
+import { f, useToast, Toast } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
+import { submitListing } from "../../lib/db";
 
 export default function Realtors({ stateSlug, citySlug }) {
   return (
@@ -10,13 +11,13 @@ export default function Realtors({ stateSlug, citySlug }) {
       FormFields={RealtorForm}
       renderCard={item => (
         <>
-          <div style={{ display:"flex", justifyContent:"space-between", marginBottom:4 }}>
+          <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
             <span style={f.postAuthor}>{item.name}</span>
-            <span style={f.postDate}>{item.agency || ""}</span>
+            {item.agency && <span style={f.sub}>{item.agency}</span>}
+            {item.phone  && <span style={f.sub}>📞 {item.phone}</span>}
+            {item.email  && <span style={f.sub}>✉️ {item.email}</span>}
           </div>
-          {item.phone && <p style={f.sub}>📞 {item.phone}</p>}
-          {item.email && <p style={f.sub}>✉️ {item.email}</p>}
-          {item.notes && <p style={{ ...f.text, marginTop:8 }}>{item.notes}</p>}
+          {item.notes && <p style={f.text}>{item.notes}</p>}
         </>
       )}
     />
@@ -27,11 +28,25 @@ function RealtorForm({ stateSlug, citySlug, section, onDone }) {
   const [form, setForm] = useState({ name:"", agency:"", phone:"", email:"", notes:"", submittedBy:"" });
   const { msg, show } = useToast();
   const set = k => e => setForm(p => ({...p,[k]:e.target.value}));
-  const submit = () => {
+
+  const submit = async () => {
     if (!form.name || !form.notes) { show("Name and notes required."); return; }
-    savePost(stateSlug, citySlug, section, form, false);
-    show("✓ Submitted for review!"); setTimeout(onDone, 1500);
+    const ok = await submitListing(section, stateSlug, citySlug, {
+      name:         form.name,
+      agency:       form.agency      || null,
+      phone:        form.phone       || null,
+      email:        form.email       || null,
+      notes:        form.notes,
+      submitted_by: form.submittedBy || null,
+    });
+    if (ok) {
+      show("✓ Submitted for review!");
+      setTimeout(onDone, 1500);
+    } else {
+      show("Error submitting. Please try again.");
+    }
   };
+
   return (
     <>
       <h3 style={f.sectionTitle}>Recommend a Realtor</h3>

@@ -1,13 +1,22 @@
-import { useState } from "react";
-import { f, loadPosts, savePost, useToast, Toast } from "./formHelpers";
-import { getDummyData } from "../data/dummyData";
+import { useState, useEffect, useCallback } from "react";
+import { f } from "./formHelpers";
+import { fetchListings } from "../lib/db";
 
-// Generic listing section: shows dummy + approved community submissions, with an Add form
 export function ListingSection({ stateSlug, citySlug, section, icon, title, description, FormFields, renderCard }) {
   const [showForm, setShowForm] = useState(false);
-  const dummy = getDummyData(section, stateSlug, citySlug);
-  const userPosts = loadPosts(stateSlug, citySlug, section).filter(p => p.status === "approved");
-  const allListings = [...dummy, ...userPosts];
+  const [listings, setListings] = useState([]);
+
+  const reload = useCallback(async () => {
+    const data = await fetchListings(section, stateSlug, citySlug);
+    setListings(data);
+  }, [section, stateSlug, citySlug]);
+
+  useEffect(() => { reload(); }, [reload]);
+
+  const handleDone = useCallback(() => {
+    setShowForm(false);
+    reload();
+  }, [reload]);
 
   return (
     <div>
@@ -26,17 +35,17 @@ export function ListingSection({ stateSlug, citySlug, section, icon, title, desc
 
       {showForm && (
         <div style={{ background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1.5rem", marginBottom:20 }}>
-          <FormFields stateSlug={stateSlug} citySlug={citySlug} section={section} onDone={() => setShowForm(false)} />
+          <FormFields stateSlug={stateSlug} citySlug={citySlug} section={section} onDone={handleDone} />
         </div>
       )}
 
       <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-        {allListings.map(item => (
+        {listings.map(item => (
           <div key={item.id} style={{ background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1.25rem 1.5rem" }}>
             {renderCard(item)}
           </div>
         ))}
-        {allListings.length === 0 && <p style={f.empty}>No listings yet. Be the first to add one!</p>}
+        {listings.length === 0 && <p style={f.empty}>No listings yet. Be the first to add one!</p>}
       </div>
     </div>
   );

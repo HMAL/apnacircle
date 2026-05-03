@@ -6,21 +6,26 @@ import CityPage from "./pages/CityPage";
 import AdminPage from "./pages/AdminPage";
 import VisaPage from "./pages/visa/VisaPage";
 import { ImmigrationPage, DS160Page } from "./pages/visa/TipPages";
+import HealthWellnessPage from "./pages/HealthWellnessPage";
+import GlobalLawyersPage from "./pages/GlobalLawyersPage";
+import { AdsProvider } from "./lib/AdsContext";
 
 export default function App() {
   return (
-    <>
+    <AdsProvider>
       <Navbar />
       <Routes>
-        <Route path="/"                         element={<HomePage />} />
-        <Route path="/states/:stateSlug"        element={<StatePage />} />
+        <Route path="/"                            element={<HomePage />} />
+        <Route path="/states/:stateSlug"           element={<StatePage />} />
         <Route path="/states/:stateSlug/:citySlug" element={<CityPage />} />
-        <Route path="/visa/:type"               element={<VisaPage />} />
-        <Route path="/immigration"              element={<ImmigrationPage />} />
-        <Route path="/ds160"                    element={<DS160Page />} />
-        <Route path="/admin"                    element={<AdminPage />} />
-        <Route path="*"                         element={<HomePage />} />
+        <Route path="/visa/:type"                  element={<VisaPage />} />
+        <Route path="/immigration"                 element={<ImmigrationPage />} />
+        <Route path="/ds160"                       element={<DS160Page />} />
+        <Route path="/health"                      element={<HealthWellnessPage />} />
+        <Route path="/lawyers"                     element={<GlobalLawyersPage />} />
+        <Route path="/admin"                       element={<AdminPage />} />
+        <Route path="*"                            element={<HomePage />} />
       </Routes>
-    </>
+    </AdsProvider>
   );
 }

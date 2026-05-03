@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { f, savePost, useToast, Toast } from "../formHelpers";
+import { f, useToast, Toast } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
+import { submitListing } from "../../lib/db";
 
 const TYPES = ["Hindu Temple","Mosque","Sikh Gurdwara","Jain Temple","Buddhist Temple","Church","Other"];
 
@@ -13,11 +14,14 @@ export default function Temples({ stateSlug, citySlug }) {
       FormFields={TemplesForm}
       renderCard={item => (
         <>
-          <div style={f.postMeta}><span style={f.postAuthor}>{item.placeName}</span><span style={{ ...f.tag }}>{item.type}</span></div>
-          {item.address && <p style={f.sub}>📍 {item.address}</p>}
-          {item.phone   && <p style={f.sub}>📞 {item.phone}</p>}
-          {item.website && <p style={f.sub}>🌐 <a href={item.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{item.website}</a></p>}
-          {item.notes   && <p style={{ ...f.text, marginTop:8 }}>{item.notes}</p>}
+          <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
+            <span style={f.postAuthor}>{item.place_name}</span>
+            {item.type    && <span style={f.sub}>{item.type}</span>}
+            {item.phone   && <span style={f.sub}>📞 {item.phone}</span>}
+            {item.address && <span style={f.sub}>📍 {item.address}</span>}
+            {item.website && <span style={f.sub}>🌐 <a href={item.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{item.website}</a></span>}
+          </div>
+          {item.notes && <p style={f.text}>{item.notes}</p>}
         </>
       )}
     />
@@ -29,11 +33,23 @@ function TemplesForm({ stateSlug, citySlug, section, onDone }) {
   const { msg, show } = useToast();
   const set = k => e => setForm(p => ({...p, [k]: e.target.value}));
 
-  const submit = () => {
+  const submit = async () => {
     if (!form.placeName || !form.type) { show("Place name and type are required."); return; }
-    savePost(stateSlug, citySlug, section, { ...form, id: "u_"+Date.now() }, false); // manual approve
-    show("✓ Submitted for review!");
-    setTimeout(onDone, 1500);
+    const ok = await submitListing(section, stateSlug, citySlug, {
+      place_name:   form.placeName,
+      type:         form.type,
+      address:      form.address     || null,
+      phone:        form.phone       || null,
+      website:      form.website     || null,
+      notes:        form.notes       || null,
+      submitted_by: form.submittedBy || null,
+    });
+    if (ok) {
+      show("✓ Submitted for review!");
+      setTimeout(onDone, 1500);
+    } else {
+      show("Error submitting. Please try again.");
+    }
   };
 
   return (

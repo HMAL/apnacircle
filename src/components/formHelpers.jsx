@@ -5,7 +5,7 @@ export const ORANGE = "var(--orange)";
 // ── Shared input styles ──────────────────────────────────────
 export const f = {
   sectionTitle: { fontSize: 17, fontWeight: 700, color: "#111", marginBottom: "1.25rem" },
-  grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 },
+  grid2: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: 16 },
   grid1: { display: "grid", gridTemplateColumns: "1fr", gap: 16 },
   group: { display: "flex", flexDirection: "column", gap: 6 },
   span2: { gridColumn: "span 2" },
@@ -14,9 +14,9 @@ export const f = {
   input: { border: "0.5px solid var(--border)", borderRadius: 8, padding: "10px 12px", fontSize: 14, color: "#111", background: "#fff", width: "100%", outline: "none" },
   textarea: { border: "0.5px solid var(--border)", borderRadius: 8, padding: "10px 12px", fontSize: 14, color: "#111", background: "#fff", width: "100%", outline: "none", resize: "vertical", minHeight: 110 },
   select: { border: "0.5px solid var(--border)", borderRadius: 8, padding: "10px 12px", fontSize: 14, color: "#111", background: "#fff", width: "100%", outline: "none" },
-  btn: { marginTop: "1.25rem", background: "var(--orange)", color: "#fff", border: "none", borderRadius: 10, padding: "11px 26px", fontSize: 14, fontWeight: 700, cursor: "pointer" },
-  btnSm: { background: "var(--orange)", color: "#fff", border: "none", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer" },
-  btnOutline: { background: "#fff", color: "var(--orange)", border: "1.5px solid var(--orange)", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer" },
+  btn: { marginTop: "1.25rem", background: "#555", color: "#fff", border: "none", borderRadius: 10, padding: "11px 26px", fontSize: 14, fontWeight: 700, cursor: "pointer" },
+  btnSm: { background: "#555", color: "#fff", border: "none", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer" },
+  btnOutline: { background: "#fff", color: "#555", border: "1.5px solid #bbb", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer" },
   card: { background: "#fafaf8", border: "0.5px solid var(--border)", borderRadius: 10, padding: "1rem 1.25rem", marginBottom: 12 },
   postMeta: { display: "flex", justifyContent: "space-between", marginBottom: 4 },
   postAuthor: { fontSize: 13, fontWeight: 700, color: "var(--orange)" },
@@ -28,48 +28,22 @@ export const f = {
   divider: { border: "none", borderTop: "0.5px solid var(--border)", margin: "1.5rem 0" },
 };
 
-// ── localStorage helpers ─────────────────────────────────────
-export const storageKey = (state, city, section) => `ac_${state}_${city}_${section}`;
-export const ALL_SUBMISSIONS_KEY = "ac_all_submissions";
+// ── Date formatters ──────────────────────────────────────────
+// For DB timestamps (created_at, interview_date)
+export const fmtDate = d =>
+  d ? new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "";
 
-export function loadPosts(stateSlug, citySlug, section) {
-  try { return JSON.parse(localStorage.getItem(storageKey(stateSlug, citySlug, section)) || "[]"); }
-  catch { return []; }
-}
+// For date-only strings (event_date) — adds T00:00:00 to avoid timezone shift
+export const fmtEventDate = d =>
+  d ? new Date(d + "T00:00:00").toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) : "";
 
-export function savePost(stateSlug, citySlug, section, post, autoApprove = false) {
-  // Save to section-specific store
-  const key = storageKey(stateSlug, citySlug, section);
-  const existing = loadPosts(stateSlug, citySlug, section);
-  const newPost = { ...post, id: Date.now(), createdAt: formatDate(), status: autoApprove ? "approved" : "pending", stateSlug, citySlug, section };
-  localStorage.setItem(key, JSON.stringify([newPost, ...existing]));
-
-  // Also save to global admin store
-  const all = loadAllSubmissions();
-  localStorage.setItem(ALL_SUBMISSIONS_KEY, JSON.stringify([newPost, ...all]));
-  return newPost;
-}
-
-export function loadAllSubmissions() {
-  try { return JSON.parse(localStorage.getItem(ALL_SUBMISSIONS_KEY) || "[]"); }
-  catch { return []; }
-}
-
-export function updateSubmissionStatus(id, status) {
-  const all = loadAllSubmissions().map(s => s.id === id ? { ...s, status } : s);
-  localStorage.setItem(ALL_SUBMISSIONS_KEY, JSON.stringify(all));
-
-  // Update in section store too
-  const updated = all.find(s => s.id === id);
-  if (updated) {
-    const key = storageKey(updated.stateSlug, updated.citySlug, updated.section);
-    const sectionPosts = JSON.parse(localStorage.getItem(key) || "[]").map(s => s.id === id ? { ...s, status } : s);
-    localStorage.setItem(key, JSON.stringify(sectionPosts));
-  }
-}
-
-export function formatDate() {
-  return new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+// ── Event urgency badge ──────────────────────────────────────
+export function daysUntilBadge(dateStr) {
+  const diff = Math.ceil((new Date(dateStr + "T00:00:00") - new Date().setHours(0, 0, 0, 0)) / 86400000);
+  if (diff === 0) return { label: "Today",    color: "#ef4444" };
+  if (diff === 1) return { label: "Tomorrow", color: "#f59e0b" };
+  if (diff <= 7)  return { label: `${diff}d`, color: "#f59e0b" };
+  return { label: `${diff}d`, color: "#10b981" };
 }
 
 // ── Toast ────────────────────────────────────────────────────
@@ -83,7 +57,7 @@ export function Toast({ msg }) {
   return <div style={{ position:"fixed", bottom:"2rem", right:"2rem", background:"#111", color:"#fff", padding:"12px 20px", borderRadius:10, fontSize:14, fontWeight:600, zIndex:9999 }}>{msg}</div>;
 }
 
-// ── Shared card list renderer ────────────────────────────────
+// ── Section header + content wrapper ────────────────────────
 export function SectionWrapper({ title, icon, description, children }) {
   return (
     <div>

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Homemade\\\\apnacircle\\\\apnacircle\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Homemade\\\\apnacircle\\\\apnacircle\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "Bash(npm run *)",
+      "WebSearch"
+    ]
+  }
+}

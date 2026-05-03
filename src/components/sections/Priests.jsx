@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { f, savePost, useToast, Toast } from "../formHelpers";
+import { f, useToast, Toast } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
+import { submitListing } from "../../lib/db";
 
 export default function Priests({ stateSlug, citySlug }) {
   return (
@@ -10,12 +11,12 @@ export default function Priests({ stateSlug, citySlug }) {
       FormFields={PriestForm}
       renderCard={item => (
         <>
-          <div style={{ display:"flex", justifyContent:"space-between", marginBottom:4 }}>
+          <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
             <span style={f.postAuthor}>{item.name}</span>
+            {item.services && <span style={f.sub}>{item.services}</span>}
+            {item.phone    && <span style={f.sub}>📞 {item.phone}</span>}
           </div>
-          {item.services && <span style={f.tag}>{item.services}</span>}
-          {item.phone    && <p style={f.sub}>📞 {item.phone}</p>}
-          {item.notes    && <p style={{ ...f.text, marginTop:8 }}>{item.notes}</p>}
+          {item.notes && <p style={f.text}>{item.notes}</p>}
         </>
       )}
     />
@@ -26,11 +27,24 @@ function PriestForm({ stateSlug, citySlug, section, onDone }) {
   const [form, setForm] = useState({ name:"", phone:"", services:"", notes:"", submittedBy:"" });
   const { msg, show } = useToast();
   const set = k => e => setForm(p => ({...p,[k]:e.target.value}));
-  const submit = () => {
+
+  const submit = async () => {
     if (!form.name) { show("Name is required."); return; }
-    savePost(stateSlug, citySlug, section, form, false);
-    show("✓ Submitted for review!"); setTimeout(onDone, 1500);
+    const ok = await submitListing(section, stateSlug, citySlug, {
+      name:         form.name,
+      phone:        form.phone       || null,
+      services:     form.services    || null,
+      notes:        form.notes       || null,
+      submitted_by: form.submittedBy || null,
+    });
+    if (ok) {
+      show("✓ Submitted for review!");
+      setTimeout(onDone, 1500);
+    } else {
+      show("Error submitting. Please try again.");
+    }
   };
+
   return (
     <>
       <h3 style={f.sectionTitle}>Add a Priest / Religious Service</h3>

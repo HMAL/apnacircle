@@ -1,10 +1,24 @@
+import { useState, useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { getState, citySlug } from "../data/states";
+import { fetchStateBySlug } from "../lib/db";
+import { citySlug } from "../data/states";
 
 export default function StatePage() {
   const { stateSlug } = useParams();
-  const state = getState(stateSlug);
+  const [state, setState] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchStateBySlug(stateSlug).then(data => {
+      setState(data);
+      setLoading(false);
+    });
+  }, [stateSlug]);
+
+  if (loading) return null;
   if (!state) return <Navigate to="/" />;
+
+  const cities = state.cities || [];
 
   return (
     <div style={s.page}>
@@ -12,9 +26,9 @@ export default function StatePage() {
       <h1 style={s.title}><span style={{ fontSize:36 }}>{state.icon}</span> {state.name}</h1>
       <p style={s.sub}>Select a city to browse local jobs, housing, lawyers, temples, and more.</p>
       <div style={s.grid}>
-        {state.cities.map(city => (
-          <Link key={city} to={`/states/${stateSlug}/${citySlug(city)}`} style={s.card}>
-            <p style={s.cityName}>{city}</p>
+        {cities.map(city => (
+          <Link key={city.id} to={`/states/${stateSlug}/${citySlug(city.name)}`} style={s.card}>
+            <p style={s.cityName}>{city.name}</p>
             <p style={s.cityState}>{state.abbr}</p>
           </Link>
         ))}
@@ -24,7 +38,7 @@ export default function StatePage() {
 }
 
 const s = {
-  page: { maxWidth: 900, margin:"0 auto", padding:"1.5rem 1.5rem 3rem" },
+  page: { padding:"1.5rem 1.5rem 3rem" },
   back: { color:"var(--orange)", fontSize:13, fontWeight:600, display:"inline-block", marginBottom:10 },
   title: { fontSize:32, fontWeight:800, color:"#111", display:"flex", alignItems:"center", gap:12, marginBottom:8 },
   sub: { fontSize:14, color:"#555", marginBottom:"1.5rem" },

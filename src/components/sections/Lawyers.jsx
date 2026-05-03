@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { f, savePost, useToast, Toast } from "../formHelpers";
+import { f, useToast, Toast } from "../formHelpers";
 import { ListingSection } from "../ListingSection";
+import { submitListing } from "../../lib/db";
 
-// ── LAWYERS ──────────────────────────────────────────────────
 export default function Lawyers({ stateSlug, citySlug }) {
   return (
     <ListingSection stateSlug={stateSlug} citySlug={citySlug} section="lawyers"
@@ -11,14 +11,13 @@ export default function Lawyers({ stateSlug, citySlug }) {
       FormFields={LawyerForm}
       renderCard={item => (
         <>
-          <div style={{ display:"flex", justifyContent:"space-between", marginBottom:4 }}>
-            <span style={f.postAuthor}>{item.firmName}</span>
-            <span style={f.postDate}>{item.createdAt || ""}</span>
+          <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
+            <span style={f.postAuthor}>{item.firm_name}</span>
+            {item.phone   && <span style={f.sub}>📞 {item.phone}</span>}
+            {item.address && <span style={f.sub}>📍 {item.address}</span>}
+            {item.website && <span style={f.sub}>🌐 <a href={item.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{item.website}</a></span>}
           </div>
-          {item.phone   && <p style={f.sub}>📞 {item.phone}</p>}
-          {item.address && <p style={f.sub}>📍 {item.address}</p>}
-          {item.website && <p style={f.sub}>🌐 <a href={item.website} target="_blank" rel="noreferrer" style={{ color:"var(--orange)" }}>{item.website}</a></p>}
-          {item.notes   && <p style={{ ...f.text, marginTop:8 }}>{item.notes}</p>}
+          {item.notes && <p style={f.text}>{item.notes}</p>}
         </>
       )}
     />
@@ -29,11 +28,25 @@ function LawyerForm({ stateSlug, citySlug, section, onDone }) {
   const [form, setForm] = useState({ firmName:"", phone:"", address:"", website:"", notes:"", submittedBy:"" });
   const { msg, show } = useToast();
   const set = k => e => setForm(p => ({...p,[k]:e.target.value}));
-  const submit = () => {
+
+  const submit = async () => {
     if (!form.firmName || !form.notes) { show("Firm name and notes are required."); return; }
-    savePost(stateSlug, citySlug, section, form, false);
-    show("✓ Submitted for review!"); setTimeout(onDone, 1500);
+    const ok = await submitListing(section, stateSlug, citySlug, {
+      firm_name:    form.firmName,
+      phone:        form.phone       || null,
+      address:      form.address     || null,
+      website:      form.website     || null,
+      notes:        form.notes,
+      submitted_by: form.submittedBy || null,
+    });
+    if (ok) {
+      show("✓ Submitted for review!");
+      setTimeout(onDone, 1500);
+    } else {
+      show("Error submitting. Please try again.");
+    }
   };
+
   return (
     <>
       <h3 style={f.sectionTitle}>Recommend a Lawyer</h3>
