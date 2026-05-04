@@ -5,9 +5,9 @@ import { fetchStates, fetchAllEvents } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useAds } from "../lib/AdsContext";
 import { useIsMobile } from "../lib/useIsMobile";
-import { ScrollTabBar } from "../components/ScrollTabBar";
+import ResourceNav, { MobileResourceNav } from "../components/ResourceNav";
 import { fmtEventDate, daysUntilBadge, MapLink } from "../components/formHelpers";
-import { getCountrySlug, getFormsResource, getVisaStartPath } from "../lib/country";
+import { getCountrySlug } from "../lib/country";
 
 export default function HomePage() {
   const [states, setStates] = useState([]);
@@ -15,15 +15,6 @@ export default function HomePage() {
   const { ads } = useAds();
   const isMobile = useIsMobile();
   const regionLabel = getCountrySlug() === "ca" ? "Province" : "State";
-  const formsResource = getFormsResource();
-  const leftNav = [
-    { icon: "📅", label: "Events",              to: "#events" },
-    { icon: "🪪", label: "Visa Experiences",    to: getVisaStartPath() },
-    { icon: "💡", label: "Immigration Tips",     to: "/immigration" },
-    { icon: "📋", label: `${formsResource.label} Tips`, to: "/ds160" },
-    { icon: "⚖️",  label: "Immigration Lawyers", to: "/lawyers" },
-    { icon: "🏥", label: "Health & Wellness",    to: "/health" },
-  ].sort((a, b) => a.label.localeCompare(b.label));
 
   useEffect(() => {
     fetchStates().then(setStates);
@@ -35,8 +26,22 @@ export default function HomePage() {
       <Helmet>
         <title>Apnacircle — Free Community Hub for Immigrants in the US & Canada</title>
         <meta name="description" content="Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees." />
-        <meta name="keywords" content="immigrant community, visa experiences, immigration help, Indian community USA, desi community, H1B tips, F1 visa, immigration lawyers" />
+        <meta name="keywords" content="immigrant community, visa experiences, immigration help, Indian community USA, Pakistani community, Korean community, Chinese immigrant community, Japanese community, Sri Lankan community, Mexican immigrant community, desi community, H1B tips, F1 visa, immigration lawyers, South Asian community, Asian immigrant" />
         <link rel="canonical" href="https://apnacircle.org/" />
+        <link rel="alternate" hreflang="en" href="https://apnacircle.org/" />
+        <link rel="alternate" hreflang="x-default" href="https://apnacircle.org/" />
+        <meta property="og:title" content="Apnacircle — Free Community Hub for Immigrants in the US & Canada" />
+        <meta property="og:description" content="Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees." />
+        <meta property="og:url" content="https://apnacircle.org/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Apnacircle" />
+        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://apnacircle.org/og-image.svg" />
+        <script type="application/ld+json">{JSON.stringify([
+          { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":"https://apnacircle.org","logo":"https://apnacircle.org/favicon.svg","description":"Free community hub for immigrants in the US & Canada" },
+          { "@context":"https://schema.org","@type":"WebSite","url":"https://apnacircle.org","name":"Apnacircle" }
+        ])}</script>
       </Helmet>
       {/* Hero */}
       <div style={s.hero}>
@@ -45,27 +50,14 @@ export default function HomePage() {
 
       {/* mobile quick-nav */}
       {isMobile && (
-        <ScrollTabBar style={{ padding:"0 1rem 0.75rem", borderBottom:"0.5px solid var(--border)" }}>
-          {leftNav.map(item => (
-            item.to.startsWith("#")
-              ? <a key={item.to} href={item.to} style={s.mobileNavItem}>{item.icon}<span style={s.mobileNavLabel}>{item.label}</span></a>
-              : <Link key={item.to} to={item.to} style={s.mobileNavItem}>{item.icon}<span style={s.mobileNavLabel}>{item.label}</span></Link>
-          ))}
-        </ScrollTabBar>
+        <MobileResourceNav style={{ padding:"0 1rem 0.75rem", borderBottom:"0.5px solid var(--border)" }} />
       )}
 
       {/* body */}
       <div style={{ ...s.body, flexDirection: isMobile ? "column" : "row" }}>
         {/* Left nav — desktop only */}
         {!isMobile && (
-          <aside style={s.leftNav}>
-            <p style={s.navLabel}>Resources</p>
-            {leftNav.map(item => (
-              item.to.startsWith("#")
-                ? <a key={item.to} href={item.to} style={s.navLink}><span>{item.icon}</span> {item.label}</a>
-                : <Link key={item.to} to={item.to} style={s.navLink}><span>{item.icon}</span> {item.label}</Link>
-            ))}
-          </aside>
+          <ResourceNav />
         )}
 
         {/* Center */}
@@ -77,7 +69,7 @@ export default function HomePage() {
           </div>
 
           {/* Upcoming events */}
-          <div id="events" style={{ marginTop: 32 }}>
+          <div id="events" style={s.eventsSection}>
             <p style={s.sectionLabel}>📅 Upcoming Events</p>
             {events.length > 0 ? (
               <div style={s.eventList}>
@@ -148,9 +140,6 @@ const s = {
   hero:         { textAlign: "center", padding: "2rem 1rem 1.25rem" },
   sub:          { color: "#555", fontSize: "clamp(10px, 1.1vw, 14px)", whiteSpace: "nowrap", margin: "0 auto" },
   body:         { padding: "0 1.5rem 2rem", display: "flex", gap: 24, alignItems: "flex-start" },
-  leftNav:      { width: 180, flexShrink: 0, background: "#fff", border: "0.5px solid var(--border)", borderRadius: "var(--radius)", padding: "1rem", position: "sticky", top: 72 },
-  navLabel:     { fontSize: 11, fontWeight: 700, color: "#aaa", textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 10 },
-  navLink:      { display: "flex", alignItems: "center", gap: 8, padding: "9px 10px", fontSize: 13, fontWeight: 600, color: "#444", borderRadius: 8, marginBottom: 2, textDecoration: "none" },
   center:       { flex: 1, minWidth: 0 },
   rail:         { width: 260, flexShrink: 0, display: "flex", flexDirection: "column", gap: 16, position: "sticky", top: 72 },
   sectionLabel: { fontSize: 13, fontWeight: 700, color: "#666", marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 },
@@ -160,12 +149,11 @@ const s = {
   stateName:    { fontSize: 14, fontWeight: 700, color: "var(--orange)", marginTop: 6 },
   stateAbbr:    { fontSize: 11, color: "var(--muted)", fontWeight: 600 },
   eventList:    { display: "flex", flexDirection: "column", gap: 10 },
+  eventsSection:{ marginTop: 32, scrollMarginTop: 72 },
   eventCard:    { background: "#fff", border: "0.5px solid var(--border)", borderRadius: 10, padding: "12px 16px" },
   eventName:    { fontSize: 14, fontWeight: 700, color: "#111" },
   eventMeta:    { fontSize: 12, color: "var(--muted)" },
   eventText:    { fontSize: 14, color: "#333", lineHeight: 1.6, marginTop: 4 },
   ticketLink:   { display: "inline-block", marginTop: 8, fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none" },
-  mobileNavItem:{ display:"flex", flexDirection:"column", alignItems:"center", gap:3, padding:"6px 12px", flexShrink:0, textDecoration:"none", color:"#444" },
-  mobileNavLabel:{ fontSize:10, fontWeight:700, whiteSpace:"nowrap" },
   footer:       { textAlign: "center", padding: "1.5rem", borderTop: "0.5px solid var(--border)", color: "#aaa", fontSize: 13, background: "#fff", marginTop: "1rem" },
 };

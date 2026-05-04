@@ -21,6 +21,7 @@ const citySlug = name => name.toLowerCase().replace(/\s+/g, "-");
 
 const BASE = "https://apnacircle.org";
 const today = new Date().toISOString().split("T")[0];
+const publicUrl = path => `${BASE}${path === "/" ? "/" : `${path}/`}`;
 
 const staticPages = [
   { url: "/",            priority: "1.0", changefreq: "daily" },
@@ -38,7 +39,7 @@ const urls = [];
 
 for (const { url, priority, changefreq } of staticPages) {
   urls.push(`  <url>
-    <loc>${BASE}${url}</loc>
+    <loc>${publicUrl(url)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
@@ -47,7 +48,7 @@ for (const { url, priority, changefreq } of staticPages) {
 
 for (const state of STATES) {
   urls.push(`  <url>
-    <loc>${BASE}/states/${state.slug}</loc>
+    <loc>${publicUrl(`/states/${state.slug}`)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -55,7 +56,7 @@ for (const state of STATES) {
 
   for (const city of state.cities) {
     urls.push(`  <url>
-    <loc>${BASE}/states/${state.slug}/${citySlug(city)}</loc>
+    <loc>${publicUrl(`/states/${state.slug}/${citySlug(city)}`)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>

@@ -6,6 +6,7 @@ import { fetchTips, getSubmitError, submitTip } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
 import { getCountryName } from "../lib/country";
+import ResourceNav from "../components/ResourceNav";
 
 const CATEGORIES = [
   "Doctors & Specialists",
@@ -37,8 +38,16 @@ export default function HealthWellnessPage() {
       <Helmet>
         <title>Health & Wellness Tips for Immigrants — {countryName} | Apnacircle</title>
         <meta name="description" content={`Community health tips for immigrants in ${countryName} — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.`} />
-        <link rel="canonical" href="https://apnacircle.org/health" />
+        <link rel="canonical" href="https://apnacircle.org/health/" />
+        <meta property="og:title" content={`Health & Wellness Tips for Immigrants — ${countryName} | Apnacircle`} />
+        <meta property="og:description" content={`Community health tips for immigrants in ${countryName} — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.`} />
+        <meta property="og:url" content="https://apnacircle.org/health/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Apnacircle" />
+        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+      {!isMobile && <ResourceNav />}
       <div style={s.content}>
         <Link to="/" style={s.back}>← Home</Link>
         <div style={s.header}>

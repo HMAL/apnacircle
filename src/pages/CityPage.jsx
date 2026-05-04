@@ -72,9 +72,21 @@ export default function CityPage() {
   return (
     <div style={s.page}>
       <Helmet>
-        <title>Indian Community in {cityName}, {state.abbr} — Jobs, Housing, Doctors | Apnacircle</title>
-        <meta name="description" content={`Free immigrant community resources in ${cityName}, ${state.name} — local jobs, accommodation, immigration lawyers, doctors, temples, tutors, events and more.`} />
-        <link rel="canonical" href={`https://apnacircle.org/states/${stateSlug}/${citySlugParam}`} />
+        <title>Immigrant Community in {cityName}, {state.abbr} — Jobs, Housing, Doctors | Apnacircle</title>
+        <meta name="description" content={`Free community resources for Indian, Pakistani, Korean, Chinese, Japanese, Sri Lankan, and Mexican immigrants in ${cityName}, ${state.name} — local jobs, accommodation, lawyers, doctors, temples, events and more.`} />
+        <link rel="canonical" href={`https://apnacircle.org/states/${stateSlug}/${citySlugParam}/`} />
+        <meta property="og:title" content={`Immigrant Community in ${cityName}, ${state.abbr} — Jobs, Housing, Doctors | Apnacircle`} />
+        <meta property="og:description" content={`Free community resources for Indian, Pakistani, Korean, Chinese, Japanese, Sri Lankan, and Mexican immigrants in ${cityName}, ${state.name} — local jobs, accommodation, lawyers, doctors, temples, events and more.`} />
+        <meta property="og:url" content={`https://apnacircle.org/states/${stateSlug}/${citySlugParam}/`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Apnacircle" />
+        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">{JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://apnacircle.org"},
+          {"@type":"ListItem","position":2,"name":state.name,"item":`https://apnacircle.org/states/${stateSlug}`},
+          {"@type":"ListItem","position":3,"name":cityName,"item":`https://apnacircle.org/states/${stateSlug}/${citySlugParam}`}
+        ]})}</script>
       </Helmet>
       <Link to={`/states/${stateSlug}`} style={s.back}>← {state.name}</Link>
       <h1 style={s.title}>{cityName}, {state.abbr}</h1>

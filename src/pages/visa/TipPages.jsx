@@ -6,8 +6,9 @@ import { fetchTips, getSubmitError, submitTip } from "../../lib/db";
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
 import { getCountryName, getFormsResource } from "../../lib/country";
+import ResourceNav from "../../components/ResourceNav";
 
-export function ImmigrationPage() {
+export function ImmigrationPage({ embedded = false }) {
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
@@ -21,54 +22,68 @@ export function ImmigrationPage() {
     ? posts.filter(p => [p.tip, p.name, p.port_of_entry].some(v => v?.toLowerCase().includes(search.toLowerCase())))
     : posts;
 
+  const inner = (
+    <>
+      <div style={{ ...s.header, flexWrap:"wrap" }}>
+        <span style={{ fontSize:32 }}>💡</span>
+        <div style={{ flex:1 }}>
+          <h1 style={s.title}>Immigration Experiences</h1>
+          <p style={s.desc}>General advice shared by the community to help navigate the {countryName} immigration process.</p>
+        </div>
+        <button style={s.addBtn} onClick={() => setShowForm(v => !v)}>
+          {showForm ? "✕ Cancel" : "+ Your Immigration Experience"}
+        </button>
+      </div>
+      {showForm && (
+        <div style={s.card}>
+          <ImmigrationForm onSubmit={() => { setShowForm(false); reload(); }} />
+        </div>
+      )}
+      <div style={s.card}>
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14, flexWrap:"wrap", gap:10 }}>
+          <h3 style={{ fontSize:16, fontWeight:700, margin:0 }}>Community Experiences</h3>
+          <input style={{ ...f.input, width:220, margin:0 }} placeholder="Search experiences..." value={search} onChange={e => setSearch(e.target.value)} />
+        </div>
+        {filtered.length > 0 ? (
+          filtered.map(p => (
+            <div key={p.id} style={f.card}>
+              <div style={f.postMeta}>
+                <span style={f.postAuthor}>{p.name || "Anonymous"}</span>
+                <span style={f.postDate}>{fmtDate(p.created_at)}</span>
+              </div>
+              {p.port_of_entry && <p style={f.sub}>✈️ Port of Entry: {p.port_of_entry}</p>}
+              <p style={f.text}>{p.tip}</p>
+            </div>
+          ))
+        ) : (
+          <p style={s.empty}>
+            {search ? `No results for "${search}".` : "Be the first to share your immigration experience!"}
+          </p>
+        )}
+      </div>
+    </>
+  );
+
+  if (embedded) return <div style={{ flex: 1, minWidth: 0 }}>{inner}</div>;
+
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
       <Helmet>
         <title>Immigration Tips for {countryName} — Community Advice | Apnacircle</title>
         <meta name="description" content={`Practical immigration tips shared by the immigrant community in ${countryName} — green card, work authorization, status changes, travel and more.`} />
-        <link rel="canonical" href="https://apnacircle.org/immigration" />
+        <link rel="canonical" href="https://apnacircle.org/immigration/" />
+        <meta property="og:title" content={`Immigration Tips for ${countryName} — Community Advice | Apnacircle`} />
+        <meta property="og:description" content={`Practical immigration tips shared by the immigrant community in ${countryName} — green card, work authorization, status changes, travel and more.`} />
+        <meta property="og:url" content="https://apnacircle.org/immigration/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Apnacircle" />
+        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+      {!isMobile && <ResourceNav />}
       <div style={s.content}>
         <Link to="/" style={s.back}>← Home</Link>
-        <div style={{ ...s.header, flexWrap:"wrap" }}>
-          <span style={{ fontSize:32 }}>💡</span>
-          <div style={{ flex:1 }}>
-            <h1 style={s.title}>Immigration Experiences</h1>
-            <p style={s.desc}>General advice shared by the community to help navigate the {countryName} immigration process.</p>
-          </div>
-          <button style={s.addBtn} onClick={() => setShowForm(v => !v)}>
-            {showForm ? "✕ Cancel" : "+ Your Immigration Experience"}
-          </button>
-        </div>
-
-        {showForm && (
-          <div style={s.card}>
-            <ImmigrationForm onSubmit={() => { setShowForm(false); reload(); }} />
-          </div>
-        )}
-
-        <div style={s.card}>
-          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14, flexWrap:"wrap", gap:10 }}>
-            <h3 style={{ fontSize:16, fontWeight:700, margin:0 }}>Community Experiences</h3>
-            <input style={{ ...f.input, width:220, margin:0 }} placeholder="Search experiences..." value={search} onChange={e => setSearch(e.target.value)} />
-          </div>
-          {filtered.length > 0 ? (
-            filtered.map(p => (
-              <div key={p.id} style={f.card}>
-                <div style={f.postMeta}>
-                  <span style={f.postAuthor}>{p.name || "Anonymous"}</span>
-                  <span style={f.postDate}>{fmtDate(p.created_at)}</span>
-                </div>
-                {p.port_of_entry && <p style={f.sub}>✈️ Port of Entry: {p.port_of_entry}</p>}
-                <p style={f.text}>{p.tip}</p>
-              </div>
-            ))
-          ) : (
-            <p style={s.empty}>
-              {search ? `No results for "${search}".` : "Be the first to share your immigration experience!"}
-            </p>
-          )}
-        </div>
+        {inner}
       </div>
       {!isMobile && (
         <aside style={s.rail}>
@@ -122,7 +137,7 @@ function ImmigrationForm({ onSubmit }) {
   );
 }
 
-export function DS160Page() {
+export function DS160Page({ embedded = false }) {
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const isMobile = useIsMobile();
@@ -131,48 +146,62 @@ export function DS160Page() {
   const reload = () => fetchTips("ds160_tips").then(setPosts);
   useEffect(() => { reload(); }, []);
 
+  const inner = (
+    <>
+      <div style={{ ...s.header, flexWrap:"wrap" }}>
+        <span style={{ fontSize:32 }}>📋</span>
+        <div style={{ flex:1 }}>
+          <h1 style={s.title}>{formsResource.title}</h1>
+          <p style={s.desc}>{formsResource.description}</p>
+        </div>
+        <button style={s.addBtn} onClick={() => setShowForm(v => !v)}>
+          {showForm ? "✕ Cancel" : formsResource.addLabel}
+        </button>
+      </div>
+      {showForm && (
+        <div style={s.card}>
+          <DS160Form formsResource={formsResource} onSubmit={() => { setShowForm(false); reload(); }} />
+        </div>
+      )}
+      <div style={s.card}>
+        <h3 style={{ fontSize:16, fontWeight:700, marginBottom:14 }}>Community Tips</h3>
+        {posts.length > 0 ? (
+          posts.map(p => (
+            <div key={p.id} style={f.card}>
+              <div style={f.postMeta}>
+                <span style={f.postAuthor}>{p.name || "Anonymous"}</span>
+                <span style={f.postDate}>{fmtDate(p.created_at)}</span>
+              </div>
+              <p style={f.text}>{p.tip}</p>
+            </div>
+          ))
+        ) : (
+          <p style={s.empty}>{formsResource.empty}</p>
+        )}
+      </div>
+    </>
+  );
+
+  if (embedded) return <div style={{ flex: 1, minWidth: 0 }}>{inner}</div>;
+
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
       <Helmet>
         <title>{formsResource.label} Tips — Community Guide | Apnacircle</title>
         <meta name="description" content={`Tips and guidance on filling out ${formsResource.label} forms — shared by immigrants who've been through the process.`} />
-        <link rel="canonical" href="https://apnacircle.org/ds160" />
+        <link rel="canonical" href="https://apnacircle.org/ds160/" />
+        <meta property="og:title" content={`${formsResource.label} Tips — Community Guide | Apnacircle`} />
+        <meta property="og:description" content={`Tips and guidance on filling out ${formsResource.label} forms — shared by immigrants who've been through the process.`} />
+        <meta property="og:url" content="https://apnacircle.org/ds160/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Apnacircle" />
+        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+      {!isMobile && <ResourceNav />}
       <div style={s.content}>
         <Link to="/" style={s.back}>← Home</Link>
-        <div style={{ ...s.header, flexWrap:"wrap" }}>
-          <span style={{ fontSize:32 }}>📋</span>
-          <div style={{ flex:1 }}>
-            <h1 style={s.title}>{formsResource.title}</h1>
-            <p style={s.desc}>{formsResource.description}</p>
-          </div>
-          <button style={s.addBtn} onClick={() => setShowForm(v => !v)}>
-            {showForm ? "✕ Cancel" : formsResource.addLabel}
-          </button>
-        </div>
-
-        {showForm && (
-          <div style={s.card}>
-            <DS160Form formsResource={formsResource} onSubmit={() => { setShowForm(false); reload(); }} />
-          </div>
-        )}
-
-        <div style={s.card}>
-          <h3 style={{ fontSize:16, fontWeight:700, marginBottom:14 }}>Community Tips</h3>
-          {posts.length > 0 ? (
-            posts.map(p => (
-              <div key={p.id} style={f.card}>
-                <div style={f.postMeta}>
-                  <span style={f.postAuthor}>{p.name || "Anonymous"}</span>
-                  <span style={f.postDate}>{fmtDate(p.created_at)}</span>
-                </div>
-                <p style={f.text}>{p.tip}</p>
-              </div>
-            ))
-          ) : (
-            <p style={s.empty}>{formsResource.empty}</p>
-          )}
-        </div>
+        {inner}
       </div>
       {!isMobile && (
         <aside style={s.rail}>

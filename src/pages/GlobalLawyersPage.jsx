@@ -6,6 +6,7 @@ import { fetchAllLawyers } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
 import { getCountryName } from "../lib/country";
+import ResourceNav from "../components/ResourceNav";
 
 export default function GlobalLawyersPage() {
   const [lawyers, setLawyers] = useState([]);
@@ -48,8 +49,16 @@ export default function GlobalLawyersPage() {
       <Helmet>
         <title>Immigration Lawyers — Community Recommended | Apnacircle</title>
         <meta name="description" content="Find community-recommended immigration lawyers across the US and Canada — vetted by immigrants, for immigrants. Specializing in H-1B, green card, family visa and more." />
-        <link rel="canonical" href="https://apnacircle.org/lawyers" />
+        <link rel="canonical" href="https://apnacircle.org/lawyers/" />
+        <meta property="og:title" content="Immigration Lawyers — Community Recommended | Apnacircle" />
+        <meta property="og:description" content="Find community-recommended immigration lawyers across the US and Canada — vetted by immigrants, for immigrants. Specializing in H-1B, green card, family visa and more." />
+        <meta property="og:url" content="https://apnacircle.org/lawyers/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Apnacircle" />
+        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+      {!isMobile && <ResourceNav />}
       <div style={s.content}>
         <Link to="/" style={s.back}>Home</Link>
         <div style={s.header}>

@@ -13,12 +13,14 @@ import GlobalLawyersPage from "./pages/GlobalLawyersPage";
 import ContactPage from "./pages/ContactPage";
 import { AdsProvider } from "./lib/AdsContext";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import HashScroller from "./components/HashScroller";
 
 export default function App() {
   return (
     <AdsProvider>
       <GoogleAnalytics />
       <Navbar />
+      <HashScroller />
       <Routes>
         <Route path="/"                            element={<HomePage />} />
         <Route path="/states/:stateSlug"           element={<StatePage />} />

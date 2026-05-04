@@ -22,44 +22,56 @@ const STATES = [
 
 const citySlug = name => name.toLowerCase().replace(/\s+/g, "-");
 const BASE = "https://apnacircle.org";
+const publicUrl = url => `${BASE}${url === "/" ? "/" : `${url}/`}`;
+
+const OG_IMAGE = `${BASE}/og-image.svg`;
 
 function metaForRoute(url) {
+  const og = (title, desc, ld) => ({ title, desc, ld });
+
   if (url === "/") return {
-    title: "Apnacircle — Free Community Hub for Immigrants in the US & Canada",
-    desc:  "Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees.",
+    ...og(
+      "Apnacircle — Free Community Hub for Immigrants in the US & Canada",
+      "Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees.",
+      JSON.stringify([
+        { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":BASE,"logo":`${BASE}/favicon.svg`,"description":"Free community hub for immigrants in the US & Canada" },
+        { "@context":"https://schema.org","@type":"WebSite","url":BASE,"name":"Apnacircle" },
+      ]),
+    ),
+    hreflang: true,
   };
-  if (url === "/immigration") return {
-    title: "Immigration Tips for United States — Community Advice | Apnacircle",
-    desc:  "Practical immigration tips shared by the immigrant community — green card, work authorization, status changes, travel and more.",
-  };
-  if (url === "/ds160") return {
-    title: "DS-160 Tips — Community Guide | Apnacircle",
-    desc:  "Tips and guidance on filling out DS-160 forms shared by immigrants who've been through the process.",
-  };
-  if (url === "/health") return {
-    title: "Health & Wellness Tips for Immigrants — United States | Apnacircle",
-    desc:  "Community health tips for immigrants — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.",
-  };
-  if (url === "/lawyers") return {
-    title: "Immigration Lawyers — Community Recommended | Apnacircle",
-    desc:  "Find community-recommended immigration lawyers across the US and Canada — vetted by immigrants, for immigrants.",
-  };
-  if (url === "/contact") return {
-    title: "Contact Apnacircle — Get in Touch",
-    desc:  "Send a message to the Apnacircle team. We're here to help the immigrant community.",
-  };
-  if (url === "/visa/h1b") return {
-    title: "H-1B Visa Interview Experiences — Community Stories | Apnacircle",
-    desc:  "Real H-1B visa interview experiences shared by immigrants. Tips, consulate reviews and approval stories.",
-  };
-  if (url === "/visa/f1") return {
-    title: "F-1 Student Visa Interview Experiences | Apnacircle",
-    desc:  "Real F-1 student visa interview experiences shared by immigrants. Tips and approval stories.",
-  };
-  if (url === "/visa/b1b2") return {
-    title: "B-1/B-2 Visitor Visa Interview Experiences | Apnacircle",
-    desc:  "Real B-1/B-2 visitor visa interview experiences shared by immigrants.",
-  };
+  if (url === "/immigration") return og(
+    "Immigration Tips for United States — Community Advice | Apnacircle",
+    "Practical immigration tips shared by the immigrant community — green card, work authorization, status changes, travel and more.",
+  );
+  if (url === "/ds160") return og(
+    "DS-160 Tips — Community Guide | Apnacircle",
+    "Tips and guidance on filling out DS-160 forms shared by immigrants who've been through the process.",
+  );
+  if (url === "/health") return og(
+    "Health & Wellness Tips for Immigrants — United States | Apnacircle",
+    "Community health tips for immigrants — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.",
+  );
+  if (url === "/lawyers") return og(
+    "Immigration Lawyers — Community Recommended | Apnacircle",
+    "Find community-recommended immigration lawyers across the US and Canada — vetted by immigrants, for immigrants.",
+  );
+  if (url === "/contact") return og(
+    "Contact Apnacircle — Get in Touch",
+    "Send a message to the Apnacircle team. We're here to help the immigrant community.",
+  );
+  if (url === "/visa/h1b") return og(
+    "H-1B Visa Interview Experiences — Community Stories | Apnacircle",
+    "Real H-1B visa interview experiences shared by immigrants. Tips, consulate reviews and approval stories.",
+  );
+  if (url === "/visa/f1") return og(
+    "F-1 Student Visa Interview Experiences | Apnacircle",
+    "Real F-1 student visa interview experiences shared by immigrants. Tips and approval stories.",
+  );
+  if (url === "/visa/b1b2") return og(
+    "B-1/B-2 Visitor Visa Interview Experiences | Apnacircle",
+    "Real B-1/B-2 visitor visa interview experiences shared by immigrants.",
+  );
 
   const parts = url.split("/").filter(Boolean);
   if (parts[0] === "states" && parts[1]) {
@@ -69,15 +81,24 @@ function metaForRoute(url) {
     if (parts[2]) {
       const city = state.cities.find(c => citySlug(c) === parts[2]);
       if (!city) return null;
-      return {
-        title: `Indian Community in ${city}, ${state.abbr} — Jobs, Housing, Doctors | Apnacircle`,
-        desc:  `Free immigrant community resources in ${city}, ${state.name} — local jobs, accommodation, immigration lawyers, doctors, temples, tutors, events and more.`,
-      };
+      return og(
+        `Immigrant Community in ${city}, ${state.abbr} — Jobs, Housing, Doctors | Apnacircle`,
+        `Free community resources for Indian, Pakistani, Korean, Chinese, Japanese, Sri Lankan, and Mexican immigrants in ${city}, ${state.name} — local jobs, accommodation, lawyers, doctors, temples, events and more.`,
+        JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":BASE},
+          {"@type":"ListItem","position":2,"name":state.name,"item":publicUrl(`/states/${state.slug}`)},
+          {"@type":"ListItem","position":3,"name":city,"item":publicUrl(`/states/${state.slug}/${citySlug(city)}`)},
+        ]}),
+      );
     }
-    return {
-      title: `Immigrant Community in ${state.name} — Jobs, Housing, Events | Apnacircle`,
-      desc:  `Find local Indian and immigrant community resources in ${state.name} — visa help, lawyers, jobs, accommodation, doctors, events and more.`,
-    };
+    return og(
+      `Immigrant Community in ${state.name} — Jobs, Housing, Events | Apnacircle`,
+      `Find local immigrant community resources in ${state.name} for Indians, Pakistanis, Koreans, Chinese, Japanese, Sri Lankans, and Mexicans — visa help, lawyers, jobs, accommodation, doctors, events and more.`,
+      JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":BASE},
+        {"@type":"ListItem","position":2,"name":state.name,"item":publicUrl(`/states/${state.slug}`)},
+      ]}),
+    );
   }
   return null;
 }
@@ -103,11 +124,25 @@ for (const url of routes) {
   try {
     const { html } = render(url);
     const meta = metaForRoute(url);
+    const canonical = publicUrl(url);
 
     const headTags = meta ? [
       `<title>${meta.title}</title>`,
       `<meta name="description" content="${meta.desc}" />`,
-      `<link rel="canonical" href="${BASE}${url}" />`,
+      `<link rel="canonical" href="${canonical}" />`,
+      `<meta property="og:title" content="${meta.title}" />`,
+      `<meta property="og:description" content="${meta.desc}" />`,
+      `<meta property="og:url" content="${canonical}" />`,
+      `<meta property="og:type" content="website" />`,
+      `<meta property="og:site_name" content="Apnacircle" />`,
+      `<meta property="og:image" content="${OG_IMAGE}" />`,
+      `<meta name="twitter:card" content="summary_large_image" />`,
+      `<meta name="twitter:image" content="${OG_IMAGE}" />`,
+      ...(meta.hreflang ? [
+        `<link rel="alternate" hreflang="en" href="${canonical}" />`,
+        `<link rel="alternate" hreflang="x-default" href="${canonical}" />`,
+      ] : []),
+      ...(meta.ld ? [`<script type="application/ld+json">${meta.ld}</script>`] : []),
     ].join("\n    ") : "";
 
     const page = template

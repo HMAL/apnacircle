@@ -6,6 +6,7 @@ import { fetchVisaExperiences, submitVisaExperience, fetchConsulates, getSubmitE
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
 import { getCountrySlug } from "../../lib/country";
+import ResourceNav from "../../components/ResourceNav";
 
 const US_VISA_TYPES = [
   { id: "h1b",  label: "H-1B",    icon: "💼", desc: "Specialty occupation, employer-sponsored work visa" },
@@ -26,15 +27,16 @@ const CA_VISA_TYPES = [
   { id: "other",         label: "Other",              icon: "🗂️", desc: "Spousal sponsorship, PR cards, citizenship, and other Canadian immigration topics" },
 ];
 
-export default function VisaPage() {
+export default function VisaPage({ embedded = false }) {
   const { type } = useParams();
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const [consulates, setConsulates] = useState([]);
   const [locationFilter, setLocationFilter] = useState("");
+  const [embeddedType, setEmbeddedType] = useState("h1b");
   const isMobile = useIsMobile();
   const visaTypes = getCountrySlug() === "ca" ? CA_VISA_TYPES : US_VISA_TYPES;
-  const activeVisa = visaTypes.find(v => v.id === type) || visaTypes[0];
+  const activeVisa = visaTypes.find(v => v.id === (embedded ? embeddedType : type)) || visaTypes[0];
 
   useEffect(() => {
     fetchVisaExperiences(activeVisa.id).then(setPosts);
@@ -55,27 +57,29 @@ export default function VisaPage() {
     ? posts.filter(p => p.location === locationFilter)
     : posts;
 
-  return (
-    <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
-      <Helmet>
-        <title>US Visa Interview Experiences — H1B, F1, B1/B2 | Apnacircle</title>
-        <meta name="description" content="Real visa interview experiences shared by immigrants — H-1B, F-1, B-1/B-2, H-4, L-1 and more. Tips, consulate reviews and approval stories." />
-        <link rel="canonical" href="https://apnacircle.org/visa" />
-      </Helmet>
-      <div style={s.content}>
-        <Link to="/" style={s.back}>← Home</Link>
-        <h1 style={s.title}>Visa Interview Experiences</h1>
-        <p style={s.desc}>Community members share real interview experiences to help others prepare.</p>
+  const inner = (
+    <>
+      {!embedded && (
+        <>
+          <h1 style={s.title}>Visa Interview Experiences</h1>
+          <p style={s.desc}>Community members share real interview experiences to help others prepare.</p>
+        </>
+      )}
 
-        {/* Visa type tabs */}
-        <div style={s.tabs}>
-          {visaTypes.map(v => (
-            <Link key={v.id} to={`/visa/${v.id}`}
-              style={{ ...s.tab, ...(activeVisa.id === v.id ? s.tabActive : {}) }}>
-              {v.icon} {v.label}
-            </Link>
-          ))}
-        </div>
+      {/* Visa type tabs */}
+      <div style={s.tabs}>
+        {visaTypes.map(v => embedded ? (
+          <button key={v.id} onClick={() => setEmbeddedType(v.id)}
+            style={{ ...s.tab, ...(activeVisa.id === v.id ? s.tabActive : {}), border: "none", cursor: "pointer" }}>
+            {v.icon} {v.label}
+          </button>
+        ) : (
+          <Link key={v.id} to={`/visa/${v.id}`}
+            style={{ ...s.tab, ...(activeVisa.id === v.id ? s.tabActive : {}) }}>
+            {v.icon} {v.label}
+          </Link>
+        ))}
+      </div>
 
         {/* Active type header */}
         <div style={s.typeCard}>
@@ -136,9 +140,32 @@ export default function VisaPage() {
             </p>
           )}
         </div>
-      </div>
+    </>
+  );
 
-      {/* Right ad rail — desktop only */}
+  if (embedded) return <div style={{ flex: 1, minWidth: 0 }}>{inner}</div>;
+
+  return (
+    <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
+      <Helmet>
+        <title>US Visa Interview Experiences — H1B, F1, B1/B2 | Apnacircle</title>
+        <meta name="description" content="Real visa interview experiences shared by immigrants — H-1B, F-1, B-1/B-2, H-4, L-1 and more. Tips, consulate reviews and approval stories." />
+        <link rel="canonical" href={`https://apnacircle.org/visa/${activeVisa.id}/`} />
+        <meta property="og:title" content={`${activeVisa.label} Visa Interview Experiences | Apnacircle`} />
+        <meta property="og:description" content="Real visa interview experiences shared by immigrants — tips, consulate reviews and approval stories." />
+        <meta property="og:url" content={`https://apnacircle.org/visa/${activeVisa.id}/`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Apnacircle" />
+        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+      {!isMobile && <ResourceNav />}
+      <div style={s.content}>
+        <Link to="/" style={s.back}>← Home</Link>
+        <h1 style={s.title}>Visa Interview Experiences</h1>
+        <p style={s.desc}>Community members share real interview experiences to help others prepare.</p>
+        {inner}
+      </div>
       {!isMobile && (
         <aside style={s.rail}>
           <AdBlock />

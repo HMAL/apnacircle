@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect width="1200" height="630" fill="url(#bg-grad)"/>
+  <defs>
+    <radialGradient id="bg-grad" cx="30%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0D9488" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Logo icon -->
+  <g transform="translate(140, 280)">
+    <circle cx="0" cy="0" r="52" fill="#0D9488"/>
+    <circle cx="0" cy="0" r="36" fill="none" stroke="white" stroke-width="5"/>
+    <circle cx="0" cy="-36" r="9" fill="white"/>
+    <circle cx="36" cy="0" r="9" fill="white"/>
+    <circle cx="0" cy="36" r="9" fill="white"/>
+    <circle cx="-36" cy="0" r="9" fill="white"/>
+  </g>
+
+  <!-- Site name -->
+  <text x="220" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="white">Apnacircle</text>
+
+  <!-- Tagline -->
+  <text x="220" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="30" fill="#94a3b8">Free Community Hub for Immigrants</text>
+  <text x="220" y="362" font-family="system-ui, -apple-system, sans-serif" font-size="30" fill="#94a3b8">in the US &amp; Canada</text>
+
+  <!-- Divider -->
+  <line x1="220" y1="400" x2="980" y2="400" stroke="#0D9488" stroke-width="2" opacity="0.6"/>
+
+  <!-- Features -->
+  <text x="220" y="445" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#64748b">Visa Tips  ·  Immigration Lawyers  ·  Local Jobs  ·  Housing  ·  Doctors  ·  Events</text>
+
+  <!-- No ads badge -->
+  <rect x="220" y="475" width="260" height="42" rx="21" fill="#0D9488" opacity="0.2" stroke="#0D9488" stroke-width="1.5"/>
+  <text x="350" y="502" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#0D9488" text-anchor="middle">No Ads · No Fees · No Signup</text>
+
+  <!-- URL -->
+  <text x="980" y="590" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#475569" text-anchor="end">apnacircle.org</text>
+</svg>

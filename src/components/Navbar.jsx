@@ -18,6 +18,7 @@ export default function Navbar() {
   const isMobile = useIsMobile();
   const formsResource = getFormsResource();
   const visaStartPath = getVisaStartPath();
+
   const navLinks = [
     { to: visaStartPath, label: "Visa Experiences" },
     { to: "/immigration", label: "Immigration Tips" },
@@ -27,7 +28,7 @@ export default function Navbar() {
   return (
     <header>
       <nav style={s.nav}>
-        <Link to="/" style={s.brand}>
+        <Link to="/" style={s.brand} translate="no">
           <img src="/favicon.svg" alt="" style={s.brandLogo} />
           Apnacircle
         </Link>

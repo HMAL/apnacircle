@@ -45,12 +45,19 @@ export default function ContactPage() {
       <Helmet>
         <title>Contact Apnacircle — Get in Touch</title>
         <meta name="description" content="Send a message to the Apnacircle team. We're here to help the immigrant community." />
-        <link rel="canonical" href="https://apnacircle.org/contact" />
+        <link rel="canonical" href="https://apnacircle.org/contact/" />
+        <meta property="og:title" content="Contact Apnacircle — Get in Touch" />
+        <meta property="og:description" content="Send a message to the Apnacircle team. We're here to help the immigrant community." />
+        <meta property="og:url" content="https://apnacircle.org/contact/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Apnacircle" />
+        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <Link to="/" style={s.back}>Back to home</Link>
       <section style={s.panel}>
         <h1 style={s.title}>Contact Us</h1>
-        <p style={s.copy}>Send a note to the Apnacircle team. We will review it from the admin dashboard.</p>
+        <p style={s.copy}>Send a note to the Apnacircle team.</p>
 
         <form onSubmit={submit}>
           <div style={f.grid2}>
