@@ -15,3 +15,22 @@ input, select, textarea, button { font-family: 'Nunito', sans-serif; }
 /* hide scrollbar on horizontal scroll containers */
 .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .scroll-x::-webkit-scrollbar { display: none; }
+
+/* Navbar responsive */
+.nav-hamburger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: #3A2718; padding: 4px 8px; }
+.nav-mobile-menu { display: none; background: #F4EFE6; border-bottom: 1px solid #D9D0C3; flex-direction: column; padding: 0.5rem 1rem; position: sticky; top: 56px; z-index: 99; }
+.nav-mobile-menu.open { display: flex; }
+
+.mobile-only { display: none; }
+
+@media (max-width: 767px) {
+  .nav-links-desktop { display: none !important; }
+  .nav-flags { display: none !important; }
+  .nav-hamburger { display: block; }
+  .home-sidebar { display: none !important; }
+  .home-body { flex-direction: column !important; padding: 0 1rem 2rem !important; }
+  .home-rail { display: none !important; }
+  .state-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .mobile-only { display: block; }
+  .hero-sub { white-space: normal !important; }
+}

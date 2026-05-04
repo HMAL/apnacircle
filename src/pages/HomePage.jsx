@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet-async";
 import { fetchStates, fetchAllEvents } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useAds } from "../lib/AdsContext";
-import { useIsMobile } from "../lib/useIsMobile";
 import ResourceNav, { MobileResourceNav } from "../components/ResourceNav";
 import { fmtEventDate, daysUntilBadge, MapLink } from "../components/formHelpers";
 import { getCountrySlug } from "../lib/country";
@@ -13,7 +12,6 @@ export default function HomePage() {
   const [states, setStates] = useState([]);
   const [events, setEvents] = useState([]);
   const { ads } = useAds();
-  const isMobile = useIsMobile();
   const regionLabel = getCountrySlug() === "ca" ? "Province" : "State";
 
   useEffect(() => {
@@ -45,26 +43,26 @@ export default function HomePage() {
       </Helmet>
       {/* Hero */}
       <div style={s.hero}>
-        <p style={{ ...s.sub, whiteSpace: isMobile ? "normal" : "nowrap" }}>A community-powered FREE resource for immigrants, No Ads, No fees, No Spam — visa experiences, legal help, jobs, housing and local services.</p>
+        <p className="hero-sub" style={s.sub}>A community-powered FREE resource for immigrants, No Ads, No fees, No Spam — visa experiences, legal help, jobs, housing and local services.</p>
       </div>
 
       {/* mobile quick-nav */}
-      {isMobile && (
+      <div className="mobile-only">
         <MobileResourceNav style={{ padding:"0 1rem 0.75rem", borderBottom:"0.5px solid var(--border)" }} />
-      )}
+      </div>
 
       {/* body */}
-      <div style={{ ...s.body, flexDirection: isMobile ? "column" : "row" }}>
+      <div className="home-body" style={s.body}>
         {/* Left nav — desktop only */}
-        {!isMobile && (
+        <div className="home-sidebar">
           <ResourceNav />
-        )}
+        </div>
 
         {/* Center */}
         <main style={s.center}>
           {/* States */}
           <p style={s.sectionLabel}>🗺️ Browse by {regionLabel}</p>
-          <div style={s.stateGrid}>
+          <div className="state-grid" style={s.stateGrid}>
             {states.map(state => <StateCard key={state.slug} state={state} />)}
           </div>
 
@@ -108,8 +106,8 @@ export default function HomePage() {
         </main>
 
         {/* Right — ads, desktop only */}
-        {!isMobile && ads.global && (
-          <aside style={s.rail}>
+        {ads.global && (
+          <aside className="home-rail" style={s.rail}>
             <AdBlock />
             <AdBlock />
           </aside>
@@ -139,7 +137,7 @@ function StateCard({ state }) {
 const s = {
   hero:         { textAlign: "center", padding: "2rem 1rem 1.25rem" },
   sub:          { color: "#555", fontSize: "clamp(10px, 1.1vw, 14px)", whiteSpace: "nowrap", margin: "0 auto" },
-  body:         { padding: "0 1.5rem 2rem", display: "flex", gap: 24, alignItems: "flex-start" },
+  body:         { padding: "0 1.5rem 2rem", display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start" },
   center:       { flex: 1, minWidth: 0 },
   rail:         { width: 260, flexShrink: 0, display: "flex", flexDirection: "column", gap: 16, position: "sticky", top: 72 },
   sectionLabel: { fontSize: 13, fontWeight: 700, color: "#666", marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 },
