@@ -59,13 +59,6 @@ export default function VisaPage({ embedded = false }) {
 
   const inner = (
     <>
-      {!embedded && (
-        <>
-          <h1 style={s.title}>Visa Interview Experiences</h1>
-          <p style={s.desc}>Community members share real interview experiences to help others prepare.</p>
-        </>
-      )}
-
       {/* Visa type tabs */}
       <div style={s.tabs}>
         {visaTypes.map(v => embedded ? (
