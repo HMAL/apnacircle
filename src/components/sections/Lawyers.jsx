@@ -6,7 +6,7 @@ import { getSubmitError, submitListing } from "../../lib/db";
 export default function Lawyers({ stateSlug, citySlug }) {
   return (
     <ListingSection stateSlug={stateSlug} citySlug={citySlug} section="lawyers"
-      icon="⚖️" title="Local Asian Immigration Lawyers"
+      icon="⚖️" title="Local Immigration Lawyers"
       description="Community-recommended immigration attorneys. Always verify credentials before hiring."
       FormFields={LawyerForm}
       renderCard={item => (

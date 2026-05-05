@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { fetchStateBySlug } from "../lib/db";
-import { citySlug } from "../data/states";
+import { citySlug } from "../lib/country";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
 import { ScrollTabBar } from "../components/ScrollTabBar";

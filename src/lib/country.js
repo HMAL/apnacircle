@@ -1,3 +1,7 @@
+export function citySlug(cityName) {
+  return cityName.toLowerCase().replace(/\s+/g, "-");
+}
+
 export function getCountrySlug() {
   if (typeof window === "undefined") return "us";
   return window.location.hostname.toLowerCase().startsWith("ca.") ? "ca" : "us";
