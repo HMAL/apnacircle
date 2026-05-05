@@ -5,7 +5,7 @@ import { f, useToast, Toast, fmtDate } from "../../components/formHelpers";
 import { fetchTips, getSubmitError, submitTip } from "../../lib/db";
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
-import { getCountryName } from "../../lib/country";
+import { getCountrySlug } from "../../lib/country";
 import ResourceNav from "../../components/ResourceNav";
 
 // ─── Port of Entry data (from WashU OISS port-of-entry guide) ────────────────
@@ -314,28 +314,37 @@ const VISA_FAQ = [
 
 export function ImmigrationPage({ embedded = false }) {
   const isMobile = useIsMobile();
+  const isCA = getCountrySlug() === "ca";
 
   const inner = (
     <>
       <div style={{ ...s.header, flexWrap: "wrap" }}>
         <span style={{ fontSize: 32 }}>✈️</span>
         <div style={{ flex: 1 }}>
-          <h1 style={s.title}>Port of Entry Guide</h1>
-          <p style={s.desc}>What to expect when entering the U.S. — required documents and common CBP officer questions by visa type.</p>
+          <h1 style={s.title}>{isCA ? "Immigration Tips" : "Port of Entry Guide"}</h1>
+          <p style={s.desc}>{isCA ? "Canadian immigration tips and resources — coming soon." : "What to expect when entering the U.S. — required documents and common CBP officer questions by visa type."}</p>
         </div>
       </div>
 
-      <div style={s.card}>
-        <h2 style={s.docTitle}>Required Documents at Port of Entry</h2>
-        <p style={s.docSubtitle}>Click any section to expand. Carry printed copies of all applicable documents.</p>
-        <AccordionTable data={PORT_OF_ENTRY} />
-      </div>
+      {isCA ? (
+        <div style={s.card}>
+          <p style={s.empty}>Canadian immigration tips are coming soon. Check back later!</p>
+        </div>
+      ) : (
+        <>
+          <div style={s.card}>
+            <h2 style={s.docTitle}>Required Documents at Port of Entry</h2>
+            <p style={s.docSubtitle}>Click any section to expand. Carry printed copies of all applicable documents.</p>
+            <AccordionTable data={PORT_OF_ENTRY} />
+          </div>
 
-      <div style={s.card}>
-        <h2 style={s.docTitle}>Common CBP Questions by Visa Type</h2>
-        <p style={s.docSubtitle}>Questions Customs and Border Protection officers typically ask — organized by immigration category.</p>
-        <AccordionTable data={CBP_QUESTIONS} />
-      </div>
+          <div style={s.card}>
+            <h2 style={s.docTitle}>Common CBP Questions by Visa Type</h2>
+            <p style={s.docSubtitle}>Questions Customs and Border Protection officers typically ask — organized by immigration category.</p>
+            <AccordionTable data={CBP_QUESTIONS} />
+          </div>
+        </>
+      )}
     </>
   );
 
@@ -412,28 +421,37 @@ function AccordionTable({ data }) {
 
 export function DS160Page({ embedded = false }) {
   const isMobile = useIsMobile();
+  const isCA = getCountrySlug() === "ca";
 
   const inner = (
     <>
       <div style={{ ...s.header, flexWrap: "wrap" }}>
         <span style={{ fontSize: 32 }}>📋</span>
         <div style={{ flex: 1 }}>
-          <h1 style={s.title}>DS-160 Form Guide & FAQ</h1>
-          <p style={s.desc}>Field-by-field guidance and frequently asked questions for the DS-160 nonimmigrant visa application form.</p>
+          <h1 style={s.title}>{isCA ? "IRCC Forms Guide" : "DS-160 Form Guide & FAQ"}</h1>
+          <p style={s.desc}>{isCA ? "IRCC application form tips and guidance — coming soon." : "Field-by-field guidance and frequently asked questions for the DS-160 nonimmigrant visa application form."}</p>
         </div>
       </div>
 
-      <div style={s.card}>
-        <h2 style={s.docTitle}>DS-160 Field Guide</h2>
-        <p style={s.docSubtitle}>Click any section to expand explanations for each field on the DS-160 form.</p>
-        <AccordionTable data={DS160_GUIDE} />
-      </div>
+      {isCA ? (
+        <div style={s.card}>
+          <p style={s.empty}>IRCC Forms guide is coming soon. Check back later!</p>
+        </div>
+      ) : (
+        <>
+          <div style={s.card}>
+            <h2 style={s.docTitle}>DS-160 Field Guide</h2>
+            <p style={s.docSubtitle}>Click any section to expand explanations for each field on the DS-160 form.</p>
+            <AccordionTable data={DS160_GUIDE} />
+          </div>
 
-      <div style={s.card}>
-        <h2 style={s.docTitle}>Visa Application & DS-160 FAQ</h2>
-        <p style={s.docSubtitle}>Common questions about the visa application process, fees, and form submission.</p>
-        <AccordionTable data={VISA_FAQ} />
-      </div>
+          <div style={s.card}>
+            <h2 style={s.docTitle}>Visa Application & DS-160 FAQ</h2>
+            <p style={s.docSubtitle}>Common questions about the visa application process, fees, and form submission.</p>
+            <AccordionTable data={VISA_FAQ} />
+          </div>
+        </>
+      )}
     </>
   );
 
