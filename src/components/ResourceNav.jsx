@@ -6,8 +6,8 @@ export function getResourceNavItems() {
   const formsResource = getFormsResource();
 
   return [
-    { key: "events", icon: "\u{1F4C5}", label: "Events", hash: "#events" },
-    { key: "visa", icon: "\u{1F6C2}", label: "Visa Experiences", to: getVisaStartPath(), match: path => path.startsWith("/visa/") },
+    { key: "events", icon: "\u{1F4C5}", label: "Events", to: "/events", match: path => path === "/events" },
+    // { key: "visa", icon: "\u{1F6C2}", label: "Visa Experiences", to: getVisaStartPath(), match: path => path.startsWith("/visa/") },
     { key: "immigration", icon: "\u{1F4A1}", label: "Immigration Tips", to: "/immigration" },
     { key: "forms", icon: "\u{1F4CB}", label: `${formsResource.label} Tips`, to: "/ds160" },
     { key: "lawyers", icon: "\u2696\uFE0F", label: "Immigration Lawyers", to: "/lawyers" },

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { fetchStateBySlug } from "../lib/db";
 import { citySlug } from "../lib/country";
@@ -16,10 +16,8 @@ import Tutors from "../components/sections/Tutors";
 import Realtors from "../components/sections/Realtors";
 import Priests from "../components/sections/Priests";
 import Photographers from "../components/sections/Photographers";
-import Events from "../components/sections/Events";
 
 const SECTIONS = [
-  { id: "events",        icon: "📅", label: "Events" },
   { id: "jobs",          icon: "💼", label: "Local Jobs" },
   { id: "accommodation", icon: "🏠", label: "Accommodation" },
   { id: "temples",       icon: "🛕", label: "Worship" },
@@ -33,7 +31,6 @@ const SECTIONS = [
 ].sort((a, b) => a.label.localeCompare(b.label));
 
 const SECTION_MAP = {
-  events: Events,
   jobs: Jobs,
   accommodation: Accommodation,
   temples: Temples,
@@ -48,9 +45,10 @@ const SECTION_MAP = {
 
 export default function CityPage() {
   const { stateSlug, citySlug: citySlugParam } = useParams();
+  const navigate = useNavigate();
   const [state, setState] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [active, setActive] = useState("events");
+  const [active, setActive] = useState(SECTIONS[0]?.id || "jobs");
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -93,6 +91,11 @@ export default function CityPage() {
 
       {isMobile && (
         <ScrollTabBar style={s.mobileTabs}>
+          <button onClick={() => navigate(`/events?state=${stateSlug}`)}
+            style={s.mobileTab}>
+            <span style={{ fontSize: 18 }}>📅</span>
+            <span style={{ fontSize: 10, whiteSpace: "nowrap" }}>Events</span>
+          </button>
           {SECTIONS.map(sec => (
             <button key={sec.id} onClick={() => setActive(sec.id)}
               style={{ ...s.mobileTab, ...(active === sec.id ? s.mobileTabActive : {}) }}>
@@ -106,6 +109,10 @@ export default function CityPage() {
       <div style={{ ...s.layout, flexDirection: isMobile ? "column" : "row" }}>
         {!isMobile && (
           <aside style={s.sidebar}>
+            <button onClick={() => navigate(`/events?state=${stateSlug}`)}
+              style={s.sideItem}>
+              <span>📅</span> Events
+            </button>
             {SECTIONS.map(sec => (
               <button key={sec.id} onClick={() => setActive(sec.id)}
                 style={{ ...s.sideItem, ...(active === sec.id ? s.sideActive : {}) }}>

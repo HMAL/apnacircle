@@ -43,6 +43,13 @@ export default function Accommodation({ stateSlug, citySlug }) {
             <div style={{ display:"flex", gap:20, flexWrap:"wrap", marginBottom:8 }}>
               <span style={f.tag}>{p.acc_type === "providing" ? "🏠 Available" : "🔍 Looking"}</span>
               <span style={f.postAuthor}>{p.name || "Anonymous"}</span>
+              {p.gender && (
+                <span style={f.tag}>
+                  {p.acc_type === "looking"
+                    ? `Prefers: ${p.gender === "male" ? "♂ Male" : "♀ Female"}`
+                    : `Open to: ${p.gender === "male" ? "♂ Male" : "♀ Female"}`}
+                </span>
+              )}
               <PhoneLink phone={p.phone} />
               <EmailLink email={p.email} />
               <span style={f.postDate}>{fmtDate(p.created_at)}</span>
@@ -58,7 +65,7 @@ export default function Accommodation({ stateSlug, citySlug }) {
 }
 
 function AccForm({ stateSlug, citySlug, type, onSuccess, onCancel }) {
-  const [form, setForm] = useState({ name:"", phone:"", email:"", message:"" });
+  const [form, setForm] = useState({ name:"", phone:"", email:"", gender:"", message:"" });
   const { msg, show } = useToast();
   const set = k => e => setForm(p => ({...p, [k]: e.target.value}));
   const setPhone = e => setForm(p => ({...p, phone: formatPhone(e.target.value)}));
@@ -72,7 +79,7 @@ function AccForm({ stateSlug, citySlug, type, onSuccess, onCancel }) {
     if (form.email && !isValidEmail(form.email)) { show("Please enter a valid email address (e.g. you@example.com)."); return; }
     const ok = await submitAccommodation(stateSlug, citySlug, form, type);
     if (ok) {
-      setForm({ name:"", phone:"", email:"", message:"" });
+      setForm({ name:"", phone:"", email:"", gender:"", message:"" });
       show("Post submitted!");
       onSuccess();
     } else {
@@ -86,7 +93,15 @@ function AccForm({ stateSlug, citySlug, type, onSuccess, onCancel }) {
       <div style={f.grid2}>
         <div style={f.group}><label style={f.label}>Name</label><input style={f.input} value={form.name} onChange={set("name")} placeholder="Anonymous" /></div>
         <div style={f.group}><label style={f.label}>Phone Number</label><input style={f.input} value={form.phone} onChange={setPhone} placeholder="123-456-7890" /></div>
-        <div style={{...f.group, ...f.span2}}><label style={f.label}>Email</label><input style={f.input} type="email" value={form.email} onChange={set("email")} placeholder="your@email.com" /></div>
+        <div style={f.group}><label style={f.label}>Email</label><input style={f.input} type="email" value={form.email} onChange={set("email")} placeholder="your@email.com" /></div>
+        <div style={f.group}>
+          <label style={f.label}>{type === "looking" ? "Prefer to share with" : "Open to accommodate"}</label>
+          <select style={f.input} value={form.gender} onChange={set("gender")}>
+            <option value="">No preference</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
         <div style={{...f.group, ...f.span2}}>
           <label style={f.label}>Message <span style={f.req}>*</span></label>
           <textarea style={f.textarea} value={form.message} onChange={set("message")}

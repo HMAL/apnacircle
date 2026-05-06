@@ -240,9 +240,10 @@ export async function submitAccommodation(stateSlug, citySlug, form, accType) {
     state_slug: stateSlug,
     city_slug:  citySlug,
     acc_type:   accType,
-    name:       form.name  || null,
-    phone:      form.phone || null,
-    email:      form.email || null,
+    name:       form.name   || null,
+    phone:      form.phone  || null,
+    email:      form.email  || null,
+    gender:     form.gender || null,
     message:    form.message,
     status,
   });
@@ -367,6 +368,20 @@ export async function fetchAllEvents() {
     .order("event_date", { ascending: true })
     .limit(12);
   if (error) console.error("fetchAllEvents:", error);
+  return cleanRows(data);
+}
+
+export async function fetchFilteredEvents(stateSlug) {
+  let query = supabase
+    .from("events")
+    .select("*")
+    .eq("country_slug", country())
+    .eq("status", "approved")
+    .gte("event_date", today())
+    .order("event_date", { ascending: true });
+  if (stateSlug) query = query.eq("state_slug", stateSlug);
+  const { data, error } = await query;
+  if (error) console.error("fetchFilteredEvents:", error);
   return cleanRows(data);
 }
 
