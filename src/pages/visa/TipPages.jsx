@@ -8,6 +8,85 @@ import { useIsMobile } from "../../lib/useIsMobile";
 import { getCountrySlug } from "../../lib/country";
 import ResourceNav from "../../components/ResourceNav";
 
+// ─── Canada Immigration Interview Guide (from immiquest.ca) ──────────────────
+const CA_IMMIGRATION_GUIDE = [
+  {
+    section: "General Background Questions",
+    rows: [
+      { q: "Please introduce yourself and tell us why you want to immigrate to Canada.", a: "Emphasize your professional background, desire for career advancement, and appreciation for Canadian multiculturalism and values." },
+      { q: "Have you ever visited Canada before?", a: "Confirm prior visits and positive experiences, or explain thorough research into Canadian life and culture if this is your first time applying." },
+      { q: "Why did you choose Canada over other countries?", a: "Highlight Canada's inclusiveness, strong social programs, quality of life, and economic prospects as key factors in your decision." },
+    ],
+  },
+  {
+    section: "Educational and Work Background Questions",
+    rows: [
+      { q: "Can you describe your educational qualifications?", a: "Discuss your degrees, diplomas, or certificates, the relevant field of study, and be ready with supporting documents such as transcripts and credential evaluations." },
+      { q: "What is your current employment status?", a: "Describe your job title, years of tenure, and key responsibilities. Bring employment letters or recent pay stubs to support your answer." },
+      { q: "How does your work experience relate to your application?", a: "Connect your professional background to Canadian labor market demands and demonstrate how your skills fill a need in Canada." },
+    ],
+  },
+  {
+    section: "Intent and Eligibility Questions",
+    rows: [
+      { q: "What are your plans after arriving in Canada?", a: "Outline your housing plans, employment search strategy, and how you intend to integrate into the community." },
+      { q: "Do you have any relatives or friends in Canada?", a: "Mention existing support networks if applicable, or describe your independent settlement strategy and available resources." },
+      { q: "How will you support yourself financially in Canada?", a: "Emphasize documented proof of funds, savings, or a job offer that demonstrates financial readiness for your stay." },
+    ],
+  },
+  {
+    section: "Permanent Resident (PR) Questions",
+    rows: [
+      { q: "What do you know about your rights and responsibilities as a permanent resident?", a: "Demonstrate knowledge of PR residency obligations (must be physically present in Canada 730 days in every 5-year period), healthcare access, right to work anywhere in Canada, and legal obligations." },
+      { q: "Have you ever been refused a visa or entry to Canada or another country?", a: "Disclose honestly and provide supporting documentation explaining the refusal and any resolution. Concealing a refusal can result in a misrepresentation finding." },
+      { q: "Why do you want to become a permanent resident of Canada?", a: "Focus on long-term commitment to Canada, career goals, family aspirations, and your intention to contribute to Canadian society." },
+    ],
+  },
+  {
+    section: "Spousal Sponsorship Questions",
+    rows: [
+      { q: "How did you meet your spouse?", a: "Provide a detailed account with supporting evidence such as photos, communication records, and travel history together." },
+      { q: "When did you get married, and who attended your wedding?", a: "Give specific dates, location, and names of key attendees. Bring your marriage certificate and wedding photos." },
+      { q: "How do you and your spouse communicate?", a: "Detail your daily contact methods (calls, video chats, messages) and frequency. Communication logs can be submitted as supporting evidence." },
+      { q: "What are your spouse's hobbies, job, and daily routine?", a: "Demonstrate intimate familiarity with your spouse's life — officers assess this to verify the genuineness of the relationship." },
+      { q: "What are your future plans as a couple in Canada?", a: "Outline where you plan to settle, career goals for both partners, and any family intentions." },
+    ],
+  },
+  {
+    section: "Study Permit Questions",
+    rows: [
+      { q: "Why did you choose this course and institution in Canada?", a: "Explain the institution's program rankings, specializations, and how the curriculum aligns with your career goals." },
+      { q: "How will this program benefit your career?", a: "Connect the education directly to professional advancement, detailing specific skills or credentials you will gain." },
+      { q: "Who is funding your studies?", a: "Provide documentation of family support, scholarships, or personal savings. Officers want to confirm you have sufficient funds for tuition and living costs." },
+      { q: "What are your plans after graduation?", a: "Discuss Post-Graduation Work Permit (PGWP) opportunities, potential PR pathways, or plans to return to your home country if applicable." },
+    ],
+  },
+  {
+    section: "Work Permit Questions",
+    rows: [
+      { q: "Can you describe your job offer in Canada?", a: "Present your official employment contract including salary, benefits, job duties, and commencement date. Have your LMIA or employer-specific work permit documents ready." },
+      { q: "Why did your employer choose you for this role?", a: "Highlight your relevant expertise, qualifications, and specific skills that make you the right candidate for the position." },
+      { q: "Do you plan to stay in Canada after your work permit expires?", a: "Clarify whether your intention is temporary employment or whether you plan to pursue permanent residency through pathways like Express Entry or PNP." },
+    ],
+  },
+  {
+    section: "Visitor Visa Questions",
+    rows: [
+      { q: "What is the purpose of your visit to Canada?", a: "Specify clearly whether you are visiting for tourism, business, or family. Bring supporting documents such as hotel bookings, invitation letters, or event registrations." },
+      { q: "How long do you plan to stay in Canada?", a: "Provide specific arrival and departure dates. A return ticket strengthens your case that you intend to leave before your authorized stay expires." },
+      { q: "Do you have ties to your home country?", a: "Demonstrate ties through family, employment, property ownership, or other commitments that confirm your motivation to return home after your visit." },
+    ],
+  },
+  {
+    section: "Border Entry Questions",
+    rows: [
+      { q: "What is the purpose of your visit to Canada?", a: "Clearly identify your immigration status category (visitor, worker, student, or PR) and ensure all documents are complete and accessible when asked." },
+      { q: "How much money are you bringing to Canada?", a: "Declare currency honestly. Amounts over CAD $10,000 must be reported to CBSA. Failure to declare can result in seizure and fines." },
+      { q: "Do you have any goods to declare?", a: "Accurately disclose all items including food, plants, animal products, and commercial goods to avoid legal complications at the border." },
+    ],
+  },
+];
+
 // ─── Port of Entry data (from WashU OISS port-of-entry guide) ────────────────
 const PORT_OF_ENTRY = [
   {
@@ -321,14 +400,16 @@ export function ImmigrationPage({ embedded = false }) {
       <div style={{ ...s.header, flexWrap: "wrap" }}>
         <span style={{ fontSize: 32 }}>✈️</span>
         <div style={{ flex: 1 }}>
-          <h1 style={s.title}>{isCA ? "Immigration Tips" : "Port of Entry Guide"}</h1>
-          <p style={s.desc}>{isCA ? "Canadian immigration tips and resources — coming soon." : "What to expect when entering the U.S. — required documents and common CBP officer questions by visa type."}</p>
+          <h1 style={s.title}>{isCA ? "Canada Immigration Interview Guide" : "Port of Entry Guide"}</h1>
+          <p style={s.desc}>{isCA ? "Common questions IRCC officers ask during immigration interviews — organized by application type with model answers." : "What to expect when entering the U.S. — required documents and common CBP officer questions by visa type."}</p>
         </div>
       </div>
 
       {isCA ? (
         <div style={s.card}>
-          <p style={s.empty}>Canadian immigration tips are coming soon. Check back later!</p>
+          <h2 style={s.docTitle}>Common Canada Immigration Interview Questions</h2>
+          <p style={s.docSubtitle}>Questions IRCC officers typically ask — organized by application type. Click any section to expand.</p>
+          <AccordionTable data={CA_IMMIGRATION_GUIDE} />
         </div>
       ) : (
         <>
