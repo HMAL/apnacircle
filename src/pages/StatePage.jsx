@@ -5,6 +5,7 @@ import { fetchStateBySlug } from "../lib/db";
 import { citySlug, getCountrySlug } from "../lib/country";
 import { STATE_FUN_FACTS } from "../data/stateFunFacts";
 import { STATE_ATLAS_OBSCURA } from "../data/stateAtlasObscura";
+import { PROVINCE_ATLAS_OBSCURA } from "../data/provinceAtlasObscura";
 import ResourceNav from "../components/ResourceNav";
 import { useIsMobile } from "../lib/useIsMobile";
 
@@ -36,7 +37,8 @@ export default function StatePage() {
   const cities = state.cities || [];
   const regionLabel = getCountrySlug() === "ca" ? "Provinces" : "States";
   const funFact = STATE_FUN_FACTS[state.name];
-  const coolPlaces = STATE_ATLAS_OBSCURA[state.name] || [];
+  const atlasData = getCountrySlug() === "ca" ? PROVINCE_ATLAS_OBSCURA : STATE_ATLAS_OBSCURA;
+  const coolPlaces = atlasData[state.name] || [];
 
   return (
     <div style={pageStyle}>
