@@ -43,7 +43,7 @@ export default function HomePage() {
       </Helmet>
       {/* Hero */}
       <div style={s.hero}>
-        <p className="hero-sub" style={s.sub}>A community-powered FREE resource for immigrants, No Ads, No fees, No Spam — visa experiences, legal help, Doctos, jobs, housing and local services in both <a href="https://apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>USA</a> & <a href="https://ca.apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>Canada</a>.</p>
+        <p className="hero-sub" style={s.sub}>A community-powered FREE resource that focus on helping immigrants, No Ads, No fees, No Spam — visa experiences, legal help, Doctos, jobs, housing and local services in both <a href="https://apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>USA</a> & <a href="https://ca.apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>Canada</a>.</p>
       </div>
 
       {/* mobile quick-nav */}

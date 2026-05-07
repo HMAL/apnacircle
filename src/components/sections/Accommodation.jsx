@@ -20,7 +20,7 @@ export default function Accommodation({ stateSlug, citySlug }) {
     : listPosts;
 
   return (
-    <SectionWrapper icon="🏠" title="Local Accommodation" description="Find or offer housing in your area. Connect directly with the community.">
+    <SectionWrapper icon="🏠" title="Local Accommodation" description="Find or offer housing in your area. Connect directly with the community. ">
       <div style={{ display:"flex", gap:8, marginBottom:20, flexWrap:"wrap" }}>
         <button onClick={() => setFormType("looking")} style={formType==="looking" ? f.btnSm : f.btnOutline}>🔍 Looking for Accommodation</button>
         <button onClick={() => setFormType("providing")} style={formType==="providing" ? f.btnSm : f.btnOutline}>🏠 Providing Accommodation</button>
@@ -55,6 +55,7 @@ export default function Accommodation({ stateSlug, citySlug }) {
               <span style={f.postDate}>{fmtDate(p.created_at)}</span>
             </div>
             <p style={f.text}>{p.message}</p>
+            <p style={{ fontSize:11, color:"#aaa", marginTop:6, marginBottom:0 }}>Listed on apnacircle.org</p>
           </div>
         ))
       ) : (

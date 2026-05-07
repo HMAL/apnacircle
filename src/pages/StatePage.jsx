@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { fetchStateBySlug } from "../lib/db";
 import { citySlug, getCountrySlug } from "../lib/country";
 import { STATE_FUN_FACTS } from "../data/stateFunFacts";
+import { STATE_ATLAS_OBSCURA } from "../data/stateAtlasObscura";
 import ResourceNav from "../components/ResourceNav";
 import { useIsMobile } from "../lib/useIsMobile";
 
@@ -35,6 +36,7 @@ export default function StatePage() {
   const cities = state.cities || [];
   const regionLabel = getCountrySlug() === "ca" ? "Provinces" : "States";
   const funFact = STATE_FUN_FACTS[state.name];
+  const coolPlaces = STATE_ATLAS_OBSCURA[state.name] || [];
 
   return (
     <div style={pageStyle}>
@@ -73,6 +75,32 @@ export default function StatePage() {
           </Link>
         ))}
       </div>
+
+      {coolPlaces.length > 0 && (
+        <div style={s.coolSection}>
+          <div style={s.coolHeader}>
+            <span style={s.coolIcon}>🗺️</span>
+            <h2 style={s.coolTitle}>Cool &amp; Unusual Places in {state.name}</h2>
+          </div>
+          <p style={s.coolSub}>Hidden gems, weird wonders, and offbeat attractions worth the detour.</p>
+          <div style={s.coolGrid}>
+            {coolPlaces.map((place, i) => (
+              <div key={i} style={s.coolCard}>
+                <p style={s.coolName}>{place.name}</p>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={s.coolAddress}
+                >
+                  📍 {place.address}
+                </a>
+                <p style={s.coolDesc}>{place.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       </main>
     </div>
   );
@@ -91,4 +119,14 @@ const s = {
   card: { background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1.5rem 1rem", textAlign:"center", transition:"box-shadow 0.15s" },
   cityName: { fontSize:16, fontWeight:700, color:"var(--orange)", marginBottom:4 },
   cityState: { fontSize:12, color:"var(--muted)", fontWeight:600 },
+  coolSection: { marginTop:"2.5rem" },
+  coolHeader: { display:"flex", alignItems:"center", gap:10, marginBottom:6 },
+  coolIcon: { fontSize:22 },
+  coolTitle: { fontSize:20, fontWeight:800, color:"#111", margin:0 },
+  coolSub: { fontSize:13, color:"#777", marginBottom:"1.25rem", marginTop:2 },
+  coolGrid: { display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))", gap:14 },
+  coolCard: { background:"linear-gradient(135deg, #f9f6ff 0%, #fff 60%, #f0f9ff 100%)", border:"1px solid #ddd4f5", borderRadius:"var(--radius)", padding:"1rem 1.25rem", boxShadow:"0 4px 14px rgba(80, 40, 160, 0.06)" },
+  coolName: { fontSize:15, fontWeight:800, color:"#2a1a5e", marginBottom:5 },
+  coolAddress: { display:"inline-block", fontSize:12, color:"#5b6af5", fontWeight:600, marginBottom:8, textDecoration:"none", wordBreak:"break-word" },
+  coolDesc: { fontSize:13, color:"#444", lineHeight:1.65, margin:0 },
 };
