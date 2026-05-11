@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { fetchStateBySlug } from "../lib/db";
-import { citySlug } from "../lib/country";
+import { citySlug, getCountrySlug } from "../lib/country";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
 import { ScrollTabBar } from "../components/ScrollTabBar";
@@ -67,23 +67,24 @@ export default function CityPage() {
 
   const ActiveComp = SECTION_MAP[active];
 
+  const siteBase = getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
     <div style={s.page}>
       <Helmet>
         <title>Immigrant Community in {cityName}, {state.abbr} — Jobs, Housing, Doctors | Apnacircle</title>
         <meta name="description" content={`Free community resources for Indian, Pakistani, Korean, Chinese, Japanese, Sri Lankan, and Mexican immigrants in ${cityName}, ${state.name} — local jobs, accommodation, lawyers, doctors, temples, events and more.`} />
-        <link rel="canonical" href={`https://apnacircle.org/states/${stateSlug}/${citySlugParam}/`} />
+        <link rel="canonical" href={`${siteBase}/states/${stateSlug}/${citySlugParam}/`} />
         <meta property="og:title" content={`Immigrant Community in ${cityName}, ${state.abbr} — Jobs, Housing, Doctors | Apnacircle`} />
         <meta property="og:description" content={`Free community resources for Indian, Pakistani, Korean, Chinese, Japanese, Sri Lankan, and Mexican immigrants in ${cityName}, ${state.name} — local jobs, accommodation, lawyers, doctors, temples, events and more.`} />
-        <meta property="og:url" content={`https://apnacircle.org/states/${stateSlug}/${citySlugParam}/`} />
+        <meta property="og:url" content={`${siteBase}/states/${stateSlug}/${citySlugParam}/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${siteBase}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://apnacircle.org"},
-          {"@type":"ListItem","position":2,"name":state.name,"item":`https://apnacircle.org/states/${stateSlug}`},
-          {"@type":"ListItem","position":3,"name":cityName,"item":`https://apnacircle.org/states/${stateSlug}/${citySlugParam}`}
+          {"@type":"ListItem","position":1,"name":"Home","item":siteBase},
+          {"@type":"ListItem","position":2,"name":state.name,"item":`${siteBase}/states/${stateSlug}/`},
+          {"@type":"ListItem","position":3,"name":cityName,"item":`${siteBase}/states/${stateSlug}/${citySlugParam}/`}
         ]})}</script>
       </Helmet>
       <Link to={`/states/${stateSlug}`} style={s.back}>← {state.name}</Link>

@@ -12,7 +12,9 @@ export default function HomePage() {
   const [states, setStates] = useState([]);
   const [events, setEvents] = useState([]);
   const { ads } = useAds();
-  const regionLabel = getCountrySlug() === "ca" ? "Province" : "State";
+  const countrySlug = getCountrySlug();
+  const regionLabel = countrySlug === "ca" ? "Province" : "State";
+  const siteBase = countrySlug === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
 
   useEffect(() => {
     fetchStates().then(setStates);
@@ -25,20 +27,21 @@ export default function HomePage() {
         <title>Apnacircle — Free Community Hub for Immigrants in the US & Canada</title>
         <meta name="description" content="Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees." />
         <meta name="keywords" content="immigrant community, visa experiences, immigration help, Indian community USA, Pakistani community, Korean community, Chinese immigrant community, Japanese community, Sri Lankan community, Mexican immigrant community, desi community, H1B tips, F1 visa, immigration lawyers, South Asian community, Asian immigrant" />
-        <link rel="canonical" href="https://apnacircle.org/" />
-        <link rel="alternate" hreflang="en" href="https://apnacircle.org/" />
+        <link rel="canonical" href={`${siteBase}/`} />
+        <link rel="alternate" hreflang="en-us" href="https://apnacircle.org/" />
+        <link rel="alternate" hreflang="en-ca" href="https://ca.apnacircle.org/" />
         <link rel="alternate" hreflang="x-default" href="https://apnacircle.org/" />
         <meta property="og:title" content="Apnacircle — Free Community Hub for Immigrants in the US & Canada" />
         <meta property="og:description" content="Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees." />
-        <meta property="og:url" content="https://apnacircle.org/" />
+        <meta property="og:url" content={`${siteBase}/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${siteBase}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://apnacircle.org/og-image.svg" />
+        <meta name="twitter:image" content={`${siteBase}/og-image.svg`} />
         <script type="application/ld+json">{JSON.stringify([
-          { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":"https://apnacircle.org","logo":"https://apnacircle.org/favicon.svg","description":"Free community hub for immigrants in the US & Canada" },
-          { "@context":"https://schema.org","@type":"WebSite","url":"https://apnacircle.org","name":"Apnacircle" }
+          { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":siteBase,"logo":`${siteBase}/favicon.svg`,"description":"Free community hub for immigrants in the US & Canada" },
+          { "@context":"https://schema.org","@type":"WebSite","url":siteBase,"name":"Apnacircle" }
         ])}</script>
       </Helmet>
       {/* Hero */}

@@ -40,22 +40,23 @@ export default function StatePage() {
   const atlasData = getCountrySlug() === "ca" ? PROVINCE_ATLAS_OBSCURA : STATE_ATLAS_OBSCURA;
   const coolPlaces = atlasData[state.name] || [];
 
+  const siteBase = getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
     <div style={pageStyle}>
       <Helmet>
         <title>Immigrant Community in {state.name} — Jobs, Housing, Events | Apnacircle</title>
         <meta name="description" content={`Find local immigrant community resources in ${state.name} for Indians, Pakistanis, Koreans, Chinese, Japanese, Sri Lankans, and Mexicans — visa help, immigration lawyers, jobs, accommodation, doctors, events and more.`} />
-        <link rel="canonical" href={`https://apnacircle.org/states/${stateSlug}/`} />
+        <link rel="canonical" href={`${siteBase}/states/${stateSlug}/`} />
         <meta property="og:title" content={`Immigrant Community in ${state.name} — Jobs, Housing, Events | Apnacircle`} />
         <meta property="og:description" content={`Find local immigrant community resources in ${state.name} for Indians, Pakistanis, Koreans, Chinese, Japanese, Sri Lankans, and Mexicans — visa help, lawyers, jobs, accommodation, doctors, events and more.`} />
-        <meta property="og:url" content={`https://apnacircle.org/states/${stateSlug}/`} />
+        <meta property="og:url" content={`${siteBase}/states/${stateSlug}/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${siteBase}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://apnacircle.org"},
-          {"@type":"ListItem","position":2,"name":state.name,"item":`https://apnacircle.org/states/${stateSlug}`}
+          {"@type":"ListItem","position":1,"name":"Home","item":siteBase},
+          {"@type":"ListItem","position":2,"name":state.name,"item":`${siteBase}/states/${stateSlug}/`}
         ]})}</script>
       </Helmet>
       {!isMobile && <ResourceNav />}

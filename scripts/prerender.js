@@ -7,7 +7,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 const ssrOut = resolve(root, ".ssr-dist");
 
-const STATES = [
+// Set SITE_URL env var in the CA deployment to get correct canonicals for that site.
+// US build: SITE_URL=https://apnacircle.org (default)
+// CA build: SITE_URL=https://ca.apnacircle.org
+const BASE = (process.env.SITE_URL || "https://apnacircle.org").replace(/\/$/, "");
+const IS_CA = BASE.startsWith("https://ca.");
+const publicUrl = url => `${BASE}${url === "/" ? "/" : `${url}/`}`;
+const OG_IMAGE = `${BASE}/og-image.svg`;
+
+const CA_PROVINCE_SLUGS = new Set([
+  "ontario", "british-columbia", "alberta", "quebec", "manitoba",
+  "saskatchewan", "nova-scotia", "new-brunswick", "newfoundland", "prince-edward-island",
+]);
+
+const ALL_STATES = [
   // ── US States ────────────────────────────────────────────────────────────────
   { name: "Alabama",               abbr: "AL", slug: "alabama",              cities: ["Birmingham","Montgomery","Huntsville","Mobile","Tuscaloosa"] },
   { name: "Alaska",                abbr: "AK", slug: "alaska",               cities: ["Anchorage","Fairbanks","Juneau"] },
@@ -72,37 +85,60 @@ const STATES = [
   { name: "Prince Edward Island",  abbr: "PE", slug: "prince-edward-island", cities: ["Charlottetown","Summerside","Stratford","Cornwall"] },
 ];
 
-const citySlug = name => name.toLowerCase().replace(/\s+/g, "-");
-const BASE = "https://apnacircle.org";
-const publicUrl = url => `${BASE}${url === "/" ? "/" : `${url}/`}`;
+// Each build only pre-renders the regions relevant to its site.
+const SITE_REGIONS = IS_CA
+  ? ALL_STATES.filter(s => CA_PROVINCE_SLUGS.has(s.slug))
+  : ALL_STATES.filter(s => !CA_PROVINCE_SLUGS.has(s.slug));
 
-const OG_IMAGE = `${BASE}/og-image.svg`;
+const citySlug = name => name.toLowerCase().replace(/\s+/g, "-");
+
+const STATIC_ROUTES = IS_CA ? [
+  "/", "/visa/visitor", "/visa/study-permit", "/visa/work-permit",
+  "/visa/express-entry", "/visa/pnp",
+  "/immigration", "/ds160", "/health", "/lawyers",
+  "/contact", "/events", "/privacy", "/disclaimer",
+] : [
+  "/", "/visa/h1b", "/visa/f1", "/visa/b1b2",
+  "/immigration", "/ds160", "/health", "/lawyers",
+  "/contact", "/events", "/privacy", "/disclaimer",
+];
 
 function metaForRoute(url) {
   const og = (title, desc, ld) => ({ title, desc, ld });
 
   if (url === "/") return {
     ...og(
-      "Apnacircle — Free Community Hub for Immigrants in the US & Canada",
+      IS_CA
+        ? "Apnacircle — Free Community Hub for Immigrants in Canada"
+        : "Apnacircle — Free Community Hub for Immigrants in the US & Canada",
       "Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees.",
       JSON.stringify([
-        { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":BASE,"logo":`${BASE}/favicon.svg`,"description":"Free community hub for immigrants in the US & Canada" },
+        { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":BASE,"logo":`${BASE}/favicon.svg`,"description": IS_CA ? "Free community hub for immigrants in Canada" : "Free community hub for immigrants in the US & Canada" },
         { "@context":"https://schema.org","@type":"WebSite","url":BASE,"name":"Apnacircle" },
       ]),
     ),
     hreflang: true,
   };
+
   if (url === "/immigration") return og(
-    "Immigration Tips for United States — Community Advice | Apnacircle",
-    "Practical immigration tips shared by the immigrant community — green card, work authorization, status changes, travel and more.",
+    IS_CA
+      ? "Immigration Tips for Canada — Community Advice | Apnacircle"
+      : "Immigration Tips for United States — Community Advice | Apnacircle",
+    IS_CA
+      ? "Practical immigration tips shared by the immigrant community — PR, Express Entry, work permits, study permits and more."
+      : "Practical immigration tips shared by the immigrant community — green card, work authorization, status changes, travel and more.",
   );
   if (url === "/ds160") return og(
     "DS-160 Tips — Community Guide | Apnacircle",
     "Tips and guidance on filling out DS-160 forms shared by immigrants who've been through the process.",
   );
   if (url === "/health") return og(
-    "Health & Wellness Tips for Immigrants — United States | Apnacircle",
-    "Community health tips for immigrants — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.",
+    IS_CA
+      ? "Health & Wellness Tips for Immigrants — Canada | Apnacircle"
+      : "Health & Wellness Tips for Immigrants — United States | Apnacircle",
+    IS_CA
+      ? "Community health tips for immigrants in Canada — doctors, provincial health coverage, pharmacies and nutrition advice."
+      : "Community health tips for immigrants — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.",
   );
   if (url === "/lawyers") return og(
     "Immigration Lawyers — Community Recommended | Apnacircle",
@@ -112,6 +148,22 @@ function metaForRoute(url) {
     "Contact Apnacircle — Get in Touch",
     "Send a message to the Apnacircle team. We're here to help the immigrant community.",
   );
+  if (url === "/events") return og(
+    "Community Events — Immigrant Meetups & Cultural Events | Apnacircle",
+    IS_CA
+      ? "Browse upcoming community events for immigrants across Canada — cultural gatherings, meetups, festivals and more."
+      : "Browse upcoming community events for immigrants across the US — cultural gatherings, meetups, festivals and more.",
+  );
+  if (url === "/privacy") return og(
+    "Privacy Policy | Apnacircle",
+    "Privacy policy for Apnacircle — how we handle your data and protect your privacy.",
+  );
+  if (url === "/disclaimer") return og(
+    "Disclaimer | Apnacircle",
+    "Disclaimer for Apnacircle — important information about the nature of community-submitted content.",
+  );
+
+  // US visa routes
   if (url === "/visa/h1b") return og(
     "H-1B Visa Interview Experiences — Community Stories | Apnacircle",
     "Real H-1B visa interview experiences shared by immigrants. Tips, consulate reviews and approval stories.",
@@ -125,9 +177,31 @@ function metaForRoute(url) {
     "Real B-1/B-2 visitor visa interview experiences shared by immigrants.",
   );
 
+  // CA visa routes
+  if (url === "/visa/visitor") return og(
+    "Canada Visitor Visa Experiences — Community Stories | Apnacircle",
+    "Real Canada visitor visa experiences shared by immigrants. Tips, processing times and approval stories.",
+  );
+  if (url === "/visa/study-permit") return og(
+    "Canada Study Permit Experiences — Community Stories | Apnacircle",
+    "Real Canada study permit experiences shared by international students. Tips and approval stories.",
+  );
+  if (url === "/visa/work-permit") return og(
+    "Canada Work Permit Experiences — Community Stories | Apnacircle",
+    "Real Canada work permit experiences shared by immigrants. Tips, processing times and approval stories.",
+  );
+  if (url === "/visa/express-entry") return og(
+    "Express Entry Experiences — Community Stories | Apnacircle",
+    "Real Express Entry immigration experiences shared by immigrants. Tips, CRS scores and PR approval stories.",
+  );
+  if (url === "/visa/pnp") return og(
+    "Provincial Nominee Program (PNP) Experiences | Apnacircle",
+    "Real PNP experiences shared by immigrants across Canadian provinces. Tips and nomination stories.",
+  );
+
   const parts = url.split("/").filter(Boolean);
   if (parts[0] === "states" && parts[1]) {
-    const state = STATES.find(s => s.slug === parts[1]);
+    const state = SITE_REGIONS.find(s => s.slug === parts[1]);
     if (!state) return null;
 
     if (parts[2]) {
@@ -145,7 +219,7 @@ function metaForRoute(url) {
     }
     return og(
       `Immigrant Community in ${state.name} — Jobs, Housing, Events | Apnacircle`,
-      `Find local immigrant community resources in ${state.name} for Indians, Pakistanis, Koreans, Chinese, Japanese, Sri Lankans, and Mexicans — visa help, lawyers, jobs, accommodation, doctors, events and more.`,
+      `Find local immigrant community resources in ${state.name} for Indians, Pakistanis, Koreans, Chinese, Japanese, Sri Lankans, and Mexicans — visa help, immigration lawyers, jobs, accommodation, doctors, events and more.`,
       JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
         {"@type":"ListItem","position":1,"name":"Home","item":BASE},
         {"@type":"ListItem","position":2,"name":state.name,"item":publicUrl(`/states/${state.slug}`)},
@@ -155,17 +229,14 @@ function metaForRoute(url) {
   return null;
 }
 
-const routes = [
-  "/", "/visa/h1b", "/visa/f1", "/visa/b1b2",
-  "/immigration", "/ds160", "/health", "/lawyers", "/contact",
-];
-for (const state of STATES) {
-  routes.push(`/states/${state.slug}`);
-  for (const city of state.cities) routes.push(`/states/${state.slug}/${citySlug(city)}`);
+const routes = [...STATIC_ROUTES];
+for (const region of SITE_REGIONS) {
+  routes.push(`/states/${region.slug}`);
+  for (const city of region.cities) routes.push(`/states/${region.slug}/${citySlug(city)}`);
 }
 
 // Build SSR bundle
-console.log("Building SSR bundle...");
+console.log(`Building SSR bundle for ${BASE}...`);
 execSync(`vite build --ssr src/entry-server.jsx --outDir ${ssrOut}`, { cwd: root, stdio: "inherit" });
 
 const { render } = await import(pathToFileURL(resolve(ssrOut, "entry-server.js")).href);
@@ -177,6 +248,14 @@ for (const url of routes) {
     const { html } = render(url);
     const meta = metaForRoute(url);
     const canonical = publicUrl(url);
+
+    // Both sites cross-reference each other on the home page so Google understands
+    // apnacircle.org targets US users and ca.apnacircle.org targets Canadian users.
+    const hreflangTags = meta?.hreflang ? [
+      `<link rel="alternate" hreflang="en-us" href="https://apnacircle.org/" />`,
+      `<link rel="alternate" hreflang="en-ca" href="https://ca.apnacircle.org/" />`,
+      `<link rel="alternate" hreflang="x-default" href="https://apnacircle.org/" />`,
+    ] : [];
 
     const headTags = meta ? [
       `<title>${meta.title}</title>`,
@@ -190,10 +269,7 @@ for (const url of routes) {
       `<meta property="og:image" content="${OG_IMAGE}" />`,
       `<meta name="twitter:card" content="summary_large_image" />`,
       `<meta name="twitter:image" content="${OG_IMAGE}" />`,
-      ...(meta.hreflang ? [
-        `<link rel="alternate" hreflang="en" href="${canonical}" />`,
-        `<link rel="alternate" hreflang="x-default" href="${canonical}" />`,
-      ] : []),
+      ...hreflangTags,
       ...(meta.ld ? [`<script type="application/ld+json">${meta.ld}</script>`] : []),
     ].join("\n    ") : "";
 

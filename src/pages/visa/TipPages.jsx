@@ -436,13 +436,13 @@ export function ImmigrationPage({ embedded = false }) {
       <Helmet>
         <title>Port of Entry Guide — Documents & CBP Questions | Apnacircle</title>
         <meta name="description" content="Required documents at the U.S. port of entry and common CBP officer questions by visa type — F-1, J-1, H-1B, B-1/B-2, green card holders and more." />
-        <link rel="canonical" href="https://apnacircle.org/immigration/" />
+        <link rel="canonical" href={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/immigration/`} />
         <meta property="og:title" content="Port of Entry Guide — Documents & CBP Questions | Apnacircle" />
         <meta property="og:description" content="Required documents at the U.S. port of entry and common CBP officer questions by visa type." />
-        <meta property="og:url" content="https://apnacircle.org/immigration/" />
+        <meta property="og:url" content={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/immigration/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       {!isMobile && <ResourceNav />}
@@ -543,13 +543,13 @@ export function DS160Page({ embedded = false }) {
       <Helmet>
         <title>DS-160 Form Guide & FAQ | Apnacircle</title>
         <meta name="description" content="Complete field-by-field guide and FAQ for the DS-160 nonimmigrant visa application form." />
-        <link rel="canonical" href="https://apnacircle.org/ds160/" />
+        <link rel="canonical" href={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/ds160/`} />
         <meta property="og:title" content="DS-160 Form Guide & FAQ | Apnacircle" />
         <meta property="og:description" content="Complete field-by-field guide and FAQ for the DS-160 nonimmigrant visa application form." />
-        <meta property="og:url" content="https://apnacircle.org/ds160/" />
+        <meta property="og:url" content={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/ds160/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       {!isMobile && <ResourceNav />}

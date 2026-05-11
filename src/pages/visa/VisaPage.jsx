@@ -143,13 +143,13 @@ export default function VisaPage({ embedded = false }) {
       <Helmet>
         <title>US Visa Interview Experiences — H1B, F1, B1/B2 | Apnacircle</title>
         <meta name="description" content="Real visa interview experiences shared by immigrants — H-1B, F-1, B-1/B-2, H-4, L-1 and more. Tips, consulate reviews and approval stories." />
-        <link rel="canonical" href={`https://apnacircle.org/visa/${activeVisa.id}/`} />
+        <link rel="canonical" href={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/visa/${activeVisa.id}/`} />
         <meta property="og:title" content={`${activeVisa.label} Visa Interview Experiences | Apnacircle`} />
         <meta property="og:description" content="Real visa interview experiences shared by immigrants — tips, consulate reviews and approval stories." />
-        <meta property="og:url" content={`https://apnacircle.org/visa/${activeVisa.id}/`} />
+        <meta property="og:url" content={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/visa/${activeVisa.id}/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org"}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       {!isMobile && <ResourceNav />}

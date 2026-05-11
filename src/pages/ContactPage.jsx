@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { f, Toast, useToast, isValidEmail } from "../components/formHelpers";
 import { getSubmitError, submitContactMessage } from "../lib/db";
+import { getCountrySlug } from "../lib/country";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -40,18 +41,19 @@ export default function ContactPage() {
     show("Thanks. Your message has been sent.");
   };
 
+  const siteBase = getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
     <main style={s.page}>
       <Helmet>
         <title>Contact Apnacircle — Get in Touch</title>
         <meta name="description" content="Send a message to the Apnacircle team. We're here to help the immigrant community." />
-        <link rel="canonical" href="https://apnacircle.org/contact/" />
+        <link rel="canonical" href={`${siteBase}/contact/`} />
         <meta property="og:title" content="Contact Apnacircle — Get in Touch" />
         <meta property="og:description" content="Send a message to the Apnacircle team. We're here to help the immigrant community." />
-        <meta property="og:url" content="https://apnacircle.org/contact/" />
+        <meta property="og:url" content={`${siteBase}/contact/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${siteBase}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <Link to="/" style={s.back}>Back to home</Link>

@@ -2,6 +2,10 @@ import { writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
+// Set SITE_URL in the CA deployment (e.g. SITE_URL=https://ca.apnacircle.org)
+const SITE_URL = (process.env.SITE_URL || "https://apnacircle.org").replace(/\/$/, "");
+const IS_CA = SITE_URL.startsWith("https://ca.");
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const US_STATES = [
@@ -151,3 +155,21 @@ const caUrls = buildUrls("https://ca.apnacircle.org", CA_STATIC, CA_PROVINCES);
 const caOut = resolve(__dirname, "../public/sitemap-ca.xml");
 writeFileSync(caOut, toXml(caUrls), "utf-8");
 console.log(`CA sitemap written  — ${caUrls.length} URLs → public/sitemap-ca.xml`);
+
+// ── robots.txt ────────────────────────────────────────────────────────────────
+// Each deployment gets a robots.txt that points to its own sitemap.
+const sitemapUrl = IS_CA
+  ? "https://ca.apnacircle.org/sitemap-ca.xml"
+  : "https://apnacircle.org/sitemap.xml";
+
+const robotsTxt = `User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /admin/
+
+Sitemap: ${sitemapUrl}
+`;
+const robotsOut = resolve(__dirname, "../public/robots.txt");
+writeFileSync(robotsOut, robotsTxt, "utf-8");
+console.log(`robots.txt written  — Sitemap: ${sitemapUrl}`);

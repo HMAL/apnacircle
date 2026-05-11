@@ -5,7 +5,7 @@ import { f, fmtDate, formatPhone, MapLink, PhoneLink } from "../components/formH
 import { fetchAllLawyers } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
-import { getCountryName } from "../lib/country";
+import { getCountryName, getCountrySlug } from "../lib/country";
 import ResourceNav from "../components/ResourceNav";
 
 export default function GlobalLawyersPage() {
@@ -44,18 +44,19 @@ export default function GlobalLawyersPage() {
     return matchState && matchSearch;
   });
 
+  const siteBase = getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
       <Helmet>
         <title>Immigration Lawyers — Community Recommended | Apnacircle</title>
         <meta name="description" content="Find community-recommended immigration lawyers across the US and Canada — vetted by immigrants, for immigrants. Specializing in H-1B, green card, family visa and more." />
-        <link rel="canonical" href="https://apnacircle.org/lawyers/" />
+        <link rel="canonical" href={`${siteBase}/lawyers/`} />
         <meta property="og:title" content="Immigration Lawyers — Community Recommended | Apnacircle" />
         <meta property="og:description" content="Find community-recommended immigration lawyers across the US and Canada — vetted by immigrants, for immigrants. Specializing in H-1B, green card, family visa and more." />
-        <meta property="og:url" content="https://apnacircle.org/lawyers/" />
+        <meta property="og:url" content={`${siteBase}/lawyers/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${siteBase}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       {!isMobile && <ResourceNav />}

@@ -6,7 +6,7 @@ import { f, useToast, Toast, fmtEventDate, daysUntilBadge, MapLink } from "../co
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
 import ResourceNav from "../components/ResourceNav";
-import { citySlug as makeCitySlug } from "../lib/country";
+import { citySlug as makeCitySlug, getCountrySlug } from "../lib/country";
 
 export default function EventsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -40,18 +40,19 @@ export default function EventsPage() {
 
   const reload = () => fetchFilteredEvents(stateFilter || null).then(setEvents);
 
+  const siteBase = getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
       <Helmet>
         <title>Upcoming Events — Indian & South Asian Community | Apnacircle</title>
         <meta name="description" content="Community events across the US and Canada — cultural programs, festivals, concerts and meetups for Indians, Pakistanis, Koreans, Chinese and more." />
-        <link rel="canonical" href="https://apnacircle.org/events/" />
+        <link rel="canonical" href={`${siteBase}/events/`} />
         <meta property="og:title" content="Upcoming Events — Indian & South Asian Community | Apnacircle" />
         <meta property="og:description" content="Community events across the US and Canada — cultural programs, festivals, concerts and meetups." />
-        <meta property="og:url" content="https://apnacircle.org/events/" />
+        <meta property="og:url" content={`${siteBase}/events/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${siteBase}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 

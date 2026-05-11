@@ -5,7 +5,7 @@ import { f, useToast, Toast, fmtDate } from "../components/formHelpers";
 import { fetchTips, getSubmitError, submitTip } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
-import { getCountryName } from "../lib/country";
+import { getCountryName, getCountrySlug } from "../lib/country";
 import ResourceNav from "../components/ResourceNav";
 
 const CATEGORIES = [
@@ -33,18 +33,19 @@ export default function HealthWellnessPage() {
     ? posts.filter(p => [p.tip, p.name, p.category].some(v => v?.toLowerCase().includes(search.toLowerCase())))
     : posts;
 
+  const siteBase = getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
       <Helmet>
         <title>Health & Wellness Tips for Immigrants — {countryName} | Apnacircle</title>
         <meta name="description" content={`Community health tips for immigrants in ${countryName} — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.`} />
-        <link rel="canonical" href="https://apnacircle.org/health/" />
+        <link rel="canonical" href={`${siteBase}/health/`} />
         <meta property="og:title" content={`Health & Wellness Tips for Immigrants — ${countryName} | Apnacircle`} />
         <meta property="og:description" content={`Community health tips for immigrants in ${countryName} — doctors, health insurance, mental health, pharmacies, hospitals and nutrition advice.`} />
-        <meta property="og:url" content="https://apnacircle.org/health/" />
+        <meta property="og:url" content={`${siteBase}/health/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
-        <meta property="og:image" content="https://apnacircle.org/og-image.svg" />
+        <meta property="og:image" content={`${siteBase}/og-image.svg`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       {!isMobile && <ResourceNav />}
