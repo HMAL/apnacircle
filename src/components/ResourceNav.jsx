@@ -6,6 +6,7 @@ export function getResourceNavItems() {
   const formsResource = getFormsResource();
 
   return [
+    { key: "deals", icon: "$", iconStyle: s.dealsIcon, label: "Deals", href: "https://deals.apnacircle.org", external: true },
     { key: "events", icon: "\u{1F4C5}", label: "Events", to: "/events", match: path => path === "/events" },
     // { key: "visa", icon: "\u{1F6C2}", label: "Visa Experiences", to: getVisaStartPath(), match: path => path.startsWith("/visa/") },
     { key: "immigration", icon: "\u{1F4A1}", label: "Immigration Tips", to: "/immigration" },
@@ -49,7 +50,7 @@ export function MobileResourceNav({ style }) {
           style={s.mobileNavItem}
           activeStyle={s.mobileNavItemActive}
         >
-          <span style={s.mobileIcon}>{item.icon}</span>
+          {item.icon && <span style={{ ...s.mobileIcon, ...item.iconStyle }}>{item.icon}</span>}
           <span style={s.mobileNavLabel}>{item.label}</span>
         </ResourceLink>
       ))}
@@ -62,7 +63,7 @@ function ResourceLink({ item, location, style, activeStyle, children }) {
   const linkStyle = { ...style, ...(active ? activeStyle : {}) };
   const content = children || (
     <>
-      <span style={s.icon}>{item.icon}</span>
+      {item.icon && <span style={{ ...s.icon, ...item.iconStyle }}>{item.icon}</span>}
       <span>{item.label}</span>
     </>
   );
@@ -73,6 +74,14 @@ function ResourceLink({ item, location, style, activeStyle, children }) {
       <Link to={href} style={linkStyle} aria-current={active ? "page" : undefined}>
         {content}
       </Link>
+    );
+  }
+
+  if (item.external) {
+    return (
+      <a href={item.href} style={linkStyle} target="_blank" rel="noopener noreferrer">
+        {content}
+      </a>
     );
   }
 
@@ -129,6 +138,11 @@ const s = {
     width: 18,
     flexShrink: 0,
     textAlign: "center",
+  },
+  dealsIcon: {
+    color: "#D4AF37",
+    fontWeight: 900,
+    textShadow: "0 1px 0 rgba(92, 74, 50, 0.18)",
   },
   mobileNavItem: {
     display: "flex",
