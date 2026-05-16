@@ -43,8 +43,8 @@ export default function HomePage() {
           { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":siteBase,"logo":`${siteBase}/favicon.svg`,"description":"Free community hub for immigrants in the US & Canada" },
           { "@context":"https://schema.org","@type":"WebSite","url":siteBase,"name":"Apnacircle" }
         ])}</script>
+        <meta name="impact-site-verification" value="9c7f49e8-1f85-412d-bb44-f156f590911f" />
       </Helmet>
-      <p style={{ display:"none" }}>Impact-Site-Verification: 9c7f49e8-1f85-412d-bb44-f156f590911f</p>
       {/* Hero */}
       <div style={s.hero}>
         <p className="hero-sub" style={s.sub}>A community-powered FREE resource that focus on helping immigrants, No Ads, No fees, No Spam — visa experiences, legal help, Doctos, jobs, housing and local services in both <a href="https://apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>USA</a> & <a href="https://ca.apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>Canada</a>.</p>
