@@ -1,38 +1,107 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { f, useToast, Toast, fmtDate } from "../components/formHelpers";
-import { fetchTips, getSubmitError, submitTip } from "../lib/db";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
 import { getCountryName, getCountrySlug } from "../lib/country";
 import ResourceNav from "../components/ResourceNav";
 
-const CATEGORIES = [
-  "Doctors & Specialists",
-  "Health Insurance",
-  "Mental Health",
-  "Nutrition & Diet",
-  "Pharmacy / Medications",
-  "Hospitals & Urgent Care",
-  "Dental",
-  "Other",
+const PLAN_OPTS = [
+  { label: "Bronze  (60/40)", pct: 60 },
+  { label: "Silver  (70/30)", pct: 70 },
+  { label: "Gold    (80/20)", pct: 80 },
+  { label: "Platinum (90/10)", pct: 90 },
 ];
 
+function InsuranceCalc() {
+  const [deductible, setDeductible] = useState(2000);
+  const [oopMax,     setOopMax]     = useState(6000);
+  const [paidSoFar,  setPaidSoFar]  = useState(0);
+  const [visitCost,  setVisitCost]  = useState(500);
+  const [planPct,    setPlanPct]    = useState(80);
+
+  const remainingDed   = Math.max(0, deductible - paidSoFar);
+  const towardDed      = Math.min(remainingDed, visitCost);
+  const aboveDed       = Math.max(0, visitCost - towardDed);
+  const coinsurance    = aboveDed * (1 - planPct / 100);
+  const rawYouPay      = towardDed + coinsurance;
+  const remainingOop   = Math.max(0, oopMax - paidSoFar);
+  const youPay         = Math.min(rawYouPay, remainingOop);
+  const newPaidTotal   = paidSoFar + youPay;
+  const hitDeductible  = newPaidTotal >= deductible;
+  const hitOop         = newPaidTotal >= oopMax;
+
+  return (
+    <div style={hs.calcCard}>
+      <div style={hs.calcTitle}>🧮 Health Insurance Cost Calculator</div>
+      <p style={hs.calcSub}>Confused by deductibles and coinsurance? Enter your plan details to see exactly what you owe.</p>
+      <div style={hs.calcGrid}>
+        <label style={hs.label}>Annual deductible ($)<input style={hs.input} type="number" value={deductible} step={100} onChange={e => setDeductible(+e.target.value)} /></label>
+        <label style={hs.label}>Out-of-pocket max ($)<input style={hs.input} type="number" value={oopMax} step={100} onChange={e => setOopMax(+e.target.value)} /></label>
+        <label style={hs.label}>Already paid this year ($)<input style={hs.input} type="number" value={paidSoFar} step={100} onChange={e => setPaidSoFar(+e.target.value)} /></label>
+        <label style={hs.label}>This visit / procedure ($)<input style={hs.input} type="number" value={visitCost} step={50} onChange={e => setVisitCost(+e.target.value)} /></label>
+        <label style={{ ...hs.label, gridColumn: "1 / -1" }}>Plan type
+          <select style={hs.input} value={planPct} onChange={e => setPlanPct(+e.target.value)}>
+            {PLAN_OPTS.map(o => <option key={o.pct} value={o.pct}>{o.label}</option>)}
+          </select>
+        </label>
+      </div>
+      <div style={hs.results}>
+        <div style={hs.result}>
+          <span style={hs.rLabel}>You owe this visit</span>
+          <span style={hs.rVal}>${youPay.toFixed(2)}</span>
+        </div>
+        <div style={hs.result}>
+          <span style={hs.rLabel}>Remaining deductible</span>
+          <span style={hs.rVal}>${Math.max(0, deductible - newPaidTotal).toFixed(0)}</span>
+        </div>
+        <div style={hs.result}>
+          <span style={hs.rLabel}>Remaining OOP max</span>
+          <span style={hs.rVal}>${Math.max(0, oopMax - newPaidTotal).toFixed(0)}</span>
+        </div>
+        {hitOop  && <div style={{ ...hs.badge, background: "#dcfce7", color: "#166534" }}>✓ OOP max hit — insurer pays 100% after this</div>}
+        {!hitOop && hitDeductible && <div style={{ ...hs.badge, background: "#dbeafe", color: "#1e40af" }}>✓ Deductible met — coinsurance applies now</div>}
+        {!hitDeductible && <div style={{ ...hs.badge, background: "#fef9c3", color: "#854d0e" }}>Deductible not yet met — you pay this bill in full until it is</div>}
+      </div>
+      <p style={hs.note}>Copay plans differ — this covers deductible + coinsurance structures (most employer plans).</p>
+    </div>
+  );
+}
+
+const ER_DATA = [
+  { who: "Primary Care (PCP)", icon: "🩺", cost: "$20–$50 copay", wait: "Same/next day appt", best: "Routine checkups, chronic conditions, referrals, follow-ups", avoid: "Evenings, weekends, emergencies" },
+  { who: "Urgent Care",        icon: "⚡", cost: "$50–$150 copay", wait: "30 min – 2 hrs walk-in", best: "Minor injuries, infections, stitches, X-rays, strep, UTIs", avoid: "Chest pain, stroke symptoms, severe injuries" },
+  { who: "Emergency Room",     icon: "🚑", cost: "$150–$500+ copay", wait: "2–8 hrs (non-critical)", best: "Chest pain, difficulty breathing, severe bleeding, stroke", avoid: "Anything PCP or urgent care can handle — costs 5–10× more" },
+];
+
+function ErComparisonCard() {
+  return (
+    <div style={hs.calcCard}>
+      <div style={hs.calcTitle}>🏥 ER vs Urgent Care vs PCP — When to Go Where</div>
+      <p style={hs.calcSub}>Choosing the wrong facility costs you hundreds of dollars. Here's the quick guide.</p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        {ER_DATA.map(row => (
+          <div key={row.who} style={hs.erRow}>
+            <div style={hs.erHeader}>
+              <span style={{ fontSize: 22 }}>{row.icon}</span>
+              <span style={hs.erName}>{row.who}</span>
+              <span style={hs.erCost}>{row.cost}</span>
+              <span style={hs.erWait}>⏱ {row.wait}</span>
+            </div>
+            <div style={hs.erBody}>
+              <span style={hs.erGood}>✓ {row.best}</span>
+              <span style={hs.erBad}>✗ {row.avoid}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function HealthWellnessPage() {
-  const [showForm, setShowForm] = useState(false);
-  const [posts, setPosts] = useState([]);
-  const [search, setSearch] = useState("");
   const isMobile = useIsMobile();
   const countryName = getCountryName();
-
-  const reload = () => fetchTips("health_tips").then(setPosts);
-  useEffect(() => { reload(); }, []);
-
-  const filtered = search
-    ? posts.filter(p => [p.tip, p.name, p.category].some(v => v?.toLowerCase().includes(search.toLowerCase())))
-    : posts;
-
   const siteBase = getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
@@ -55,41 +124,11 @@ export default function HealthWellnessPage() {
           <span style={{ fontSize:32 }}>🏥</span>
           <div style={{ flex:1 }}>
             <h1 style={s.title}>Health & Wellness</h1>
-            <p style={s.desc}>Community tips on navigating healthcare in {countryName} — insurance, doctors, hospitals and more.</p>
+            <p style={s.desc}>Practical guidance on navigating healthcare in {countryName} — insurance costs, and where to go.</p>
           </div>
-          <button style={s.addBtn} onClick={() => setShowForm(v => !v)}>
-            {showForm ? "✕ Cancel" : "+ Share a Tip"}
-          </button>
         </div>
-
-        {showForm && (
-          <div style={s.card}>
-            <HealthForm onSubmit={() => { setShowForm(false); reload(); }} />
-          </div>
-        )}
-
-        <div style={s.card}>
-          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14, flexWrap:"wrap", gap:10 }}>
-            <h3 style={{ fontSize:16, fontWeight:700, margin:0 }}>Community Tips</h3>
-            <input style={{ ...f.input, width:220, margin:0 }} placeholder="Search tips..." value={search} onChange={e => setSearch(e.target.value)} />
-          </div>
-          {filtered.length > 0 ? (
-            filtered.map(p => (
-              <div key={p.id} style={f.card}>
-                <div style={{ display:"flex", gap:16, flexWrap:"wrap", marginBottom:6, alignItems:"center" }}>
-                  <span style={f.postAuthor}>{p.name || "Anonymous"}</span>
-                  {p.category && <span style={{ ...f.tag, background:"#e8f4ff", color:"#0066cc" }}>{p.category}</span>}
-                  <span style={f.postDate}>{fmtDate(p.created_at)}</span>
-                </div>
-                <p style={f.text}>{p.tip}</p>
-              </div>
-            ))
-          ) : (
-            <p style={s.empty}>
-              {search ? `No results for "${search}".` : "Be the first to share a health & wellness tip with the community!"}
-            </p>
-          )}
-        </div>
+        <InsuranceCalc />
+        <ErComparisonCard />
       </div>
 
       {!isMobile && (
@@ -102,50 +141,29 @@ export default function HealthWellnessPage() {
   );
 }
 
-function HealthForm({ onSubmit }) {
-  const [form, setForm] = useState({ name:"", category:"", tip:"" });
-  const { msg, show } = useToast();
-  const set = k => e => setForm(p => ({...p,[k]:e.target.value}));
-  const submit = async () => {
-    if (!form.tip.trim()) { show("Please share your tip."); return; }
-    const ok = await submitTip("health_tips", {
-      name:     form.name     || null,
-      category: form.category || null,
-      tip:      form.tip,
-    });
-    if (ok) {
-      setForm({ name:"", category:"", tip:"" });
-      show("✓ Submitted for review! Thank you.");
-      setTimeout(() => onSubmit?.(), 1500);
-    } else {
-      show(getSubmitError("Error submitting. Please try again."));
-    }
-  };
-  return (
-    <>
-      <h3 style={f.sectionTitle}>Share Your Tip</h3>
-      <div style={f.grid2}>
-        <div style={f.group}>
-          <label style={f.label}>Your Name (optional)</label>
-          <input style={f.input} value={form.name} onChange={set("name")} placeholder="Anonymous" />
-        </div>
-        <div style={f.group}>
-          <label style={f.label}>Category</label>
-          <select style={f.select} value={form.category} onChange={set("category")}>
-            <option value="">Select category...</option>
-            {CATEGORIES.map(c => <option key={c}>{c}</option>)}
-          </select>
-        </div>
-        <div style={{...f.group,...f.span2}}>
-          <label style={f.label}>Your Tip <span style={f.req}>*</span></label>
-          <textarea style={f.textarea} value={form.tip} onChange={set("tip")} placeholder="Share tips about healthcare, insurance, finding doctors, hospitals..." />
-        </div>
-      </div>
-      <button style={f.btn} onClick={submit}>Submit</button>
-      <Toast msg={msg} />
-    </>
-  );
-}
+
+const hs = {
+  calcCard: { background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1.5rem", marginBottom:20, borderTop:"3px solid var(--orange)" },
+  calcTitle:{ fontSize:16, fontWeight:800, color:"#111", marginBottom:6 },
+  calcSub:  { fontSize:13, color:"#666", marginBottom:16, lineHeight:1.5 },
+  calcGrid: { display:"grid", gridTemplateColumns:"1fr 1fr", gap:"12px 20px", marginBottom:16 },
+  label:    { display:"flex", flexDirection:"column", gap:4, fontSize:12, fontWeight:600, color:"#666" },
+  input:    { padding:"6px 10px", border:"1px solid var(--border)", borderRadius:6, fontSize:14, color:"#111", width:"100%", boxSizing:"border-box" },
+  results:  { display:"flex", gap:12, flexWrap:"wrap", background:"#fafaf8", borderRadius:8, padding:"1rem", marginBottom:8 },
+  result:   { flex:"1 1 120px", display:"flex", flexDirection:"column", gap:2 },
+  rLabel:   { fontSize:11, color:"#888", fontWeight:600, textTransform:"uppercase", letterSpacing:0.3 },
+  rVal:     { fontSize:22, fontWeight:800, color:"#111" },
+  badge:    { width:"100%", padding:"8px 12px", borderRadius:6, fontSize:13, fontWeight:600 },
+  note:     { fontSize:11, color:"#aaa", margin:0 },
+  erRow:    { border:"0.5px solid var(--border)", borderRadius:8, padding:"12px 14px", background:"#fafaf8" },
+  erHeader: { display:"flex", alignItems:"center", gap:10, flexWrap:"wrap", marginBottom:6 },
+  erName:   { fontSize:15, fontWeight:800, color:"#111" },
+  erCost:   { fontSize:12, fontWeight:700, color:"var(--orange)", background:"var(--orange-light)", padding:"2px 8px", borderRadius:20 },
+  erWait:   { fontSize:12, color:"#777" },
+  erBody:   { display:"flex", flexDirection:"column", gap:3 },
+  erGood:   { fontSize:13, color:"#166534" },
+  erBad:    { fontSize:13, color:"#991b1b" },
+};
 
 const s = {
   outer:   { padding:"1.5rem 1.5rem 3rem", display:"flex", gap:24, alignItems:"flex-start" },
@@ -155,7 +173,4 @@ const s = {
   header:  { display:"flex", alignItems:"center", gap:16, marginBottom:"1.5rem", flexWrap:"wrap" },
   title:   { fontSize:28, fontWeight:800, color:"#111", marginBottom:4 },
   desc:    { fontSize:14, color:"#555" },
-  card:    { background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1.5rem", marginBottom:20 },
-  addBtn:  { marginLeft:"auto", padding:"8px 18px", background:"#555", color:"#fff", border:"none", borderRadius:20, fontSize:13, fontWeight:700, cursor:"pointer", whiteSpace:"nowrap" },
-  empty:   { fontSize:14, color:"#777", fontStyle:"italic", textAlign:"center", padding:"1.5rem 0" },
 };

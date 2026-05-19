@@ -450,7 +450,7 @@ const ALL_TABLES = [
   "jobs", "accommodation", "temples", "lawyers",
   "doctors", "babysitters", "tutors",
   "realtors", "priests", "photographers",
-  "visa_experiences", "immigration_tips", "ds160_tips", "health_tips", "events",
+  "visa_experiences", "immigration_tips", "ds160_tips", "events",
 ];
 
 export async function fetchAllSubmissions() {
@@ -467,6 +467,32 @@ export async function fetchAllSubmissions() {
   return results
     .flat()
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+}
+
+// ─────────────────────────────────────────────────────────────
+// SITE STATS — cached 24 hrs in localStorage
+// ─────────────────────────────────────────────────────────────
+export async function fetchSiteStats() {
+  const cacheKey = `apna_stats_${country()}`;
+  try {
+    const raw = localStorage.getItem(cacheKey);
+    if (raw) {
+      const { data, ts } = JSON.parse(raw);
+      if (Date.now() - ts < 24 * 60 * 60 * 1000) return data;
+    }
+  } catch (_) {}
+
+  const [visaRes, tipsRes] = await Promise.all([
+    supabase.from("visa_experiences").select("*", { count: "exact", head: true }).eq("country_slug", country()).eq("status", "approved"),
+    supabase.from("immigration_tips").select("*", { count: "exact", head: true }).eq("country_slug", country()).eq("status", "approved"),
+  ]);
+
+  const data = {
+    visaExperiences: visaRes.count || 0,
+    tips:            tipsRes.count || 0,
+  };
+  try { localStorage.setItem(cacheKey, JSON.stringify({ data, ts: Date.now() })); } catch (_) {}
+  return data;
 }
 
 export async function updateStatus(table, id, status) {

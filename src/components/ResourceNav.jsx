@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { getFormsResource, getVisaStartPath } from "../lib/country";
+import { getFormsResource } from "../lib/country";
 import { ScrollTabBar } from "./ScrollTabBar";
 
 export function getResourceNavItems() {
@@ -8,13 +8,12 @@ export function getResourceNavItems() {
   return [
     { key: "deals", icon: "$", iconStyle: s.dealsIcon, label: "Deals", href: "https://deals.apnacircle.org", external: true },
     { key: "events", icon: "\u{1F4C5}", label: "Events", to: "/events", match: path => path === "/events" },
-    // { key: "visa", icon: "\u{1F6C2}", label: "Visa Experiences", to: getVisaStartPath(), match: path => path.startsWith("/visa/") },
     { key: "finance", icon: "\u{1F4B0}", label: "Finance Tips", to: "/finance", match: path => path.startsWith("/finance") },
     { key: "news",    icon: "\u{1F4F0}", label: "News",         to: "/news",    match: path => path.startsWith("/news") },
     { key: "immigration", icon: "\u{1F4A1}", label: "Immigration Tips", to: "/immigration" },
     { key: "forms", icon: "\u{1F4CB}", label: `${formsResource.label} Tips`, to: "/ds160" },
     { key: "lawyers", icon: "\u2696\uFE0F", label: "Immigration Lawyers", to: "/lawyers" },
-    // { key: "health", icon: "\u{1F3E5}", label: "Health & Wellness", to: "/health" },
+    { key: "health", icon: "\u{1F3E5}", label: "Health & Wellness", to: "/health", match: path => path.startsWith("/health") },
   ].sort((a, b) => a.label.localeCompare(b.label));
 }
 

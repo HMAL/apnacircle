@@ -9,7 +9,6 @@ const TABLE_LABELS = {
   babysitters: "Baby Sitters",
   doctors: "Doctors",
   events: "Events",
-  health_tips: "Health & Wellness",
   jobs: "Jobs",
   lawyers: "Lawyers",
   photographers: "Photographers",

@@ -8,6 +8,22 @@ import { useIsMobile } from "../../lib/useIsMobile";
 import { getCountrySlug } from "../../lib/country";
 import ResourceNav from "../../components/ResourceNav";
 
+
+function ConsulateStats({ posts }) {
+  if (!posts.length) return null;
+  const counts = {};
+  posts.forEach(p => { if (p.location) counts[p.location] = (counts[p.location] || 0) + 1; });
+  const top = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 4);
+  return (
+    <div style={vs.statsBar}>
+      <span style={vs.statsLabel}>📊 {posts.length} experience{posts.length !== 1 ? "s" : ""} shared</span>
+      {top.map(([loc, n]) => (
+        <span key={loc} style={vs.statsPill}>{loc} · {n}</span>
+      ))}
+    </div>
+  );
+}
+
 const US_VISA_TYPES = [
   { id: "h1b",  label: "H-1B",    icon: "💼", desc: "Specialty occupation, employer-sponsored work visa" },
   { id: "f1",   label: "F-1",     icon: "🎓", desc: "Student visa experiences and interview tips" },
@@ -98,6 +114,7 @@ export default function VisaPage({ embedded = false }) {
 
         {/* Posts */}
         <div style={s.card}>
+          <ConsulateStats posts={filteredPosts} />
           <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:10, marginBottom:14 }}>
             <h3 style={{ fontSize:16, fontWeight:700, margin:0 }}>
               Community Experiences
@@ -210,6 +227,12 @@ function VisaForm({ visaId, groupedConsulates, onSubmit }) {
     </>
   );
 }
+
+const vs = {
+  statsBar:   { display:"flex", flexWrap:"wrap", gap:8, alignItems:"center", marginBottom:14, padding:"10px 0", borderBottom:"0.5px solid var(--border)" },
+  statsLabel: { fontSize:13, fontWeight:700, color:"#333" },
+  statsPill:  { fontSize:11, fontWeight:600, color:"#555", background:"#f0eee8", padding:"3px 10px", borderRadius:20 },
+};
 
 const s = {
   outer:    { padding:"1.5rem 1.5rem 3rem", display:"flex", gap:24, alignItems:"flex-start" },

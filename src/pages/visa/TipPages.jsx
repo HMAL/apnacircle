@@ -197,6 +197,91 @@ const CBP_QUESTIONS = [
   },
 ];
 
+// ─── Document checklists (moved from VisaPage) ───────────────────────────────
+const US_CHECKLISTS = {
+  h1b:   ["Valid passport (6+ months beyond stay)", "DS-160 confirmation page", "I-797 H-1B approval notice (original)", "Labor Condition Application (LCA)", "Employer offer / employment verification letter", "Recent pay stubs and W-2s (if renewing)", "Educational degrees and transcripts", "Passport photos (2×2 in, white background)", "MRV visa fee receipt"],
+  f1:    ["Valid passport (6+ months beyond stay)", "DS-160 confirmation page", "Form I-20 from your school (original)", "SEVIS fee receipt (I-901)", "Acceptance letter from US institution", "Proof of financial support (bank statements)", "Academic transcripts and diplomas", "Test scores (TOEFL, GRE/GMAT if required)", "Passport photos (2×2 in, white background)", "MRV visa fee receipt"],
+  b1b2:  ["Valid passport (6+ months beyond stay)", "DS-160 confirmation page", "Bank statements (last 3–6 months)", "Proof of employment / business ownership", "Travel itinerary and hotel bookings", "Ties to home country (property, family, job letter)", "Invitation letter if visiting family", "Passport photos (2×2 in, white background)", "MRV visa fee receipt"],
+  h4:    ["Valid passport", "DS-160 confirmation page", "Primary H-1B holder's valid visa and I-797", "Marriage / birth certificate (translated if needed)", "Proof of relationship (photos, communication records)", "Passport photos (2×2 in, white background)", "MRV visa fee receipt"],
+  l1:    ["Valid passport", "DS-160 confirmation page", "I-797 L-1 approval notice", "Company support letter explaining role", "Evidence of qualifying relationship between companies", "Proof of employment abroad (pay stubs, letter)", "Org chart showing your position", "Passport photos (2×2 in, white background)", "MRV visa fee receipt"],
+  other: ["Valid passport (6+ months beyond stay)", "DS-160 confirmation page", "Petition approval notice (I-797 or equivalent)", "Sponsor / employer support letter", "Evidence of qualifications", "Passport photos (2×2 in, white background)", "MRV visa fee receipt"],
+};
+
+const CA_CHECKLISTS = {
+  "visitor":       ["Valid passport", "IMM 5257 Visitor Visa application", "Passport photos (IRCC spec)", "Proof of financial support (bank statements)", "Proof of ties to home country", "Travel itinerary and accommodation details", "Invitation letter (if visiting family/friends)", "Biometrics enrollment (if required)"],
+  "study-permit":  ["Valid passport", "Acceptance letter from a Designated Learning Institution (DLI)", "Proof of funds (tuition + ~$10,000 CAD living)", "IMM 1294 Study Permit application", "Passport photos (IRCC spec)", "Quebec CAQ certificate (if studying in Quebec)", "Biometrics enrollment", "Medical exam (if required)"],
+  "work-permit":   ["Valid passport", "Job offer letter / LMIA from employer", "IMM 1295 Work Permit application", "Proof of qualifications and credentials", "Proof of financial support", "Passport photos (IRCC spec)", "Biometrics enrollment", "Medical exam (if required)"],
+  "express-entry": ["Valid passport", "Educational Credential Assessment (ECA) report", "IELTS / CELPIP language test scores", "Reference letters and pay stubs for each job", "Police certificates (all countries lived in 6+ months)", "Medical exam results (upfront medicals recommended)", "Proof of settlement funds", "PNP nomination letter (if applicable)"],
+  "pnp":           ["Valid passport", "Provincial nomination certificate", "Educational Credential Assessment (ECA)", "Language test scores (IELTS/CELPIP/TEF)", "Proof of work experience", "Police clearance certificates", "Medical exam results", "Proof of settlement funds"],
+  "super-visa":    ["Valid passport", "Invitation letter from Canadian child/grandchild", "Proof of child/grandchild's citizenship or PR", "Canadian private health insurance ($100K+ coverage, 1 yr)", "Proof of Canadian host's income/assets", "IMM 5257 Visitor Visa application", "Proof of ties to home country", "Biometrics enrollment"],
+  "other":         ["Valid passport", "Relevant IRCC application forms", "Passport photos (IRCC spec)", "Supporting documents for your specific application", "Biometrics enrollment (if required)", "Medical exam (if required)"],
+};
+
+const US_VISA_TYPES_CL = [
+  { id: "h1b", label: "H-1B" }, { id: "f1", label: "F-1" }, { id: "b1b2", label: "B-1/B-2" },
+  { id: "h4", label: "H-4" }, { id: "l1", label: "L-1" }, { id: "other", label: "Other" },
+];
+const CA_VISA_TYPES_CL = [
+  { id: "visitor", label: "Visitor Visa" }, { id: "study-permit", label: "Study Permit" },
+  { id: "work-permit", label: "Work Permit" }, { id: "express-entry", label: "Express Entry" },
+  { id: "pnp", label: "PNP" }, { id: "super-visa", label: "Super Visa" }, { id: "other", label: "Other" },
+];
+
+function VisaChecklist({ isCA }) {
+  const types  = isCA ? CA_VISA_TYPES_CL : US_VISA_TYPES_CL;
+  const [visaId, setVisaId] = useState(types[0].id);
+  const key    = `apna_checklist_${isCA ? "ca" : "us"}_${visaId}`;
+  const [checked, setChecked] = useState(() => {
+    try { return JSON.parse(localStorage.getItem(key)) || {}; } catch { return {}; }
+  });
+  const [open, setOpen] = useState(false);
+  const items  = isCA ? (CA_CHECKLISTS[visaId] || CA_CHECKLISTS["other"]) : (US_CHECKLISTS[visaId] || US_CHECKLISTS["other"]);
+
+  useEffect(() => {
+    try { setChecked(JSON.parse(localStorage.getItem(key)) || {}); } catch { setChecked({}); }
+  }, [key]);
+
+  const toggle = i => {
+    const next = { ...checked, [i]: !checked[i] };
+    setChecked(next);
+    try { localStorage.setItem(key, JSON.stringify(next)); } catch {}
+  };
+  const done  = items.filter((_, i) => checked[i]).length;
+  const total = items.length;
+
+  return (
+    <div style={s.checklistCard}>
+      <button style={s.checklistToggle} onClick={() => setOpen(v => !v)}>
+        <span>📋 Document Checklist</span>
+        <span style={s.checklistProgress}>{done}/{total} ready</span>
+        <span style={{ marginLeft: "auto", fontSize: 12, color: "#888" }}>{open ? "▲ hide" : "▼ show"}</span>
+      </button>
+      {open && (
+        <div style={s.checklistBody}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 12 }}>
+            {types.map(t => (
+              <button key={t.id} onClick={() => setVisaId(t.id)}
+                style={{ padding: "5px 14px", border: "0.5px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 700, cursor: "pointer", background: visaId === t.id ? "var(--orange)" : "#fff", color: visaId === t.id ? "#fff" : "#555" }}>
+                {t.label}
+              </button>
+            ))}
+          </div>
+          {items.map((item, i) => (
+            <label key={i} style={s.checkItem}>
+              <input type="checkbox" checked={!!checked[i]} onChange={() => toggle(i)}
+                style={{ accentColor: "var(--orange)", width: 15, height: 15, flexShrink: 0 }} />
+              <span style={{ ...s.checkLabel, textDecoration: checked[i] ? "line-through" : "none", color: checked[i] ? "#aaa" : "#333" }}>{item}</span>
+            </label>
+          ))}
+          {done === total && (
+            <div style={s.checkDone}>✓ All documents ready — good luck with your interview!</div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── DS-160 Field Guide data (from ILG DS-160 Q&A guide) ──────────────────────
 const DS160_GUIDE = [
   {
@@ -514,6 +599,8 @@ export function DS160Page({ embedded = false }) {
         </div>
       </div>
 
+      <VisaChecklist isCA={isCA} />
+
       {isCA ? (
         <div style={s.card}>
           <p style={s.empty}>IRCC Forms guide is coming soon. Check back later!</p>
@@ -587,4 +674,11 @@ const s = {
   tdQ:         { padding:"0.6rem 0.75rem", fontSize:13, fontWeight:600, color:"#333", verticalAlign:"top", borderTop:"0.5px solid var(--border)", width:"30%" },
   tdA:         { padding:"0.6rem 0.75rem", fontSize:13, color:"#444", verticalAlign:"top", borderTop:"0.5px solid var(--border)", lineHeight:1.55 },
   tdList:      { width:"100%", color:"#333" },
+  checklistCard:   { background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", marginBottom:16, overflow:"hidden" },
+  checklistToggle: { display:"flex", alignItems:"center", gap:10, width:"100%", padding:"12px 16px", background:"none", border:"none", cursor:"pointer", fontSize:14, fontWeight:700, color:"#111", textAlign:"left" },
+  checklistProgress:{ fontSize:12, fontWeight:700, background:"var(--orange-light)", color:"var(--orange)", padding:"2px 10px", borderRadius:20 },
+  checklistBody:   { padding:"4px 16px 16px", display:"flex", flexDirection:"column", gap:8 },
+  checkItem:       { display:"flex", alignItems:"flex-start", gap:10, cursor:"pointer" },
+  checkLabel:      { fontSize:13, lineHeight:1.5 },
+  checkDone:       { marginTop:8, fontSize:13, fontWeight:700, color:"#166534", background:"#dcfce7", borderRadius:6, padding:"8px 12px" },
 };
