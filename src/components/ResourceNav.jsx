@@ -9,6 +9,7 @@ export function getResourceNavItems() {
     { key: "deals", icon: "$", iconStyle: s.dealsIcon, label: "Deals", href: "https://deals.apnacircle.org", external: true },
     { key: "events", icon: "\u{1F4C5}", label: "Events", to: "/events", match: path => path === "/events" },
     // { key: "visa", icon: "\u{1F6C2}", label: "Visa Experiences", to: getVisaStartPath(), match: path => path.startsWith("/visa/") },
+    { key: "finance", icon: "\u{1F4B0}", label: "Finance Tips", to: "/finance", match: path => path.startsWith("/finance") },
     { key: "immigration", icon: "\u{1F4A1}", label: "Immigration Tips", to: "/immigration" },
     { key: "forms", icon: "\u{1F4CB}", label: `${formsResource.label} Tips`, to: "/ds160" },
     { key: "lawyers", icon: "\u2696\uFE0F", label: "Immigration Lawyers", to: "/lawyers" },
