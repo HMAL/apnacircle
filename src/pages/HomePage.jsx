@@ -106,17 +106,19 @@ function WhichStateQuiz() {
 
   return (
     <div style={hs.quizCard}>
-      <div style={hs.quizTitle}>🗺️ Which State Is Right for You?</div>
+      <div style={hs.quizHeader}>
+        <div style={hs.quizTitle}>🗺️ Which State Is Right for You?</div>
+        {!result && <div style={hs.quizStep}>Question {step + 1} of {QUIZ_QUESTIONS.length}</div>}
+      </div>
       {!result ? (
-        <>
-          <div style={hs.quizStep}>Question {step + 1} of {QUIZ_QUESTIONS.length}</div>
+        <div style={hs.quizBody}>
           <div style={hs.quizQ}>{QUIZ_QUESTIONS[step].q}</div>
           <div style={hs.quizOpts}>
             {QUIZ_QUESTIONS[step].opts.map((o, i) => (
               <button key={i} style={hs.quizBtn} onClick={() => pick(o)}>{o.label}</button>
             ))}
           </div>
-        </>
+        </div>
       ) : (
         <>
           <p style={hs.quizResultLabel}>Based on your answers, top picks:</p>
@@ -189,13 +191,19 @@ export default function HomePage() {
       {/* mobile quick-nav */}
       <div className="mobile-only">
         <MobileResourceNav style={{ padding:"0 1rem 0.75rem", borderBottom:"0.5px solid var(--border)" }} />
+        {countrySlug !== "ca" && (
+          <div style={s.mobileQuizWrap}>
+            <WhichStateQuiz />
+          </div>
+        )}
       </div>
 
       {/* body */}
       <div className="home-body" style={s.body}>
         {/* Left nav — desktop only */}
-        <div className="home-sidebar">
-          <ResourceNav />
+        <div className="home-sidebar" style={s.sidebarStack}>
+          <ResourceNav style={s.sidebarNav} />
+          {countrySlug !== "ca" && <WhichStateQuiz />}
         </div>
 
         {/* Center */}
@@ -205,9 +213,6 @@ export default function HomePage() {
           <div className="state-grid" style={s.stateGrid}>
             {states.map(state => <StateCard key={state.slug} state={state} />)}
           </div>
-
-          {/* Which State quiz — US only */}
-          {countrySlug !== "ca" && <WhichStateQuiz />}
 
           {/* Upcoming events */}
           <div id="events" style={s.eventsSection}>
@@ -280,14 +285,16 @@ function StateCard({ state }) {
 const hs = {
   statsBar:        { display:"flex", justifyContent:"center", flexWrap:"wrap", gap:"6px 24px", padding:"8px 1rem", background:"var(--orange-light)", borderBottom:"0.5px solid #f2c98b", fontSize:13, color:"#333" },
   statItem:        { whiteSpace:"nowrap" },
-  quizCard:        { background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1.5rem", marginBottom:24, borderTop:"3px solid var(--orange)" },
-  quizTitle:       { fontSize:16, fontWeight:800, color:"#111", marginBottom:10 },
-  quizStep:        { fontSize:11, fontWeight:700, color:"var(--orange)", textTransform:"uppercase", letterSpacing:0.4, marginBottom:6 },
-  quizQ:           { fontSize:15, fontWeight:700, color:"#222", marginBottom:14 },
-  quizOpts:        { display:"flex", flexDirection:"column", gap:8 },
-  quizBtn:         { padding:"10px 16px", background:"#fafaf8", border:"0.5px solid var(--border)", borderRadius:8, fontSize:14, fontWeight:600, color:"#333", cursor:"pointer", textAlign:"left" },
-  quizResultLabel: { fontSize:13, color:"#666", marginBottom:12 },
-  quizResults:     { display:"flex", flexDirection:"column", gap:10, marginBottom:16 },
+  quizCard:        { background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1rem", marginBottom:0, borderTop:"3px solid var(--orange)", display:"flex", flexDirection:"column", gap:12 },
+  quizHeader:      { display:"flex", alignItems:"center", justifyContent:"space-between", gap:"6px 12px", flexWrap:"wrap" },
+  quizTitle:       { fontSize:15, fontWeight:800, color:"#111", lineHeight:1.25 },
+  quizStep:        { fontSize:10, fontWeight:800, color:"var(--orange)", textTransform:"uppercase", letterSpacing:0.4, whiteSpace:"nowrap" },
+  quizBody:        { display:"flex", alignItems:"stretch", gap:10, flexWrap:"wrap" },
+  quizQ:           { flex:"1 1 150px", fontSize:14, fontWeight:700, color:"#222", lineHeight:1.35 },
+  quizOpts:        { flex:"2 1 260px", display:"flex", flexWrap:"wrap", gap:8 },
+  quizBtn:         { flex:"1 1 150px", minWidth:0, padding:"9px 12px", background:"#fafaf8", border:"0.5px solid var(--border)", borderRadius:8, fontSize:13, fontWeight:600, color:"#333", cursor:"pointer", textAlign:"left", lineHeight:1.25 },
+  quizResultLabel: { fontSize:13, color:"#666", marginBottom:0 },
+  quizResults:     { display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(150px, 1fr))", gap:10, marginBottom:2 },
   quizResultCard:  { background:"#fafaf8", borderRadius:8, padding:"12px 14px" },
   quizResultHeader:{ display:"flex", alignItems:"center", gap:10, marginBottom:6 },
   quizResultName:  { fontSize:16, fontWeight:800, color:"#111", marginRight:8 },
@@ -300,6 +307,9 @@ const s = {
   hero:         { textAlign: "center", padding: "2rem 1rem 1.25rem" },
   sub:          { color: "#555", fontSize: "clamp(10px, 1.1vw, 14px)", whiteSpace: "nowrap", margin: "0 auto" },
   body:         { padding: "0 1.5rem 2rem", display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start" },
+  sidebarStack: { width: 220, flexShrink: 0, display: "flex", flexDirection: "column", gap: 14, position: "sticky", top: 72, alignSelf: "flex-start" },
+  sidebarNav:   { width: "100%", position: "static" },
+  mobileQuizWrap: { padding: "0.9rem 1rem 1rem", borderBottom: "0.5px solid var(--border)" },
   center:       { flex: 1, minWidth: 0 },
   rail:         { width: 260, flexShrink: 0, display: "flex", flexDirection: "column", gap: 16, position: "sticky", top: 72 },
   sectionLabel: { fontSize: 13, fontWeight: 700, color: "#666", marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 },

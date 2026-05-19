@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
+import { useParams, Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { fetchStateBySlug } from "../lib/db";
 import { citySlug, getCountrySlug } from "../lib/country";
@@ -16,6 +16,8 @@ import Tutors from "../components/sections/Tutors";
 import Realtors from "../components/sections/Realtors";
 import Priests from "../components/sections/Priests";
 import Photographers from "../components/sections/Photographers";
+import PlacesToVisit from "../components/sections/PlacesToVisit";
+import { FEATURED_CITIES } from "../data/featuredStateCities";
 
 const SECTIONS = [
   { id: "jobs",          icon: "💼", label: "Local Jobs" },
@@ -31,6 +33,7 @@ const SECTIONS = [
 ].sort((a, b) => a.label.localeCompare(b.label));
 
 const SECTION_MAP = {
+  places: PlacesToVisit,
   jobs: Jobs,
   accommodation: Accommodation,
   temples: Temples,
@@ -46,9 +49,10 @@ const SECTION_MAP = {
 export default function CityPage() {
   const { stateSlug, citySlug: citySlugParam } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [state, setState] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [active, setActive] = useState(SECTIONS[0]?.id || "jobs");
+  const [active, setActive] = useState(location.state?.defaultTab || SECTIONS[0]?.id || "jobs");
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -64,6 +68,10 @@ export default function CityPage() {
   const cityName = cityObj?.name;
 
   if (!state || !cityName) return <Navigate to="/" />;
+
+  const hasPlaces = !!(FEATURED_CITIES[state.name]?.[cityName]?.places?.length);
+  const placesTab = { id: "places", icon: "🗺️", label: "Places to Visit" };
+  const allTabs = hasPlaces ? [placesTab, ...SECTIONS] : SECTIONS;
 
   const ActiveComp = SECTION_MAP[active];
 
@@ -97,7 +105,7 @@ export default function CityPage() {
             <span style={{ fontSize: 18 }}>📅</span>
             <span style={{ fontSize: 10, whiteSpace: "nowrap" }}>Events</span>
           </button>
-          {SECTIONS.map(sec => (
+          {allTabs.map(sec => (
             <button key={sec.id} onClick={() => setActive(sec.id)}
               style={{ ...s.mobileTab, ...(active === sec.id ? s.mobileTabActive : {}) }}>
               <span style={{ fontSize: 18 }}>{sec.icon}</span>
@@ -114,7 +122,7 @@ export default function CityPage() {
               style={s.sideItem}>
               <span>📅</span> Events
             </button>
-            {SECTIONS.map(sec => (
+            {allTabs.map(sec => (
               <button key={sec.id} onClick={() => setActive(sec.id)}
                 style={{ ...s.sideItem, ...(active === sec.id ? s.sideActive : {}) }}>
                 <span>{sec.icon}</span> {sec.label}
