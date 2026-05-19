@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AdBlock from "../../components/AdBlock";
@@ -80,6 +81,7 @@ function FinanceArticleLayout({ slug, title, icon, metaDesc, children }) {
 
       {!isMobile && (
         <aside style={s.rail}>
+          <CurrencyWidget />
           <AdBlock />
           <AdBlock />
         </aside>
@@ -151,6 +153,336 @@ function Cons({ items }) {
 function P({ children }) { return <p style={bs.p}>{children}</p>; }
 function H3({ children }) { return <h3 style={bs.h3}>{children}</h3>; }
 
+// ─── Currency widget ──────────────────────────────────────────────────────────
+
+const CURRENCY_TTL = 30 * 60 * 1000;
+
+const FX_PAIRS = [
+  { code: "INR", flag: "🇮🇳", sym: "₹" },
+  { code: "JPY", flag: "🇯🇵", sym: "¥" },
+  { code: "KRW", flag: "🇰🇷", sym: "₩" },
+  { code: "CNY", flag: "🇨🇳", sym: "¥" },
+  { code: "MXN", flag: "🇲🇽", sym: "MX$" },
+  { code: "PHP", flag: "🇵🇭", sym: "₱" },
+  { code: "LKR", flag: "🇱🇰", sym: "₨" },
+  { code: "BDT", flag: "🇧🇩", sym: "৳" },
+  { code: "PKR", flag: "🇵🇰", sym: "₨" },
+];
+
+function fmtRate(r) {
+  return r >= 100 ? Math.round(r).toLocaleString() : r.toFixed(2);
+}
+
+function CurrencyWidget() {
+  const countrySlug = getCountrySlug();
+  const base = countrySlug === "ca" ? "CAD" : "USD";
+  const cacheKey = `apna_fx_${base}_v2`;
+
+  const [rates, setRates] = useState(null);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(cacheKey);
+      if (raw) {
+        const { data, ts } = JSON.parse(raw);
+        if (Date.now() - ts < CURRENCY_TTL) { setRates(data); return; }
+      }
+    } catch (_) {}
+
+    fetch(`https://open.er-api.com/v6/latest/${base}`)
+      .then(res => res.json())
+      .then(json => {
+        const data = {};
+        FX_PAIRS.forEach(({ code }) => { if (json?.rates?.[code]) data[code] = json.rates[code]; });
+        try { localStorage.setItem(cacheKey, JSON.stringify({ data, ts: Date.now() })); } catch (_) {}
+        setRates(data);
+      })
+      .catch(() => setFailed(true));
+  }, []);
+
+  if (failed) return null;
+
+  return (
+    <div style={s.fxWidget}>
+      <div style={s.fxLabel}>💱 1 {base} =</div>
+      {rates ? (
+        <div style={s.fxList}>
+          {FX_PAIRS.map(({ code, flag, sym }) => rates[code] && (
+            <div key={code} style={s.fxRow}>
+              <span style={s.fxCode}>{flag} {code}</span>
+              <span style={s.fxVal}>{sym}{fmtRate(rates[code])}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div style={s.fxLoading}>Loading…</div>
+      )}
+    </div>
+  );
+}
+
+// ─── Calculator helpers ───────────────────────────────────────────────────────
+
+function CalLabel({ label, children }) {
+  return <label style={cs.label}>{label}{children}</label>;
+}
+function CalInput({ value, onChange, min, max, step = 1 }) {
+  return (
+    <input style={cs.input} type="number" value={value}
+      min={min} max={max} step={step}
+      onChange={e => onChange(+e.target.value)} />
+  );
+}
+
+// ─── Retirement Calculator ────────────────────────────────────────────────────
+
+function RetirementCalc({ isCA = false }) {
+  const isMobile = useIsMobile();
+  const sym = isCA ? "CA$" : "$";
+  const [age, setAge]           = useState(30);
+  const [retireAt, setRetireAt] = useState(65);
+  const [salary, setSalary]     = useState(isCA ? 90000 : 80000);
+  const [contrib, setContrib]   = useState(6);
+  const [match, setMatch]       = useState(isCA ? 0 : 3);
+  const [matchCap, setMatchCap] = useState(isCA ? 0 : 6);
+  const [saved, setSaved]       = useState(0);
+  const [growth, setGrowth]     = useState(7);
+
+  const years        = Math.max(0, retireAt - age);
+  const annualContrib = salary * contrib / 100;
+  const annualMatch  = isCA ? 0 : salary * (Math.min(contrib, matchCap) / 100) * (match / 100);
+  const monthlyPmt   = (annualContrib + annualMatch) / 12;
+  const r = growth / 100 / 12;
+  const n = years * 12;
+  const fv = n > 0
+    ? saved * Math.pow(1 + r, n) + monthlyPmt * (Math.pow(1 + r, n) - 1) / r
+    : saved;
+  const monthly4pct = fv * 0.04 / 12;
+
+  return (
+    <div style={cs.card}>
+      <div style={cs.title}>🧮 {isCA ? "RRSP / TFSA" : "401(k) / Roth IRA"} Calculator</div>
+      <div style={{ ...cs.grid, gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr" }}>
+        <CalLabel label="Your age"><CalInput value={age} min={18} max={64} onChange={setAge} /></CalLabel>
+        <CalLabel label="Retire at"><CalInput value={retireAt} min={50} max={80} onChange={setRetireAt} /></CalLabel>
+        <CalLabel label={`Annual salary (${sym})`}><CalInput value={salary} step={5000} min={0} onChange={setSalary} /></CalLabel>
+        <CalLabel label="Your contribution (%)"><CalInput value={contrib} min={0} max={50} step={0.5} onChange={setContrib} /></CalLabel>
+        {!isCA && <>
+          <CalLabel label="Employer match (%)"><CalInput value={match} min={0} max={100} step={0.5} onChange={setMatch} /></CalLabel>
+          <CalLabel label="Match applies up to your (%)"><CalInput value={matchCap} min={0} max={20} step={0.5} onChange={setMatchCap} /></CalLabel>
+        </>}
+        <CalLabel label={`Current savings (${sym})`}><CalInput value={saved} step={1000} min={0} onChange={setSaved} /></CalLabel>
+        <CalLabel label="Expected annual return (%)"><CalInput value={growth} min={1} max={15} step={0.5} onChange={setGrowth} /></CalLabel>
+      </div>
+      <div style={cs.results}>
+        <div style={cs.result}>
+          <span style={cs.rLabel}>Balance at {retireAt}</span>
+          <span style={cs.rVal}>{sym}{Math.round(fv).toLocaleString()}</span>
+        </div>
+        <div style={cs.result}>
+          <span style={cs.rLabel}>Monthly income (4% rule)</span>
+          <span style={cs.rVal}>{sym}{Math.round(monthly4pct).toLocaleString()}/mo</span>
+        </div>
+        {!isCA && annualMatch > 0 && (
+          <div style={cs.result}>
+            <span style={cs.rLabel}>Employer match / yr</span>
+            <span style={{ ...cs.rVal, color: "#166534" }}>{sym}{Math.round(annualMatch).toLocaleString()} free</span>
+          </div>
+        )}
+      </div>
+      <p style={cs.note}>Estimates only. Actual results depend on market performance and contribution timing.</p>
+    </div>
+  );
+}
+
+// ─── Rent vs Buy Calculator ───────────────────────────────────────────────────
+
+function RentVsBuyCalc({ isCA = false }) {
+  const isMobile = useIsMobile();
+  const sym = isCA ? "CA$" : "$";
+  const [price, setPrice]         = useState(isCA ? 750000 : 500000);
+  const [downPct, setDownPct]     = useState(20);
+  const [rate, setRate]           = useState(isCA ? 5.5 : 7.0);
+  const [monthRent, setMonthRent] = useState(isCA ? 2800 : 2200);
+  const [propTax, setPropTax]     = useState(isCA ? 0.7 : 1.2);
+  const [maint, setMaint]         = useState(1.0);
+  const [appr, setAppr]           = useState(isCA ? 4.0 : 3.0);
+
+  const downAmt      = price * downPct / 100;
+  const loan         = price - downAmt;
+  const mo           = rate / 100 / 12;
+  const monthlyPI    = mo > 0 ? loan * mo * Math.pow(1 + mo, 360) / (Math.pow(1 + mo, 360) - 1) : loan / 360;
+  const monthlyTax   = price * propTax / 100 / 12;
+  const monthlyMaint = price * maint / 100 / 12;
+  const monthlyOwn   = monthlyPI + monthlyTax + monthlyMaint;
+
+  // Buyer: equity after 10 years
+  const homeVal10  = price * Math.pow(1 + appr / 100, 10);
+  const remaining10 = mo > 0
+    ? loan * Math.pow(1 + mo, 120) - monthlyPI * (Math.pow(1 + mo, 120) - 1) / mo
+    : Math.max(0, loan - monthlyPI * 120);
+  const equity10 = homeVal10 - Math.max(0, remaining10);
+
+  // Renter: invest down payment + monthly savings at 7%
+  const diff          = Math.max(0, monthlyOwn - monthRent);
+  const r7            = 0.07 / 12;
+  const rentPortfolio = downAmt * Math.pow(1 + r7, 120) + diff * (Math.pow(1 + r7, 120) - 1) / r7;
+
+  return (
+    <div style={cs.card}>
+      <div style={cs.title}>🏠 Rent vs. Buy Calculator</div>
+      <div style={{ ...cs.grid, gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr" }}>
+        <CalLabel label={`Home price (${sym})`}><CalInput value={price} step={10000} min={0} onChange={setPrice} /></CalLabel>
+        <CalLabel label="Down payment (%)"><CalInput value={downPct} min={5} max={50} onChange={setDownPct} /></CalLabel>
+        <CalLabel label="Mortgage rate (%)"><CalInput value={rate} min={1} max={15} step={0.1} onChange={setRate} /></CalLabel>
+        <CalLabel label={`Monthly rent alternative (${sym})`}><CalInput value={monthRent} step={100} min={0} onChange={setMonthRent} /></CalLabel>
+        <CalLabel label="Property tax rate (%)"><CalInput value={propTax} min={0} max={5} step={0.1} onChange={setPropTax} /></CalLabel>
+        <CalLabel label="Maintenance / yr (%)"><CalInput value={maint} min={0} max={5} step={0.1} onChange={setMaint} /></CalLabel>
+        <CalLabel label="Home appreciation / yr (%)"><CalInput value={appr} min={0} max={15} step={0.5} onChange={setAppr} /></CalLabel>
+      </div>
+      <div style={cs.results}>
+        <div style={cs.result}>
+          <span style={cs.rLabel}>Monthly mortgage (P&I)</span>
+          <span style={cs.rVal}>{sym}{Math.round(monthlyPI).toLocaleString()}</span>
+        </div>
+        <div style={cs.result}>
+          <span style={cs.rLabel}>Monthly own total</span>
+          <span style={cs.rVal}>{sym}{Math.round(monthlyOwn).toLocaleString()}</span>
+        </div>
+        <div style={cs.result}>
+          <span style={cs.rLabel}>Monthly rent</span>
+          <span style={cs.rVal}>{sym}{Math.round(monthRent).toLocaleString()}</span>
+        </div>
+        <div style={cs.result}>
+          <span style={cs.rLabel}>Buyer equity (10 yr)</span>
+          <span style={cs.rVal}>{sym}{Math.round(equity10).toLocaleString()}</span>
+        </div>
+        <div style={cs.result}>
+          <span style={cs.rLabel}>Renter portfolio (10 yr)</span>
+          <span style={cs.rVal}>{sym}{Math.round(rentPortfolio).toLocaleString()}</span>
+        </div>
+      </div>
+      <p style={cs.note}>Renter scenario invests down payment + monthly savings at 7%. Excludes closing/selling costs.</p>
+    </div>
+  );
+}
+
+// ─── Remittance Calculator ────────────────────────────────────────────────────
+
+const REMIT_DESTINATIONS = [
+  { name: "India",       code: "INR", flag: "🇮🇳", sym: "₹" },
+  { name: "Pakistan",    code: "PKR", flag: "🇵🇰", sym: "₨" },
+  { name: "Philippines", code: "PHP", flag: "🇵🇭", sym: "₱" },
+  { name: "Sri Lanka",   code: "LKR", flag: "🇱🇰", sym: "₨" },
+  { name: "Bangladesh",  code: "BDT", flag: "🇧🇩", sym: "৳" },
+  { name: "Mexico",      code: "MXN", flag: "🇲🇽", sym: "MX$" },
+  { name: "Japan",       code: "JPY", flag: "🇯🇵", sym: "¥" },
+  { name: "Korea",       code: "KRW", flag: "🇰🇷", sym: "₩" },
+  { name: "China",       code: "CNY", flag: "🇨🇳", sym: "¥" },
+];
+
+const REMIT_PROVIDERS = [
+  { name: "Wise",          feePct: 0.007, feeFlat: 0,    spread: 0.003, badge: "Best Rate" },
+  { name: "Remitly",       feePct: 0,     feeFlat: 3.99, spread: 0.010, badge: "Popular" },
+  { name: "Western Union", feePct: 0,     feeFlat: 5.00, spread: 0.018, badge: null },
+  { name: "Xe.com",        feePct: 0,     feeFlat: 0,    spread: 0.015, badge: null },
+  { name: "Bank Wire",     feePct: 0,     feeFlat: 35,   spread: 0.025, badge: "Avoid" },
+];
+
+function RemittanceCalc() {
+  const isMobile    = useIsMobile();
+  const countrySlug = getCountrySlug();
+  const base        = countrySlug === "ca" ? "CAD" : "USD";
+  const sym         = countrySlug === "ca" ? "CA$" : "$";
+  const cacheKey    = `apna_fx_${base}_v2`;
+
+  const [amount, setAmount]   = useState(500);
+  const [destIdx, setDestIdx] = useState(0);
+  const [fxRates, setFxRates] = useState(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(cacheKey);
+      if (raw) {
+        const { data, ts } = JSON.parse(raw);
+        if (Date.now() - ts < CURRENCY_TTL) { setFxRates(data); return; }
+      }
+    } catch (_) {}
+    fetch(`https://open.er-api.com/v6/latest/${base}`)
+      .then(r => r.json())
+      .then(json => {
+        const data = {};
+        FX_PAIRS.forEach(({ code }) => { if (json?.rates?.[code]) data[code] = json.rates[code]; });
+        try { localStorage.setItem(cacheKey, JSON.stringify({ data, ts: Date.now() })); } catch (_) {}
+        setFxRates(data);
+      })
+      .catch(() => {});
+  }, []);
+
+  const dest       = REMIT_DESTINATIONS[destIdx];
+  const marketRate = fxRates?.[dest.code] ?? null;
+  const rows       = marketRate
+    ? REMIT_PROVIDERS.map(p => {
+        const fee      = p.feeFlat + amount * p.feePct;
+        const received = (amount - fee) * marketRate * (1 - p.spread);
+        return { ...p, fee, received };
+      }).sort((a, b) => b.received - a.received)
+    : [];
+
+  return (
+    <div style={cs.card}>
+      <div style={cs.title}>💸 Remittance Calculator — How much arrives?</div>
+      <div style={{ ...cs.grid, gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", marginBottom: 16 }}>
+        <CalLabel label={`Amount to send (${sym})`}>
+          <CalInput value={amount} step={100} min={10} onChange={setAmount} />
+        </CalLabel>
+        <CalLabel label="Send to">
+          <select style={cs.input} value={destIdx} onChange={e => setDestIdx(+e.target.value)}>
+            {REMIT_DESTINATIONS.map((d, i) => (
+              <option key={d.code} value={i}>{d.flag} {d.name}</option>
+            ))}
+          </select>
+        </CalLabel>
+      </div>
+      {!marketRate ? (
+        <p style={cs.note}>Loading rates…</p>
+      ) : (
+        <>
+          <div style={{ overflowX: "auto" }}>
+            <table style={cs.table}>
+              <thead>
+                <tr>
+                  <th style={cs.th}>Provider</th>
+                  <th style={{ ...cs.th, textAlign: "right" }}>Fee ({sym})</th>
+                  <th style={{ ...cs.th, textAlign: "right" }}>Recipient gets ({dest.sym})</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((p, i) => (
+                  <tr key={p.name} style={i === 0 ? cs.trBest : i % 2 === 1 ? { background: "#fafaf8" } : {}}>
+                    <td style={cs.td}>
+                      {p.name}
+                      {p.badge && (
+                        <span style={i === 0 ? cs.badgeBest : cs.badge}>{p.badge}</span>
+                      )}
+                    </td>
+                    <td style={{ ...cs.td, textAlign: "right" }}>{p.fee.toFixed(2)}</td>
+                    <td style={{ ...cs.td, textAlign: "right", fontWeight: i === 0 ? 700 : 400 }}>
+                      {dest.sym}{Math.round(p.received).toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p style={cs.note}>Fee structures approximate as of 2025. Actual provider rates change daily — always verify before sending.</p>
+        </>
+      )}
+    </div>
+  );
+}
+
 // ─── Hub page ─────────────────────────────────────────────────────────────────
 
 export default function FinanceHubPage() {
@@ -202,10 +534,12 @@ export default function FinanceHubPage() {
             </Link>
           ))}
         </div>
+        <RemittanceCalc />
       </div>
 
       {!isMobile && (
         <aside style={s.rail}>
+          <CurrencyWidget />
           <AdBlock />
           <AdBlock />
         </aside>
@@ -289,6 +623,7 @@ export function RetirementPage() {
           The best retirement account is the one you actually contribute to consistently. A Roth IRA with automatic monthly contributions beats a perfectly optimized but inconsistent strategy every time. Open an account today, set up automatic transfers on payday, and invest in a broad index fund. Future you will be grateful.
         </Callout>
       </Section>
+      <RetirementCalc />
     </FinanceArticleLayout>
   );
 }
@@ -417,6 +752,7 @@ export function HousingPage() {
           If you're still getting settled, building your career, or carrying other debt — rent without guilt, invest the difference, and you'll likely come out ahead.
         </Callout>
       </Section>
+      <RentVsBuyCalc />
     </FinanceArticleLayout>
   );
 }
@@ -1034,6 +1370,7 @@ export function RrspTfsaPage() {
           Open a TFSA the day you become a Canadian resident — at Wealthsimple, RBC, TD, or CIBC. Open a FHSA if a first home purchase is possible in the next 15 years. Add RRSP contributions once your income is established and you have confirmed room. Invest all three in a low-cost all-in-one ETF like XEQT or VGRO.
         </Callout>
       </Section>
+      <RetirementCalc isCA />
     </FinanceArticleLayout>
   );
 }
@@ -1091,6 +1428,7 @@ export function CanadaHousingPage() {
           In Toronto and Vancouver, the math on buying is genuinely difficult at current prices and rates. If you're a permanent resident or citizen in Calgary, Edmonton, or Halifax with 20% down and a long-term horizon, buying can make sense. If you're on a temporary permit or still getting settled, rent without guilt, max your TFSA and FHSA, and revisit the decision in a few years.
         </Callout>
       </Section>
+      <RentVsBuyCalc isCA />
     </FinanceArticleLayout>
   );
 }
@@ -1334,6 +1672,25 @@ export function T4Page() {
 
 // ─── Styles ───────────────────────────────────────────────────────────────────
 
+const cs = {
+  card:      { background: "#fff", border: "0.5px solid var(--border)", borderRadius: "var(--radius)", padding: "1.5rem", marginBottom: 24, borderTop: "3px solid var(--orange)" },
+  title:     { fontSize: 16, fontWeight: 800, color: "#111", marginBottom: 16 },
+  grid:      { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 20px", marginBottom: 20 },
+  label:     { display: "flex", flexDirection: "column", gap: 4, fontSize: 12, fontWeight: 600, color: "#666" },
+  input:     { padding: "6px 10px", border: "1px solid var(--border)", borderRadius: 6, fontSize: 14, color: "#111", width: "100%", boxSizing: "border-box" },
+  results:   { display: "flex", gap: 12, flexWrap: "wrap", background: "#fafaf8", borderRadius: 8, padding: "1rem", marginBottom: 8 },
+  result:    { flex: "1 1 130px", display: "flex", flexDirection: "column", gap: 2 },
+  rLabel:    { fontSize: 11, color: "#888", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.3 },
+  rVal:      { fontSize: 20, fontWeight: 800, color: "#111" },
+  note:      { fontSize: 11, color: "#aaa", margin: 0 },
+  table:     { width: "100%", borderCollapse: "collapse", fontSize: 14, marginBottom: 8 },
+  th:        { padding: "8px 10px", fontWeight: 700, textAlign: "left", borderBottom: "2px solid var(--border)", fontSize: 12, color: "#888", textTransform: "uppercase" },
+  td:        { padding: "8px 10px", borderBottom: "0.5px solid var(--border)", color: "#333" },
+  trBest:    { background: "#f0fdf4" },
+  badge:     { fontSize: 10, fontWeight: 700, color: "#888", background: "#f0f0f0", borderRadius: 4, padding: "1px 5px", marginLeft: 6 },
+  badgeBest: { fontSize: 10, fontWeight: 700, color: "#166534", background: "#dcfce7", borderRadius: 4, padding: "1px 5px", marginLeft: 6 },
+};
+
 const s = {
   outer:        { padding: "1.5rem 1.5rem 3rem", display: "flex", gap: 24, alignItems: "flex-start" },
   content:      { flex: 1, minWidth: 0 },
@@ -1358,6 +1715,13 @@ const s = {
   moreCard:     { display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 12px", background: "#fff", border: "0.5px solid var(--border)", borderRadius: 8, textDecoration: "none", color: "#333", fontSize: 13, fontWeight: 600 },
   moreIcon:     { fontSize: 18, flexShrink: 0, marginTop: 1 },
   moreLabel:    { lineHeight: 1.4 },
+  fxWidget:     { background: "#fff", border: "0.5px solid var(--border)", borderRadius: "var(--radius)", padding: "0.6rem 0.75rem" },
+  fxLabel:      { fontSize: 10, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: 0.4, marginBottom: 4 },
+  fxList:       { display: "flex", flexDirection: "column", gap: 3 },
+  fxRow:        { display: "flex", justifyContent: "space-between", alignItems: "center" },
+  fxCode:       { fontSize: 11, color: "#777" },
+  fxVal:        { fontSize: 12, fontWeight: 700, color: "#111", fontVariantNumeric: "tabular-nums" },
+  fxLoading:    { fontSize: 12, color: "#ccc", fontStyle: "italic" },
 };
 
 const bs = {
