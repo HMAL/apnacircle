@@ -5,7 +5,10 @@ export default function HashScroller() {
   const location = useLocation();
 
   useEffect(() => {
-    if (!location.hash) return;
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
 
     const id = decodeURIComponent(location.hash.slice(1));
     let frameId = 0;

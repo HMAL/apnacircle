@@ -15,7 +15,8 @@ import GlobalLawyersPage from "./pages/GlobalLawyersPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import DisclaimerPage from "./pages/DisclaimerPage";
-import FinanceHubPage, { RetirementPage, HousingPage, CarPage, IndexFundsPage, Plans529Page, LifeInsurancePage, W2Page } from "./pages/finance/FinancePages";
+import FinanceHubPage, { RetirementPage, HousingPage, CarPage, IndexFundsPage, Plans529Page, LifeInsurancePage, W2Page, RrspTfsaPage, CanadaHousingPage, CanadaCarPage, CanadaIndexFundsPage, RespPage, CanadaLifeInsurancePage, T4Page } from "./pages/finance/FinancePages";
+import NewsHubPage, { ImmigrationNewsPage, JobsNewsPage, FinanceNewsPage } from "./pages/news/NewsPage";
 import { AdsProvider } from "./lib/AdsContext";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import HashScroller from "./components/HashScroller";
@@ -43,6 +44,17 @@ export default function App() {
         <Route path="/finance/529"                 element={<Plans529Page />} />
         <Route path="/finance/life-insurance"      element={<LifeInsurancePage />} />
         <Route path="/finance/w2-1099"             element={<W2Page />} />
+        <Route path="/finance/rrsp-tfsa"           element={<RrspTfsaPage />} />
+        <Route path="/finance/canada-housing"      element={<CanadaHousingPage />} />
+        <Route path="/finance/canada-car"          element={<CanadaCarPage />} />
+        <Route path="/finance/canada-index-funds"  element={<CanadaIndexFundsPage />} />
+        <Route path="/finance/resp"                element={<RespPage />} />
+        <Route path="/finance/canada-life-insurance" element={<CanadaLifeInsurancePage />} />
+        <Route path="/finance/t4-t4a"              element={<T4Page />} />
+        <Route path="/news"                        element={<NewsHubPage />} />
+        <Route path="/news/immigration"            element={<ImmigrationNewsPage />} />
+        <Route path="/news/jobs"                   element={<JobsNewsPage />} />
+        <Route path="/news/finance"                element={<FinanceNewsPage />} />
         <Route path="/lawyers"                     element={<GlobalLawyersPage />} />
         <Route path="/contact"                     element={<ContactPage />} />
         <Route path="/privacy"                     element={<PrivacyPolicyPage />} />

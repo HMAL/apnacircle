@@ -3,22 +3,35 @@ import { Helmet } from "react-helmet-async";
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
 import ResourceNav from "../../components/ResourceNav";
+import { getCountrySlug } from "../../lib/country";
 
 const ARTICLES = [
-  { slug: "retirement",     icon: "🏦", title: "Retirement Planning: 401(k) vs Roth IRA",     desc: "Which account wins for your situation — and what to do if your employer doesn't offer a 401(k)." },
-  { slug: "housing",        icon: "🏠", title: "Renting vs. Buying a Home",                    desc: "The math most real-estate agents don't show you. A 10-year comparison that may surprise you." },
-  { slug: "car",            icon: "🚗", title: "Lease vs. Buy a Car",                          desc: "An honest look at which option puts more money in your pocket — with a simple side-by-side comparison." },
-  { slug: "index-funds",    icon: "📈", title: "Index Funds vs. Individual Stocks",            desc: "Why Wall Street professionals consistently lose to a basic index fund, and what that means for you." },
-  { slug: "529",            icon: "🎓", title: "529 College Savings Plans",                    desc: "The tax-advantaged account every parent of young children should understand — and the new Roth IRA rollover rule." },
-  { slug: "life-insurance", icon: "🛡️", title: "Life Insurance Basics",                       desc: "Term, whole, universal, IUL — cut through the sales pitch and find out what you actually need." },
-  { slug: "w2-1099",        icon: "📄", title: "W-2 vs 1099 Income",                           desc: "How to read your W-2, what every box means, and the real tax cost of switching from employee to contractor." },
+  { slug: "retirement",     icon: "🏦", short: "Retirement",    title: "Retirement Planning: 401(k) vs Roth IRA",     desc: "Which account wins for your situation — and what to do if your employer doesn't offer a 401(k)." },
+  { slug: "housing",        icon: "🏠", short: "Buy vs. Rent",  title: "Renting vs. Buying a Home",                    desc: "The math most real-estate agents don't show you. A 10-year comparison that may surprise you." },
+  { slug: "car",            icon: "🚗", short: "Car",           title: "Lease vs. Buy a Car",                          desc: "An honest look at which option puts more money in your pocket — with a simple side-by-side comparison." },
+  { slug: "index-funds",    icon: "📈", short: "Index Funds",   title: "Index Funds vs. Individual Stocks",            desc: "Why Wall Street professionals consistently lose to a basic index fund, and what that means for you." },
+  { slug: "529",            icon: "🎓", short: "529 Plans",     title: "529 College Savings Plans",                    desc: "The tax-advantaged account every parent of young children should understand — and the new Roth IRA rollover rule." },
+  { slug: "life-insurance", icon: "🛡️", short: "Life Insurance",title: "Life Insurance Basics",                       desc: "Term, whole, universal, IUL — cut through the sales pitch and find out what you actually need." },
+  { slug: "w2-1099",        icon: "📄", short: "W-2 / 1099",   title: "W-2 vs 1099 Income",                           desc: "How to read your W-2, what every box means, and the real tax cost of switching from employee to contractor." },
+];
+
+const CA_ARTICLES = [
+  { slug: "rrsp-tfsa",             icon: "🏦", short: "RRSP / TFSA",    title: "RRSP vs TFSA: Which Should You Prioritize?",       desc: "Canada's two core tax-advantaged accounts — and the right strategy for immigrants building wealth." },
+  { slug: "canada-housing",        icon: "🏠", short: "Buy vs. Rent",   title: "Renting vs. Buying a Home in Canada",              desc: "The real math on Canadian real estate — CMHC insurance, the stress test, and when buying makes sense." },
+  { slug: "canada-car",            icon: "🚗", short: "Car",            title: "Lease vs. Buy a Car in Canada",                    desc: "HST, provincial insurance differences, and why buying used still wins in Canada." },
+  { slug: "canada-index-funds",    icon: "📈", short: "Index Funds",    title: "Index Funds for Canadian Investors",               desc: "All-in-one ETFs, TFSA vs RRSP wrappers, and why index investing beats active management." },
+  { slug: "resp",                  icon: "🎓", short: "RESP",           title: "RESP: Canada's Education Savings Plan",            desc: "The 20% government grant most parents leave on the table — and how to maximize it from day one." },
+  { slug: "canada-life-insurance", icon: "🛡️", short: "Life Insurance", title: "Life Insurance Basics in Canada",                  desc: "Term, whole, universal — what you actually need and why term almost always wins." },
+  { slug: "t4-t4a",               icon: "📄", short: "T4 / T4A",       title: "T4 vs T4A Income: What Every Worker Should Know",  desc: "How to read your T4, the true cost of self-employment, and the GST/HST registration threshold." },
 ];
 
 // ─── Shared layout ────────────────────────────────────────────────────────────
 
 function FinanceArticleLayout({ slug, title, icon, metaDesc, children }) {
   const isMobile = useIsMobile();
-  const siteBase = "https://apnacircle.org";
+  const countrySlug = getCountrySlug();
+  const articles = countrySlug === "ca" ? CA_ARTICLES : ARTICLES;
+  const siteBase = countrySlug === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
       <Helmet>
@@ -42,7 +55,7 @@ function FinanceArticleLayout({ slug, title, icon, metaDesc, children }) {
         <div style={s.moreArticles}>
           <h3 style={s.moreTitle}>More Finance Topics</h3>
           <div style={s.moreGrid}>
-            {ARTICLES.filter(a => a.slug !== slug).map(a => (
+            {articles.filter(a => a.slug !== slug).map(a => (
               <Link key={a.slug} to={`/finance/${a.slug}`} style={s.moreCard}>
                 <span style={s.moreIcon}>{a.icon}</span>
                 <span style={s.moreLabel}>{a.title}</span>
@@ -142,15 +155,18 @@ function H3({ children }) { return <h3 style={bs.h3}>{children}</h3>; }
 
 export default function FinanceHubPage() {
   const isMobile = useIsMobile();
-  const siteBase = "https://apnacircle.org";
+  const countrySlug = getCountrySlug();
+  const articles = countrySlug === "ca" ? CA_ARTICLES : ARTICLES;
+  const siteBase = countrySlug === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
+  const country = countrySlug === "ca" ? "Canada" : "the US";
   return (
     <div style={{ ...s.outer, flexDirection: isMobile ? "column" : "row" }}>
       <Helmet>
         <title>Finance Tips for Immigrants — Apnacircle</title>
-        <meta name="description" content="Practical, honest financial guidance for immigrants in the US — retirement accounts, renting vs. buying, car leasing, index funds, 529 plans, and life insurance." />
+        <meta name="description" content={`Practical, honest financial guidance for immigrants in ${country} — retirement accounts, renting vs. buying, car leasing, index funds, education savings, and life insurance.`} />
         <link rel="canonical" href={`${siteBase}/finance`} />
         <meta property="og:title" content="Finance Tips for Immigrants | Apnacircle" />
-        <meta property="og:description" content="Practical, honest financial guidance for immigrants in the US." />
+        <meta property="og:description" content={`Practical, honest financial guidance for immigrants in ${country}.`} />
         <meta property="og:url" content={`${siteBase}/finance`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
@@ -168,14 +184,14 @@ export default function FinanceHubPage() {
           <div>
             <h1 style={s.heroTitle}>Finance Tips</h1>
             <p style={s.heroDesc}>
-              Straightforward financial analysis — written for people building wealth in a new country.
+              Straightforward financial analysis — written for people building wealth in {country}.
               No fluff, no sales pitch, just the math and honest opinions.
             </p>
           </div>
         </div>
 
         <div style={s.articleGrid}>
-          {ARTICLES.map(a => (
+          {articles.map(a => (
             <Link key={a.slug} to={`/finance/${a.slug}`} style={s.articleCard}>
               <span style={s.articleIcon}>{a.icon}</span>
               <div>
@@ -976,6 +992,346 @@ export function W2Page() {
   );
 }
 
+// ─── CA Article 1: RRSP vs TFSA ───────────────────────────────────────────────
+
+export function RrspTfsaPage() {
+  return (
+    <FinanceArticleLayout slug="rrsp-tfsa" icon="🏦" title="RRSP vs TFSA: Which Should You Prioritize?"
+      metaDesc="Canada's two core tax-advantaged accounts explained — and the right priority order for immigrants building wealth in Canada.">
+      <Section title="The Two Accounts Every Canadian Resident Should Open">
+        <P>The RRSP reduces your taxable income today; the TFSA lets money grow and be withdrawn completely tax-free. Both are powerful. The right priority depends on your income bracket, how much RRSP room you have, and your plans for Canada long-term.</P>
+      </Section>
+      <Section title="How the RRSP Works">
+        <P>Contributions are deducted from your taxable income — if you earn $80,000 CAD and contribute $10,000 to an RRSP, you're taxed on $70,000. Contribution room is 18% of your prior year's earned income, to a maximum of $31,560 (2024). You must have filed a Canadian tax return to build RRSP room. Money grows tax-sheltered and you pay income tax on withdrawal — ideally in retirement when your bracket is lower.</P>
+        <Callout emoji="💡" title="Immigrant Note">
+          RRSP room is based on Canadian earned income. If you arrived recently, your room may be limited. Check your CRA Notice of Assessment (NOA) or sign into My CRA Account to see your exact available room before contributing.
+        </Callout>
+      </Section>
+      <Section title="How the TFSA Works">
+        <P>Contributions use after-tax dollars — no deduction today. But all growth and withdrawals are completely tax-free forever. You can withdraw anytime for any reason and re-contribute the withdrawn amount in the following calendar year. The 2024 annual limit is $7,000.</P>
+        <Callout emoji="⚠️" title="TFSA Pitfall for New Immigrants">
+          You only accumulate TFSA room from the year you become a Canadian resident aged 18+. A common mistake is assuming the full lifetime cumulative room ($95,000+ by 2024) is available on arrival — it isn't. Over-contributing triggers a 1% monthly penalty. Verify your room in My CRA Account.
+        </Callout>
+      </Section>
+      <Section title="New: The First Home Savings Account (FHSA)">
+        <Callout emoji="🆕" title="Best New Account in Years">
+          Available since 2023, the FHSA allows eligible first-time homebuyers to contribute $8,000/year (lifetime max $40,000). Contributions are tax-deductible like an RRSP. Qualifying withdrawals for a first home purchase are completely tax-free like a TFSA. Unused funds transfer to your RRSP. If you might buy your first home in Canada, open an FHSA immediately.
+        </Callout>
+      </Section>
+      <Section title="The Priority Order for Immigrants">
+        <MathTable
+          caption="Recommended priority by situation"
+          headers={["Your Situation", "Recommendation"]}
+          rows={[
+            ["New to Canada, income under $60K", "Max TFSA first — flexible, no income requirement, no clawback risk"],
+            ["Income $60K–$100K", "Split: TFSA + RRSP once contribution room is confirmed"],
+            ["Income $100K+", "RRSP first for high-bracket deduction, then TFSA"],
+            ["Planning to buy first home", "Open FHSA immediately — deductible contributions + tax-free withdrawals"],
+            ["Employer RRSP match available", "Contribute enough to get the full match first — it's instant free money"],
+          ]}
+        />
+        <Callout emoji="🎯" title="My Take">
+          Open a TFSA the day you become a Canadian resident — at Wealthsimple, RBC, TD, or CIBC. Open a FHSA if a first home purchase is possible in the next 15 years. Add RRSP contributions once your income is established and you have confirmed room. Invest all three in a low-cost all-in-one ETF like XEQT or VGRO.
+        </Callout>
+      </Section>
+    </FinanceArticleLayout>
+  );
+}
+
+// ─── CA Article 2: Canada Housing ─────────────────────────────────────────────
+
+export function CanadaHousingPage() {
+  return (
+    <FinanceArticleLayout slug="canada-housing" icon="🏠" title="Renting vs. Buying a Home in Canada"
+      metaDesc="The real math on Canadian real estate — CMHC insurance, the mortgage stress test, and when buying in Canada actually makes financial sense.">
+      <Section title="The Canadian Housing Reality">
+        <P>Canada's housing market is among the most expensive in the world relative to income. The national median home price is roughly $700,000 CAD; in the Greater Toronto Area and Metro Vancouver it exceeds $1.1 million. These numbers change the rent vs. buy math significantly from most other countries.</P>
+      </Section>
+      <Section title="The CMHC Insurance Cost Most Buyers Underestimate">
+        <P>With less than 20% down, you must pay CMHC mortgage default insurance — a premium added to your mortgage balance:</P>
+        <MathTable
+          headers={["Down Payment", "CMHC Premium"]}
+          rows={[
+            ["5–9.99%", "4.00% of mortgage amount"],
+            ["10–14.99%", "3.10% of mortgage amount"],
+            ["15–19.99%", "2.80% of mortgage amount"],
+            ["20%+", "None"],
+          ]}
+        />
+        <P>On a $750,000 home with 5% down ($37,500): CMHC premium = $28,500 added to your mortgage. You then pay interest on that premium for the life of the loan.</P>
+      </Section>
+      <Section title="The Mortgage Stress Test">
+        <P>To qualify for a mortgage, you must prove you can afford payments at the higher of: your contract rate + 2%, or 5.25%. If your rate is 5.5%, you qualify at 7.5%. This reduces your maximum purchase price by roughly 15–20% compared to what your actual payments would support — a significant constraint in high-price markets.</P>
+      </Section>
+      <Section title="Immigrant-Specific Considerations">
+        <Pros items={[
+          "Permanent residents qualify for CMHC-insured mortgages on the same terms as citizens",
+          "Temporary residents with 183+ days remaining on permit may purchase (but face stricter lender policies)",
+          "Build Canadian credit history early — secured credit card, then an unsecured card paid in full monthly",
+          "Non-resident rental income is subject to 25% withholding unless you elect to file a T1159",
+        ]} />
+        <Callout emoji="⚠️" title="Foreign Buyer Restrictions">
+          Canada's Prohibition on the Purchase of Residential Property by Non-Canadians (extended to 2027) restricts most non-residents from purchasing residential property in urban areas. Key exceptions: permanent residents, and temporary residents who have filed taxes for 2+ years or have 183+ days remaining on their permit.
+        </Callout>
+      </Section>
+      <Section title="When Buying Makes Sense in Canada">
+        <Pros items={[
+          "You plan to stay 7+ years in the same city",
+          "You have 20%+ down payment to avoid CMHC insurance",
+          "You're buying in a secondary market (Calgary, Edmonton, Halifax, Winnipeg) with better price-to-rent ratios",
+          "You have a stable, established income and strong Canadian credit",
+        ]} />
+        <Cons items={[
+          "Toronto and Vancouver: price-to-rent ratios make buying very expensive relative to renting and investing the difference",
+          "On a temporary work permit with uncertain long-term plans",
+          "Less than 2 years of Canadian credit history — mortgage rates will be higher",
+          "Moving in under 5 years — transaction costs (land transfer tax, legal fees, realtor) alone destroy the financial case",
+        ]} />
+        <Callout emoji="🎯" title="My Take">
+          In Toronto and Vancouver, the math on buying is genuinely difficult at current prices and rates. If you're a permanent resident or citizen in Calgary, Edmonton, or Halifax with 20% down and a long-term horizon, buying can make sense. If you're on a temporary permit or still getting settled, rent without guilt, max your TFSA and FHSA, and revisit the decision in a few years.
+        </Callout>
+      </Section>
+    </FinanceArticleLayout>
+  );
+}
+
+// ─── CA Article 3: Canada Car ──────────────────────────────────────────────────
+
+export function CanadaCarPage() {
+  return (
+    <FinanceArticleLayout slug="canada-car" icon="🚗" title="Lease vs. Buy a Car in Canada"
+      metaDesc="How the rent vs. buy car math works in Canada — HST on purchases, provincial insurance differences, and why buying used still wins.">
+      <Section title="The Same Core Conclusion">
+        <P>The math is identical to anywhere else: buying a reliable used car and driving it for years costs far less than perpetual leasing. But Canada has meaningful differences in purchase costs and insurance that are worth understanding before you sign anything.</P>
+      </Section>
+      <Section title="Canada-Specific Purchase Costs">
+        <MathTable
+          caption="Additional costs on a $35,000 CAD vehicle purchase (Ontario)"
+          headers={["Cost Item", "Amount"]}
+          rows={[
+            ["HST (13% in Ontario)", "$4,550"],
+            ["Dealer admin/documentation fee", "$400–$800"],
+            ["OMVIC fee (Ontario)", "$10"],
+            ["License plate transfer/registration", "$60–$120"],
+            ["Total additional costs", "≈ $5,100–$5,600"],
+          ]}
+        />
+        <P>HST rates vary by province: 15% in NS/NB/NL/PEI, 14.975% in QC, 12% in BC, 5% GST only in AB/SK/MB. Ontario's 13% is among the highest. On a private sale, PST applies instead of HST in some provinces.</P>
+      </Section>
+      <Section title="Provincial Insurance — A Major Variable">
+        <P>Auto insurance costs vary dramatically by province and are a significant part of the true cost of car ownership:</P>
+        <MathTable
+          headers={["Province", "System", "Avg Annual Premium"]}
+          rows={[
+            ["BC", "ICBC (public Crown corporation)", "≈ $1,800–$2,200"],
+            ["Ontario", "Private market (highest in Canada)", "≈ $1,800–$2,500+"],
+            ["Alberta", "Private market", "≈ $1,400–$1,800"],
+            ["Quebec", "Hybrid: public accident, private property", "≈ $900–$1,200"],
+            ["Manitoba / Saskatchewan", "Public Crown corporation", "≈ $1,000–$1,400"],
+          ]}
+        />
+        <P>In Ontario especially, high-performance vehicles, luxury SUVs, or cars with poor insurance ratings can cost $300–$400/month to insure — sometimes exceeding the car payment itself.</P>
+      </Section>
+      <Section title="The Smart Canadian Car Strategy">
+        <ol style={bs.ol}>
+          <li style={bs.li}><strong>Buy a 3–4 year old reliable used car.</strong> Toyota Corolla, Honda Civic, and Mazda3 consistently top reliability rankings in Canada and hold value well. Certified Pre-Owned programs add a warranty layer.</li>
+          <li style={bs.li}><strong>Factor in insurance before buying.</strong> Get an insurance quote before finalizing your purchase — the rate varies by make, model, trim, and your postal code.</li>
+          <li style={bs.li}><strong>Pay it off, then keep it.</strong> Once your loan is paid off (aim for 4 years), continue saving that "car payment" amount. When you need a replacement, you'll have a large down payment or buy outright.</li>
+        </ol>
+        <Callout emoji="🎯" title="My Take">
+          A 3–4 year old Toyota Corolla or Honda Civic under 60,000 km, financed over 4 years and driven to 200,000 km, is the reliable immigrant wealth-building move in Canada. Avoid long-term leases and new-vehicle depreciation. The HST savings alone on a used car purchase make it significantly cheaper than buying new.
+        </Callout>
+      </Section>
+    </FinanceArticleLayout>
+  );
+}
+
+// ─── CA Article 4: Canada Index Funds ─────────────────────────────────────────
+
+export function CanadaIndexFundsPage() {
+  return (
+    <FinanceArticleLayout slug="canada-index-funds" icon="📈" title="Index Funds for Canadian Investors"
+      metaDesc="All-in-one ETFs, TFSA vs RRSP wrappers, and why low-cost index investing consistently beats active management in Canada.">
+      <Section title="The Same Truth, the Canadian Context">
+        <P>Over any 10-year period, roughly 90% of actively managed Canadian equity funds underperform their benchmark index after fees. The average Canadian equity mutual fund charges a Management Expense Ratio (MER) of 2–2.5% — among the highest in the developed world. A comparable index ETF charges 0.05–0.25%.</P>
+      </Section>
+      <Section title="Canada's All-in-One ETFs">
+        <P>Canadian investors have access to outstanding all-in-one ETF products — single funds that hold thousands of global stocks and bonds, automatically rebalanced:</P>
+        <MathTable
+          headers={["Fund", "Mix", "MER", "Provider"]}
+          rows={[
+            ["XEQT", "100% global equity", "0.20%", "iShares (BlackRock)"],
+            ["VEQT", "100% global equity", "0.24%", "Vanguard Canada"],
+            ["XGRO", "80% equity / 20% bonds", "0.20%", "iShares"],
+            ["VGRO", "80% equity / 20% bonds", "0.24%", "Vanguard Canada"],
+            ["XBAL", "60% equity / 40% bonds", "0.20%", "iShares"],
+            ["VBAL", "60% equity / 40% bonds", "0.25%", "Vanguard Canada"],
+          ]}
+        />
+        <P>For most investors under 50, XEQT or VEQT held inside a TFSA is all you need. One fund, one purchase, automatic global diversification.</P>
+      </Section>
+      <Section title="TFSA vs RRSP: Where to Hold Your Investments">
+        <P>Where you hold investments in Canada matters due to US dividend withholding tax:</P>
+        <MathTable
+          headers={["Account", "US ETFs (S&P 500)", "All-in-One ETFs (XEQT/VEQT)"]}
+          rows={[
+            ["RRSP", "Best — US withholding tax treaty-exempt", "Good"],
+            ["TFSA", "15% US withholding on dividends, not recoverable", "Good (small drag from US portion)"],
+            ["Taxable", "Annual capital gains reporting required", "Good"],
+          ]}
+        />
+        <Callout emoji="💡" title="Practical Rule">
+          Max your TFSA first — buy XEQT or VEQT there. If you have additional investment room in an RRSP, consider holding a pure S&P 500 ETF (like ZSP or VFV) there to avoid the 15% US dividend withholding tax drag. For most new investors, TFSA + XEQT is the complete answer.
+        </Callout>
+      </Section>
+      <Section title="Dollar-Cost Averaging">
+        <P>Invest a fixed dollar amount every month — automatically. When markets drop, your fixed amount buys more units. When markets rise, you own more units worth more. Remove emotion from the process entirely.</P>
+        <Callout emoji="🎯" title="My Take">
+          Open a Wealthsimple account (no trading fees on ETFs). Buy XEQT inside your TFSA every month. Increase the amount whenever your income increases. Don't check the balance more than once per quarter. In 30 years, you will be genuinely surprised at what boring, consistent investing compounded into.
+        </Callout>
+      </Section>
+    </FinanceArticleLayout>
+  );
+}
+
+// ─── CA Article 5: RESP ───────────────────────────────────────────────────────
+
+export function RespPage() {
+  return (
+    <FinanceArticleLayout slug="resp" icon="🎓" title="RESP: Canada's Education Savings Plan"
+      metaDesc="The Canada Education Savings Grant gives you 20% free money on your first $2,500 contributed per year — here's how to maximize it from day one.">
+      <Section title="What Is an RESP?">
+        <P>A Registered Education Savings Plan is a tax-advantaged savings account for post-secondary education. Contributions grow tax-sheltered. When withdrawn for education, the money is taxed in the student's hands — who typically has little or no income and pays minimal tax. The federal government also matches a portion through grants.</P>
+      </Section>
+      <Section title="The Canada Education Savings Grant — Free Money">
+        <P>The federal government contributes 20% on the first $2,500 you contribute each year — up to <strong>$500/year free money</strong> per child. Lifetime CESG maximum is $7,200 per beneficiary. You do not have to be a citizen — permanent residents and some temporary residents qualify.</P>
+        <Callout emoji="🆕" title="Canada Learning Bond (CLB)">
+          Lower-income families qualify for an additional $500 in the first year plus $100/year for up to 15 years ($2,000 total), with no contributions required to receive it. Simply opening the RESP triggers the CLB for eligible families.
+        </Callout>
+      </Section>
+      <Section title="The Math: Starting Early vs. Late">
+        <MathTable
+          caption="$200/month invested in RESP at 7% annual growth + CESG"
+          headers={["Start Age", "Years Invested", "Portfolio at Age 18", "Total CESG Received", "Combined Value"]}
+          rows={[
+            ["Birth", "18 yrs", "$84,349", "$7,200", "$91,549"],
+            ["Age 5", "13 yrs", "$51,628", "$5,500", "$57,128"],
+            ["Age 10", "8 yrs", "$27,432", "$3,200", "$30,632"],
+            ["Age 15", "3 yrs", "$8,019", "$1,200", "$9,219"],
+          ]}
+        />
+      </Section>
+      <Section title="What If Your Child Doesn't Attend Post-Secondary?">
+        <ol style={bs.ol}>
+          <li style={bs.li}><strong>Change beneficiary</strong> to another child — CESG transfers too if the new beneficiary is under 21</li>
+          <li style={bs.li}><strong>Transfer growth (AIP) to your RRSP</strong> — up to $50,000 lifetime if you have available RRSP room</li>
+          <li style={bs.li}><strong>Withdraw your contributions</strong> tax-free (only the growth + CESG is subject to tax + 20% penalty if non-educational)</li>
+        </ol>
+      </Section>
+      <Section title="Which RESP to Open">
+        <P>Use a self-directed RESP at Wealthsimple, RBC Direct Investing, or TD Direct Investing. Invest in a low-cost all-in-one ETF (XGRO or VGRO for long horizons; shift to XBAL/VBAL as post-secondary approaches). Avoid group scholarship plans (CST, Heritage) — high fees, rigid rules, and poor returns make them a bad deal.</P>
+        <Callout emoji="🎯" title="My Take">
+          Open an RESP the week your child is born. Contribute $2,500 in the first year to trigger the maximum $500 CESG immediately. Even $200/month consistently invested in XGRO from birth reaches $90,000+ by age 18. The CESG alone is worth $7,200 of free government money — don't leave it on the table.
+        </Callout>
+      </Section>
+    </FinanceArticleLayout>
+  );
+}
+
+// ─── CA Article 6: Canada Life Insurance ──────────────────────────────────────
+
+export function CanadaLifeInsurancePage() {
+  return (
+    <FinanceArticleLayout slug="canada-life-insurance" icon="🛡️" title="Life Insurance Basics in Canada"
+      metaDesc="Term, whole, universal — what type of life insurance you actually need in Canada, and why term almost always wins.">
+      <Section title="The Purpose Is Simple">
+        <P>Life insurance replaces your income for dependents if you die. A common starting point: <strong>10–12 times your annual income.</strong> If you earn $90,000/year, a $900,000–$1,080,000 policy covers your family's financial life for 10+ years. Adjust upward for a mortgage, young children, or a non-working spouse.</P>
+      </Section>
+      <Section title="Term Life — The Right Choice for Most People">
+        <P>You pay a fixed premium for a set term (10, 20, or 30 years). If you die during the term, your beneficiaries receive the benefit. No cash value, no complexity.</P>
+        <MathTable
+          caption="Sample Canadian term life premiums — healthy non-smoking 35-year-old"
+          headers={["Coverage Amount", "20-Year Term", "30-Year Term"]}
+          rows={[
+            ["$500,000", "≈ $28–$38/mo", "≈ $42–$55/mo"],
+            ["$1,000,000", "≈ $48–$65/mo", "≈ $72–$95/mo"],
+          ]}
+        />
+        <P>Leading Canadian term life providers: Manulife, Sun Life, Canada Life, Empire Life, Industrial Alliance. Use PolicyMe (Canada-specific broker) or an independent broker to compare quotes.</P>
+      </Section>
+      <Section title="Immigrant-Specific Considerations">
+        <Pros items={[
+          "Permanent residents qualify for Canadian life insurance on the same terms as citizens",
+          "Temporary residents (work permit, study permit) generally qualify after establishing Canadian residency",
+          "Medical underwriting may request your home-country health history",
+          "Group life insurance through your Canadian employer (typically 1–2× salary) is worth taking — it's free coverage",
+        ]} />
+        <Cons items={[
+          "Group coverage disappears when you change employers — don't rely on it as your only coverage",
+          "If you depart Canada permanently, confirm policy treatment with your insurer",
+        ]} />
+      </Section>
+      <Section title="Whole Life and Universal Life — Usually the Wrong Choice">
+        <P>Premiums are 5–15× higher than comparable term coverage. Cash value growth typically underperforms a simple ETF in your TFSA. The same critiques from the US apply equally to Canadian whole life products. If an advisor leads with cash value or investment returns in an insurance context, that is a strong warning sign.</P>
+        <Callout emoji="🎯" title="My Take">
+          Get a 20-year term policy for 10–12× your income from a reputable Canadian insurer. Use PolicyMe for an online comparison in under 10 minutes. Pay the low monthly premium and invest the rest in your TFSA. The math in Canada is identical to the US: term + invest beats whole life by a wide margin.
+        </Callout>
+      </Section>
+    </FinanceArticleLayout>
+  );
+}
+
+// ─── CA Article 7: T4 vs T4A ──────────────────────────────────────────────────
+
+export function T4Page() {
+  return (
+    <FinanceArticleLayout slug="t4-t4a" icon="📄" title="T4 vs T4A Income: What Every Worker Should Know"
+      metaDesc="How to read your T4, the true cost of self-employment CPP in Canada, and the $30,000 GST/HST registration threshold every contractor must know.">
+      <Section title="Two Ways to Get Paid in Canada">
+        <P>Most Canadian workers receive either a T4 (employment income — your employer withholds tax, CPP, and EI) or a T4A (self-employment, contract, pension, or other income — you manage your own taxes and contributions). The difference has significant implications for how much you owe and when.</P>
+      </Section>
+      <Section title="How to Read Your T4 — Box by Box">
+        <MathTable
+          caption="Most important boxes on your T4"
+          headers={["Box", "Label", "What It Means"]}
+          rows={[
+            ["14", "Employment income", "Total taxable wages. May be lower than your salary if you have RRSP payroll deductions or benefit deductions."],
+            ["16", "Employee's CPP contributions", "Your share of Canada Pension Plan contributions — 5.95% of pensionable earnings in 2024."],
+            ["18", "Employee's EI premiums", "Your Employment Insurance premium — 1.66% of insurable earnings in 2024."],
+            ["22", "Income tax deducted", "Total federal + provincial income tax withheld and remitted to CRA on your behalf."],
+            ["40", "Other taxable allowances", "Employer-paid benefits included in income — car allowance, housing benefit, etc."],
+            ["52", "Pension adjustment", "Reduces your RRSP room if you participate in a registered pension plan at work."],
+          ]}
+        />
+      </Section>
+      <Section title="The Real Cost of Self-Employment: Double CPP">
+        <P>As a T4 employee, your employer matches your CPP contribution — you each pay roughly half. As a self-employed contractor, you pay both the employee and employer share of CPP. This is often the biggest surprise for new Canadian contractors:</P>
+        <MathTable
+          caption="CPP comparison — $90,000 income (2024)"
+          headers={["", "T4 Employee", "Self-Employed (T4A)"]}
+          rows={[
+            ["CPP rate", "5.95% (employee share only)", "11.9% (both shares)"],
+            ["CPP maximum contribution", "≈ $3,867", "≈ $7,735"],
+            ["EI premiums", "1.66% (employee share)", "Not eligible for EI"],
+            ["Half of CPP deductible on return", "N/A", "Yes — reduces net income"],
+          ]}
+        />
+      </Section>
+      <Section title="The $30,000 GST/HST Registration Threshold">
+        <Callout emoji="⚠️" title="This Is Not Optional">
+          When your self-employment revenue exceeds $30,000 in any single calendar quarter, or over four consecutive rolling quarters, you must register for GST/HST with CRA. Once registered, you charge GST/HST on all invoices and remit the net amount quarterly. You can claim Input Tax Credits (ITCs) on business purchases to reduce the amount owed. Register before you hit the threshold — the paperwork takes time and late registration carries penalties.
+        </Callout>
+      </Section>
+      <Section title="Quarterly Instalment Payments">
+        <P>If you owe more than $3,000 in combined federal and provincial income tax for two consecutive years (or $1,800 in Quebec), CRA requires quarterly instalment payments. Missing these triggers interest charges from the due date. A practical rule: set aside <strong>30–35% of every payment</strong> you receive into a separate savings account, then pay CRA quarterly via My CRA Account.</P>
+        <Callout emoji="🎯" title="My Take">
+          In your first year of self-employment, spend $300–$500 on one session with a Canadian accountant who works with contractors. They will save you far more than that in avoided penalties, legitimate deductions (home office, equipment, mileage, professional development), and CPP optimization. Track every business expense in a simple spreadsheet from day one — the CRA does not care that you forgot to keep receipts.
+        </Callout>
+      </Section>
+    </FinanceArticleLayout>
+  );
+}
+
 // ─── Styles ───────────────────────────────────────────────────────────────────
 
 const s = {
@@ -998,9 +1354,9 @@ const s = {
   articleArrow: { marginLeft: "auto", fontSize: 18, color: "#bbb", flexShrink: 0 },
   moreArticles: { background: "#fafaf8", border: "0.5px solid var(--border)", borderRadius: "var(--radius)", padding: "1.5rem" },
   moreTitle:    { fontSize: 14, fontWeight: 700, color: "#888", textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 12 },
-  moreGrid:     { display: "flex", flexDirection: "column", gap: 8 },
-  moreCard:     { display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#fff", border: "0.5px solid var(--border)", borderRadius: 8, textDecoration: "none", color: "#333", fontSize: 13, fontWeight: 600 },
-  moreIcon:     { fontSize: 18, flexShrink: 0 },
+  moreGrid:     { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 },
+  moreCard:     { display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 12px", background: "#fff", border: "0.5px solid var(--border)", borderRadius: 8, textDecoration: "none", color: "#333", fontSize: 13, fontWeight: 600 },
+  moreIcon:     { fontSize: 18, flexShrink: 0, marginTop: 1 },
   moreLabel:    { lineHeight: 1.4 },
 };
 
