@@ -52,7 +52,7 @@ export default function CityPage() {
   const location = useLocation();
   const [state, setState] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [active, setActive] = useState(location.state?.defaultTab || SECTIONS[0]?.id || "jobs");
+  const [active, setActive] = useState(null);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -62,18 +62,31 @@ export default function CityPage() {
     });
   }, [stateSlug]);
 
-  if (loading) return null;
-
   const cityObj = state?.cities?.find(c => citySlug(c.name) === citySlugParam);
   const cityName = cityObj?.name;
+  const hasPlaces = !!(FEATURED_CITIES[state?.name]?.[cityName]?.places?.length);
+
+  useEffect(() => {
+    if (!state || !cityName) return;
+    const requestedDefault = location.state?.defaultTab;
+    const fallbackTab = SECTIONS[0]?.id || "jobs";
+    const nextActive = hasPlaces
+      ? "places"
+      : requestedDefault && requestedDefault !== "places" && SECTION_MAP[requestedDefault]
+        ? requestedDefault
+        : fallbackTab;
+    setActive(nextActive);
+  }, [state, cityName, citySlugParam, hasPlaces, location.state?.defaultTab]);
+
+  if (loading) return null;
 
   if (!state || !cityName) return <Navigate to="/" />;
 
-  const hasPlaces = !!(FEATURED_CITIES[state.name]?.[cityName]?.places?.length);
   const placesTab = { id: "places", icon: "🗺️", label: "Places to Visit" };
   const allTabs = hasPlaces ? [placesTab, ...SECTIONS] : SECTIONS;
 
-  const ActiveComp = SECTION_MAP[active];
+  const selectedActive = allTabs.some(sec => sec.id === active) ? active : allTabs[0]?.id || "jobs";
+  const ActiveComp = SECTION_MAP[selectedActive];
 
   const siteBase = getCountrySlug() === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
   return (
@@ -107,7 +120,7 @@ export default function CityPage() {
           </button>
           {allTabs.map(sec => (
             <button key={sec.id} onClick={() => setActive(sec.id)}
-              style={{ ...s.mobileTab, ...(active === sec.id ? s.mobileTabActive : {}) }}>
+              style={{ ...s.mobileTab, ...(selectedActive === sec.id ? s.mobileTabActive : {}) }}>
               <span style={{ fontSize: 18 }}>{sec.icon}</span>
               <span style={{ fontSize: 10, whiteSpace: "nowrap" }}>{sec.label}</span>
             </button>
@@ -124,7 +137,7 @@ export default function CityPage() {
             </button>
             {allTabs.map(sec => (
               <button key={sec.id} onClick={() => setActive(sec.id)}
-                style={{ ...s.sideItem, ...(active === sec.id ? s.sideActive : {}) }}>
+                style={{ ...s.sideItem, ...(selectedActive === sec.id ? s.sideActive : {}) }}>
                 <span>{sec.icon}</span> {sec.label}
               </button>
             ))}

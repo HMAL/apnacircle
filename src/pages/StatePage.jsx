@@ -154,7 +154,7 @@ export default function StatePage() {
         <div style={s.coolSection}>
           <div style={s.coolHeader}>
             <span style={s.coolIcon}>🗺️</span>
-            <h2 style={s.coolTitle}>Cool &amp; Unusual Places in {state.name}</h2>
+            <h2 style={s.coolTitle}>Cool Places to visit in {state.name}</h2>
           </div>
           <p style={s.coolSub}>Hidden gems, weird wonders, and offbeat attractions worth the detour.</p>
           <div style={s.coolGrid}>

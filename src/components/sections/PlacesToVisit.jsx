@@ -1,7 +1,7 @@
 import { FEATURED_CITIES } from "../../data/featuredStateCities";
 
 export default function PlacesToVisit({ stateName, cityName }) {
-  const places = FEATURED_CITIES[stateName]?.[cityName]?.places || [];
+  const places = (FEATURED_CITIES[stateName]?.[cityName]?.places || []).slice(0, 10);
 
   if (places.length === 0) {
     return (
