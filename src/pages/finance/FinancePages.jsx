@@ -11,6 +11,7 @@ const ARTICLES = [
   { slug: "index-funds",    icon: "📈", title: "Index Funds vs. Individual Stocks",            desc: "Why Wall Street professionals consistently lose to a basic index fund, and what that means for you." },
   { slug: "529",            icon: "🎓", title: "529 College Savings Plans",                    desc: "The tax-advantaged account every parent of young children should understand — and the new Roth IRA rollover rule." },
   { slug: "life-insurance", icon: "🛡️", title: "Life Insurance Basics",                       desc: "Term, whole, universal, IUL — cut through the sales pitch and find out what you actually need." },
+  { slug: "w2-1099",        icon: "📄", title: "W-2 vs 1099 Income",                           desc: "How to read your W-2, what every box means, and the real tax cost of switching from employee to contractor." },
 ];
 
 // ─── Shared layout ────────────────────────────────────────────────────────────
@@ -801,6 +802,174 @@ export function LifeInsurancePage() {
       <Section title="The Bottom Line">
         <Callout emoji="🎯" title="My Take">
           For the vast majority of people: buy a 20–30 year term life policy for 10–12× your income, from a reputable company (Banner Life, Pacific Life, Protective Life, or Lincoln Financial all have strong ratings). Get quotes at Policygenius or Term4Sale. Pay the low premium, invest the rest in index funds, and review your coverage every 5 years as your situation changes. Do not let anyone convince you that life insurance is an investment vehicle — the math simply doesn't support it.
+        </Callout>
+      </Section>
+    </FinanceArticleLayout>
+  );
+}
+
+// ─── Article 7: W-2 vs 1099 ──────────────────────────────────────────────────
+
+export function W2Page() {
+  return (
+    <FinanceArticleLayout
+      slug="w2-1099"
+      icon="📄"
+      title="W-2 vs 1099 Income: What Every Worker Should Know"
+      metaDesc="How to read every box on your W-2, the real tax difference between employee and contractor status, and what 1099 workers must do to avoid an IRS penalty."
+    >
+      <Section title="Two Ways to Get Paid — Very Different Tax Outcomes">
+        <P>In the US, most workers receive income in one of two ways: as a W-2 employee (you work for a company that withholds your taxes) or as a 1099 independent contractor (you work for yourself and handle taxes on your own). The difference affects how much tax you owe, what benefits you receive, and what you must file every year.</P>
+      </Section>
+
+      <Section title="The W-2: What Your Employer Sends You">
+        <P>A W-2 (Wage and Tax Statement) is mailed or made available electronically by your employer by January 31 each year. It summarizes your total wages and exactly how much was withheld for taxes. You use it to file your federal and state tax returns.</P>
+        <P>Note: the W-2 is sent <em>to you</em> — you don't fill it out. What you <em>do</em> fill out when you start a job is the <strong>W-4</strong> (Employee's Withholding Certificate), which tells your employer how much federal tax to hold back from each paycheck.</P>
+      </Section>
+
+      <Section title="How to Read Your W-2: Box by Box">
+        <MathTable
+          caption="The most important boxes on your W-2"
+          headers={["Box", "Label", "What It Means"]}
+          rows={[
+            ["1",  "Wages, tips, other compensation", "Your total taxable wages for the year. This is what you report as income on your federal return. It may be lower than your actual salary if you contributed to a 401(k) or FSA (those reduce Box 1)."],
+            ["2",  "Federal income tax withheld", "Total federal income tax your employer sent to the IRS on your behalf throughout the year."],
+            ["3",  "Social Security wages", "Wages subject to the 6.2% Social Security tax. May differ from Box 1 — 401(k) contributions reduce Box 1 but not Box 3."],
+            ["4",  "Social Security tax withheld", "Should be exactly 6.2% of Box 3 (up to the $168,600 wage base in 2024)."],
+            ["5",  "Medicare wages", "Wages subject to the 1.45% Medicare tax. No wage cap — all earnings are included."],
+            ["6",  "Medicare tax withheld", "1.45% of Box 5. If you earned over $200,000, an extra 0.9% Additional Medicare Tax applies."],
+            ["12", "Codes (D, W, DD, etc.)", "Code D = traditional 401(k) contributions. Code W = HSA employer contributions. Code DD = employer-paid health insurance cost (informational only). Code AA = Roth 401(k) contributions."],
+            ["14", "Other", "State disability insurance (SDI), union dues, employer-paid tuition, or other items your employer chooses to report."],
+            ["16", "State wages", "Wages subject to state income tax — may differ from Box 1 in some states."],
+            ["17", "State income tax withheld", "State taxes withheld and sent to your state tax agency."],
+          ]}
+        />
+        <Callout emoji="💡" title="Why Box 1 May Be Lower Than Your Salary">
+          If you contributed $10,000 to a traditional 401(k) and $2,750 to a health FSA, your Box 1 wages will be $12,750 lower than your gross pay. This is tax savings working in your favor — those contributions reduced your taxable income before the W-2 was calculated.
+        </Callout>
+      </Section>
+
+      <Section title="The W-4: The Form YOU Fill Out">
+        <P>When you start a new job (or want to update your withholding), you complete a <strong>W-4</strong>. The redesigned 2020 form has five steps:</P>
+        <ol style={bs.ol}>
+          <li style={bs.li}><strong>Personal info</strong> — name, SSN, filing status</li>
+          <li style={bs.li}><strong>Multiple jobs or working spouse</strong> — if you or your spouse have more than one job, use the IRS withholding estimator or check the box to withhold at the higher rate</li>
+          <li style={bs.li}><strong>Claim dependents</strong> — reduces withholding based on Child Tax Credit eligibility</li>
+          <li style={bs.li}><strong>Other adjustments</strong> — add extra withholding, deduct non-job income (dividends, freelance), or claim deductions beyond the standard deduction</li>
+          <li style={bs.li}><strong>Sign and date</strong></li>
+        </ol>
+        <P>If your tax situation is simple (one job, no side income), Steps 2–4 are optional. Use the <strong>IRS Tax Withholding Estimator</strong> at irs.gov anytime your situation changes — new job, marriage, new child, or large side income.</P>
+      </Section>
+
+      <Section title="What Is a 1099?">
+        <P>A 1099 is a family of IRS forms that report non-employment income. The most common ones:</P>
+        <MathTable
+          headers={["Form", "What It Reports", "Who Sends It"]}
+          rows={[
+            ["1099-NEC", "Freelance / contractor income ($600+)", "Clients who paid you"],
+            ["1099-MISC", "Rent, royalties, prizes, medical payments", "Payers of miscellaneous income"],
+            ["1099-INT", "Bank and savings interest", "Banks and credit unions"],
+            ["1099-DIV", "Dividends and capital gain distributions", "Brokerages and mutual funds"],
+            ["1099-B",   "Proceeds from stock or asset sales", "Brokerages"],
+            ["1099-G",   "Unemployment compensation, state refunds", "Government agencies"],
+            ["1099-R",   "Retirement account distributions", "401(k)/IRA custodians"],
+          ]}
+        />
+        <P>For the W-2 vs 1099 comparison, the relevant form is the <strong>1099-NEC</strong> (Non-Employee Compensation) — what a client sends you after paying you $600 or more for contract work during the year.</P>
+      </Section>
+
+      <Section title="W-2 Employee vs 1099 Contractor: The Real Differences">
+        <MathTable
+          headers={["", "W-2 Employee", "1099 Contractor"]}
+          rows={[
+            ["Tax withholding",       "Employer withholds automatically", "You pay quarterly estimated taxes yourself"],
+            ["Social Security (12.4%)", "Split: you pay 6.2%, employer 6.2%", "You pay the full 12.4%"],
+            ["Medicare (2.9%)",        "Split: you pay 1.45%, employer 1.45%", "You pay the full 2.9%"],
+            ["Total FICA tax burden",  "7.65% of wages",                  "15.3% of net earnings"],
+            ["Health insurance",       "Often employer-subsidized",        "You buy it yourself (deductible)"],
+            ["Retirement plan",        "401(k), often with employer match", "SEP-IRA or Solo 401(k)"],
+            ["Unemployment insurance", "Eligible",                         "Not eligible"],
+            ["Workers' comp",          "Covered by employer",              "Not covered"],
+            ["Paid time off",          "Common",                           "None — no work, no pay"],
+            ["Business deductions",    "Very limited",                     "Expenses reduce taxable income"],
+            ["Tax form",               "W-2",                             "1099-NEC"],
+            ["Tax filing",             "W-2 + 1040",                      "Schedule C + Schedule SE + 1040"],
+          ]}
+        />
+      </Section>
+
+      <Section title="The Real Cost of 1099 Income: Self-Employment Tax">
+        <P>The most misunderstood part of contractor income is <strong>self-employment tax</strong>. As a W-2 employee, your employer pays half your Social Security and Medicare taxes (6.2% + 1.45% = 7.65%). As a 1099 contractor, you pay both halves — the full 15.3%.</P>
+        <P>This means $100 of 1099 income costs significantly more in taxes than $100 of W-2 income. Here's the math on a $90,000 annual income:</P>
+
+        <MathTable
+          caption="Tax comparison: $90,000 income — W-2 employee vs 1099 contractor (single filer, 2024)"
+          headers={["", "W-2 Employee", "1099 Contractor"]}
+          rows={[
+            ["Gross income",              "$90,000",  "$90,000"],
+            ["Self-employment tax (15.3%)", "—",      "$12,717 (on 92.35% of income)"],
+            ["SE tax deduction (½ of SE tax)", "—",   "−$6,359"],
+            ["Standard deduction",        "−$14,600", "−$14,600"],
+            ["Federal taxable income",    "$75,400",  "$69,041"],
+            ["Estimated federal income tax", "≈ $11,400", "≈ $9,800"],
+            ["FICA (employee share only)", "$6,885",  "—"],
+            ["Total federal tax burden",  "≈ $18,285", "≈ $22,517"],
+            ["Extra tax as 1099",         "—",        "+$4,232 more"],
+          ]}
+        />
+
+        <Callout emoji="📊" title="The Rule of Thumb">
+          To match the take-home pay of a $90,000 W-2 salary, a 1099 contractor needs to charge roughly <strong>$100,000–$105,000</strong> — about 15–20% more — just to cover the self-employment tax gap, before accounting for the cost of benefits (health insurance, no employer 401(k) match, no paid leave).
+        </Callout>
+      </Section>
+
+      <Section title="Quarterly Estimated Taxes: The 1099 Worker's #1 Mistake">
+        <P>As a 1099 contractor, no one withholds taxes from your payments. You must pay the IRS yourself — four times a year. Missing these payments triggers an <strong>underpayment penalty</strong>, even if you pay everything you owe when you file in April.</P>
+
+        <MathTable
+          caption="2024 estimated tax due dates"
+          headers={["Quarter", "Income Covered", "Due Date"]}
+          rows={[
+            ["Q1", "Jan 1 – Mar 31",  "April 15"],
+            ["Q2", "Apr 1 – May 31",  "June 17"],
+            ["Q3", "Jun 1 – Aug 31",  "September 16"],
+            ["Q4", "Sep 1 – Dec 31",  "January 15 (next year)"],
+          ]}
+        />
+
+        <P>A simple way to stay safe: set aside <strong>25–30% of every payment you receive</strong> into a separate savings account, then send quarterly payments to the IRS using IRS Direct Pay or EFTPS (Electronic Federal Tax Payment System).</P>
+      </Section>
+
+      <Section title="Tax Advantages of Being a 1099 Contractor">
+        <P>The higher tax burden comes with a real upside: legitimate business expenses reduce your taxable income before any income tax or self-employment tax is calculated.</P>
+        <Pros items={[
+          "Home office deduction — a portion of rent/mortgage, utilities, and internet",
+          "Equipment: computers, monitors, cameras, tools directly used for work",
+          "Software subscriptions used for your business",
+          "Mileage: 67 cents per mile for business driving in 2024",
+          "Health insurance premiums — fully deductible above-the-line if no employer plan is available",
+          "Half of self-employment tax is deductible (reduces income tax, not SE tax)",
+          "Retirement contributions: SEP-IRA up to $69,000/year or Solo 401(k) with high limits",
+          "Professional development, courses, books, and conferences related to your work",
+        ]} />
+        <Callout emoji="⚠️" title="Track Everything">
+          Keep receipts and records for every business expense throughout the year. Use a dedicated business bank account and credit card so you're not sorting personal from business spending every April. Apps like Wave, QuickBooks Self-Employed, or even a simple spreadsheet work well.
+        </Callout>
+      </Section>
+
+      <Section title="Common Mistakes to Avoid">
+        <ul style={bs.list}>
+          <li style={bs.li}><strong>Not paying quarterly taxes.</strong> The penalty isn't huge, but it's avoidable. Set a calendar reminder.</li>
+          <li style={bs.li}><strong>Spending your tax reserve.</strong> The money you set aside for quarterly taxes isn't yours to spend. Keep it in a separate account.</li>
+          <li style={bs.li}><strong>Accepting 1099 status when you're really an employee.</strong> If a company controls when, where, and how you work, you may legally be an employee. Misclassification is illegal — the IRS takes it seriously. If you suspect it, file IRS Form SS-8 to request a determination.</li>
+          <li style={bs.li}><strong>Forgetting state taxes.</strong> Most states also require quarterly estimated payments if you have 1099 income.</li>
+          <li style={bs.li}><strong>Missing the $600 threshold myth.</strong> You owe taxes on ALL self-employment income, even if a client didn't send you a 1099-NEC because they paid you less than $600.</li>
+        </ul>
+      </Section>
+
+      <Section title="Which Is Better: W-2 or 1099?">
+        <Callout emoji="🎯" title="My Take">
+          Neither is universally better — it depends on your situation. W-2 employment offers stability, automatic tax handling, and employer benefits that have real dollar value (health insurance, 401(k) match, paid leave can easily add $15,000–$30,000/year to your total compensation). 1099 work offers higher gross pay, business expense deductions, and the freedom to set your own rates and schedule. If you're evaluating a contractor offer, always convert it to a W-2 equivalent by adding 15–20% for self-employment tax plus the cost of benefits you'd be buying yourself. That's your true apples-to-apples comparison.
         </Callout>
       </Section>
     </FinanceArticleLayout>

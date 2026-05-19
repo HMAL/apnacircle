@@ -15,7 +15,7 @@ import GlobalLawyersPage from "./pages/GlobalLawyersPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import DisclaimerPage from "./pages/DisclaimerPage";
-import FinanceHubPage, { RetirementPage, HousingPage, CarPage, IndexFundsPage, Plans529Page, LifeInsurancePage } from "./pages/finance/FinancePages";
+import FinanceHubPage, { RetirementPage, HousingPage, CarPage, IndexFundsPage, Plans529Page, LifeInsurancePage, W2Page } from "./pages/finance/FinancePages";
 import { AdsProvider } from "./lib/AdsContext";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import HashScroller from "./components/HashScroller";
@@ -42,6 +42,7 @@ export default function App() {
         <Route path="/finance/index-funds"         element={<IndexFundsPage />} />
         <Route path="/finance/529"                 element={<Plans529Page />} />
         <Route path="/finance/life-insurance"      element={<LifeInsurancePage />} />
+        <Route path="/finance/w2-1099"             element={<W2Page />} />
         <Route path="/lawyers"                     element={<GlobalLawyersPage />} />
         <Route path="/contact"                     element={<ContactPage />} />
         <Route path="/privacy"                     element={<PrivacyPolicyPage />} />
