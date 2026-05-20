@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone, isValidEmail, isValidPhone, PhoneLink, EmailLink } from "../formHelpers";
+import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone, isValidEmail, isValidPhone, PhoneLink, EmailLink, PIINotice } from "../formHelpers";
 import { fetchAccommodation, getSubmitError, submitAccommodation } from "../../lib/db";
 
 export default function Accommodation({ stateSlug, citySlug }) {
@@ -109,6 +109,7 @@ function AccForm({ stateSlug, citySlug, type, onSuccess, onCancel }) {
             placeholder={type === "looking" ? "Describe what you're looking for - budget, area, # of people..." : "Describe what you're offering - type, rent, availability, rules..."} />
         </div>
       </div>
+      <PIINotice />
       <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
         <button style={f.btn} onClick={submit}>Submit</button>
         <button style={{ ...f.btnOutline, marginTop:"1.25rem" }} onClick={onCancel}>Cancel</button>

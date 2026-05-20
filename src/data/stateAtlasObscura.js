@@ -1,4 +1,3 @@
-// Sourced from Atlas Obscura (atlasobscura.com/things-to-do/united-states)
 export const STATE_ATLAS_OBSCURA = {
   Alabama: [
     { name: "Ave Maria Grotto", address: "1600 St Bernard Dr SE, Cullman, AL", description: "Nicknamed 'Jerusalem in Miniature,' this 4-acre park contains 125 miniature replicas of famous world landmarks — from the Colosseum to the Alamo — all built by Brother Joseph Zoettl, a Benedictine monk, using scrap materials over 40 years." },

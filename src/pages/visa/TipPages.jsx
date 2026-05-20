@@ -8,114 +8,112 @@ import { useIsMobile } from "../../lib/useIsMobile";
 import { getCountrySlug } from "../../lib/country";
 import ResourceNav from "../../components/ResourceNav";
 
-// ─── Canada Immigration Interview Guide (from immiquest.ca) ──────────────────
+// ─── Canada Immigration Interview Guide ───────────────────────────────────────
 const CA_IMMIGRATION_GUIDE = [
   {
     section: "General Background Questions",
     rows: [
-      { q: "Please introduce yourself and tell us why you want to immigrate to Canada.", a: "Emphasize your professional background, desire for career advancement, and appreciation for Canadian multiculturalism and values." },
-      { q: "Have you ever visited Canada before?", a: "Confirm prior visits and positive experiences, or explain thorough research into Canadian life and culture if this is your first time applying." },
-      { q: "Why did you choose Canada over other countries?", a: "Highlight Canada's inclusiveness, strong social programs, quality of life, and economic prospects as key factors in your decision." },
+      { q: "Please introduce yourself and tell us why you want to immigrate to Canada.", a: "Be concise: mention your professional background, what draws you to Canada, and your long-term plans. Officers want to see a clear, genuine motivation — not a rehearsed speech." },
+      { q: "Have you ever visited Canada before?", a: "Answer factually. If yes, briefly describe when and why. If no, explain how you have researched Canadian life, culture, and your intended city." },
+      { q: "Why did you choose Canada over other countries?", a: "Speak to specific qualities — job market, quality of life, multicultural environment, or existing community ties. Be specific rather than generic." },
     ],
   },
   {
     section: "Educational and Work Background Questions",
     rows: [
-      { q: "Can you describe your educational qualifications?", a: "Discuss your degrees, diplomas, or certificates, the relevant field of study, and be ready with supporting documents such as transcripts and credential evaluations." },
-      { q: "What is your current employment status?", a: "Describe your job title, years of tenure, and key responsibilities. Bring employment letters or recent pay stubs to support your answer." },
-      { q: "How does your work experience relate to your application?", a: "Connect your professional background to Canadian labor market demands and demonstrate how your skills fill a need in Canada." },
+      { q: "Can you describe your educational qualifications?", a: "State your highest degree, field of study, and institution. If you have an Educational Credential Assessment (ECA), mention it. Bring transcripts and any accreditation documents." },
+      { q: "What is your current employment status?", a: "Describe your role, employer, and how long you have held the position. Employment letters and recent pay stubs support your answer." },
+      { q: "How does your work experience relate to your application?", a: "Connect your NOC code or job offer to your actual duties. Be prepared to walk the officer through your day-to-day responsibilities if asked." },
     ],
   },
   {
     section: "Intent and Eligibility Questions",
     rows: [
-      { q: "What are your plans after arriving in Canada?", a: "Outline your housing plans, employment search strategy, and how you intend to integrate into the community." },
-      { q: "Do you have any relatives or friends in Canada?", a: "Mention existing support networks if applicable, or describe your independent settlement strategy and available resources." },
-      { q: "How will you support yourself financially in Canada?", a: "Emphasize documented proof of funds, savings, or a job offer that demonstrates financial readiness for your stay." },
+      { q: "What are your plans after arriving in Canada?", a: "Describe your housing plan, job search strategy (or confirmed employer), and how you intend to become self-sufficient. Concrete plans reassure the officer." },
+      { q: "Do you have any relatives or friends in Canada?", a: "If yes, provide names and their status. If no, explain your independent settlement plan — savings, community organizations, online resources." },
+      { q: "How will you support yourself financially in Canada?", a: "Reference your proof of funds — bank statements, a job offer letter, or settlement savings. Know the minimum required amount for your application type." },
     ],
   },
   {
     section: "Permanent Resident (PR) Questions",
     rows: [
-      { q: "What do you know about your rights and responsibilities as a permanent resident?", a: "Demonstrate knowledge of PR residency obligations (must be physically present in Canada 730 days in every 5-year period), healthcare access, right to work anywhere in Canada, and legal obligations." },
-      { q: "Have you ever been refused a visa or entry to Canada or another country?", a: "Disclose honestly and provide supporting documentation explaining the refusal and any resolution. Concealing a refusal can result in a misrepresentation finding." },
-      { q: "Why do you want to become a permanent resident of Canada?", a: "Focus on long-term commitment to Canada, career goals, family aspirations, and your intention to contribute to Canadian society." },
+      { q: "What do you know about your rights and responsibilities as a permanent resident?", a: "Key points: you must be physically present in Canada at least 730 days in every 5-year period to maintain PR status; you can work for any employer; you have access to most publicly funded health care; you must pay taxes and obey all laws." },
+      { q: "Have you ever been refused a visa or entry to Canada or another country?", a: "Answer honestly. Disclose all refusals and bring supporting documents. Misrepresenting a refusal is grounds for a finding against you." },
+      { q: "Why do you want to become a permanent resident of Canada?", a: "Focus on long-term commitment: career goals, family plans, contribution to your community. This should align with the rest of your application." },
     ],
   },
   {
     section: "Spousal Sponsorship Questions",
     rows: [
-      { q: "How did you meet your spouse?", a: "Provide a detailed account with supporting evidence such as photos, communication records, and travel history together." },
-      { q: "When did you get married, and who attended your wedding?", a: "Give specific dates, location, and names of key attendees. Bring your marriage certificate and wedding photos." },
-      { q: "How do you and your spouse communicate?", a: "Detail your daily contact methods (calls, video chats, messages) and frequency. Communication logs can be submitted as supporting evidence." },
-      { q: "What are your spouse's hobbies, job, and daily routine?", a: "Demonstrate intimate familiarity with your spouse's life — officers assess this to verify the genuineness of the relationship." },
-      { q: "What are your future plans as a couple in Canada?", a: "Outline where you plan to settle, career goals for both partners, and any family intentions." },
+      { q: "How did you meet your spouse?", a: "Give a specific, chronological account. Bring supporting evidence: photos with dates, communication records, travel history together." },
+      { q: "When did you get married, and who attended your wedding?", a: "Provide exact dates, location, and the names of key guests. Your marriage certificate and wedding photos should be readily accessible." },
+      { q: "How do you and your spouse communicate?", a: "Describe your typical week — daily calls, messages, video chats. Be specific about frequency and platform. Communication logs can be submitted." },
+      { q: "What are your spouse's hobbies, job, and daily routine?", a: "Demonstrate genuine familiarity. Officers ask this to assess whether the relationship is authentic. Know details only a close partner would know." },
+      { q: "What are your future plans as a couple in Canada?", a: "Describe where you plan to settle, each partner's work plans, housing arrangements, and longer-term family plans." },
     ],
   },
   {
     section: "Study Permit Questions",
     rows: [
-      { q: "Why did you choose this course and institution in Canada?", a: "Explain the institution's program rankings, specializations, and how the curriculum aligns with your career goals." },
-      { q: "How will this program benefit your career?", a: "Connect the education directly to professional advancement, detailing specific skills or credentials you will gain." },
-      { q: "Who is funding your studies?", a: "Provide documentation of family support, scholarships, or personal savings. Officers want to confirm you have sufficient funds for tuition and living costs." },
-      { q: "What are your plans after graduation?", a: "Discuss Post-Graduation Work Permit (PGWP) opportunities, potential PR pathways, or plans to return to your home country if applicable." },
+      { q: "Why did you choose this course and institution in Canada?", a: "Be specific about the program, the institution's strengths, and how it advances your career. Vague answers ('it's a good school') raise flags." },
+      { q: "How will this program benefit your career?", a: "Describe the skills or credentials you will gain and how they apply to your career goals — in Canada or back home." },
+      { q: "Who is funding your studies?", a: "State your funding source clearly (family, savings, scholarship) and have documentation ready. Officers want to confirm funds cover tuition and living costs for the full program." },
+      { q: "What are your plans after graduation?", a: "If pursuing a Post-Graduation Work Permit (PGWP), explain how it fits your path. If returning home, demonstrate clear ties to your home country." },
     ],
   },
   {
     section: "Work Permit Questions",
     rows: [
-      { q: "Can you describe your job offer in Canada?", a: "Present your official employment contract including salary, benefits, job duties, and commencement date. Have your LMIA or employer-specific work permit documents ready." },
-      { q: "Why did your employer choose you for this role?", a: "Highlight your relevant expertise, qualifications, and specific skills that make you the right candidate for the position." },
-      { q: "Do you plan to stay in Canada after your work permit expires?", a: "Clarify whether your intention is temporary employment or whether you plan to pursue permanent residency through pathways like Express Entry or PNP." },
+      { q: "Can you describe your job offer in Canada?", a: "Cover role title, employer, start date, salary, and key duties. Have your employment contract and LMIA (if applicable) ready to show." },
+      { q: "Why did your employer choose you for this role?", a: "Explain the specific qualifications, experience, or skills that made you the right candidate — especially any that are hard to fill locally." },
+      { q: "Do you plan to stay in Canada after your work permit expires?", a: "Be honest. If you intend to pursue PR, say so and name the pathway (e.g., Express Entry, PNP). If you plan to return home, explain why." },
     ],
   },
   {
     section: "Visitor Visa Questions",
     rows: [
-      { q: "What is the purpose of your visit to Canada?", a: "Specify clearly whether you are visiting for tourism, business, or family. Bring supporting documents such as hotel bookings, invitation letters, or event registrations." },
-      { q: "How long do you plan to stay in Canada?", a: "Provide specific arrival and departure dates. A return ticket strengthens your case that you intend to leave before your authorized stay expires." },
-      { q: "Do you have ties to your home country?", a: "Demonstrate ties through family, employment, property ownership, or other commitments that confirm your motivation to return home after your visit." },
+      { q: "What is the purpose of your visit to Canada?", a: "State clearly: tourism, visiting family/friends, or business. Bring supporting documents matching your stated purpose — hotel bookings, invitation letter, conference registration." },
+      { q: "How long do you plan to stay in Canada?", a: "Give specific dates. A return ticket and a defined itinerary show the officer you intend to leave within your authorized period." },
+      { q: "Do you have ties to your home country?", a: "Ties mean reasons to return: employment, family, property, business. The stronger your ties, the more convincing your case that you will not overstay." },
     ],
   },
   {
     section: "Border Entry Questions",
     rows: [
-      { q: "What is the purpose of your visit to Canada?", a: "Clearly identify your immigration status category (visitor, worker, student, or PR) and ensure all documents are complete and accessible when asked." },
-      { q: "How much money are you bringing to Canada?", a: "Declare currency honestly. Amounts over CAD $10,000 must be reported to CBSA. Failure to declare can result in seizure and fines." },
-      { q: "Do you have any goods to declare?", a: "Accurately disclose all items including food, plants, animal products, and commercial goods to avoid legal complications at the border." },
+      { q: "What is the purpose of your visit to Canada?", a: "Identify your status clearly (visitor, worker, student, or PR) and have all relevant documents out before approaching the officer." },
+      { q: "How much money are you bringing to Canada?", a: "Declare all currency. Amounts of CAD $10,000 or more must be reported to CBSA. Failure to declare can result in seizure and penalties." },
+      { q: "Do you have any goods to declare?", a: "Disclose all applicable items including food, plants, animal products, and commercial goods. When in doubt, declare — officers appreciate honesty." },
     ],
   },
 ];
 
-// ─── Port of Entry data (from WashU OISS port-of-entry guide) ────────────────
+// ─── Port of Entry guide ──────────────────────────────────────────────────────
 const PORT_OF_ENTRY = [
   {
     section: "What to Expect Upon Arrival",
     rows: [
-      { q: "Arrival procedure", a: "Proceed to the terminal for arriving passengers. A CBP officer will inquire about your purpose for entering the U.S. Be prepared to explain your academic or work intentions." },
-      { q: "Common officer questions", a: "Officers may ask about your final destination, living address, and your school or employer's address. They may also request financial documentation. Clarify that you plan to return home after completing your academic or work activities." },
-      { q: "After inspection", a: "Officers will return your documents and may stamp your passport with your admission status and dates." },
-      { q: "Secondary Inspection", a: "If CBP cannot verify your information or your documentation is incomplete, you may be sent to secondary inspection. Remain calm and follow officer directions. You may be asked for your Designated School Official (DSO) contact information." },
-      { q: "Land border crossings", a: "Land border crossings require pre-requesting an I-94 record before crossing." },
+      { q: "Arrival procedure", a: "Follow signs to the CBP primary inspection area. Have your passport and immigration documents in hand. The officer will ask about your purpose of travel and may ask to see supporting documents." },
+      { q: "Common officer questions", a: "Officers typically ask where you are going, how long you plan to stay, and about your employer or school. Answer clearly and factually; do not volunteer information that was not asked for." },
+      { q: "After primary inspection", a: "The officer will return your documents and may stamp your passport indicating your authorized period of admission. Check the date before you leave." },
+      { q: "Secondary inspection", a: "If the officer cannot immediately verify your status or documents, you may be referred to secondary inspection. Stay calm, cooperate, and have your supporting documents ready. Secondary inspection is common and does not automatically mean a problem." },
+      { q: "Land border crossings", a: "Travelers entering by land must pre-request an I-94 record online before crossing. Air and sea travelers receive an electronic I-94 automatically." },
     ],
   },
   {
     section: "Required Documents — All Visa Types",
     rows: [
-      { q: "Passport", a: "Valid for at least six months from your entry date." },
-      { q: "Valid U.S. visa stamp", a: "Required for all nationalities except Canadian citizens." },
-      { q: "Eligibility / Status document", a: "Form I-20 (F-1 students) · Form DS-2019 (J-1 exchange visitors) · I-797 Approval Notice (H-1B or O-1 workers)" },
-      { q: "I-94 Record", a: "Arrival/departure record. For air and sea entry this is issued electronically; for land crossings you must pre-request it." },
-      { q: "SEVIS fee payment receipt", a: "Required for F and J visa holders only." },
-      { q: "Academic transcripts or admission letter", a: "WashU transcripts for current students; admission letter for incoming students." },
-      { q: "Financial documentation", a: "Printed evidence of financial resources sufficient to cover your stay." },
-      { q: "Employment confirmation letter", a: "Required for scholars and employees." },
-      { q: "DSO or Responsible Officer contact information", a: "Required for F and J visa holders." },
+      { q: "Passport", a: "Must be valid for at least six months beyond your intended stay." },
+      { q: "Valid U.S. visa stamp", a: "Required for all nationalities except Canadian citizens and those entering under the Visa Waiver Program with a valid ESTA." },
+      { q: "Status document", a: "Form I-20 for F-1 students · Form DS-2019 for J-1 exchange visitors · I-797 Approval Notice for H-1B, O-1, and other petition-based workers." },
+      { q: "I-94 Arrival/Departure Record", a: "Issued electronically for air and sea arrivals. Land border travelers must pre-request at i94.cbp.dhs.gov before crossing." },
+      { q: "SEVIS fee receipt", a: "Required for F-1 and J-1 visa holders only. Print a copy from the SEVP payment portal." },
+      { q: "Financial documentation", a: "Bank statements or a financial support letter showing you have sufficient funds for the duration of your stay." },
+      { q: "Employment or enrollment confirmation", a: "An offer letter or contract for workers; an acceptance or enrollment letter for students." },
     ],
   },
 ];
 
-// ─── CBP Questions data (from Jeelani Law common CBP questions guide) ─────────
+// ─── Common CBP questions by visa type ────────────────────────────────────────
 const CBP_QUESTIONS = [
   {
     section: "General Questions (All Travelers)",

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { f } from "./formHelpers";
+import { f, PIINotice } from "./formHelpers";
 import { fetchListings } from "../lib/db";
 
 export function ListingSection({ stateSlug, citySlug, section, icon, title, description, FormFields, renderCard }) {
@@ -36,6 +36,7 @@ export function ListingSection({ stateSlug, citySlug, section, icon, title, desc
       {showForm && (
         <div style={{ background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1.5rem", marginBottom:20 }}>
           <FormFields stateSlug={stateSlug} citySlug={citySlug} section={section} onDone={handleDone} />
+          <PIINotice />
         </div>
       )}
 

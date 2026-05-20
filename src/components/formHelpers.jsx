@@ -117,6 +117,17 @@ export function EmailLink({ email }) {
   );
 }
 
+// ── PII disclosure notice shown before every public submit ──
+export function PIINotice() {
+  return (
+    <p style={{ fontSize: 12, color: "#777", marginTop: "0.75rem", marginBottom: 0, lineHeight: 1.5 }}>
+      Your name and contact information will be <strong>publicly visible</strong> on the site
+      and may be indexed by search engines. See our{" "}
+      <a href="/privacy" style={{ color: "var(--orange)" }}>Privacy Policy</a>.
+    </p>
+  );
+}
+
 // ── Section header + content wrapper ────────────────────────
 export function SectionWrapper({ title, icon, description, children }) {
   return (

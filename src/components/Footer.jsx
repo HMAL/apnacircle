@@ -7,6 +7,8 @@ export default function Footer() {
       <div style={s.links}>
         <Link to="/privacy" style={s.link}>Privacy Policy</Link>
         <span style={s.sep}>·</span>
+        <Link to="/terms" style={s.link}>Terms of Service</Link>
+        <span style={s.sep}>·</span>
         <Link to="/disclaimer" style={s.link}>Disclaimer</Link>
         <span style={s.sep}>·</span>
         <Link to="/contact" style={s.link}>Contact</Link>

@@ -1,4 +1,3 @@
-// Sourced from Atlas Obscura (atlasobscura.com/things-to-do/canada)
 export const PROVINCE_ATLAS_OBSCURA = {
   Alberta: [
     { name: "Head-Smashed-In Buffalo Jump", address: "Head-Smashed-In Buffalo Jump, Fort Macleod, AB", description: "A UNESCO World Heritage Site where Plains Indigenous peoples herded bison off a 10-metre cliff for 6,000 years — one of the world's oldest, largest, and best-preserved buffalo jump sites, with a museum built into the cliff itself." },

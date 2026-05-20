@@ -14,18 +14,21 @@ import HealthWellnessPage from "./pages/HealthWellnessPage";
 import GlobalLawyersPage from "./pages/GlobalLawyersPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
 import DisclaimerPage from "./pages/DisclaimerPage";
 import FinanceHubPage, { RetirementPage, HousingPage, CarPage, IndexFundsPage, Plans529Page, LifeInsurancePage, W2Page, RrspTfsaPage, CanadaHousingPage, CanadaCarPage, CanadaIndexFundsPage, RespPage, CanadaLifeInsurancePage, T4Page } from "./pages/finance/FinancePages";
 import NewsHubPage, { ImmigrationNewsPage, JobsNewsPage, FinanceNewsPage } from "./pages/news/NewsPage";
 import BlogHubPage, { BlogPostPage } from "./pages/blog/BlogPage";
 import { AdsProvider } from "./lib/AdsContext";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import CookieConsent from "./components/CookieConsent";
 import HashScroller from "./components/HashScroller";
 
 export default function App() {
   return (
     <AdsProvider>
       <GoogleAnalytics />
+      <CookieConsent />
       <Navbar />
       <HashScroller />
       <Routes>
@@ -59,6 +62,7 @@ export default function App() {
         <Route path="/lawyers"                     element={<GlobalLawyersPage />} />
         <Route path="/contact"                     element={<ContactPage />} />
         <Route path="/privacy"                     element={<PrivacyPolicyPage />} />
+        <Route path="/terms"                       element={<TermsOfServicePage />} />
         <Route path="/disclaimer"                  element={<DisclaimerPage />} />
         <Route path="/blog"                        element={<BlogHubPage />} />
         <Route path="/blog/:slug"                  element={<BlogPostPage />} />

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone, PhoneLink } from "../formHelpers";
+import { f, useToast, Toast, SectionWrapper, fmtDate, formatPhone, PhoneLink, PIINotice } from "../formHelpers";
 import { fetchJobs, getSubmitError, submitJob } from "../../lib/db";
 
 const HOURS = ["Full-time","Part-time","Weekends only","Evenings only","Flexible","Temporary"];
@@ -95,6 +95,7 @@ function OfferForm({ stateSlug, citySlug, onSuccess, onCancel }) {
         <div style={f.group}><label style={f.label}>Phone Number</label><input style={f.input} value={form.phone} onChange={setPhone} placeholder="123-456-7890" /></div>
         <div style={{...f.group, ...f.span2}}><label style={f.label}>Message / Job Description <span style={f.req}>*</span></label><textarea style={f.textarea} value={form.message} onChange={set("message")} placeholder="Describe the role, pay, requirements..." /></div>
       </div>
+      <PIINotice />
       <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
         <button style={f.btn} onClick={submit}>Post Job</button>
         <button style={{ ...f.btnOutline, marginTop:"1.25rem" }} onClick={onCancel}>Cancel</button>
@@ -136,6 +137,7 @@ function SeekForm({ stateSlug, citySlug, onSuccess, onCancel }) {
         </div>
         <div style={{...f.group, ...f.span2}}><label style={f.label}>About You / What You're Looking For <span style={f.req}>*</span></label><textarea style={f.textarea} value={form.message} onChange={set("message")} placeholder="Skills, experience, type of work you're seeking..." /></div>
       </div>
+      <PIINotice />
       <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
         <button style={f.btn} onClick={submit}>Submit</button>
         <button style={{ ...f.btnOutline, marginTop:"1.25rem" }} onClick={onCancel}>Cancel</button>
