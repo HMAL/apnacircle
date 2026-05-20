@@ -14,6 +14,7 @@ export function getResourceNavItems() {
     { key: "forms", icon: "\u{1F4CB}", label: `${formsResource.label} Tips`, to: "/ds160" },
     { key: "lawyers", icon: "\u2696\uFE0F", label: "Immigration Lawyers", to: "/lawyers" },
     { key: "health", icon: "\u{1F3E5}", label: "Health & Wellness", to: "/health", match: path => path.startsWith("/health") },
+    { key: "blog",   icon: "\u{1F4D6}", label: "Guides & Tips",     to: "/blog",   match: path => path.startsWith("/blog") },
   ].sort((a, b) => a.label.localeCompare(b.label));
 }
 

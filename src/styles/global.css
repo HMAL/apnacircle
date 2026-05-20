@@ -30,7 +30,7 @@ input, select, textarea, button { font-family: 'Nunito', sans-serif; }
   .home-sidebar { display: none !important; }
   .home-body { flex-direction: column !important; padding: 0 1rem 2rem !important; }
   .home-rail { display: none !important; }
-  .state-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .state-grid { grid-template-columns: repeat(3, 1fr) !important; }
   .mobile-only { display: block; }
   .hero-sub { white-space: normal !important; }
 }

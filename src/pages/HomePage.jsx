@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { fetchStates, fetchAllEvents, fetchSiteStats } from "../lib/db";
-import AdBlock from "../components/AdBlock";
-import { useAds } from "../lib/AdsContext";
 import ResourceNav, { MobileResourceNav } from "../components/ResourceNav";
 import { fmtEventDate, daysUntilBadge, MapLink } from "../components/formHelpers";
 import { getCountrySlug } from "../lib/country";
+import { BlogRailTile } from "./blog/BlogPage";
+import { BLOGS } from "../data/blogs";
 
 // ─── Community Stats Bar ──────────────────────────────────────────────────────
 
@@ -143,10 +143,11 @@ function WhichStateQuiz() {
   );
 }
 
+const RAIL_POSTS = BLOGS.filter((_, i) => [0, 4, 8, 1, 5, 9].includes(i)).slice(0, 6);
+
 export default function HomePage() {
   const [states, setStates] = useState([]);
   const [events, setEvents] = useState([]);
-  const { ads } = useAds();
   const countrySlug = getCountrySlug();
   const regionLabel = countrySlug === "ca" ? "Province" : "State";
   const siteBase = countrySlug === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
@@ -253,13 +254,12 @@ export default function HomePage() {
           </div>
         </main>
 
-        {/* Right — ads, desktop only */}
-        {ads.global && (
-          <aside className="home-rail" style={s.rail}>
-            <AdBlock />
-            <AdBlock />
-          </aside>
-        )}
+        {/* Right — blog tiles, desktop only */}
+        <aside className="home-rail" style={s.rail}>
+          <p style={s.railLabel}>Guides & Tips</p>
+          {RAIL_POSTS.map(post => <BlogRailTile key={post.slug} post={post} />)}
+          <Link to="/blog" style={s.railMore}>See all guides →</Link>
+        </aside>
       </div>
 
       <footer style={s.footer}>© 2026 Apnacircle. Built by the community, for the community.</footer>
@@ -311,7 +311,9 @@ const s = {
   sidebarNav:   { width: "100%", position: "static" },
   mobileQuizWrap: { padding: "0.9rem 1rem 1rem", borderBottom: "0.5px solid var(--border)" },
   center:       { flex: 1, minWidth: 0 },
-  rail:         { width: 260, flexShrink: 0, display: "flex", flexDirection: "column", gap: 16, position: "sticky", top: 72 },
+  rail:         { width: 260, flexShrink: 0, display: "flex", flexDirection: "column", gap: 10, position: "sticky", top: 72, alignSelf: "flex-start" },
+  railLabel:    { fontSize: 11, fontWeight: 700, color: "#aaa", textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 2 },
+  railMore:     { fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none", marginTop: 4 },
   sectionLabel: { fontSize: 13, fontWeight: 700, color: "#666", marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 },
   stateGrid:    { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12 },
   stateCard:    { background: "#fff", border: "0.5px solid var(--border)", borderRadius: "var(--radius)", padding: "1rem", textAlign: "center", transition: "box-shadow 0.15s, transform 0.15s" },
