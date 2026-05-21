@@ -6,7 +6,7 @@ export function getResourceNavItems() {
   const formsResource = getFormsResource();
 
   return [
-    { key: "deals", icon: "$", iconStyle: s.dealsIcon, label: "Deals - Memorial day sale", href: "https://deals.apnacircle.org", external: true },
+    { key: "deals", icon: "$", iconStyle: s.dealsIcon, label: "Deals - Memorial day sale", href: "https://deals.apnacircle.org/deals/memorial-day", external: true },
     { key: "events", icon: "\u{1F4C5}", label: "Events", to: "/events", match: path => path === "/events" },
     { key: "finance", icon: "\u{1F4B0}", label: "Finance Tips", to: "/finance", match: path => path.startsWith("/finance") },
     { key: "news",    icon: "\u{1F4F0}", label: "News",         to: "/news",    match: path => path.startsWith("/news") },
