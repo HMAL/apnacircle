@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-22T18:07:31.272Z",
+  "generatedAt": "2026-05-22T23:02:21.366Z",
   "us": {
     "immigration": [
       {
@@ -57,6 +57,22 @@
       {
         "tag": "Fed Rate",
         "date": "May 2026",
+        "headline": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+        "body": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm"
+      },
+      {
+        "tag": "Markets",
+        "date": "May 2026",
+        "headline": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
+        "body": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260522a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "May 2026",
         "headline": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
         "body": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
         "source": "Federal Reserve",
@@ -77,22 +93,6 @@
         "body": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260520a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "May 2026",
-        "headline": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
-        "body": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260515a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "May 2026",
-        "headline": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
-        "body": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515a.htm"
       }
     ]
   },
