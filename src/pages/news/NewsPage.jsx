@@ -1,9 +1,21 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AdBlock from "../../components/AdBlock";
 import { useIsMobile } from "../../lib/useIsMobile";
 import ResourceNav from "../../components/ResourceNav";
 import { getCountrySlug } from "../../lib/country";
+
+function useNewsData() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch("/news.json")
+      .then(r => r.json())
+      .then(setData)
+      .catch(() => {});
+  }, []);
+  return data;
+}
 
 const CATEGORIES = [
   {
@@ -441,9 +453,16 @@ export default function NewsHubPage() {
 
 // ─── Immigration News ──────────────────────────────────────────────────────────
 
+function useLiveNews(liveData, category, caFallback, usFallback) {
+  const isCA = getCountrySlug() === "ca";
+  const live = liveData?.[isCA ? "ca" : "us"]?.[category];
+  return (live?.length >= 2 ? live : null) ?? (isCA ? caFallback : usFallback);
+}
+
 export function ImmigrationNewsPage() {
   const isCA = getCountrySlug() === "ca";
-  const news = isCA ? CA_IMMIGRATION_NEWS : IMMIGRATION_NEWS;
+  const liveData = useNewsData();
+  const news = useLiveNews(liveData, "immigration", CA_IMMIGRATION_NEWS, IMMIGRATION_NEWS);
   const desc = isCA
     ? "IRCC updates, Express Entry draws, study and work permits, PNP news, and PR processing — curated for immigrants in Canada."
     : "USCIS updates, H-1B cap, green card priority dates, visa rule changes, and travel policy — curated for immigrants in the US.";
@@ -458,7 +477,8 @@ export function ImmigrationNewsPage() {
 
 export function JobsNewsPage() {
   const isCA = getCountrySlug() === "ca";
-  const news = isCA ? CA_JOBS_NEWS : JOBS_NEWS;
+  const liveData = useNewsData();
+  const news = useLiveNews(liveData, "jobs", CA_JOBS_NEWS, JOBS_NEWS);
   const desc = isCA
     ? "LMIA and work permit trends, job loss guidance, PGWP updates, and employment tips for work permit holders in Canada."
     : "H-1B sponsorship trends, layoffs, OPT job market, and employment tips for immigrants and work visa holders.";
@@ -473,7 +493,8 @@ export function JobsNewsPage() {
 
 export function FinanceNewsPage() {
   const isCA = getCountrySlug() === "ca";
-  const news = isCA ? CA_FINANCE_NEWS : FINANCE_NEWS;
+  const liveData = useNewsData();
+  const news = useLiveNews(liveData, "finance", CA_FINANCE_NEWS, FINANCE_NEWS);
   const desc = isCA
     ? "Bank of Canada rate, Canadian housing market, TFSA limits, mortgage rates, and remittance tips for immigrants in Canada."
     : "Fed rate decisions, S&P 500 updates, housing market, mortgage rates, and remittance tips for immigrants in the US.";
