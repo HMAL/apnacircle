@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T22:59:19.512Z",
+  "generatedAt": "2026-05-25T20:16:20.573Z",
   "us": {
     "immigration": [
       {
@@ -100,6 +100,14 @@
     "immigration": [
       {
         "tag": "IRCC",
+        "date": "25 May 2026",
+        "headline": "Canada strengthens Indo-Pacific ties through changes to visa requirements for eligible travellers from Indonesia and Malaysia",
+        "body": "As Canada continues to deepen its trade, investment and strategic partnerships across the Indo Pacific, the Honourable Lena Metlege Diab, Minister of Immigration, Refugees and Citizenship, announced today that Canada will make changes to visa requirements for eligible citizens from Indonesia and Malaysia starting tomorrow, May 26, 2026, at 5:30 a.m. Eastern Time.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/05/canada-strengthens-indo-pacific-ties-through-changes-to-visa-requirements-for-eligible-travellers-from-indonesia-and-malaysia.html"
+      },
+      {
+        "tag": "IRCC",
         "date": "11 May 2026",
         "headline": "Building the workforce needed to deliver more homes in Halifax",
         "body": "In Budget 2025, we outlined our plan to build Canada Strong.",
@@ -129,14 +137,6 @@
         "body": "Canada continues to bring our immigration system to sustainable levels and focus immigration on the areas where it has the greatest impact. This means supporting rural and remote communities that are experiencing labour shortages in key economic sectors.",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/04/filling-labour-gaps-in-smaller-communities-by-accelerating-permanent-residence-for-33000-workers.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "2 May 2026",
-        "headline": "Minister Diab highlights sport investments from Spring Economic Update 2026: Canada Strong for All to build stronger and safer communities",
-        "body": "In Budget 2025, the Government of Canada outlined its plan to build Canada strong. Since then, we have moved fast to build the major infrastructure, homes and industries that grow Canada’s economy and create lasting prosperity; empower Canadians with better careers and a more affordable life; and protect our communities, our borders and our way…",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/05/minister-diab-highlights-sport-investments-from-spring-economic-update-2026-canada-strong-for-all-to-build-stronger-and-safer-communities.html"
       }
     ],
     "jobs": [
