@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-25T20:16:20.573Z",
+  "generatedAt": "2026-05-26T21:16:06.836Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "26 May 2026",
+        "headline": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+        "body": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "22 May 2026",
         "headline": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260520a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "20 May 2026",
-        "headline": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
-        "body": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260520a.htm"
       }
     ]
   },
