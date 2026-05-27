@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T09:55:59.335Z",
+  "generatedAt": "2026-05-27T11:06:24.211Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "26 May 2026",
+        "headline": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+        "body": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "22 May 2026",
         "headline": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
@@ -85,19 +93,19 @@
         "body": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260520a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "20 May 2026",
-        "headline": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
-        "body": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260520a.htm"
       }
     ]
   },
   "ca": {
     "immigration": [
+      {
+        "tag": "IRCC",
+        "date": "25 May 2026",
+        "headline": "Canada strengthens Indo-Pacific ties through changes to visa requirements for eligible travellers from Indonesia and Malaysia",
+        "body": "As Canada continues to deepen its trade, investment and strategic partnerships across the Indo Pacific, the Honourable Lena Metlege Diab, Minister of Immigration, Refugees and Citizenship, announced today that Canada will make changes to visa requirements for eligible citizens from Indonesia and Malaysia starting tomorrow, May 26, 2026, at 5:30 a.m. Eastern Time.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/05/canada-strengthens-indo-pacific-ties-through-changes-to-visa-requirements-for-eligible-travellers-from-indonesia-and-malaysia.html"
+      },
       {
         "tag": "IRCC",
         "date": "11 May 2026",
@@ -129,14 +137,6 @@
         "body": "Canada continues to bring our immigration system to sustainable levels and focus immigration on the areas where it has the greatest impact. This means supporting rural and remote communities that are experiencing labour shortages in key economic sectors.",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/04/filling-labour-gaps-in-smaller-communities-by-accelerating-permanent-residence-for-33000-workers.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "2 May 2026",
-        "headline": "Minister Diab highlights sport investments from Spring Economic Update 2026: Canada Strong for All to build stronger and safer communities",
-        "body": "In Budget 2025, the Government of Canada outlined its plan to build Canada strong. Since then, we have moved fast to build the major infrastructure, homes and industries that grow Canada’s economy and create lasting prosperity; empower Canadians with better careers and a more affordable life; and protect our communities, our borders and our way…",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/05/minister-diab-highlights-sport-investments-from-spring-economic-update-2026-canada-strong-for-all-to-build-stronger-and-safer-communities.html"
       }
     ],
     "jobs": [
