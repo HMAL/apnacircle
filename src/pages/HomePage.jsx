@@ -236,9 +236,12 @@ function WhichStateQuiz() {
 
 const RAIL_POSTS = BLOGS.filter((_, i) => [0, 4, 8, 1, 5, 9].includes(i)).slice(0, 6);
 
+const EVENTS_PAGE_SIZE = 5;
+
 export default function HomePage() {
   const [states, setStates] = useState([]);
   const [events, setEvents] = useState([]);
+  const [eventsPage, setEventsPage] = useState(0);
   const countrySlug = getCountrySlug();
   const regionLabel = countrySlug === "ca" ? "Province" : "State";
   const siteBase = countrySlug === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
@@ -310,38 +313,59 @@ export default function HomePage() {
 
           {/* Upcoming events */}
           <div id="events" style={s.eventsSection}>
-            <p style={s.sectionLabel}>📅 Upcoming Events</p>
-            {events.length > 0 ? (
-              <div style={s.eventList}>
-                {events.map(e => {
-                  const badge = daysUntilBadge(e.event_date);
-                  return (
-                    <div key={e.id} style={s.eventCard}>
-                      <div style={{ display:"flex", gap:10, alignItems:"center", flexWrap:"wrap", marginBottom:6 }}>
-                        <span style={s.eventName}>{e.name}</span>
-                        <span style={{ fontSize:11, fontWeight:700, color:"#fff", background:badge.color, padding:"2px 8px", borderRadius:20, flexShrink:0 }}>{badge.label}</span>
-                      </div>
-                      <div style={{ display:"flex", gap:16, flexWrap:"wrap", marginBottom: e.notes ? 6 : 0 }}>
-                        <span style={s.eventMeta}>📅 {fmtEventDate(e.event_date)}{e.event_time ? ` · ${e.event_time}` : ""}</span>
-                        {e.location  && <span style={s.eventMeta}>📍 <MapLink query={e.location}>{e.location}</MapLink></span>}
-                        {e.entry_fee && <span style={s.eventMeta}>🎟️ {e.entry_fee}</span>}
-                        <span style={{ ...s.eventMeta, marginLeft:"auto" }}>
-                          <Link to={`/states/${e.state_slug}/${e.city_slug}`} style={{ color:"var(--orange)", fontWeight:600 }}>
-                            {e.city_slug} →
-                          </Link>
-                        </span>
-                      </div>
-                      {e.notes && <p style={s.eventText}>{e.notes}</p>}
-                      {e.ticket_url && (
-                        <a href={e.ticket_url} target="_blank" rel="noopener noreferrer" style={s.ticketLink}>
-                          Get Tickets →
-                        </a>
-                      )}
+            <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:"0.75rem", flexWrap:"wrap", gap:8 }}>
+              <p style={{ ...s.sectionLabel, marginBottom:0 }}>📅 Upcoming Events</p>
+              {events.length > 0 && <span style={{ fontSize:12, color:"#999" }}>{events.length} event{events.length !== 1 ? "s" : ""}</span>}
+            </div>
+            {events.length > 0 ? (() => {
+              const totalPages = Math.ceil(events.length / EVENTS_PAGE_SIZE);
+              const page = Math.min(eventsPage, totalPages - 1);
+              const visible = events.slice(page * EVENTS_PAGE_SIZE, (page + 1) * EVENTS_PAGE_SIZE);
+              const goTo = p => {
+                setEventsPage(p);
+                document.getElementById("events")?.scrollIntoView({ behavior:"smooth", block:"start" });
+              };
+              return (
+                <>
+                  <div style={s.eventList}>
+                    {visible.map(e => {
+                      const badge = daysUntilBadge(e.event_date);
+                      return (
+                        <div key={e.id} style={s.eventCard}>
+                          <div style={{ display:"flex", gap:10, alignItems:"center", flexWrap:"wrap", marginBottom:6 }}>
+                            <span style={s.eventName}>{e.name}</span>
+                            <span style={{ fontSize:11, fontWeight:700, color:"#fff", background:badge.color, padding:"2px 8px", borderRadius:20, flexShrink:0 }}>{badge.label}</span>
+                          </div>
+                          <div style={{ display:"flex", gap:16, flexWrap:"wrap", marginBottom: e.notes ? 6 : 0 }}>
+                            <span style={s.eventMeta}>📅 {fmtEventDate(e.event_date)}{e.event_time ? ` · ${e.event_time}` : ""}</span>
+                            {e.location  && <span style={s.eventMeta}>📍 <MapLink query={e.location}>{e.location}</MapLink></span>}
+                            {e.entry_fee && <span style={s.eventMeta}>🎟️ {e.entry_fee}</span>}
+                            <span style={{ ...s.eventMeta, marginLeft:"auto" }}>
+                              <Link to={`/states/${e.state_slug}/${e.city_slug}`} style={{ color:"var(--orange)", fontWeight:600 }}>
+                                {e.city_slug} →
+                              </Link>
+                            </span>
+                          </div>
+                          {e.notes && <p style={s.eventText}>{e.notes}</p>}
+                          {e.ticket_url && (
+                            <a href={e.ticket_url} target="_blank" rel="noopener noreferrer" style={s.ticketLink}>
+                              Get Tickets →
+                            </a>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {totalPages > 1 && (
+                    <div style={s.pagination}>
+                      <button style={{ ...s.pageBtn, opacity: page === 0 ? 0.35 : 1 }} disabled={page === 0} onClick={() => goTo(page - 1)}>← Prev</button>
+                      <span style={s.pageInfo}>Page {page + 1} of {totalPages}</span>
+                      <button style={{ ...s.pageBtn, opacity: page === totalPages - 1 ? 0.35 : 1 }} disabled={page === totalPages - 1} onClick={() => goTo(page + 1)}>Next →</button>
                     </div>
-                  );
-                })}
-              </div>
-            ) : (
+                  )}
+                </>
+              );
+            })() : (
               <p style={{ fontSize:13, color:"#999", fontStyle:"italic" }}>No upcoming events yet — add one from your city page.</p>
             )}
           </div>
@@ -421,5 +445,8 @@ const s = {
   eventMeta:    { fontSize: 12, color: "var(--muted)" },
   eventText:    { fontSize: 14, color: "#333", lineHeight: 1.6, marginTop: 4 },
   ticketLink:   { display: "inline-block", marginTop: 8, fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none" },
+  pagination:   { display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginTop: 16 },
+  pageBtn:      { background: "#fff", border: "0.5px solid var(--border)", borderRadius: 8, padding: "7px 16px", fontSize: 13, fontWeight: 700, color: "#333", cursor: "pointer" },
+  pageInfo:     { fontSize: 13, color: "#888", fontWeight: 600 },
   footer:       { textAlign: "center", padding: "1.5rem", borderTop: "0.5px solid var(--border)", color: "#aaa", fontSize: 13, background: "#fff", marginTop: "1rem" },
 };
