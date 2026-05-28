@@ -95,12 +95,9 @@ function StatsBar() {
   const [stats, setStats] = useState(null);
   useEffect(() => { fetchSiteStats().then(setStats); }, []);
   if (!stats) return null;
-  const visaLabel = stats.recentVisaExperiences > 0
-    ? `visa experiences · ${stats.recentVisaExperiences} new this week`
-    : "visa experiences";
   const items = [
-    { icon: "🛂", label: visaLabel, count: stats.visaExperiences },
-    { icon: "💡", label: "immigration tips", count: stats.tips },
+    { icon: "🛂", label: "visa experiences", count: stats.visaExperiences, newCount: stats.recentVisaExperiences },
+    { icon: "💡", label: "immigration tips", count: stats.tips, newCount: 0 },
   ].filter(i => i.count > 0);
   if (!items.length) return null;
   return (
@@ -108,6 +105,7 @@ function StatsBar() {
       {items.map((item, i) => (
         <span key={i} style={hs.statItem}>
           {item.icon} <strong>{item.count.toLocaleString()}</strong> {item.label}
+          {item.newCount > 0 && <span style={hs.statNew}>+{item.newCount} this week</span>}
         </span>
       ))}
     </div>
@@ -336,7 +334,10 @@ export default function HomePage() {
 
       {/* Hero */}
       <div style={s.hero}>
-        <p className="hero-sub" style={s.sub}>A community-powered FREE resource that focus on helping immigrants, No Ads, No fees, No Spam — visa experiences, legal help, Doctos, jobs, housing and local services in both <a href="https://apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>USA</a> & <a href="https://ca.apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>Canada</a>.</p>
+        <h1 style={s.heroTitle}>Built by immigrants, for immigrants.</h1>
+        <p className="hero-sub" style={s.sub}>
+          Real visa stories, local lawyers, doctors, jobs &amp; housing — curated by people who've been through it. Free, always. No login, no ads, no spam. Across <a href="https://apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>USA</a> &amp; <a href="https://ca.apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>Canada</a>.
+        </p>
       </div>
 
       {/* mobile quick-nav */}
@@ -462,8 +463,9 @@ function StateCard({ state }) {
 }
 
 const hs = {
-  statsBar:        { display:"flex", justifyContent:"center", flexWrap:"wrap", gap:"6px 24px", padding:"8px 1rem", background:"var(--orange-light)", borderBottom:"0.5px solid #f2c98b", fontSize:13, color:"#333" },
-  statItem:        { whiteSpace:"nowrap" },
+  statsBar:        { display:"flex", justifyContent:"center", flexWrap:"wrap", gap:"6px 24px", padding:"8px 1rem", background:"var(--orange-light)", borderBottom:"0.5px solid #F0C9A0", fontSize:13, color:"#3D1F00" },
+  statItem:        { whiteSpace:"nowrap", fontWeight:500 },
+  statNew:         { fontSize:11, fontWeight:700, color:"var(--green)", background:"var(--green-light)", padding:"1px 7px", borderRadius:20, marginLeft:5 },
   quizCard:        { background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1rem", marginBottom:0, borderTop:"3px solid var(--orange)", display:"flex", flexDirection:"column", gap:12 },
   quizHeader:      { display:"flex", alignItems:"center", justifyContent:"space-between", gap:"6px 12px", flexWrap:"wrap" },
   quizTitle:       { fontSize:15, fontWeight:800, color:"#111", lineHeight:1.25 },
@@ -485,7 +487,8 @@ const hs = {
 
 const s = {
   hero:         { textAlign: "center", padding: "2rem 1rem 1.25rem" },
-  sub:          { color: "#555", fontSize: "clamp(10px, 1.1vw, 14px)", whiteSpace: "nowrap", margin: "0 auto" },
+  heroTitle:    { fontSize: "clamp(22px, 3.2vw, 34px)", fontWeight: 700, color: "var(--text)", letterSpacing: -0.6, marginBottom: "0.5rem", lineHeight: 1.15 },
+  sub:          { color: "var(--muted)", fontSize: "clamp(13px, 1.1vw, 15px)", margin: "0 auto", maxWidth: 580, lineHeight: 1.65 },
   body:         { padding: "0 1.5rem 2rem", display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start" },
   sidebarStack: { width: 220, flexShrink: 0, display: "flex", flexDirection: "column", gap: 14, position: "sticky", top: 72, alignSelf: "flex-start" },
   sidebarNav:   { width: "100%", position: "static" },

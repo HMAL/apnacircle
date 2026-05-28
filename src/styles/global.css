@@ -1,16 +1,19 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --orange: #E8430A;
-  --orange-light: #fff4f0;
-  --border: #e0ddd6;
-  --bg: #f5f5f3;
-  --muted: #888;
+  --orange: #B84E00;
+  --orange-light: #FEF0E8;
+  --border: #D8EDE7;
+  --bg: #F5FAF8;
+  --muted: #6F6860;
   --radius: 14px;
   --radius-sm: 8px;
+  --green: #047857;
+  --green-light: #ECFDF5;
+  --text: #1A1209;
 }
-body { font-family: 'Nunito', sans-serif; background: var(--bg); color: #1a1a1a; min-height: 100vh; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 a { text-decoration: none; color: inherit; }
-input, select, textarea, button { font-family: 'Nunito', sans-serif; }
+input, select, textarea, button { font-family: 'Plus Jakarta Sans', sans-serif; }
 
 /* hide scrollbar on horizontal scroll containers */
 .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
@@ -18,7 +21,7 @@ input, select, textarea, button { font-family: 'Nunito', sans-serif; }
 
 /* Navbar responsive */
 .nav-hamburger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: #3A2718; padding: 4px 8px; }
-.nav-mobile-menu { display: none; background: #F4EFE6; border-bottom: 1px solid #D9D0C3; flex-direction: column; padding: 0.5rem 1rem; position: sticky; top: 56px; z-index: 99; }
+.nav-mobile-menu { display: none; background: #EEF7F4; border-bottom: 1px solid #D8EDE7; flex-direction: column; padding: 0.5rem 1rem; position: sticky; top: 56px; z-index: 99; }
 .nav-mobile-menu.open { display: flex; }
 
 .mobile-only { display: none; }
@@ -32,5 +35,4 @@ input, select, textarea, button { font-family: 'Nunito', sans-serif; }
   .home-rail { display: none !important; }
   .state-grid { grid-template-columns: repeat(3, 1fr) !important; }
   .mobile-only { display: block; }
-  .hero-sub { white-space: normal !important; }
 }
