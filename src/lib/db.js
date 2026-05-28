@@ -166,9 +166,14 @@ export async function fetchStates() {
     .from("states")
     .select("*, cities(*)")
     .eq("country_slug", country())
+    .eq("is_active", true)
     .order("name", { ascending: true });
   if (error) console.error("fetchStates:", error);
-  return cleanRows(data);
+  const rows = cleanRows(data);
+  return rows.map(state => ({
+    ...state,
+    cities: (state.cities || []).filter(c => c.is_active),
+  }));
 }
 
 export async function fetchStateBySlug(slug) {
@@ -179,7 +184,12 @@ export async function fetchStateBySlug(slug) {
     .eq("country_slug", country())
     .single();
   if (error) console.error("fetchStateBySlug:", error);
-  return data ? cleanDbValue(data) : null;
+  if (!data) return null;
+  const state = cleanDbValue(data);
+  return {
+    ...state,
+    cities: (state.cities || []).filter(c => c.is_active),
+  };
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -500,5 +510,53 @@ export async function updateStatus(table, id, status) {
     .from(table)
     .update({ status })
     .eq("id", id);
+  return !error;
+}
+
+// ─────────────────────────────────────────────────────────────
+// CITY STATS — how many sections have at least 1 listing
+// ─────────────────────────────────────────────────────────────
+const LISTING_TABLES = [
+  "jobs","accommodation","temples","lawyers","doctors",
+  "babysitters","tutors","realtors","priests","photographers",
+];
+
+export async function fetchCityStats(stateSlug, citySlugParam) {
+  const counts = await Promise.all(
+    LISTING_TABLES.map(t =>
+      supabase
+        .from(t)
+        .select("*", { count: "exact", head: true })
+        .eq("state_slug", stateSlug)
+        .eq("city_slug", citySlugParam)
+        .eq("country_slug", country())
+        .eq("status", "approved")
+        .then(({ count }) => count || 0)
+    )
+  );
+  return {
+    filled: counts.filter(c => c > 0).length,
+    total: LISTING_TABLES.length,
+  };
+}
+
+// ─────────────────────────────────────────────────────────────
+// CONFIRM LISTING — increment confirmations via RPC
+// ─────────────────────────────────────────────────────────────
+export async function confirmListing(table, id) {
+  const { error } = await supabase.rpc("increment_confirmations", { p_table: table, p_id: id });
+  return !error;
+}
+
+// ─────────────────────────────────────────────────────────────
+// EMAIL DIGEST — weekly city digest subscriptions
+// ─────────────────────────────────────────────────────────────
+export async function subscribeDigest(email, stateSlug, citySlug) {
+  const { error } = await supabase.from("email_digests").insert({
+    email,
+    state_slug:   stateSlug,
+    city_slug:    citySlug,
+    country_slug: country(),
+  });
   return !error;
 }
