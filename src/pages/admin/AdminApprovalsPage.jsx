@@ -17,6 +17,7 @@ const TABLE_LABELS = {
   temples: "Temples / Mosques",
   tutors: "Tutors",
   visa_experiences: "Visa Experiences",
+  visa_replies:     "Visa Replies",
 };
 
 const SECTIONS_ALPHA = Object.entries(TABLE_LABELS).sort((a, b) => a[1].localeCompare(b[1]));

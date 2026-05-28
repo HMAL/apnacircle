@@ -323,6 +323,39 @@ export async function submitVisaExperience(form, visaType) {
   return !error;
 }
 
+export async function voteVisaHelpful(id) {
+  const { error } = await supabase.rpc("increment_visa_helpful", { p_id: id });
+  return !error;
+}
+
+// ─────────────────────────────────────────────────────────────
+// VISA REPLIES (community Q&A under each experience)
+// ─────────────────────────────────────────────────────────────
+export async function fetchVisaReplies(experienceId) {
+  const { data, error } = await supabase
+    .from("visa_replies")
+    .select("*")
+    .eq("experience_id", experienceId)
+    .eq("status", "approved")
+    .order("created_at", { ascending: true });
+  if (error) console.error(error);
+  return cleanRows(data);
+}
+
+export async function submitVisaReply(experienceId, form) {
+  const status = (await getAutoApprove("visa_replies")) ? "approved" : "pending";
+  const payload = cleanPayload({
+    experience_id: experienceId,
+    name:          form.name    || null,
+    message:       form.message,
+    country_slug:  country(),
+    status,
+  });
+  if (!validatePublicPayload(payload)) return false;
+  const { error } = await supabase.from("visa_replies").insert(payload);
+  return !error;
+}
+
 // ─────────────────────────────────────────────────────────────
 // TIPS (immigration_tips, ds160_tips)
 // ─────────────────────────────────────────────────────────────
@@ -460,7 +493,7 @@ const ALL_TABLES = [
   "jobs", "accommodation", "temples", "lawyers",
   "doctors", "babysitters", "tutors",
   "realtors", "priests", "photographers",
-  "visa_experiences", "immigration_tips", "ds160_tips", "events",
+  "visa_experiences", "visa_replies", "immigration_tips", "ds160_tips", "events",
 ];
 
 export async function fetchAllSubmissions() {
@@ -492,14 +525,17 @@ export async function fetchSiteStats() {
     }
   } catch (_) {}
 
-  const [visaRes, tipsRes] = await Promise.all([
+  const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+  const [visaRes, tipsRes, recentRes] = await Promise.all([
     supabase.from("visa_experiences").select("*", { count: "exact", head: true }).eq("country_slug", country()).eq("status", "approved"),
     supabase.from("immigration_tips").select("*", { count: "exact", head: true }).eq("country_slug", country()).eq("status", "approved"),
+    supabase.from("visa_experiences").select("*", { count: "exact", head: true }).eq("country_slug", country()).eq("status", "approved").gte("created_at", sevenDaysAgo),
   ]);
 
   const data = {
-    visaExperiences: visaRes.count || 0,
-    tips:            tipsRes.count || 0,
+    visaExperiences:       visaRes.count  || 0,
+    tips:                  tipsRes.count  || 0,
+    recentVisaExperiences: recentRes.count || 0,
   };
   try { localStorage.setItem(cacheKey, JSON.stringify({ data, ts: Date.now() })); } catch (_) {}
   return data;

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { fetchFilteredEvents, fetchStates, submitEvent, getSubmitError } from "../lib/db";
-import { f, useToast, Toast, fmtEventDate, daysUntilBadge, MapLink } from "../components/formHelpers";
+import { f, useToast, Toast, fmtEventDate, daysUntilBadge, MapLink, googleCalendarUrl } from "../components/formHelpers";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
 import ResourceNav from "../components/ResourceNav";
@@ -161,12 +161,17 @@ function EventCard({ event, states }) {
         )}
       </div>
       {event.notes && <p style={{ ...f.text, marginTop: 4 }}>{event.notes}</p>}
-      {event.ticket_url && (
-        <a href={event.ticket_url} target="_blank" rel="noopener noreferrer"
-          style={{ display: "inline-block", marginTop: 8, fontSize: 13, fontWeight: 700, color: "var(--orange)" }}>
-          Get Tickets →
+      <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 10, alignItems: "center" }}>
+        {event.ticket_url && (
+          <a href={event.ticket_url} target="_blank" rel="noopener noreferrer"
+            style={{ fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none" }}>
+            Get Tickets →
+          </a>
+        )}
+        <a href={googleCalendarUrl(event)} target="_blank" rel="noopener noreferrer" style={s.calBtn}>
+          📅 Add to Calendar
         </a>
-      )}
+      </div>
     </div>
   );
 }
@@ -266,4 +271,5 @@ const s = {
   list:        { display: "flex", flexDirection: "column", gap: 10 },
   card:        { background: "#fff", border: "0.5px solid var(--border)", borderRadius: "var(--radius)", padding: "1rem 1.25rem", marginBottom: 0 },
   eventName:   { fontSize: 15, fontWeight: 700, color: "#111" },
+  calBtn:      { fontSize: 12, fontWeight: 600, color: "#3b82f6", background: "#eff6ff", border: "0.5px solid #bfdbfe", borderRadius: 20, padding: "4px 12px", textDecoration: "none" },
 };

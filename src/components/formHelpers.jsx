@@ -70,6 +70,18 @@ export function MapLink({ query, children, style }) {
 export const fmtEventDate = d =>
   d ? new Date(d + "T00:00:00").toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) : "";
 
+export function googleCalendarUrl(event) {
+  const d = (event.event_date || "").replace(/-/g, "");
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: event.name || "",
+    dates: `${d}/${d}`,
+    location: event.location || "",
+    details: [event.notes, event.ticket_url ? `Tickets: ${event.ticket_url}` : ""].filter(Boolean).join("\n"),
+  });
+  return `https://calendar.google.com/calendar/render?${params}`;
+}
+
 // ── Event urgency badge ──────────────────────────────────────
 export function daysUntilBadge(dateStr) {
   const diff = Math.ceil((new Date(dateStr + "T00:00:00") - new Date().setHours(0, 0, 0, 0)) / 86400000);

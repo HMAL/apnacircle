@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { fetchStates, fetchAllEvents, fetchSiteStats } from "../lib/db";
 import ResourceNav, { MobileResourceNav } from "../components/ResourceNav";
-import { fmtEventDate, daysUntilBadge, MapLink } from "../components/formHelpers";
+import { fmtEventDate, daysUntilBadge, MapLink, googleCalendarUrl } from "../components/formHelpers";
 import { getCountrySlug } from "../lib/country";
 import { useIsMobile } from "../lib/useIsMobile";
 import { BlogRailTile } from "./blog/BlogPage";
@@ -95,9 +95,12 @@ function StatsBar() {
   const [stats, setStats] = useState(null);
   useEffect(() => { fetchSiteStats().then(setStats); }, []);
   if (!stats) return null;
+  const visaLabel = stats.recentVisaExperiences > 0
+    ? `visa experiences · ${stats.recentVisaExperiences} new this week`
+    : "visa experiences";
   const items = [
-    { icon: "🛂", label: "visa experiences", count: stats.visaExperiences },
-    { icon: "💡", label: "immigration tips",  count: stats.tips },
+    { icon: "🛂", label: visaLabel, count: stats.visaExperiences },
+    { icon: "💡", label: "immigration tips", count: stats.tips },
   ].filter(i => i.count > 0);
   if (!items.length) return null;
   return (
@@ -234,6 +237,56 @@ function WhichStateQuiz() {
   );
 }
 
+// ─── Saved Cities ─────────────────────────────────────────────────────────────
+
+function SavedCities() {
+  const [cities, setCities] = useState([]);
+  useEffect(() => {
+    try { setCities(JSON.parse(localStorage.getItem("apna_bookmarks") || "[]")); } catch (_) {}
+  }, []);
+  if (!cities.length) return null;
+  return (
+    <div style={sc.wrap}>
+      <span style={sc.label}>🔖 Saved cities</span>
+      <div style={sc.list}>
+        {cities.map(b => (
+          <Link key={`${b.s}_${b.c}`} to={`/states/${b.s}/${b.c}`} style={sc.pill}>{b.n}</Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const sc = {
+  wrap:  { display:"flex", alignItems:"center", flexWrap:"wrap", gap:8, padding:"10px 1.5rem", background:"#fff", borderBottom:"0.5px solid var(--border)" },
+  label: { fontSize:11, fontWeight:800, color:"#888", textTransform:"uppercase", letterSpacing:0.4, whiteSpace:"nowrap" },
+  list:  { display:"flex", flexWrap:"wrap", gap:6 },
+  pill:  { fontSize:12, fontWeight:700, color:"var(--orange)", background:"var(--orange-light)", padding:"3px 12px", borderRadius:20, textDecoration:"none" },
+};
+
+// ─── What's New Strip ──────────────────────────────────────────────────────────
+
+function WhatsNewStrip({ stats, events }) {
+  const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  const newEvents = events.filter(e => new Date(e.created_at).getTime() > sevenDaysAgo).length;
+  const newVisa   = stats?.recentVisaExperiences || 0;
+  if (!newEvents && !newVisa) return null;
+  return (
+    <div style={wn.wrap}>
+      <span style={wn.badge}>🆕 This week</span>
+      {newVisa  > 0 && <span style={wn.item}><Link to="/visa/h1b" style={wn.link}>{newVisa} new visa experience{newVisa !== 1 ? "s" : ""}</Link></span>}
+      {newEvents > 0 && <span style={wn.item}><Link to="/events" style={wn.link}>{newEvents} new event{newEvents !== 1 ? "s" : ""}</Link></span>}
+    </div>
+  );
+}
+
+const wn = {
+  wrap:  { display:"flex", alignItems:"center", flexWrap:"wrap", gap:"4px 16px", padding:"8px 1.5rem", background:"#fefce8", borderBottom:"0.5px solid #fde68a" },
+  badge: { fontSize:11, fontWeight:800, color:"#92400e", textTransform:"uppercase", letterSpacing:0.3 },
+  item:  { fontSize:13, color:"#555" },
+  link:  { color:"var(--orange)", fontWeight:700, textDecoration:"none" },
+};
+
 const RAIL_POSTS = BLOGS.filter((_, i) => [0, 4, 8, 1, 5, 9].includes(i)).slice(0, 6);
 
 const EVENTS_PAGE_SIZE = 5;
@@ -242,6 +295,7 @@ export default function HomePage() {
   const [states, setStates] = useState([]);
   const [events, setEvents] = useState([]);
   const [eventsPage, setEventsPage] = useState(0);
+  const [stats, setStats] = useState(null);
   const countrySlug = getCountrySlug();
   const regionLabel = countrySlug === "ca" ? "Province" : "State";
   const siteBase = countrySlug === "ca" ? "https://ca.apnacircle.org" : "https://apnacircle.org";
@@ -249,6 +303,7 @@ export default function HomePage() {
   useEffect(() => {
     fetchStates().then(setStates);
     fetchAllEvents().then(setEvents);
+    fetchSiteStats().then(setStats);
   }, []);
 
   return (
@@ -276,6 +331,8 @@ export default function HomePage() {
       </Helmet>
       {/* Stats */}
       {countrySlug !== "ca" && <StatsBar />}
+      <SavedCities />
+      {countrySlug !== "ca" && <WhatsNewStrip stats={stats} events={events} />}
 
       {/* Hero */}
       <div style={s.hero}>
@@ -347,11 +404,16 @@ export default function HomePage() {
                             </span>
                           </div>
                           {e.notes && <p style={s.eventText}>{e.notes}</p>}
-                          {e.ticket_url && (
-                            <a href={e.ticket_url} target="_blank" rel="noopener noreferrer" style={s.ticketLink}>
-                              Get Tickets →
+                          <div style={{ display:"flex", gap:10, flexWrap:"wrap", marginTop:8, alignItems:"center" }}>
+                            {e.ticket_url && (
+                              <a href={e.ticket_url} target="_blank" rel="noopener noreferrer" style={s.ticketLink}>
+                                Get Tickets →
+                              </a>
+                            )}
+                            <a href={googleCalendarUrl(e)} target="_blank" rel="noopener noreferrer" style={s.calBtn}>
+                              📅 Add to Calendar
                             </a>
-                          )}
+                          </div>
                         </div>
                       );
                     })}
@@ -444,7 +506,8 @@ const s = {
   eventName:    { fontSize: 14, fontWeight: 700, color: "#111" },
   eventMeta:    { fontSize: 12, color: "var(--muted)" },
   eventText:    { fontSize: 14, color: "#333", lineHeight: 1.6, marginTop: 4 },
-  ticketLink:   { display: "inline-block", marginTop: 8, fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none" },
+  ticketLink:   { fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none" },
+  calBtn:       { fontSize: 12, fontWeight: 600, color: "#3b82f6", background: "#eff6ff", border: "0.5px solid #bfdbfe", borderRadius: 20, padding: "4px 12px", textDecoration: "none" },
   pagination:   { display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginTop: 16 },
   pageBtn:      { background: "#fff", border: "0.5px solid var(--border)", borderRadius: 8, padding: "7px 16px", fontSize: 13, fontWeight: 700, color: "#333", cursor: "pointer" },
   pageInfo:     { fontSize: 13, color: "#888", fontWeight: 600 },

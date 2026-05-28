@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { fetchStateBySlug, fetchCityStats } from "../lib/db";
+import { fetchStateBySlug, fetchCityStats, subscribeDigest } from "../lib/db";
 import { citySlug, getCountrySlug } from "../lib/country";
 import AdBlock from "../components/AdBlock";
 import { useIsMobile } from "../lib/useIsMobile";
@@ -25,10 +25,8 @@ const SECTIONS = [
   { id: "temples",       icon: "🛕", label: "Worship" },
   { id: "lawyers",       icon: "⚖️", label: "Immigration Lawyers" },
   { id: "doctors",       icon: "🩺", label: "Doctors" },
-  { id: "babysitters",   icon: "🧸", label: "Baby Sitters" },
   { id: "tutors",        icon: "📚", label: "Tutors" },
   { id: "realtors",      icon: "🏡", label: "Local Realtors" },
-  { id: "priests",       icon: "🙏", label: "Priest Services" },
   { id: "photographers", icon: "📸", label: "DJ - Video - Photo" },
 ].sort((a, b) => a.label.localeCompare(b.label));
 
@@ -46,6 +44,83 @@ function WhatsAppShare({ message }) {
 
 const ws = {
   btn: { display:"inline-flex", alignItems:"center", gap:6, fontSize:12, fontWeight:700, color:"#16a34a", background:"#f0fdf4", border:"1px solid #bbf7d0", borderRadius:20, padding:"5px 13px", textDecoration:"none" },
+};
+
+function BookmarkButton({ stateSlug, citySlug, cityName }) {
+  const key = `apna_bm_${stateSlug}_${citySlug}`;
+  const [saved, setSaved] = useState(() => !!localStorage.getItem(key));
+
+  const toggle = () => {
+    const list = JSON.parse(localStorage.getItem("apna_bookmarks") || "[]");
+    if (saved) {
+      localStorage.removeItem(key);
+      localStorage.setItem("apna_bookmarks", JSON.stringify(list.filter(b => !(b.s === stateSlug && b.c === citySlug))));
+    } else {
+      localStorage.setItem(key, "1");
+      list.unshift({ s: stateSlug, c: citySlug, n: cityName, t: Date.now() });
+      localStorage.setItem("apna_bookmarks", JSON.stringify(list.slice(0, 10)));
+    }
+    setSaved(v => !v);
+  };
+
+  return (
+    <button onClick={toggle} style={{ ...bm.btn, ...(saved ? bm.btnSaved : {}) }}>
+      {saved ? "🔖 Saved" : "🔖 Save city"}
+    </button>
+  );
+}
+
+const bm = {
+  btn:      { fontSize:12, fontWeight:700, color:"#888", background:"#f5f4f0", border:"0.5px solid var(--border)", borderRadius:20, padding:"5px 13px", cursor:"pointer" },
+  btnSaved: { color:"var(--orange)", background:"var(--orange-light)", border:"0.5px solid var(--orange)" },
+};
+
+function DigestSubscribe({ stateSlug, citySlug, cityName }) {
+  const key = `apna_digest_${stateSlug}_${citySlug}`;
+  const [done, setDone] = useState(() => !!localStorage.getItem(key));
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  if (done) return (
+    <div style={ds.wrap}>
+      <span style={ds.done}>📬 You'll get weekly updates for {cityName}</span>
+    </div>
+  );
+
+  const submit = async () => {
+    if (!email.trim() || !email.includes("@")) return;
+    setLoading(true);
+    const ok = await subscribeDigest(email.trim(), stateSlug, citySlug);
+    if (ok) { localStorage.setItem(key, "1"); setDone(true); }
+    setLoading(false);
+  };
+
+  return (
+    <div style={ds.wrap}>
+      <span style={ds.icon}>📬</span>
+      <span style={ds.label}>Get weekly updates for {cityName}</span>
+      <input
+        style={ds.input}
+        type="email"
+        placeholder="your@email.com"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        onKeyDown={e => e.key === "Enter" && submit()}
+      />
+      <button style={ds.btn} onClick={submit} disabled={loading}>
+        {loading ? "…" : "Notify me"}
+      </button>
+    </div>
+  );
+}
+
+const ds = {
+  wrap:  { display:"flex", alignItems:"center", flexWrap:"wrap", gap:8, background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"10px 14px", marginBottom:12 },
+  icon:  { fontSize:16, flexShrink:0 },
+  label: { fontSize:13, fontWeight:600, color:"#333", flex:1, minWidth:120 },
+  input: { flex:"1 1 180px", minWidth:0, padding:"7px 12px", fontSize:13, border:"0.5px solid var(--border)", borderRadius:8, outline:"none" },
+  btn:   { flexShrink:0, padding:"7px 16px", fontSize:13, fontWeight:700, color:"#fff", background:"var(--orange)", border:"none", borderRadius:20, cursor:"pointer" },
+  done:  { fontSize:13, fontWeight:600, color:"#166534" },
 };
 
 function CompletenessBar({ stateSlug, citySlug }) {
@@ -154,8 +229,12 @@ export default function CityPage() {
       <Link to={`/states/${stateSlug}`} style={s.back}>← {state.name}</Link>
       <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:10, marginBottom:"1.25rem" }}>
         <h1 style={{ ...s.title, marginBottom:0 }}>{cityName}, {state.abbr}</h1>
-        <WhatsAppShare message={`Free community resources for immigrants in ${cityName}, ${state.abbr} — jobs, housing, doctors, lawyers & more (no signup needed) 👉 ${typeof window !== "undefined" ? window.location.href : ""}`} />
+        <div style={{ display:"flex", gap:8, flexWrap:"wrap", alignItems:"center" }}>
+          <BookmarkButton stateSlug={stateSlug} citySlug={citySlugParam} cityName={cityName} />
+          <WhatsAppShare message={`Free community resources for immigrants in ${cityName}, ${state.abbr} — jobs, housing, doctors, lawyers & more (no signup needed) 👉 ${typeof window !== "undefined" ? window.location.href : ""}`} />
+        </div>
       </div>
+      <DigestSubscribe stateSlug={stateSlug} citySlug={citySlugParam} cityName={cityName} />
       <CompletenessBar stateSlug={stateSlug} citySlug={citySlugParam} />
 
       {isMobile && (

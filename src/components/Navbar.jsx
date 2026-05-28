@@ -20,9 +20,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    // { to: visaStartPath, label: "Visa Experiences" },
-    // { to: "/immigration", label: "Immigration Tips" },
-    // { to: "/ds160", label: formsResource.label },
+    { to: visaStartPath, label: "Visa Experiences" },
+    { to: "/immigration", label: "Immigration Tips" },
+    { to: "/ds160", label: formsResource.label },
     { to: "/contact", label: "Contact" },
   ];
 
