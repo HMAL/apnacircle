@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T11:06:24.211Z",
+  "generatedAt": "2026-05-27T21:28:55.140Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "27 May 2026",
+        "headline": "Government of Canada invests in school food data and research to help improve school food programs across Canada.",
+        "body": "Today, the Honourable Anna Gainey, Secretary of State (Children and Youth), announced eight research teams selected to receive over $1 million in funding as part of the Partnering for Impact – Catalyst Grant’s Impacts of School Food Programs pool.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/government-of-canada-invests-in-school-food-data-and-research-to-help-improve-school-food-programs-across-canada.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "21 May 2026",
         "headline": "Governments of Canada and New Brunswick partner to support tariff-impacted workers and strengthen the workforce",
         "body": "The global trade landscape is shifting rapidly, which has created uncertainty and challenges for workers, industries and communities across Canada. In a rapidly changing world, the Government of Canada is focusing on what it can control: building a stronger, more resilient Canada. This calls for decisive action from governments at all levels to protect jobs,…",
@@ -171,14 +179,6 @@
         "body": "Governments of Canada and Alberta partner to support tariff-impacted workers and strengthen the workforce",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/governments-of-canada-and-alberta-partner-to-support-tariff-impacted-workers-and-strengthen-the-workforce.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "12 May 2026",
-        "headline": "Governments of Canada and Nova Scotia partner to support employers, industry and workers impacted by tariffs and global market shifts",
-        "body": "The global market and trade landscape is shifting rapidly, creating uncertainty and challenges for workers, industries and communities across Canada. In a changing world, the Government of Canada is focused on building a stronger, more resilient economy. This requires coordinated action from governments to protect jobs, strengthen local economies and help workers adapt.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/governments-of-canada-and-nova-scotia-partner-to-support-employers-industry-and-workers-impacted-by-tariffs-and-global-market-shifts.html"
       }
     ],
     "finance": [
