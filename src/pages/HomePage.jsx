@@ -179,7 +179,6 @@ export default function HomePage() {
           { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":siteBase,"logo":`${siteBase}/favicon.svg`,"description":"Free community hub for immigrants in the US & Canada" },
           { "@context":"https://schema.org","@type":"WebSite","url":siteBase,"name":"Apnacircle" }
         ])}</script>
-        <meta name='impact-site-verification' value='1debebfc-1d83-4644-ae3a-ebbb9b34105e' />
       </Helmet>
       {/* Stats */}
       {countrySlug !== "ca" && <StatsBar />}
