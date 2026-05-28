@@ -40,7 +40,7 @@ function NewsTicker() {
       el.id = TICKER_STYLE_ID;
       el.textContent = `
         @keyframes apna-ticker { from { transform:translateX(0) } to { transform:translateX(-50%) } }
-        .apna-ticker-belt { animation:apna-ticker 800s linear infinite; display:inline-flex; align-items:center; }
+        .apna-ticker-belt { animation:apna-ticker 80s linear infinite; display:inline-flex; align-items:center; }
       `;
       document.head.appendChild(el);
     }
