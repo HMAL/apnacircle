@@ -70,18 +70,18 @@ export default function Navbar() {
 
 const s = {
   nav: {
-    background: "#FFFFFF",
-    borderBottom: "1px solid #D8EDE7",
-    padding: "0 1rem",
-    height: 56,
+    background: "#0F2344",
+    borderBottom: "none",
+    padding: "0 1.25rem",
+    height: 58,
     display: "flex", alignItems: "center", justifyContent: "space-between",
     position: "sticky", top: 0, zIndex: 100,
   },
-  brand: { color: "#B84E00", fontWeight: 700, fontSize: 20, letterSpacing: -0.5, flexShrink: 0, display: "flex", alignItems: "center", gap: 8, textDecoration: "none" },
+  brand: { color: "#C9973A", fontWeight: 700, fontSize: 20, letterSpacing: -0.4, flexShrink: 0, display: "flex", alignItems: "center", gap: 8, textDecoration: "none" },
   brandLogo: { width: 28, height: 28, flexShrink: 0 },
   flags: { display: "flex", alignItems: "center", gap: 6, flex: 1, justifyContent: "center" },
-  flagImg: { width: 26, height: "auto", borderRadius: 3, opacity: 0.88 },
-  links: { display: "flex", gap: 20, alignItems: "center", flexShrink: 0 },
-  link: { color: "#4A3728", fontSize: 13, fontWeight: 600, letterSpacing: 0.1 },
-  mobileLink: { color: "#4A3728", fontSize: 15, fontWeight: 600, padding: "0.6rem 0", borderBottom: "0.5px solid #E0D4C5", textDecoration: "none" },
+  flagImg: { width: 26, height: "auto", borderRadius: 3, opacity: 0.82 },
+  links: { display: "flex", gap: 22, alignItems: "center", flexShrink: 0 },
+  link: { color: "rgba(255,255,255,0.82)", fontSize: 13, fontWeight: 500, letterSpacing: 0.1 },
+  mobileLink: { color: "rgba(255,255,255,0.9)", fontSize: 15, fontWeight: 500, padding: "0.65rem 0", borderBottom: "0.5px solid rgba(255,255,255,0.12)", textDecoration: "none" },
 };

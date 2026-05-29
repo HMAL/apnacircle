@@ -336,7 +336,7 @@ export default function HomePage() {
       <div style={s.hero}>
         <h1 style={s.heroTitle}>Built by immigrants, for immigrants.</h1>
         <p className="hero-sub" style={s.sub}>
-          Real visa stories, local lawyers, doctors, jobs &amp; housing — curated by people who've been through it. Free, always. No login, no ads, no spam. Across <a href="https://apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>USA</a> &amp; <a href="https://ca.apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--orange)", fontWeight:700 }}>Canada</a>.
+          Real visa stories, local lawyers, doctors, jobs &amp; housing — curated by people who've been through it. Free, always. No login, no ads, no spam. Across <a href="https://apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--gold)", fontWeight:700 }}>USA</a> &amp; <a href="https://ca.apnacircle.org" target="_blank" rel="noopener noreferrer" style={{ color:"var(--gold)", fontWeight:700 }}>Canada</a>.
         </p>
       </div>
 
@@ -463,9 +463,9 @@ function StateCard({ state }) {
 }
 
 const hs = {
-  statsBar:        { display:"flex", justifyContent:"center", flexWrap:"wrap", gap:"6px 24px", padding:"8px 1rem", background:"var(--orange-light)", borderBottom:"0.5px solid #F0C9A0", fontSize:13, color:"#3D1F00" },
+  statsBar:        { display:"flex", justifyContent:"center", flexWrap:"wrap", gap:"6px 24px", padding:"8px 1rem", background:"var(--orange-light)", borderBottom:"0.5px solid #C8D8EE", fontSize:13, color:"#0D1B2A" },
   statItem:        { whiteSpace:"nowrap", fontWeight:500 },
-  statNew:         { fontSize:11, fontWeight:700, color:"var(--green)", background:"var(--green-light)", padding:"1px 7px", borderRadius:20, marginLeft:5 },
+  statNew:         { fontSize:11, fontWeight:700, color:"#7C5A00", background:"var(--gold-light)", padding:"1px 7px", borderRadius:20, marginLeft:5 },
   quizCard:        { background:"#fff", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"1rem", marginBottom:0, borderTop:"3px solid var(--orange)", display:"flex", flexDirection:"column", gap:12 },
   quizHeader:      { display:"flex", alignItems:"center", justifyContent:"space-between", gap:"6px 12px", flexWrap:"wrap" },
   quizTitle:       { fontSize:15, fontWeight:800, color:"#111", lineHeight:1.25 },
@@ -487,7 +487,7 @@ const hs = {
 
 const s = {
   hero:         { textAlign: "center", padding: "2rem 1rem 1.25rem" },
-  heroTitle:    { fontSize: "clamp(22px, 3.2vw, 34px)", fontWeight: 700, color: "var(--text)", letterSpacing: -0.6, marginBottom: "0.5rem", lineHeight: 1.15 },
+  heroTitle:    { fontSize: "clamp(22px, 3.2vw, 34px)", fontWeight: 800, color: "var(--navy)", letterSpacing: -0.6, marginBottom: "0.5rem", lineHeight: 1.15 },
   sub:          { color: "var(--muted)", fontSize: "clamp(13px, 1.1vw, 15px)", margin: "0 auto", maxWidth: 580, lineHeight: 1.65 },
   body:         { padding: "0 1.5rem 2rem", display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start" },
   sidebarStack: { width: 220, flexShrink: 0, display: "flex", flexDirection: "column", gap: 14, position: "sticky", top: 72, alignSelf: "flex-start" },
@@ -496,7 +496,7 @@ const s = {
   center:       { flex: 1, minWidth: 0 },
   rail:         { width: 260, flexShrink: 0, display: "flex", flexDirection: "column", gap: 10, position: "sticky", top: 72, alignSelf: "flex-start" },
   railLabel:    { fontSize: 11, fontWeight: 700, color: "#aaa", textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 2 },
-  railMore:     { fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none", marginTop: 4 },
+  railMore:     { fontSize: 13, fontWeight: 700, color: "var(--gold)", textDecoration: "none", marginTop: 4 },
   sectionLabel: { fontSize: 13, fontWeight: 700, color: "#666", marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 },
   stateGrid:    { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12 },
   stateCard:    { background: "#fff", border: "0.5px solid var(--border)", borderRadius: "var(--radius)", padding: "1rem", textAlign: "center", transition: "box-shadow 0.15s, transform 0.15s" },
@@ -509,7 +509,7 @@ const s = {
   eventName:    { fontSize: 14, fontWeight: 700, color: "#111" },
   eventMeta:    { fontSize: 12, color: "var(--muted)" },
   eventText:    { fontSize: 14, color: "#333", lineHeight: 1.6, marginTop: 4 },
-  ticketLink:   { fontSize: 13, fontWeight: 700, color: "var(--orange)", textDecoration: "none" },
+  ticketLink:   { fontSize: 13, fontWeight: 700, color: "var(--gold)", textDecoration: "none" },
   calBtn:       { fontSize: 12, fontWeight: 600, color: "#3b82f6", background: "#eff6ff", border: "0.5px solid #bfdbfe", borderRadius: 20, padding: "4px 12px", textDecoration: "none" },
   pagination:   { display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginTop: 16 },
   pageBtn:      { background: "#fff", border: "0.5px solid var(--border)", borderRadius: 8, padding: "7px 16px", fontSize: 13, fontWeight: 700, color: "#333", cursor: "pointer" },

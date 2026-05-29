@@ -1,15 +1,18 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --orange: #B84E00;
-  --orange-light: #FEF0E8;
-  --border: #D8EDE7;
-  --bg: #F5FAF8;
-  --muted: #6F6860;
+  --orange: #1A3A6B;
+  --orange-light: #EEF2FA;
+  --gold: #C9973A;
+  --gold-light: #FDF6E8;
+  --border: #DDE4F0;
+  --bg: #F7F9FC;
+  --muted: #64748B;
   --radius: 14px;
   --radius-sm: 8px;
   --green: #047857;
   --green-light: #ECFDF5;
-  --text: #1A1209;
+  --text: #0D1B2A;
+  --navy: #0F2344;
 }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 a { text-decoration: none; color: inherit; }
@@ -20,8 +23,8 @@ input, select, textarea, button { font-family: 'Plus Jakarta Sans', sans-serif; 
 .scroll-x::-webkit-scrollbar { display: none; }
 
 /* Navbar responsive */
-.nav-hamburger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: #3A2718; padding: 4px 8px; }
-.nav-mobile-menu { display: none; background: #EEF7F4; border-bottom: 1px solid #D8EDE7; flex-direction: column; padding: 0.5rem 1rem; position: sticky; top: 56px; z-index: 99; }
+.nav-hamburger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: rgba(255,255,255,0.9); padding: 4px 8px; }
+.nav-mobile-menu { display: none; background: #0F2344; border-bottom: 1px solid #1A3A6B; flex-direction: column; padding: 0.5rem 1rem; position: sticky; top: 56px; z-index: 99; }
 .nav-mobile-menu.open { display: flex; }
 
 .mobile-only { display: none; }
