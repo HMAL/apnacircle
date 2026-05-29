@@ -442,7 +442,6 @@ export default function HomePage() {
         </aside>
       </div>
 
-      <footer style={s.footer}>© 2026 Apnacircle. Built by the community, for the community.</footer>
     </div>
   );
 }
@@ -514,5 +513,5 @@ const s = {
   pagination:   { display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginTop: 16 },
   pageBtn:      { background: "#fff", border: "0.5px solid var(--border)", borderRadius: 8, padding: "7px 16px", fontSize: 13, fontWeight: 700, color: "#333", cursor: "pointer" },
   pageInfo:     { fontSize: 13, color: "#888", fontWeight: 600 },
-  footer:       { textAlign: "center", padding: "1.5rem", borderTop: "0.5px solid var(--border)", color: "#aaa", fontSize: 13, background: "#fff", marginTop: "1rem" },
 };
+
