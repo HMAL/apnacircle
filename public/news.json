@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-02T12:29:46.047Z",
+  "generatedAt": "2026-06-02T22:37:56.957Z",
   "us": {
     "immigration": [
       {
@@ -46,7 +46,7 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "22 May 2026",
+        "date": "2 Jun 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): +0.6% in Apr 2026 News Release Historical Data Unemployment Rate: 4.3% in Apr 2026 News Release Historical Data Payroll Employment: +115,000(p) in Apr 2026 News Release Historical Data Average Hourly Earnings: +$0.06(p) in Apr 2026 News Release Historical Data Producer Price Index - Final Demand: +1.4%(p) in Apr 2026 News Release…",
         "source": "Bureau of Labor Statistics",
@@ -54,6 +54,14 @@
       }
     ],
     "finance": [
+      {
+        "tag": "Markets",
+        "date": "2 Jun 2026",
+        "headline": "Agencies remove additional references to reputation risk",
+        "body": "Agencies remove additional references to reputation risk",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260602a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "28 May 2026",
@@ -85,14 +93,6 @@
         "body": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260522a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "21 May 2026",
-        "headline": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
-        "body": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260521a.htm"
       }
     ]
   },
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "2 Jun 2026",
+        "headline": "Government of Canada launches call for proposals for community projects to support seniors",
+        "body": "As the global landscape changes, many Canadians, including seniors, are facing economic uncertainty because the cost of living is going up. In response, the government is building a strong and stable economy and supporting a better quality of life for older Canadians. The New Horizons for Seniors Program (NHSP) plays a crucial role by creating…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/government-of-canada-launches-call-for-proposals-for-community-projects-to-support-seniors.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "1 Jun 2026",
         "headline": "Minister Hajdu invites organizations to apply for funding to promote accessibility and disability inclusion during National AccessAbility Week",
         "body": "To build a stronger, barrier-free Canada, the Government of Canada is investing in community projects that promote accessibility, foster disability inclusion and build a Canada where every person has the chance to contribute their talents and thrive.",
@@ -171,14 +179,6 @@
         "body": "The global trade landscape is shifting rapidly, which has created uncertainty and challenges for workers, industries and communities across Canada. In a rapidly changing world, the Government of Canada is focusing on what it can control: building a stronger, more resilient Canada. This calls for decisive action from governments at all levels to protect jobs,…",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/governments-of-canada-and-new-brunswick-partner-to-support-tariff-impacted-workers-and-strengthen-the-workforce0.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "21 May 2026",
-        "headline": "Governments of Canada and Nunavut partner to support tariff-impacted workers and strengthen the workforce",
-        "body": "Governments of Canada and Nunavut partner to support tariff-impacted workers and strengthen the workforce",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/governments-of-canada-and-nunavut-partner-to-support-tariff-impacted-workers-and-strengthen-the-workforce0.html"
       }
     ],
     "finance": [
