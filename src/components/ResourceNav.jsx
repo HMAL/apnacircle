@@ -7,7 +7,7 @@ export function getResourceNavItems() {
   const visaStartPath = getVisaStartPath();
 
   return [
-    { key: "deals", icon: "$", iconStyle: s.dealsIcon, label: "Deals & Promo Codes", href: "https://deals.apnacircle.org", external: true },
+    { key: "deals", icon: "$", iconStyle: s.dealsIcon, label: "Deals & Promo Codes", href: "https://couponcompanions.com/", external: true },
     { key: "visa",  icon: "\uD83D\uDEC2", label: "Visa Experiences", to: visaStartPath, match: path => path.startsWith("/visa") },
     { key: "events", icon: "\u{1F4C5}", label: "Events", to: "/events", match: path => path === "/events" },
     { key: "finance", icon: "\u{1F4B0}", label: "Finance Tips", to: "/finance", match: path => path.startsWith("/finance") },
