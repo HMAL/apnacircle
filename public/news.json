@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T10:59:23.138Z",
+  "generatedAt": "2026-06-05T21:01:17.791Z",
   "us": {
     "immigration": [
       {
@@ -46,9 +46,9 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "4 Jun 2026",
+        "date": "5 Jun 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.6% in Apr 2026 News Release Historical Data Unemployment Rate: 4.3% in Apr 2026 News Release Historical Data Payroll Employment: +115,000(p) in Apr 2026 News Release Historical Data Average Hourly Earnings: +$0.06(p) in Apr 2026 News Release Historical Data Producer Price Index - Final Demand: +1.4%(p) in Apr 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.6% in Apr 2026 News Release Historical Data Unemployment Rate: 4.3% in May 2026 News Release Historical Data Payroll Employment: +172,000(p) in May 2026 News Release Historical Data Average Hourly Earnings: +$0.12(p) in May 2026 News Release Historical Data Producer Price Index - Final Demand: +1.4%(p) in Apr 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "5 Jun 2026",
+        "headline": "Governments of Canada and Manitoba partner to support tariff-impacted workers and strengthen the workforce",
+        "body": "The global trade landscape is shifting rapidly, creating uncertainty and challenges for workers, industries and communities across Canada. In a rapidly changing world, the Government of Canada is focusing on what it can control: building a stronger more resilient Canada. This calls for decisive action from governments at all levels to protect jobs, strengthen local…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/governments-of-canada-and-manitoba-partner-to-support-tariff-impacted-workers-and-strengthen-the-workforce.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "4 Jun 2026",
         "headline": "Minister Hajdu and industry leaders launch the Mining and Minerals Workforce Alliance",
         "body": "As Canada’s labour market continues to face sustained pressures from tariffs, skills shortages, supply chain disruptions, and rapid technological advancements, the Government of Canada is taking coordinated action to transform the economy—strengthening domestic industries, supporting workforce development, and building the foundations for a more independent economy.",
@@ -171,14 +179,6 @@
         "body": "As the global economy is rapidly changing, the Government of Canada is focused on what it can control: supporting the recruitment, training and hiring of 100,000 new Red Seal skilled trades workers in the next five years to build Canada’s housing, infrastructure and defence priorities through Team Canada Strong.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/minister-hajdu-promotes-team-canada-strong-at-skills-canada-national-competition-in-toronto.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "27 May 2026",
-        "headline": "Government of Canada invests in school food data and research to help improve school food programs across Canada.",
-        "body": "Today, the Honourable Anna Gainey, Secretary of State (Children and Youth), announced eight research teams selected to receive over $1 million in funding as part of the Partnering for Impact – Catalyst Grant’s Impacts of School Food Programs pool.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/government-of-canada-invests-in-school-food-data-and-research-to-help-improve-school-food-programs-across-canada.html"
       }
     ],
     "finance": [
