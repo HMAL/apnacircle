@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-09T10:45:36.224Z",
+  "generatedAt": "2026-06-09T21:24:06.137Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Fed Rate",
+        "date": "9 Jun 2026",
+        "headline": "Federal Reserve Board announces that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT.",
+        "body": "Federal Reserve Board announces that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT.",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260609a.htm"
+      },
+      {
         "tag": "Markets",
         "date": "2 Jun 2026",
         "headline": "Agencies remove additional references to reputation risk",
@@ -85,14 +93,6 @@
         "body": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "22 May 2026",
-        "headline": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
-        "body": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260522a.htm"
       }
     ]
   },
