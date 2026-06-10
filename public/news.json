@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-10T11:48:27.963Z",
+  "generatedAt": "2026-06-10T22:27:13.400Z",
   "us": {
     "immigration": [
       {
@@ -46,9 +46,9 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "5 Jun 2026",
+        "date": "10 Jun 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.6% in Apr 2026 News Release Historical Data Unemployment Rate: 4.3% in May 2026 News Release Historical Data Payroll Employment: +172,000(p) in May 2026 News Release Historical Data Average Hourly Earnings: +$0.12(p) in May 2026 News Release Historical Data Producer Price Index - Final Demand: +1.4%(p) in Apr 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.5% in May 2026 News Release Historical Data Unemployment Rate: 4.3% in May 2026 News Release Historical Data Payroll Employment: +172,000(p) in May 2026 News Release Historical Data Average Hourly Earnings: +$0.12(p) in May 2026 News Release Historical Data Producer Price Index - Final Demand: +1.4%(p) in Apr 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "10 Jun 2026",
+        "headline": "Minister Hajdu strengthens Canada’s partnerships with Employment Ministers at the G7",
+        "body": "In a world where relationships have become frayed, working together as countries is more important than ever. The rules-based order that has underpinned global prosperity for decades is undergoing a profound transformation – driven by geopolitical realignment, economic upheaval, and the accelerating pace of technological change. In a rapidly changing world, the Government of Canada…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/minister-hajdu-strengthens-canadas-partnerships-with-employment-ministers-at-the-g7.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "5 Jun 2026",
         "headline": "Governments of Canada and Manitoba partner to support tariff-impacted workers and strengthen the workforce",
         "body": "The global trade landscape is shifting rapidly, creating uncertainty and challenges for workers, industries and communities across Canada. In a rapidly changing world, the Government of Canada is focusing on what it can control: building a stronger more resilient Canada. This calls for decisive action from governments at all levels to protect jobs, strengthen local…",
@@ -171,14 +179,6 @@
         "body": "To build a stronger, barrier-free Canada, the Government of Canada is investing in community projects that promote accessibility, foster disability inclusion and build a Canada where every person has the chance to contribute their talents and thrive.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/minister-hajdu-invites-organizations-to-apply-for-funding-to-promote-accessibility-and-disability-inclusion-during-national-accessability-week.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "29 May 2026",
-        "headline": "Minister Hajdu promotes Team Canada Strong at Skills Canada National Competition in Toronto",
-        "body": "As the global economy is rapidly changing, the Government of Canada is focused on what it can control: supporting the recruitment, training and hiring of 100,000 new Red Seal skilled trades workers in the next five years to build Canada’s housing, infrastructure and defence priorities through Team Canada Strong.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/minister-hajdu-promotes-team-canada-strong-at-skills-canada-national-competition-in-toronto.html"
       }
     ],
     "finance": [
