@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-11T12:32:42.261Z",
+  "generatedAt": "2026-06-11T22:20:56.784Z",
   "us": {
     "immigration": [
       {
@@ -46,14 +46,22 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "10 Jun 2026",
+        "date": "11 Jun 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.5% in May 2026 News Release Historical Data Unemployment Rate: 4.3% in May 2026 News Release Historical Data Payroll Employment: +172,000(p) in May 2026 News Release Historical Data Average Hourly Earnings: +$0.12(p) in May 2026 News Release Historical Data Producer Price Index - Final Demand: +1.4%(p) in Apr 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.5% in May 2026 News Release Historical Data Unemployment Rate: 4.3% in May 2026 News Release Historical Data Payroll Employment: +172,000(p) in May 2026 News Release Historical Data Average Hourly Earnings: +$0.12(p) in May 2026 News Release Historical Data Producer Price Index - Final Demand: +1.1%(p) in May 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
     ],
     "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "11 Jun 2026",
+        "headline": "Federal Reserve Board announces final rule that establishes data standards for certain information collections",
+        "body": "Federal Reserve Board announces final rule that establishes data standards for certain information collections",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260611a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "9 Jun 2026",
@@ -85,14 +93,6 @@
         "body": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "22 May 2026",
-        "headline": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
-        "body": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm"
       }
     ]
   },
