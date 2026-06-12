@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T11:54:43.071Z",
+  "generatedAt": "2026-06-12T21:18:58.484Z",
   "us": {
     "immigration": [
       {
@@ -46,7 +46,7 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "11 Jun 2026",
+        "date": "12 Jun 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): +0.5% in May 2026 News Release Historical Data Unemployment Rate: 4.3% in May 2026 News Release Historical Data Payroll Employment: +172,000(p) in May 2026 News Release Historical Data Average Hourly Earnings: +$0.12(p) in May 2026 News Release Historical Data Producer Price Index - Final Demand: +1.1%(p) in May 2026 News Release…",
         "source": "Bureau of Labor Statistics",
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "12 Jun 2026",
+        "headline": "Parliamentary Secretary Church shares Canada’s commitment to ensure the full inclusion of persons with disabilities at the United Nations",
+        "body": "This week, Leslie Church, Parliamentary Secretary to the Minister of Jobs and Families (Persons with Disabilities), led Canada’s delegation to the 19th session of the UN Conference of States Parties to the Convention on the Rights of Persons with Disabilities in New York, where she underscored Canada’s ongoing commitment to advancing the rights, inclusion and…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/parliamentary-secretary-church-shares-canadas-commitment-to-ensure-the-full-inclusion-of-persons-with-disabilities-at-the-united-nations.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "10 Jun 2026",
         "headline": "Minister Hajdu strengthens Canada’s partnerships with Employment Ministers at the G7",
         "body": "In a world where relationships have become frayed, working together as countries is more important than ever. The rules-based order that has underpinned global prosperity for decades is undergoing a profound transformation – driven by geopolitical realignment, economic upheaval, and the accelerating pace of technological change. In a rapidly changing world, the Government of Canada…",
@@ -171,14 +179,6 @@
         "body": "As the global landscape changes, many Canadians, including seniors, are facing economic uncertainty because the cost of living is going up. In response, the government is building a strong and stable economy and supporting a better quality of life for older Canadians. The New Horizons for Seniors Program (NHSP) plays a crucial role by creating…",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/government-of-canada-launches-call-for-proposals-for-community-projects-to-support-seniors.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "1 Jun 2026",
-        "headline": "Minister Hajdu invites organizations to apply for funding to promote accessibility and disability inclusion during National AccessAbility Week",
-        "body": "To build a stronger, barrier-free Canada, the Government of Canada is investing in community projects that promote accessibility, foster disability inclusion and build a Canada where every person has the chance to contribute their talents and thrive.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/05/minister-hajdu-invites-organizations-to-apply-for-funding-to-promote-accessibility-and-disability-inclusion-during-national-accessability-week.html"
       }
     ],
     "finance": [
