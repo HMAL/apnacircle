@@ -38,10 +38,10 @@ function FinanceArticleLayout({ slug, title, icon, metaDesc, children }) {
       <Helmet>
         <title>{title} — Finance Tips | Apnacircle</title>
         <meta name="description" content={metaDesc} />
-        <link rel="canonical" href={`${siteBase}/finance/${slug}`} />
+        <link rel="canonical" href={`${siteBase}/finance/${slug}/`} />
         <meta property="og:title" content={`${title} | Apnacircle`} />
         <meta property="og:description" content={metaDesc} />
-        <meta property="og:url" content={`${siteBase}/finance/${slug}`} />
+        <meta property="og:url" content={`${siteBase}/finance/${slug}/`} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Apnacircle" />
         <meta property="og:image" content={`${siteBase}/og-image.svg`} />
@@ -496,10 +496,10 @@ export default function FinanceHubPage() {
       <Helmet>
         <title>Finance Tips for Immigrants — Apnacircle</title>
         <meta name="description" content={`Practical, honest financial guidance for immigrants in ${country} — retirement accounts, renting vs. buying, car leasing, index funds, education savings, and life insurance.`} />
-        <link rel="canonical" href={`${siteBase}/finance`} />
+        <link rel="canonical" href={`${siteBase}/finance/`} />
         <meta property="og:title" content="Finance Tips for Immigrants | Apnacircle" />
         <meta property="og:description" content={`Practical, honest financial guidance for immigrants in ${country}.`} />
-        <meta property="og:url" content={`${siteBase}/finance`} />
+        <meta property="og:url" content={`${siteBase}/finance/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
         <meta property="og:image" content={`${siteBase}/og-image.svg`} />

@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
 import StatePage from "./pages/StatePage";
 import CityPage from "./pages/CityPage";
 import AdminPage from "./pages/AdminPage";
@@ -69,7 +70,7 @@ export default function App() {
         <Route path="/admin"                       element={<AdminPage />} />
         <Route path="/admin/messages"              element={<AdminMessagesPage />} />
         <Route path="/admin/approvals"             element={<AdminApprovalsPage />} />
-        <Route path="*"                            element={<HomePage />} />
+        <Route path="*"                            element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </AdsProvider>

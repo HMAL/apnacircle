@@ -1,6 +1,7 @@
 import { writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { BLOGS } from "../src/data/blogs.js";
 
 // Set SITE_URL in the CA deployment (e.g. SITE_URL=https://ca.apnacircle.org)
 const SITE_URL = (process.env.SITE_URL || "https://apnacircle.org").replace(/\/$/, "");
@@ -118,17 +119,37 @@ ${urls.join("\n")}
 </urlset>`;
 }
 
+// Routes shared by both sites (same path on each domain).
+const US_FINANCE_SLUGS = ["retirement", "housing", "car", "index-funds", "529", "life-insurance", "w2-1099"];
+const CA_FINANCE_SLUGS = ["rrsp-tfsa", "canada-housing", "canada-car", "canada-index-funds", "resp", "canada-life-insurance", "t4-t4a"];
+
+const COMMON_STATIC = financeSlugs => [
+  { url: "/immigration", priority: "0.8", changefreq: "weekly" },
+  { url: "/ds160",       priority: "0.7", changefreq: "weekly" },
+  { url: "/health",      priority: "0.7", changefreq: "weekly" },
+  { url: "/lawyers",     priority: "0.8", changefreq: "weekly" },
+  { url: "/events",      priority: "0.7", changefreq: "weekly" },
+  { url: "/finance",     priority: "0.8", changefreq: "weekly" },
+  ...financeSlugs.map(slug => ({ url: `/finance/${slug}`, priority: "0.7", changefreq: "monthly" })),
+  { url: "/news",             priority: "0.8", changefreq: "daily" },
+  { url: "/news/immigration", priority: "0.7", changefreq: "daily" },
+  { url: "/news/jobs",        priority: "0.7", changefreq: "daily" },
+  { url: "/news/finance",     priority: "0.7", changefreq: "daily" },
+  { url: "/blog",        priority: "0.8", changefreq: "weekly" },
+  ...BLOGS.map(b => ({ url: `/blog/${b.slug}`, priority: "0.7", changefreq: "monthly" })),
+  { url: "/contact",     priority: "0.4", changefreq: "monthly" },
+  { url: "/privacy",     priority: "0.3", changefreq: "yearly" },
+  { url: "/terms",       priority: "0.3", changefreq: "yearly" },
+  { url: "/disclaimer",  priority: "0.3", changefreq: "yearly" },
+];
+
 // ── US sitemap ────────────────────────────────────────────────────────────────
 const US_STATIC = [
   { url: "/",            priority: "1.0", changefreq: "daily" },
   { url: "/visa/h1b",    priority: "0.8", changefreq: "weekly" },
   { url: "/visa/f1",     priority: "0.8", changefreq: "weekly" },
   { url: "/visa/b1b2",   priority: "0.7", changefreq: "weekly" },
-  { url: "/immigration", priority: "0.8", changefreq: "weekly" },
-  { url: "/ds160",       priority: "0.7", changefreq: "weekly" },
-  { url: "/health",      priority: "0.7", changefreq: "weekly" },
-  { url: "/lawyers",     priority: "0.8", changefreq: "weekly" },
-  { url: "/contact",     priority: "0.4", changefreq: "monthly" },
+  ...COMMON_STATIC(US_FINANCE_SLUGS),
 ];
 
 const usUrls = buildUrls("https://apnacircle.org", US_STATIC, US_STATES);
@@ -144,11 +165,7 @@ const CA_STATIC = [
   { url: "/visa/work-permit",   priority: "0.7", changefreq: "weekly" },
   { url: "/visa/express-entry", priority: "0.8", changefreq: "weekly" },
   { url: "/visa/pnp",           priority: "0.7", changefreq: "weekly" },
-  { url: "/immigration", priority: "0.8", changefreq: "weekly" },
-  { url: "/ds160",       priority: "0.7", changefreq: "weekly" },
-  { url: "/health",      priority: "0.7", changefreq: "weekly" },
-  { url: "/lawyers",     priority: "0.8", changefreq: "weekly" },
-  { url: "/contact",     priority: "0.4", changefreq: "monthly" },
+  ...COMMON_STATIC(CA_FINANCE_SLUGS),
 ];
 
 const caUrls = buildUrls("https://ca.apnacircle.org", CA_STATIC, CA_PROVINCES);

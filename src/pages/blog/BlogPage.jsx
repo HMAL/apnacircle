@@ -20,10 +20,10 @@ export default function BlogHubPage() {
       <Helmet>
         <title>Guides & Tips for Immigrants — Apnacircle</title>
         <meta name="description" content="Honest guides for immigrants — what to avoid, what nobody tells you, and the mistakes that cost the most. Immigration, family, and finance topics." />
-        <link rel="canonical" href={`${siteBase}/blog`} />
+        <link rel="canonical" href={`${siteBase}/blog/`} />
         <meta property="og:title" content="Guides & Tips for Immigrants | Apnacircle" />
         <meta property="og:description" content="Honest guides for immigrants — immigration mistakes, family tips, and financial pitfalls." />
-        <meta property="og:url" content={`${siteBase}/blog`} />
+        <meta property="og:url" content={`${siteBase}/blog/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
         <meta property="og:image" content={`${siteBase}/og-image.svg`} />
@@ -105,10 +105,10 @@ export function BlogPostPage() {
       <Helmet>
         <title>{post.title} — Apnacircle</title>
         <meta name="description" content={post.metaDesc} />
-        <link rel="canonical" href={`${siteBase}/blog/${post.slug}`} />
+        <link rel="canonical" href={`${siteBase}/blog/${post.slug}/`} />
         <meta property="og:title" content={`${post.title} | Apnacircle`} />
         <meta property="og:description" content={post.metaDesc} />
-        <meta property="og:url" content={`${siteBase}/blog/${post.slug}`} />
+        <meta property="og:url" content={`${siteBase}/blog/${post.slug}/`} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Apnacircle" />
         <meta property="og:image" content={`${siteBase}/og-image.svg`} />
@@ -120,7 +120,7 @@ export function BlogPostPage() {
           "description": post.metaDesc,
           "datePublished": post.date,
           "publisher": { "@type": "Organization", "name": "Apnacircle", "url": siteBase },
-          "url": `${siteBase}/blog/${post.slug}`,
+          "url": `${siteBase}/blog/${post.slug}/`,
         })}</script>
       </Helmet>
 

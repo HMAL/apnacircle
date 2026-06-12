@@ -318,10 +318,10 @@ function NewsPageLayout({ slug, title, icon, desc, children }) {
       <Helmet>
         <title>{title} — News | Apnacircle</title>
         <meta name="description" content={desc} />
-        <link rel="canonical" href={`${siteBase}/news/${slug}`} />
+        <link rel="canonical" href={`${siteBase}/news/${slug}/`} />
         <meta property="og:title" content={`${title} | Apnacircle`} />
         <meta property="og:description" content={desc} />
-        <meta property="og:url" content={`${siteBase}/news/${slug}`} />
+        <meta property="og:url" content={`${siteBase}/news/${slug}/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
         <meta property="og:image" content={`${siteBase}/og-image.svg`} />
@@ -401,10 +401,10 @@ export default function NewsHubPage() {
       <Helmet>
         <title>News for Immigrants — Apnacircle</title>
         <meta name="description" content={`Immigration policy updates, job market news, and finance & economy coverage — curated for immigrants in ${country}.`} />
-        <link rel="canonical" href={`${siteBase}/news`} />
+        <link rel="canonical" href={`${siteBase}/news/`} />
         <meta property="og:title" content="News for Immigrants | Apnacircle" />
         <meta property="og:description" content={`Immigration policy, job market, and finance news curated for immigrants in ${country}.`} />
-        <meta property="og:url" content={`${siteBase}/news`} />
+        <meta property="og:url" content={`${siteBase}/news/`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Apnacircle" />
         <meta property="og:image" content={`${siteBase}/og-image.svg`} />

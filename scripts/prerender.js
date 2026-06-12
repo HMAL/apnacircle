@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import { execSync } from "child_process";
+import { BLOGS } from "../src/data/blogs.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -92,33 +93,66 @@ const SITE_REGIONS = IS_CA
 
 const citySlug = name => name.toLowerCase().replace(/\s+/g, "-");
 
+// Finance article meta — must stay in sync with src/pages/finance/FinancePages.jsx
+const US_FINANCE = [
+  { slug: "retirement",     title: "Retirement Planning for Immigrants: 401(k) vs Roth IRA",   desc: "401(k) vs Roth IRA explained for immigrants in the US — employer match, tax brackets, visa considerations, and what to do if your employer doesn't offer a 401(k)." },
+  { slug: "housing",        title: "Renting vs. Buying a Home in the US",                      desc: "Rent vs buy calculator logic for immigrants — closing costs, property tax, the 10-year math most real-estate agents don't show you." },
+  { slug: "car",            title: "Lease vs. Buy a Car in the US",                            desc: "Car lease vs buy for newcomers to the US — an honest side-by-side comparison of total cost, insurance, and credit impact." },
+  { slug: "index-funds",    title: "Index Funds vs. Individual Stocks",                        desc: "Why index funds beat stock picking — low-cost S&P 500 investing for immigrants building wealth in the US." },
+  { slug: "529",            title: "529 College Savings Plans Explained",                      desc: "529 plan tax benefits, state deductions, and the new Roth IRA rollover rule — college savings for immigrant families." },
+  { slug: "life-insurance", title: "Life Insurance Basics: Term vs Whole",                     desc: "Term vs whole vs universal life insurance — cut through the sales pitch and find what immigrant families actually need." },
+  { slug: "w2-1099",        title: "W-2 vs 1099 Income & Taxes",                               desc: "W-2 vs 1099 explained — how to read your W-2, self-employment tax, and the real cost of switching from employee to contractor." },
+];
+const CA_FINANCE = [
+  { slug: "rrsp-tfsa",             title: "RRSP vs TFSA: Which Should You Prioritize?",        desc: "RRSP vs TFSA for newcomers to Canada — contribution room, tax refunds, and the right order for immigrants building wealth." },
+  { slug: "canada-housing",        title: "Renting vs. Buying a Home in Canada",               desc: "The real math on Canadian real estate — CMHC insurance, the mortgage stress test, and when buying makes sense for newcomers." },
+  { slug: "canada-car",            title: "Lease vs. Buy a Car in Canada",                     desc: "Car lease vs buy in Canada — HST, provincial insurance differences, and why buying used still wins." },
+  { slug: "canada-index-funds",    title: "Index Funds for Canadian Investors",                desc: "All-in-one ETFs, TFSA vs RRSP wrappers, and why index investing beats active management for newcomers to Canada." },
+  { slug: "resp",                  title: "RESP: Canada's Education Savings Plan",             desc: "RESP grant explained — the 20% CESG government match most parents miss, and how immigrant families can maximize it." },
+  { slug: "canada-life-insurance", title: "Life Insurance Basics in Canada",                   desc: "Term vs whole vs universal life insurance in Canada — what newcomer families actually need and why term almost always wins." },
+  { slug: "t4-t4a",               title: "T4 vs T4A Income: What Every Worker Should Know",    desc: "T4 vs T4A explained — reading your tax slips, the true cost of self-employment, and the GST/HST registration threshold." },
+];
+const SITE_FINANCE = IS_CA ? CA_FINANCE : US_FINANCE;
+
+const COMMON_ROUTES = [
+  "/immigration", "/ds160", "/health", "/lawyers",
+  "/finance", ...SITE_FINANCE.map(a => `/finance/${a.slug}`),
+  "/news", "/news/immigration", "/news/jobs", "/news/finance",
+  "/blog", ...BLOGS.map(b => `/blog/${b.slug}`),
+  "/contact", "/events", "/privacy", "/terms", "/disclaimer",
+];
+
 const STATIC_ROUTES = IS_CA ? [
   "/", "/visa/visitor", "/visa/study-permit", "/visa/work-permit",
   "/visa/express-entry", "/visa/pnp",
-  "/immigration", "/ds160", "/health", "/lawyers",
-  "/contact", "/events", "/privacy", "/disclaimer",
+  ...COMMON_ROUTES,
 ] : [
   "/", "/visa/h1b", "/visa/f1", "/visa/b1b2",
-  "/immigration", "/ds160", "/health", "/lawyers",
-  "/contact", "/events", "/privacy", "/disclaimer",
+  ...COMMON_ROUTES,
 ];
 
-function metaForRoute(url) {
-  const og = (title, desc, ld) => ({ title, desc, ld });
+// Routes that exist with the same path on both sites get hreflang alternates so
+// Google treats them as regional variants instead of cross-domain duplicates.
+const MIRRORED_ROUTES = new Set(["/", ...COMMON_ROUTES.filter(r => !r.startsWith("/finance/"))]);
 
-  if (url === "/") return {
-    ...og(
-      IS_CA
-        ? "Apnacircle — Free Community Hub for Immigrants in Canada"
-        : "Apnacircle — Free Community Hub for Immigrants in the US & Canada",
-      "Free resource for immigrants — visa experiences, immigration lawyers, local jobs, housing, doctors, events and more. No ads, no signup, no fees.",
-      JSON.stringify([
-        { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":BASE,"logo":`${BASE}/favicon.svg`,"description": IS_CA ? "Free community hub for immigrants in Canada" : "Free community hub for immigrants in the US & Canada" },
-        { "@context":"https://schema.org","@type":"WebSite","url":BASE,"name":"Apnacircle" },
-      ]),
-    ),
-    hreflang: true,
-  };
+function metaForRoute(url) {
+  const og = (title, desc, ld, kw) => ({ title, desc, ld, kw });
+
+  if (url === "/") return og(
+    IS_CA
+      ? "Apnacircle — Free Community Hub for Immigrants in Canada"
+      : "Apnacircle — Free Community Hub for Immigrants in the US & Canada",
+    IS_CA
+      ? "Free community hub for immigrants in Canada — visa experiences, Express Entry tips, immigration lawyers, local jobs, housing, doctors, desi events and more. No ads, no signup, no fees."
+      : "Free community hub for immigrants in the US — visa interview experiences, green card tips, immigration lawyers, local jobs, housing, doctors, desi events and more. No ads, no signup, no fees.",
+    JSON.stringify([
+      { "@context":"https://schema.org","@type":"Organization","name":"Apnacircle","url":BASE,"logo":`${BASE}/favicon.svg`,"description": IS_CA ? "Free community hub for immigrants in Canada" : "Free community hub for immigrants in the US & Canada" },
+      { "@context":"https://schema.org","@type":"WebSite","url":BASE,"name":"Apnacircle" },
+    ]),
+    IS_CA
+      ? "immigrant community Canada, newcomers to Canada, indian community Canada, desi community, visa experiences, Express Entry, immigration lawyers Canada, immigrant jobs, immigrant housing"
+      : "immigrant community USA, indian community USA, desi community, visa interview experiences, H1B, green card, immigration lawyers, immigrant jobs, immigrant housing, indian events near me",
+  );
 
   if (url === "/immigration") return og(
     IS_CA
@@ -158,9 +192,81 @@ function metaForRoute(url) {
     "Privacy Policy | Apnacircle",
     "Privacy policy for Apnacircle — how we handle your data and protect your privacy.",
   );
+  if (url === "/terms") return og(
+    "Terms of Service | Apnacircle",
+    "Terms of service for Apnacircle — the rules for using our free immigrant community platform.",
+  );
   if (url === "/disclaimer") return og(
     "Disclaimer | Apnacircle",
     "Disclaimer for Apnacircle — important information about the nature of community-submitted content.",
+  );
+
+  // Finance hub + articles
+  if (url === "/finance") return og(
+    IS_CA
+      ? "Personal Finance Tips for Newcomers to Canada — RRSP, TFSA, Housing | Apnacircle"
+      : "Personal Finance Tips for Immigrants in the US — 401(k), Housing, Taxes | Apnacircle",
+    IS_CA
+      ? "Free personal finance guides for newcomers to Canada — RRSP vs TFSA, renting vs buying, RESP grants, index funds, life insurance and tax slips explained."
+      : "Free personal finance guides for immigrants in the US — 401(k) vs Roth IRA, renting vs buying, 529 plans, index funds, life insurance and W-2 vs 1099 taxes explained.",
+    null,
+    IS_CA
+      ? "newcomer finance Canada, RRSP vs TFSA, RESP grant, buying a home in Canada, index funds Canada, T4 explained"
+      : "immigrant finance USA, 401k vs Roth IRA, 529 plan, buying a home in USA, index funds, W2 vs 1099, life insurance basics",
+  );
+  const finArticle = SITE_FINANCE.find(a => url === `/finance/${a.slug}`);
+  if (finArticle) return og(
+    `${finArticle.title} — Finance Tips | Apnacircle`,
+    finArticle.desc,
+    JSON.stringify({ "@context":"https://schema.org","@type":"Article","headline":finArticle.title,"description":finArticle.desc,"publisher":{"@type":"Organization","name":"Apnacircle","url":BASE},"url":publicUrl(url) }),
+  );
+
+  // News hub + categories
+  if (url === "/news") return og(
+    IS_CA
+      ? "Immigration, Jobs & Finance News for Newcomers to Canada | Apnacircle"
+      : "Immigration, Jobs & Finance News for Immigrants in the US | Apnacircle",
+    IS_CA
+      ? "Daily curated news for immigrants in Canada — IRCC updates, Express Entry draws, job market trends and personal finance headlines, all in one place."
+      : "Daily curated news for immigrants in the US — USCIS updates, H-1B and green card news, job market trends and personal finance headlines, all in one place.",
+    null,
+    IS_CA
+      ? "Canada immigration news, IRCC news, Express Entry draws, newcomer jobs Canada, finance news"
+      : "US immigration news, USCIS updates, H1B news, green card news, immigrant jobs, finance news",
+  );
+  if (url === "/news/immigration") return og(
+    IS_CA
+      ? "Latest Canada Immigration News — IRCC, Express Entry, PR Updates | Apnacircle"
+      : "Latest US Immigration News — USCIS, H-1B, Green Card Updates | Apnacircle",
+    IS_CA
+      ? "Today's Canada immigration headlines — IRCC policy changes, Express Entry draws, study and work permit updates for newcomers."
+      : "Today's US immigration headlines — USCIS policy changes, H-1B lottery, green card backlogs, OPT and visa bulletin updates.",
+  );
+  if (url === "/news/jobs") return og(
+    IS_CA
+      ? "Jobs & Career News for Newcomers to Canada | Apnacircle"
+      : "Jobs & Career News for Immigrants in the US | Apnacircle",
+    "Latest job market news for immigrants — hiring trends, layoffs, visa sponsorship and career opportunities updated daily.",
+  );
+  if (url === "/news/finance") return og(
+    IS_CA
+      ? "Personal Finance News for Newcomers to Canada | Apnacircle"
+      : "Personal Finance News for Immigrants in the US | Apnacircle",
+    "Latest personal finance news for immigrants — interest rates, housing market, taxes and investing headlines updated daily.",
+  );
+
+  // Blog hub + posts
+  if (url === "/blog") return og(
+    "Guides & Tips for Immigrants — Immigration, Family, Finance | Apnacircle",
+    "Honest, no-fluff guides for immigrants — immigration mistakes to avoid, raising a family abroad, and the financial pitfalls that cost the most.",
+    null,
+    "immigrant guides, immigration mistakes to avoid, new immigrant tips, raising kids abroad, immigrant money mistakes",
+  );
+  const post = BLOGS.find(b => url === `/blog/${b.slug}`);
+  if (post) return og(
+    `${post.title} — Apnacircle`,
+    post.metaDesc,
+    JSON.stringify({ "@context":"https://schema.org","@type":"Article","headline":post.title,"description":post.metaDesc,"datePublished":post.date,"publisher":{"@type":"Organization","name":"Apnacircle","url":BASE},"url":publicUrl(url) }),
   );
 
   // US visa routes
@@ -215,6 +321,7 @@ function metaForRoute(url) {
           {"@type":"ListItem","position":2,"name":state.name,"item":publicUrl(`/states/${state.slug}`)},
           {"@type":"ListItem","position":3,"name":city,"item":publicUrl(`/states/${state.slug}/${citySlug(city)}`)},
         ]}),
+        `indian community ${city}, desi community ${city}, immigrant jobs ${city}, indian events ${city}, immigration lawyer ${city}, indian grocery ${city}, rooms for rent ${city}, indian doctors ${city}`,
       );
     }
     return og(
@@ -224,6 +331,7 @@ function metaForRoute(url) {
         {"@type":"ListItem","position":1,"name":"Home","item":BASE},
         {"@type":"ListItem","position":2,"name":state.name,"item":publicUrl(`/states/${state.slug}`)},
       ]}),
+      `indian community ${state.name}, desi community ${state.name}, immigrant jobs ${state.name}, indian events ${state.name}, immigration lawyer ${state.name}`,
     );
   }
   return null;
@@ -239,6 +347,23 @@ for (const region of SITE_REGIONS) {
 console.log(`Building SSR bundle for ${BASE}...`);
 execSync(`vite build --ssr src/entry-server.jsx --outDir ${ssrOut}`, { cwd: root, stdio: "inherit" });
 
+// Node has no browser storage, but components read localStorage in useState
+// initializers (i.e. during render). Without this shim every route throws and
+// zero pages get prerendered.
+const memoryStorage = () => {
+  const m = new Map();
+  return {
+    getItem: k => (m.has(k) ? m.get(k) : null),
+    setItem: (k, v) => m.set(k, String(v)),
+    removeItem: k => m.delete(k),
+    clear: () => m.clear(),
+    key: i => [...m.keys()][i] ?? null,
+    get length() { return m.size; },
+  };
+};
+globalThis.localStorage = memoryStorage();
+globalThis.sessionStorage = memoryStorage();
+
 const { render } = await import(pathToFileURL(resolve(ssrOut, "entry-server.js")).href);
 const template = readFileSync(resolve(root, "dist/index.html"), "utf-8");
 
@@ -248,18 +373,21 @@ for (const url of routes) {
     const { html } = render(url);
     const meta = metaForRoute(url);
     const canonical = publicUrl(url);
+    if (!meta) console.warn(`  WARNING: no meta for ${url} — prerendered without title/canonical`);
 
-    // Both sites cross-reference each other on the home page so Google understands
+    // Both sites cross-reference each other on every mirrored page so Google understands
     // apnacircle.org targets US users and ca.apnacircle.org targets Canadian users.
-    const hreflangTags = meta?.hreflang ? [
-      `<link rel="alternate" hreflang="en-us" href="https://apnacircle.org/" />`,
-      `<link rel="alternate" hreflang="en-ca" href="https://ca.apnacircle.org/" />`,
-      `<link rel="alternate" hreflang="x-default" href="https://apnacircle.org/" />`,
+    const pathPart = url === "/" ? "/" : `${url}/`;
+    const hreflangTags = MIRRORED_ROUTES.has(url) ? [
+      `<link rel="alternate" hreflang="en-us" href="https://apnacircle.org${pathPart}" />`,
+      `<link rel="alternate" hreflang="en-ca" href="https://ca.apnacircle.org${pathPart}" />`,
+      `<link rel="alternate" hreflang="x-default" href="https://apnacircle.org${pathPart}" />`,
     ] : [];
 
     const headTags = meta ? [
       `<title>${meta.title}</title>`,
       `<meta name="description" content="${meta.desc}" />`,
+      ...(meta.kw ? [`<meta name="keywords" content="${meta.kw}" />`] : []),
       `<link rel="canonical" href="${canonical}" />`,
       `<meta property="og:title" content="${meta.title}" />`,
       `<meta property="og:description" content="${meta.desc}" />`,
@@ -289,3 +417,7 @@ for (const url of routes) {
 
 rmSync(ssrOut, { recursive: true, force: true });
 console.log(`Prerendering done — ${ok}/${routes.length} pages written.`);
+if (ok < routes.length) {
+  console.error(`Prerender FAILED for ${routes.length - ok} routes — failing the build so a bare SPA shell is never deployed.`);
+  process.exit(1);
+}
