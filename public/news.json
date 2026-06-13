@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-06-12T21:18:58.484Z",
+  "generatedAt": "2026-06-13T09:46:33.436Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "12 Jun 2026",
+        "headline": "Justice Department Moves to Strip U.S. Citizenship from 17 Naturalized Sex Offenders, Fraudsters, Drug Dealers, and More",
+        "body": "U.S. Citizenship and Immigration Services partnered with the Department of Justice in its recent filings of denaturalization actions in various U.S. district courts against 17 individuals accused of serious offenses—including sexual abuse of a minor, wire and bank fraud, and distributing drugs wholesale without a license.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/justice-department-moves-to-strip-us-citizenship-from-17-naturalized-sex-offenders-fraudsters-drug"
+      },
       {
         "tag": "USCIS",
         "date": "1 Jun 2026",
@@ -33,14 +41,6 @@
         "body": "A suburban Chicago man has been sentenced to nine years in federal prison for engaging in immigration fraud, possessing child pornography, and committing tax fraud, the U.S. Attorney's Office for the Northern District of Illinois announced.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/suburban-chicago-man-sentenced-to-nine-years-in-prison-for-immigration-fraud-possession-of-child"
-      },
-      {
-        "tag": "USCIS",
-        "date": "14 May 2026",
-        "headline": "USCIS and DOJ Take Steps to Denaturalize 12 Individuals for Concealing Terrorist Support, War Crimes, Espionage, Sexual Abuse, and More",
-        "body": "U.S. Citizenship and Immigration Services partnered with the Department of Justice in its recent filing of denaturalization actions in various U.S. district courts against 12 individuals accused of serious offenses—including providing material support to a terrorist group, committing war crimes, and sexually abusing a minor.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-and-doj-take-steps-to-denaturalize-12-individuals-for-concealing-terrorist-support-war-crimes"
       }
     ],
     "jobs": [
