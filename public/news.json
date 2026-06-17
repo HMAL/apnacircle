@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T12:56:38.742Z",
+  "generatedAt": "2026-06-17T22:16:40.014Z",
   "us": {
     "immigration": [
       {
@@ -56,6 +56,22 @@
     "finance": [
       {
         "tag": "Fed Rate",
+        "date": "17 Jun 2026",
+        "headline": "Federal Reserve issues FOMC statement",
+        "body": "Federal Reserve issues FOMC statement",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "17 Jun 2026",
+        "headline": "Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting",
+        "body": "Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617b.htm"
+      },
+      {
+        "tag": "Fed Rate",
         "date": "11 Jun 2026",
         "headline": "Federal Reserve Board announces final rule that establishes data standards for certain information collections",
         "body": "Federal Reserve Board announces final rule that establishes data standards for certain information collections",
@@ -77,22 +93,6 @@
         "body": "Agencies remove additional references to reputation risk",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260602a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "28 May 2026",
-        "headline": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
-        "body": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "26 May 2026",
-        "headline": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
-        "body": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm"
       }
     ]
   },
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "17 Jun 2026",
+        "headline": "Government of Canada appoints new members to National Seniors Council",
+        "body": "Older Canadians are vital and valued members of communities across the country. As Canada’s population ages, ensuring that seniors can live with dignity, safety, and comfort remains a key priority. That is why the Government of Canada draws on diverse perspectives and expertise to inform this ongoing work.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/government-of-canada-appoints-new-members-to-national-seniors-council.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "16 Jun 2026",
         "headline": "National School Food Program takes shape across Canada",
         "body": "National School Food Program takes shape across Canada",
@@ -171,14 +179,6 @@
         "body": "The global trade landscape is shifting rapidly, creating uncertainty and challenges for workers, industries and communities across Canada. In a rapidly changing world, the Government of Canada is focusing on what it can control: building a stronger more resilient Canada. This calls for decisive action from governments at all levels to protect jobs, strengthen local…",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/governments-of-canada-and-manitoba-partner-to-support-tariff-impacted-workers-and-strengthen-the-workforce.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "4 Jun 2026",
-        "headline": "Minister Hajdu and industry leaders launch the Mining and Minerals Workforce Alliance",
-        "body": "As Canada’s labour market continues to face sustained pressures from tariffs, skills shortages, supply chain disruptions, and rapid technological advancements, the Government of Canada is taking coordinated action to transform the economy—strengthening domestic industries, supporting workforce development, and building the foundations for a more independent economy.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/minister-hajdu-and-industry-leaders-launch-the-mining-and-minerals-workforce-alliance.html"
       }
     ],
     "finance": [
