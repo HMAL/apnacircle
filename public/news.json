@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T20:19:36.641Z",
+  "generatedAt": "2026-06-22T16:14:00.078Z",
   "us": {
     "immigration": [
       {
@@ -56,6 +56,14 @@
     "finance": [
       {
         "tag": "Fed Rate",
+        "date": "22 Jun 2026",
+        "headline": "Federal Reserve notes with deep sadness the passing of Alan Greenspan",
+        "body": "Federal Reserve notes with deep sadness the passing of Alan Greenspan",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260622a.htm"
+      },
+      {
+        "tag": "Fed Rate",
         "date": "18 Jun 2026",
         "headline": "Federal Reserve Board issues enforcement action with former employee of Bank of Eufaula and S N B Bancshares, Inc.",
         "body": "Federal Reserve Board issues enforcement action with former employee of Bank of Eufaula and S N B Bancshares, Inc.",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve issues FOMC statement",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "17 Jun 2026",
-        "headline": "Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting",
-        "body": "Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617b.htm"
       }
     ]
   },
