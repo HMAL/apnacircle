@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T21:18:32.569Z",
+  "generatedAt": "2026-06-23T23:09:43.156Z",
   "us": {
     "immigration": [
       {
@@ -100,6 +100,14 @@
     "immigration": [
       {
         "tag": "IRCC",
+        "date": "23 Jun 2026",
+        "headline": "Federal–Provincial–Territorial Immigration Ministers meet to discuss sustainable immigration",
+        "body": "The Forum of Ministers Responsible for Immigration (FMRI) met today to advance collaboration on the 2027–2029 Immigration Levels Plan and discuss federal–provincial–territorial (FPT) priorities. They discussed returning immigration to sustainable levels while considering regional, rural and northern contexts, addressing labour shortages, reinforcing key economic sectors, and supporting communities across the country. Ministers also discussed the…",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/06/federalprovincialterritorial-immigration-ministers-meet-to-discuss-sustainable-immigration.html"
+      },
+      {
+        "tag": "IRCC",
         "date": "19 Jun 2026",
         "headline": "Canada proposes new regulations to modernize the asylum process and support timely decisions",
         "body": "Building on recent measures to strengthen Canada’s immigration and asylum systems, and recent decreases in asylum claim volumes, the Government of Canada is taking further action to maintain a fair, orderly and well-managed asylum system.",
@@ -129,14 +137,6 @@
         "body": "In Budget 2025, we outlined our plan to build Canada Strong.",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/05/building-the-workforce-needed-to-deliver-more-homes-in-halifax.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "8 May 2026",
-        "headline": "Canada and global partners take action to advance migration priorities",
-        "body": "Canada is working with partners around the world to strengthen migration systems and address shared challenges. This week, the Honourable Lena Metlege Diab, Minister of Immigration, Refugees and Citizenship, led Canada’s delegation to the International Migration Review Forum (IMRF) 2026 at the United Nations Headquarters in New York.",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/05/canada-and-global-partners-take-action-to-advance-migration-priorities.html"
       }
     ],
     "jobs": [
