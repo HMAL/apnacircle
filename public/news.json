@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T17:07:00.664Z",
+  "generatedAt": "2026-06-24T23:04:59.239Z",
   "us": {
     "immigration": [
       {
@@ -56,6 +56,14 @@
     "finance": [
       {
         "tag": "Fed Rate",
+        "date": "24 Jun 2026",
+        "headline": "Federal Reserve Board's annual bank stress test confirms that large banks are well positioned to weather a severe recession and able to continue to lend to households and businesses",
+        "body": "Federal Reserve Board's annual bank stress test confirms that large banks are well positioned to weather a severe recession and able to continue to lend to households and businesses",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260624a.htm"
+      },
+      {
+        "tag": "Fed Rate",
         "date": "22 Jun 2026",
         "headline": "Federal Reserve notes with deep sadness the passing of Alan Greenspan",
         "body": "Federal Reserve notes with deep sadness the passing of Alan Greenspan",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board requests comment on proposal to require certain payment stablecoin issuers to maintain an effective customer identification program",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260618a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "17 Jun 2026",
-        "headline": "Federal Reserve issues FOMC statement",
-        "body": "Federal Reserve issues FOMC statement",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm"
       }
     ]
   },
