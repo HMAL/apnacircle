@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-06-29T17:40:02.551Z",
+  "generatedAt": "2026-06-29T23:00:02.881Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "29 Jun 2026",
+        "headline": "Man Sentenced to One Year Home Detention for Visa Fraud",
+        "body": "Defendant forced victims to work without pay in deplorable conditions and lied to the US government",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/man-sentenced-to-one-year-home-detention-for-visa-fraud"
+      },
       {
         "tag": "USCIS",
         "date": "12 Jun 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services played a critical role in the arrest of Jose Calles Henriquez, 24, an illegal alien from El Salvador and self-confessed MS-13 gang member.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/uscis-assists-federal-partners-in-arrest-of-ms-13-gang-member"
-      },
-      {
-        "tag": "USCIS",
-        "date": "14 May 2026",
-        "headline": "Suburban Chicago Man Sentenced to Nine Years in Prison for Immigration Fraud, Possession of Child Pornography, and Tax Offenses",
-        "body": "A suburban Chicago man has been sentenced to nine years in federal prison for engaging in immigration fraud, possessing child pornography, and committing tax fraud, the U.S. Attorney's Office for the Northern District of Illinois announced.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/suburban-chicago-man-sentenced-to-nine-years-in-prison-for-immigration-fraud-possession-of-child"
       }
     ],
     "jobs": [
