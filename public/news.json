@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T17:19:41.020Z",
+  "generatedAt": "2026-07-01T23:17:46.708Z",
   "us": {
     "immigration": [
       {
@@ -55,20 +55,20 @@
     ],
     "finance": [
       {
+        "tag": "Fed Rate",
+        "date": "1 Jul 2026",
+        "headline": "Federal Reserve issues initial findings from its 2025 triennial payments study",
+        "body": "Federal Reserve issues initial findings from its 2025 triennial payments study",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260701a.htm"
+      },
+      {
         "tag": "Markets",
         "date": "30 Jun 2026",
         "headline": "Agencies release list of distressed or underserved nonmetropolitan middle-income geographies",
         "body": "Agencies release list of distressed or underserved nonmetropolitan middle-income geographies",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260630a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "25 Jun 2026",
-        "headline": "Federal Reserve Board announces termination of enforcement action with Jiko Group, Inc.",
-        "body": "Federal Reserve Board announces termination of enforcement action with Jiko Group, Inc.",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260625a.htm"
       },
       {
         "tag": "Fed Rate",
@@ -80,19 +80,19 @@
       },
       {
         "tag": "Fed Rate",
+        "date": "25 Jun 2026",
+        "headline": "Federal Reserve Board announces termination of enforcement action with Jiko Group, Inc.",
+        "body": "Federal Reserve Board announces termination of enforcement action with Jiko Group, Inc.",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260625a.htm"
+      },
+      {
+        "tag": "Fed Rate",
         "date": "24 Jun 2026",
         "headline": "Federal Reserve Board's annual bank stress test confirms that large banks are well positioned to weather a severe recession and able to continue to lend to households and businesses",
         "body": "Federal Reserve Board's annual bank stress test confirms that large banks are well positioned to weather a severe recession and able to continue to lend to households and businesses",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260624a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "22 Jun 2026",
-        "headline": "Federal Reserve notes with deep sadness the passing of Alan Greenspan",
-        "body": "Federal Reserve notes with deep sadness the passing of Alan Greenspan",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260622a.htm"
       }
     ]
   },
