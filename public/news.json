@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T23:17:46.708Z",
+  "generatedAt": "2026-07-02T16:52:28.176Z",
   "us": {
     "immigration": [
       {
@@ -46,14 +46,22 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "1 Jul 2026",
+        "date": "2 Jul 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.5% in May 2026 News Release Historical Data Unemployment Rate: 4.3% in May 2026 News Release Historical Data Payroll Employment: +172,000(p) in May 2026 News Release Historical Data Average Hourly Earnings: +$0.12(p) in May 2026 News Release Historical Data Producer Price Index - Final Demand: +1.1%(p) in May 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.5% in May 2026 News Release Historical Data Unemployment Rate: 4.2% in Jun 2026 News Release Historical Data Payroll Employment: +57,000(p) in Jun 2026 News Release Historical Data Average Hourly Earnings: +$0.13(p) in Jun 2026 News Release Historical Data Producer Price Index - Final Demand: +1.1%(p) in May 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
     ],
     "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "2 Jul 2026",
+        "headline": "Federal Reserve Board issues enforcement action with Small Business Bank and announces termination enforcement actions with BNP Paribas S.A., BNP Paribas USA, Inc., BNP Paribas Securities Corp., and Community Bankshares, Inc.",
+        "body": "Federal Reserve Board issues enforcement action with Small Business Bank and announces termination enforcement actions with BNP Paribas S.A., BNP Paribas USA, Inc., BNP Paribas Securities Corp., and Community Bankshares, Inc.",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260702a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "1 Jul 2026",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board announces termination of enforcement action with Jiko Group, Inc.",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260625a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "24 Jun 2026",
-        "headline": "Federal Reserve Board's annual bank stress test confirms that large banks are well positioned to weather a severe recession and able to continue to lend to households and businesses",
-        "body": "Federal Reserve Board's annual bank stress test confirms that large banks are well positioned to weather a severe recession and able to continue to lend to households and businesses",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260624a.htm"
       }
     ]
   },
