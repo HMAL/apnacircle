@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-07-02T16:52:28.176Z",
+  "generatedAt": "2026-07-02T23:09:23.048Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "2 Jul 2026",
+        "headline": "Defendants Sentenced in Visa Fraud and Conspiracy Case",
+        "body": "U.S. Citizenship and Immigration Services provided valuable assistance to an investigation that led to the sentencings of Jung Hoon Song and Bonnie Jo C. Quichocho, who faked marriage as a scheme to fraudulently gain lawful permanent residence in the United States.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/defendants-sentenced-in-visa-fraud-and-conspiracy-case"
+      },
       {
         "tag": "USCIS",
         "date": "29 Jun 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services today announced a new policy memo reiterating the fact that, consistent with long-standing immigration law and immigration court decisions, aliens seeking adjustment of status must do so through consular processing via the Department of State outside of the country.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/us-citizenship-and-immigration-services-will-grant-adjustment-of-status-only-in-extraordinary"
-      },
-      {
-        "tag": "USCIS",
-        "date": "19 May 2026",
-        "headline": "USCIS Assists Federal Partners in Arrest of MS-13 Gang Member",
-        "body": "U.S. Citizenship and Immigration Services played a critical role in the arrest of Jose Calles Henriquez, 24, an illegal alien from El Salvador and self-confessed MS-13 gang member.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-assists-federal-partners-in-arrest-of-ms-13-gang-member"
       }
     ],
     "jobs": [
