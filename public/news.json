@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-02T23:09:23.048Z",
+  "generatedAt": "2026-07-03T16:27:38.490Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "3 Jul 2026",
+        "headline": "Government of Canada launches a second round of consultations to strengthen and improve the labour relations framework",
+        "body": "Government of Canada launches a second round of consultations to strengthen and improve the labour relations framework",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-launches-a-second-round-of-consultations-to-strengthen-and-improve-the-labour-relations-framework.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "30 Jun 2026",
         "headline": "Parliamentary Secretary Church highlights launch of National Food Security Strategy",
         "body": "The Government of Canada is focused on building a stronger economy and making life more affordable for Canadians. Today, Parliamentary Secretary Leslie Church, on behalf of the Honourable Heath MacDonald, Minister of Agriculture and Agri-Food, highlighted the launch of the National Food Security Strategy.",
@@ -171,14 +179,6 @@
         "body": "This week, Leslie Church, Parliamentary Secretary to the Minister of Jobs and Families (Persons with Disabilities), led Canada’s delegation to the 19th session of the UN Conference of States Parties to the Convention on the Rights of Persons with Disabilities in New York, where she underscored Canada’s ongoing commitment to advancing the rights, inclusion and…",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/parliamentary-secretary-church-shares-canadas-commitment-to-ensure-the-full-inclusion-of-persons-with-disabilities-at-the-united-nations.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "10 Jun 2026",
-        "headline": "Minister Hajdu strengthens Canada’s partnerships with Employment Ministers at the G7",
-        "body": "In a world where relationships have become frayed, working together as countries is more important than ever. The rules-based order that has underpinned global prosperity for decades is undergoing a profound transformation – driven by geopolitical realignment, economic upheaval, and the accelerating pace of technological change. In a rapidly changing world, the Government of Canada…",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/minister-hajdu-strengthens-canadas-partnerships-with-employment-ministers-at-the-g7.html"
       }
     ],
     "finance": [
