@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-05T23:02:23.293Z",
+  "generatedAt": "2026-07-06T17:45:33.003Z",
   "us": {
     "immigration": [
       {
@@ -100,6 +100,14 @@
     "immigration": [
       {
         "tag": "IRCC",
+        "date": "6 Jul 2026",
+        "headline": "Canada and Manitoba join forces to give new momentum to Francophone immigration",
+        "body": "Canada is committed to supporting Francophone immigration and is focused on attracting and retaining the world’s best talent. As Francophone minority communities face significant demographic and economic challenges, the governments of Canada and Manitoba are joining forces to strengthen official language minority communities by addressing their labour needs and fostering their economic and linguistic vitality.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-and-manitoba-join-forces-to-give-new-momentum-to-francophone-immigration.html"
+      },
+      {
+        "tag": "IRCC",
         "date": "23 Jun 2026",
         "headline": "Federal–Provincial–Territorial Immigration Ministers meet to discuss sustainable immigration",
         "body": "The Forum of Ministers Responsible for Immigration (FMRI) met today to advance collaboration on the 2027–2029 Immigration Levels Plan and discuss federal–provincial–territorial (FPT) priorities. They discussed returning immigration to sustainable levels while considering regional, rural and northern contexts, addressing labour shortages, reinforcing key economic sectors, and supporting communities across the country. Ministers also discussed the…",
@@ -129,17 +137,25 @@
         "body": "As Canada continues to deepen its trade, investment and strategic partnerships across the Indo Pacific, the Honourable Lena Metlege Diab, Minister of Immigration, Refugees and Citizenship, announced today that Canada will make changes to visa requirements for eligible citizens from Indonesia and Malaysia starting tomorrow, May 26, 2026, at 5:30 a.m. Eastern Time.",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/05/canada-strengthens-indo-pacific-ties-through-changes-to-visa-requirements-for-eligible-travellers-from-indonesia-and-malaysia.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "11 May 2026",
-        "headline": "Building the workforce needed to deliver more homes in Halifax",
-        "body": "In Budget 2025, we outlined our plan to build Canada Strong.",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/05/building-the-workforce-needed-to-deliver-more-homes-in-halifax.html"
       }
     ],
     "jobs": [
+      {
+        "tag": "Work Permit",
+        "date": "6 Jul 2026",
+        "headline": "Secretary of State Zerucelli highlights launch of National Food Security Strategy",
+        "body": "Secretary of State Zerucelli highlights launch of National Food Security Strategy",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/secretary-of-state-zerucelli-highlights-launch-of-national-food-security-strategy.html"
+      },
+      {
+        "tag": "Work Permit",
+        "date": "6 Jul 2026",
+        "headline": "Government of Canada reappoints Commissioner for Employers to the Canada Employment Insurance Commission (CEIC)",
+        "body": "Government of Canada reappoints Commissioner for Employers to the Canada Employment Insurance Commission (CEIC)",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-reappoints-commissioner-for-employers-to-the-canada-employment-insurance-commission-ceic.html"
+      },
       {
         "tag": "Work Permit",
         "date": "3 Jul 2026",
@@ -163,22 +179,6 @@
         "body": "Older Canadians are vital and valued members of communities across the country. As Canada’s population ages, ensuring that seniors can live with dignity, safety, and comfort remains a key priority. That is why the Government of Canada draws on diverse perspectives and expertise to inform this ongoing work.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/government-of-canada-appoints-new-members-to-national-seniors-council.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "16 Jun 2026",
-        "headline": "National School Food Program takes shape across Canada",
-        "body": "National School Food Program takes shape across Canada",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/national-school-food-program-takes-shape-across-canada.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "12 Jun 2026",
-        "headline": "Parliamentary Secretary Church shares Canada’s commitment to ensure the full inclusion of persons with disabilities at the United Nations",
-        "body": "This week, Leslie Church, Parliamentary Secretary to the Minister of Jobs and Families (Persons with Disabilities), led Canada’s delegation to the 19th session of the UN Conference of States Parties to the Convention on the Rights of Persons with Disabilities in New York, where she underscored Canada’s ongoing commitment to advancing the rights, inclusion and…",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/parliamentary-secretary-church-shares-canadas-commitment-to-ensure-the-full-inclusion-of-persons-with-disabilities-at-the-united-nations.html"
       }
     ],
     "finance": [
