@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T16:41:57.709Z",
+  "generatedAt": "2026-07-08T23:09:39.822Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "8 Jul 2026",
+        "headline": "Minutes of the Federal Open Market Committee, June 16-17, 2026",
+        "body": "Minutes of the Federal Open Market Committee, June 16-17, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260708a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "7 Jul 2026",
         "headline": "Federal Reserve Board requests comment on a proposal to amend its requirements for banks to maintain anti-money laundering programs",
@@ -85,14 +93,6 @@
         "body": "Agencies release list of distressed or underserved nonmetropolitan middle-income geographies",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260630a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "25 Jun 2026",
-        "headline": "Federal Reserve Board announces termination of enforcement action with Jiko Group, Inc.",
-        "body": "Federal Reserve Board announces termination of enforcement action with Jiko Group, Inc.",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260625a.htm"
       }
     ]
   },
