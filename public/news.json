@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T23:09:39.822Z",
+  "generatedAt": "2026-07-09T17:23:02.833Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Fed Rate",
+        "date": "9 Jul 2026",
+        "headline": "Federal Reserve Board issues enforcement action with TS Banking Group, Inc. and TS Contrarian Bancshares, Inc.",
+        "body": "Federal Reserve Board issues enforcement action with TS Banking Group, Inc. and TS Contrarian Bancshares, Inc.",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260709a.htm"
+      },
+      {
         "tag": "Markets",
         "date": "8 Jul 2026",
         "headline": "Minutes of the Federal Open Market Committee, June 16-17, 2026",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve issues initial findings from its 2025 triennial payments study",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260701a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "30 Jun 2026",
-        "headline": "Agencies release list of distressed or underserved nonmetropolitan middle-income geographies",
-        "body": "Agencies release list of distressed or underserved nonmetropolitan middle-income geographies",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260630a.htm"
       }
     ]
   },
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "9 Jul 2026",
+        "headline": "The Government of Canada highlights doubling of compliance monetary penalties under the Temporary Foreign Worker Program",
+        "body": "The federal government is focused on building lasting economic strength. This starts right here at home.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/the-government-of-canada-highlights-doubling-of-compliance-monetary-penalties-under-the-temporary-foreign-worker-program.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "7 Jul 2026",
         "headline": "Governments of Canada and Newfoundland and Labrador partner to support tariff-impacted workers and employers to strengthen the workforce",
         "body": "Governments of Canada and Newfoundland and Labrador partner to support tariff-impacted workers and employers to strengthen the workforce",
@@ -171,14 +179,6 @@
         "body": "Government of Canada launches a second round of consultations to strengthen and improve the labour relations framework",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-launches-a-second-round-of-consultations-to-strengthen-and-improve-the-labour-relations-framework.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "30 Jun 2026",
-        "headline": "Parliamentary Secretary Church highlights launch of National Food Security Strategy",
-        "body": "The Government of Canada is focused on building a stronger economy and making life more affordable for Canadians. Today, Parliamentary Secretary Leslie Church, on behalf of the Honourable Heath MacDonald, Minister of Agriculture and Agri-Food, highlighted the launch of the National Food Security Strategy.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/06/parliamentary-secretary-church-highlights-launch-of-national-food-security-strategy.html"
       }
     ],
     "finance": [
