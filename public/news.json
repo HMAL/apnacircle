@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T17:14:39.341Z",
+  "generatedAt": "2026-07-13T22:56:50.558Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "13 Jul 2026",
+        "headline": "Government of Canada invests in skills training for youth and persons with disabilities",
+        "body": "Canada’s economy is strongest when everyone has the opportunity to fully participate. Yet, many people still face barriers that prevent them from building careers and contributing their skills to the workforce.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-invests-in-skills-training-for-youth-and-persons-with-disabilities.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "9 Jul 2026",
         "headline": "The Government of Canada highlights doubling of compliance monetary penalties under the Temporary Foreign Worker Program",
         "body": "The federal government is focused on building lasting economic strength. This starts right here at home.",
@@ -171,14 +179,6 @@
         "body": "Government of Canada reappoints Commissioner for Employers to the Canada Employment Insurance Commission (CEIC)",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-reappoints-commissioner-for-employers-to-the-canada-employment-insurance-commission-ceic.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "3 Jul 2026",
-        "headline": "Government of Canada launches a second round of consultations to strengthen and improve the labour relations framework",
-        "body": "Government of Canada launches a second round of consultations to strengthen and improve the labour relations framework",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-launches-a-second-round-of-consultations-to-strengthen-and-improve-the-labour-relations-framework.html"
       }
     ],
     "finance": [
