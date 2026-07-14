@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-14T16:18:00.353Z",
+  "generatedAt": "2026-07-14T22:57:32.871Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "14 Jul 2026",
+        "headline": "Minutes of the Board's discount rate meetings on June 8 and June 17, 2026",
+        "body": "Minutes of the Board's discount rate meetings on June 8 and June 17, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260714a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "9 Jul 2026",
         "headline": "Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board requests comment on a proposal to amend its requirements for banks to maintain anti-money laundering programs",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260707a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "2 Jul 2026",
-        "headline": "Federal Reserve Board issues enforcement action with Small Business Bank and announces termination enforcement actions with BNP Paribas S.A., BNP Paribas USA, Inc., BNP Paribas Securities Corp., and Community Bankshares, Inc.",
-        "body": "Federal Reserve Board issues enforcement action with Small Business Bank and announces termination enforcement actions with BNP Paribas S.A., BNP Paribas USA, Inc., BNP Paribas Securities Corp., and Community Bankshares, Inc.",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260702a.htm"
       }
     ]
   },
