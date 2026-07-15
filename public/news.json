@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-14T22:57:32.871Z",
+  "generatedAt": "2026-07-15T16:25:22.144Z",
   "us": {
     "immigration": [
       {
@@ -46,9 +46,9 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "14 Jul 2026",
+        "date": "15 Jul 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): -0.4% in Jun 2026 News Release Historical Data Unemployment Rate: 4.2% in Jun 2026 News Release Historical Data Payroll Employment: +57,000(p) in Jun 2026 News Release Historical Data Average Hourly Earnings: +$0.13(p) in Jun 2026 News Release Historical Data Producer Price Index - Final Demand: +1.1%(p) in May 2026 News Release…",
+        "body": "Consumer Price Index (CPI): -0.4% in Jun 2026 News Release Historical Data Unemployment Rate: 4.2% in Jun 2026 News Release Historical Data Payroll Employment: +57,000(p) in Jun 2026 News Release Historical Data Average Hourly Earnings: +$0.13(p) in Jun 2026 News Release Historical Data Producer Price Index - Final Demand: -0.3%(p) in Jun 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
