@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-07-16T16:18:55.948Z",
+  "generatedAt": "2026-07-16T22:57:42.219Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "16 Jul 2026",
+        "headline": "US Citizenship and Immigration Services Rescinds 2022 Public Charge Regulation",
+        "body": "The Department of Homeland Security (DHS) has issued a final rule rescinding the 2022 Biden-era regulation regarding public charge determinations, further aligning immigration law with Congressional intent that aliens in the United States be self-reliant and not dependent on taxpayer-funded government benefits.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/us-citizenship-and-immigration-services-rescinds-2022-public-charge-regulation"
+      },
       {
         "tag": "USCIS",
         "date": "10 Jul 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services partnered with the Department of Justice in its recent filings of denaturalization actions in various U.S. district courts against 17 individuals accused of serious offenses—including sexual abuse of a minor, wire and bank fraud, and distributing drugs wholesale without a license.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/justice-department-moves-to-strip-us-citizenship-from-17-naturalized-sex-offenders-fraudsters-drug"
-      },
-      {
-        "tag": "USCIS",
-        "date": "1 Jun 2026",
-        "headline": "USCIS Screening and Vetting Efforts Lead to 18-month Sentencing of Illegal Alien in Fraud Case",
-        "body": "U.S. Citizenship and Immigration Services’ robust screening and vetting uncovered an immigration fraud scheme that resulted in Venerando Aquino Martin, 56, an illegal alien from the Philippines, being sentenced to 18 months for visa fraud.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-screening-and-vetting-efforts-lead-to-18-month-sentencing-of-illegal-alien-in-fraud-case"
       }
     ],
     "jobs": [
@@ -54,6 +54,14 @@
       }
     ],
     "finance": [
+      {
+        "tag": "Markets",
+        "date": "16 Jul 2026",
+        "headline": "Agencies issue joint statement on handling of highly sensitive information during bank examinations",
+        "body": "Agencies issue joint statement on handling of highly sensitive information during bank examinations",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260716a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "16 Jul 2026",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board issues enforcement action with TS Banking Group, Inc. and TS Contrarian Bancshares, Inc.",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260709a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "8 Jul 2026",
-        "headline": "Minutes of the Federal Open Market Committee, June 16-17, 2026",
-        "body": "Minutes of the Federal Open Market Committee, June 16-17, 2026",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260708a.htm"
       }
     ]
   },
@@ -142,6 +142,22 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "16 Jul 2026",
+        "headline": "Forum of Labour Market Ministers met in Halifax to discuss shared priorities",
+        "body": "The Forum of Labour Market Ministers (FLMM) met in Halifax to discuss shared labour market challenges and opportunities across Canada. The meeting was co-chaired by the Honourable Patty Hajdu, federal Minister of Jobs and Families, and the Honourable Nolan Young, Nova Scotia’s Minister of Labour, Skills and Immigration.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/forum-of-labour-market-ministers-met-in-halifax-to-discuss-shared-priorities.html"
+      },
+      {
+        "tag": "Work Permit",
+        "date": "16 Jul 2026",
+        "headline": "Government of Canada announces new $2-billion funding for provinces and territories under Team Canada Strong",
+        "body": "Government of Canada announces new $2-billion funding for provinces and territories under Team Canada Strong",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-announces-new-2-billion-funding-for-provinces-and-territories-under-team-canada-strong0.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "13 Jul 2026",
         "headline": "Government of Canada invests in skills training for youth and persons with disabilities",
         "body": "Canada’s economy is strongest when everyone has the opportunity to fully participate. Yet, many people still face barriers that prevent them from building careers and contributing their skills to the workforce.",
@@ -163,22 +179,6 @@
         "body": "Governments of Canada and Newfoundland and Labrador partner to support tariff-impacted workers and employers to strengthen the workforce",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/governments-of-canada-and-newfoundland-and-labrador-partner-to-support-tariff-impacted-workers-and-employers-to-strengthen-the-workforce.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "6 Jul 2026",
-        "headline": "Secretary of State Zerucelli highlights launch of National Food Security Strategy",
-        "body": "Secretary of State Zerucelli highlights launch of National Food Security Strategy",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/secretary-of-state-zerucelli-highlights-launch-of-national-food-security-strategy.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "6 Jul 2026",
-        "headline": "Government of Canada reappoints Commissioner for Employers to the Canada Employment Insurance Commission (CEIC)",
-        "body": "Government of Canada reappoints Commissioner for Employers to the Canada Employment Insurance Commission (CEIC)",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-reappoints-commissioner-for-employers-to-the-canada-employment-insurance-commission-ceic.html"
       }
     ],
     "finance": [
