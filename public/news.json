@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T16:17:13.515Z",
+  "generatedAt": "2026-07-17T22:52:05.988Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "17 Jul 2026",
+        "headline": "Minister Robertson represents Canada at the United Nations High-Level Political Forum on Sustainable Development",
+        "body": "Minister Robertson represents Canada at the United Nations High-Level Political Forum on Sustainable Development",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/minister-robertson-represents-canada-at-the-united-nations-high-level-political-forum-on-sustainable-development.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "16 Jul 2026",
         "headline": "Forum of Labour Market Ministers met in Halifax to discuss shared priorities",
         "body": "The Forum of Labour Market Ministers (FLMM) met in Halifax to discuss shared labour market challenges and opportunities across Canada. The meeting was co-chaired by the Honourable Patty Hajdu, federal Minister of Jobs and Families, and the Honourable Nolan Young, Nova Scotia’s Minister of Labour, Skills and Immigration.",
@@ -171,14 +179,6 @@
         "body": "The federal government is focused on building lasting economic strength. This starts right here at home.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/the-government-of-canada-highlights-doubling-of-compliance-monetary-penalties-under-the-temporary-foreign-worker-program.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "7 Jul 2026",
-        "headline": "Governments of Canada and Newfoundland and Labrador partner to support tariff-impacted workers and employers to strengthen the workforce",
-        "body": "Governments of Canada and Newfoundland and Labrador partner to support tariff-impacted workers and employers to strengthen the workforce",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/governments-of-canada-and-newfoundland-and-labrador-partner-to-support-tariff-impacted-workers-and-employers-to-strengthen-the-workforce.html"
       }
     ],
     "finance": [
