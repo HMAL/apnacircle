@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-07-20T23:02:04.399Z",
+  "generatedAt": "2026-07-21T16:24:20.496Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "21 Jul 2026",
+        "headline": "Illegal Alien Child Rapist Sentenced for Immigration Fraud",
+        "body": "U.S. Citizenship and Immigration Services supported an investigation resulting in the sentencing of Juarez Sanchez-Montiel, 41, an illegal alien from Mexico, for immigration fraud.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/illegal-alien-child-rapist-sentenced-for-immigration-fraud"
+      },
       {
         "tag": "USCIS",
         "date": "16 Jul 2026",
@@ -33,20 +41,12 @@
         "body": "Defendant forced victims to work without pay in deplorable conditions and lied to the US government",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/man-sentenced-to-one-year-home-detention-for-visa-fraud"
-      },
-      {
-        "tag": "USCIS",
-        "date": "12 Jun 2026",
-        "headline": "Justice Department Moves to Strip U.S. Citizenship from 17 Naturalized Sex Offenders, Fraudsters, Drug Dealers, and More",
-        "body": "U.S. Citizenship and Immigration Services partnered with the Department of Justice in its recent filings of denaturalization actions in various U.S. district courts against 17 individuals accused of serious offenses—including sexual abuse of a minor, wire and bank fraud, and distributing drugs wholesale without a license.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/justice-department-moves-to-strip-us-citizenship-from-17-naturalized-sex-offenders-fraudsters-drug"
       }
     ],
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "17 Jul 2026",
+        "date": "21 Jul 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): -0.4% in Jun 2026 News Release Historical Data Unemployment Rate: 4.2% in Jun 2026 News Release Historical Data Payroll Employment: +57,000(p) in Jun 2026 News Release Historical Data Average Hourly Earnings: +$0.13(p) in Jun 2026 News Release Historical Data Producer Price Index - Final Demand: -0.3%(p) in Jun 2026 News Release…",
         "source": "Bureau of Labor Statistics",
