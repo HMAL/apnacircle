@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-07-22T16:21:10.742Z",
+  "generatedAt": "2026-07-22T23:05:20.732Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "22 Jul 2026",
+        "headline": "DHS and Department of Justice Announce Move to Revoke U.S. Citizenship from 10 Naturalized Criminals Including Child Molesters, Scammers, and Drug Dealers",
+        "body": "The Trump Administration continues the largest denaturalization effort ever",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/dhs-and-department-of-justice-announce-move-to-revoke-us-citizenship-from-10-naturalized-criminals"
+      },
       {
         "tag": "USCIS",
         "date": "21 Jul 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services provided valuable assistance to an investigation that led to the sentencings of Jung Hoon Song and Bonnie Jo C. Quichocho, who faked marriage as a scheme to fraudulently gain lawful permanent residence in the United States.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/defendants-sentenced-in-visa-fraud-and-conspiracy-case"
-      },
-      {
-        "tag": "USCIS",
-        "date": "29 Jun 2026",
-        "headline": "Man Sentenced to One Year Home Detention for Visa Fraud",
-        "body": "Defendant forced victims to work without pay in deplorable conditions and lied to the US government",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/man-sentenced-to-one-year-home-detention-for-visa-fraud"
       }
     ],
     "jobs": [
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "22 Jul 2026",
+        "headline": "Government of Canada invests over $1.5 million to help remove employment barriers for youth and persons with disabilities",
+        "body": "A strong Canadian economy relies on an inclusive workforce where everyone has the opportunity to participate and succeed. However, many Canadians still face barriers to meaningful employment and prevent them from fully contributing their talents and skills.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-invests-over-15-million-to-help-remove-employment-barriers-for-youth-and-persons-with-disabilities.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "20 Jul 2026",
         "headline": "Canada Child Benefit payments increasing in 2026-2027",
         "body": "The Government of Canada is lowering costs for families by strengthening the Canada Child Benefit (CCB). The CCB is a monthly tax-free payment to help them with the costs of raising children.",
@@ -171,14 +179,6 @@
         "body": "The Forum of Labour Market Ministers (FLMM) met in Halifax to discuss shared labour market challenges and opportunities across Canada. The meeting was co-chaired by the Honourable Patty Hajdu, federal Minister of Jobs and Families, and the Honourable Nolan Young, Nova Scotia’s Minister of Labour, Skills and Immigration.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/forum-of-labour-market-ministers-met-in-halifax-to-discuss-shared-priorities.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "16 Jul 2026",
-        "headline": "Government of Canada announces new $2-billion funding for provinces and territories under Team Canada Strong",
-        "body": "Government of Canada announces new $2-billion funding for provinces and territories under Team Canada Strong",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-announces-new-2-billion-funding-for-provinces-and-territories-under-team-canada-strong0.html"
       }
     ],
     "finance": [
