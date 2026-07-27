@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-07-26T22:59:25.175Z",
+  "generatedAt": "2026-07-27T17:00:05.439Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "27 Jul 2026",
+        "headline": "USCIS Announces Rule Change to Asylum System to Reduce Backlog",
+        "body": "The United States Department of Homeland Security (DHS) released the following statement after U.S. Citizenship and Immigration Services (USCIS) announced a rule change designed to reduce the backlog in the asylum system.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-announces-rule-change-to-asylum-system-to-reduce-backlog"
+      },
       {
         "tag": "USCIS",
         "date": "22 Jul 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services played a critical role in a federal investigation that resulted in two Venezuelan illegal aliens being sentenced to a combined 32 years in prison for sex trafficking a 16-year-old orphan, the U.S. Attorney’s Office announced.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/uscis-plays-critical-role-in-illegal-aliens-sentencing-for-sex-trafficking-child-orphan"
-      },
-      {
-        "tag": "USCIS",
-        "date": "2 Jul 2026",
-        "headline": "Defendants Sentenced in Visa Fraud and Conspiracy Case",
-        "body": "U.S. Citizenship and Immigration Services provided valuable assistance to an investigation that led to the sentencings of Jung Hoon Song and Bonnie Jo C. Quichocho, who faked marriage as a scheme to fraudulently gain lawful permanent residence in the United States.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/defendants-sentenced-in-visa-fraud-and-conspiracy-case"
       }
     ],
     "jobs": [
