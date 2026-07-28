@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T16:42:06.077Z",
+  "generatedAt": "2026-07-28T23:00:58.791Z",
   "us": {
     "immigration": [
       {
@@ -100,6 +100,14 @@
     "immigration": [
       {
         "tag": "IRCC",
+        "date": "28 Jul 2026",
+        "headline": "Canada expands online passport renewal to all eligible adults",
+        "body": "The Government of Canada is committed to making life simpler and more convenient for Canadians. This includes a modern passport program that delivers secure, user‑friendly digital services that save time, reduce in‑person visits and make passport renewal easier.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-expands-online-passport-renewal-to-all-eligible-adults.html"
+      },
+      {
+        "tag": "IRCC",
         "date": "20 Jul 2026",
         "headline": "Minister Metlege Diab highlights Canada Child Benefit payments increasing in 2026–2027",
         "body": "The Government of Canada is lowering costs for families by strengthening the Canada Child Benefit (CCB). The CCB is a monthly tax-free payment to help them with the costs of raising children.",
@@ -129,14 +137,6 @@
         "body": "Canada is committed to supporting Francophone immigration and is focused on attracting and retaining the world’s best talent. As Francophone minority communities face significant demographic and economic challenges, the governments of Canada and Manitoba are joining forces to strengthen official language minority communities by addressing their labour needs and fostering their economic and linguistic vitality.",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-and-manitoba-join-forces-to-give-new-momentum-to-francophone-immigration.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "23 Jun 2026",
-        "headline": "Federal–Provincial–Territorial Immigration Ministers meet to discuss sustainable immigration",
-        "body": "The Forum of Ministers Responsible for Immigration (FMRI) met today to advance collaboration on the 2027–2029 Immigration Levels Plan and discuss federal–provincial–territorial (FPT) priorities. They discussed returning immigration to sustainable levels while considering regional, rural and northern contexts, addressing labour shortages, reinforcing key economic sectors, and supporting communities across the country. Ministers also discussed the…",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/06/federalprovincialterritorial-immigration-ministers-meet-to-discuss-sustainable-immigration.html"
       }
     ],
     "jobs": [
