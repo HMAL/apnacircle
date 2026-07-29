@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T16:23:49.220Z",
+  "generatedAt": "2026-07-29T22:59:42.670Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Fed Rate",
+        "date": "29 Jul 2026",
+        "headline": "Federal Reserve issues FOMC statement",
+        "body": "Federal Reserve issues FOMC statement",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm"
+      },
+      {
         "tag": "Markets",
         "date": "16 Jul 2026",
         "headline": "Agencies issue joint statement on handling of highly sensitive information during bank examinations",
@@ -85,19 +93,19 @@
         "body": "Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260709a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "9 Jul 2026",
-        "headline": "Federal Reserve Board issues enforcement action with TS Banking Group, Inc. and TS Contrarian Bancshares, Inc.",
-        "body": "Federal Reserve Board issues enforcement action with TS Banking Group, Inc. and TS Contrarian Bancshares, Inc.",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260709a.htm"
       }
     ]
   },
   "ca": {
     "immigration": [
+      {
+        "tag": "IRCC",
+        "date": "29 Jul 2026",
+        "headline": "Canada expands online passport renewal to all eligible adults (Toronto)",
+        "body": "The Government of Canada is committed to making life simpler and more convenient for Canadians. This includes a modern passport program that delivers secure user‑friendly digital services that save time, reduce in‑person visits and make passport renewal easier.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-expands-online-passport-renewal-to-all-eligible-adults0.html"
+      },
       {
         "tag": "IRCC",
         "date": "28 Jul 2026",
@@ -129,14 +137,6 @@
         "body": "The Government of Canada is focused on building a stronger economy and making life more affordable for Canadians. Today, Peter Fragiskatos, Parliamentary Secretary to the Minister of Immigration, Refugees and Citizenship, on behalf of the Honourable Heath MacDonald, Minister of Agriculture and Agri-Food, highlighted the launch of the National Food Security Strategy.",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/peter-fragiskatos-mp-highlights-launch-of-national-food-security-strategy.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "6 Jul 2026",
-        "headline": "Canada and Manitoba join forces to give new momentum to Francophone immigration",
-        "body": "Canada is committed to supporting Francophone immigration and is focused on attracting and retaining the world’s best talent. As Francophone minority communities face significant demographic and economic challenges, the governments of Canada and Manitoba are joining forces to strengthen official language minority communities by addressing their labour needs and fostering their economic and linguistic vitality.",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-and-manitoba-join-forces-to-give-new-momentum-to-francophone-immigration.html"
       }
     ],
     "jobs": [
