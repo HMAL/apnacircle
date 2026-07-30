@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-07-30T16:37:26.437Z",
+  "generatedAt": "2026-07-30T23:08:37.082Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "30 Jul 2026",
+        "headline": "Cuban Alien Sentenced for Role in International Alien Smuggling, Asylum Fraud, and Money Laundering Conspiracy",
+        "body": "U.S. Citizenship and Immigration Services played a critical role in an investigation that resulted in the sentencing of Cuban alien Erik Ventura-Castro, 24, of Hialeah, Florida, to 30 months in prison for his role in an international alien smuggling, asylum fraud, and money laundering conspiracy.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/cuban-alien-sentenced-for-role-in-international-alien-smuggling-asylum-fraud-and-money-laundering"
+      },
       {
         "tag": "USCIS",
         "date": "27 Jul 2026",
@@ -33,14 +41,6 @@
         "body": "The Department of Homeland Security (DHS) has issued a final rule rescinding the 2022 Biden-era regulation regarding public charge determinations, further aligning immigration law with Congressional intent that aliens in the United States be self-reliant and not dependent on taxpayer-funded government benefits.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/us-citizenship-and-immigration-services-rescinds-2022-public-charge-regulation"
-      },
-      {
-        "tag": "USCIS",
-        "date": "10 Jul 2026",
-        "headline": "USCIS Plays Critical Role in Illegal Aliens’ Sentencing for Sex Trafficking Child Orphan",
-        "body": "U.S. Citizenship and Immigration Services played a critical role in a federal investigation that resulted in two Venezuelan illegal aliens being sentenced to a combined 32 years in prison for sex trafficking a 16-year-old orphan, the U.S. Attorney’s Office announced.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-plays-critical-role-in-illegal-aliens-sentencing-for-sex-trafficking-child-orphan"
       }
     ],
     "jobs": [
