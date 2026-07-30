@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T22:59:42.670Z",
+  "generatedAt": "2026-07-30T16:37:26.437Z",
   "us": {
     "immigration": [
       {
@@ -56,6 +56,22 @@
     "finance": [
       {
         "tag": "Fed Rate",
+        "date": "30 Jul 2026",
+        "headline": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of First Interstate Bank",
+        "body": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of First Interstate Bank",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "30 Jul 2026",
+        "headline": "Federal Reserve Board issues enforcement action with Iuka Bancshares, Inc. and The Iuka State Bank",
+        "body": "Federal Reserve Board issues enforcement action with Iuka Bancshares, Inc. and The Iuka State Bank",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730b.htm"
+      },
+      {
+        "tag": "Fed Rate",
         "date": "29 Jul 2026",
         "headline": "Federal Reserve issues FOMC statement",
         "body": "Federal Reserve issues FOMC statement",
@@ -77,22 +93,6 @@
         "body": "Federal Reserve Board issues enforcement action with former chief lending officer of Heritage State Bank",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260716a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "14 Jul 2026",
-        "headline": "Minutes of the Board's discount rate meetings on June 8 and June 17, 2026",
-        "body": "Minutes of the Board's discount rate meetings on June 8 and June 17, 2026",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260714a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "9 Jul 2026",
-        "headline": "Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy",
-        "body": "Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260709a.htm"
       }
     ]
   },
