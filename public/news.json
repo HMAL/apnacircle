@@ -1,12 +1,20 @@
 {
-  "generatedAt": "2026-08-05T23:00:45.737Z",
+  "generatedAt": "2026-08-07T01:30:01.566Z",
   "us": {
     "immigration": [
       {
         "tag": "USCIS",
+        "date": "6 Aug 2026",
+        "headline": "USCIS Identity Checks Lead to Arrest of Former Latvian Reality TV Contestant with Violent Criminal History",
+        "body": "U.S. Citizenship and Immigration Services’ robust screening and vetting uncovered an illegal alien and former reality TV contestant from Latvia with a criminal history that includes sexual battery, aggravated assault, and drug possession.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-identity-checks-lead-to-arrest-of-former-latvian-reality-tv-contestant-with-violent-criminal"
+      },
+      {
+        "tag": "USCIS",
         "date": "4 Aug 2026",
         "headline": "Mexican Alien Sentenced for Fraud Conspiracy",
-        "body": "Conspiracy involved fraud in obtaining visas for victims of staged crimes",
+        "body": "A Mexican alien in the Kansas City area was sentenced in federal court for his role in helping illegal aliens fraudulently obtain visas allowing them to reside and work in the United States.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/mexican-alien-sentenced-for-fraud-conspiracy"
       },
@@ -30,23 +38,15 @@
         "tag": "USCIS",
         "date": "22 Jul 2026",
         "headline": "DHS and Department of Justice Announce Move to Revoke U.S. Citizenship from 10 Naturalized Criminals Including Child Molesters, Scammers, and Drug Dealers",
-        "body": "The Trump Administration continues the largest denaturalization effort ever",
+        "body": "U.S. Citizenship and Immigration Services assisted the Department of Justice (DOJ) with several recent denaturalization actions in U.S. district courts to revoke citizenship from 10 individuals accused of serious crimes, including sexual abuse of a child, health care and wire fraud, immigration fraud, and conspiracy to possess cocaine with intent to distribute.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/dhs-and-department-of-justice-announce-move-to-revoke-us-citizenship-from-10-naturalized-criminals"
-      },
-      {
-        "tag": "USCIS",
-        "date": "21 Jul 2026",
-        "headline": "Illegal Alien Child Rapist Sentenced for Immigration Fraud",
-        "body": "U.S. Citizenship and Immigration Services supported an investigation resulting in the sentencing of Juarez Sanchez-Montiel, 41, an illegal alien from Mexico, for immigration fraud.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/illegal-alien-child-rapist-sentenced-for-immigration-fraud"
       }
     ],
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "4 Aug 2026",
+        "date": "6 Aug 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): -0.4% in Jun 2026 News Release Historical Data Unemployment Rate: 4.2% in Jun 2026 News Release Historical Data Payroll Employment: +57,000(p) in Jun 2026 News Release Historical Data Average Hourly Earnings: +$0.13(p) in Jun 2026 News Release Historical Data Producer Price Index - Final Demand: -0.3%(p) in Jun 2026 News Release…",
         "source": "Bureau of Labor Statistics",
