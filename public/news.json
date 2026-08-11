@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-08-11T16:01:59.116Z",
+  "generatedAt": "2026-08-11T22:42:50.415Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "11 Aug 2026",
+        "headline": "Miami Man Charged With Defrauding U.S. Immigration System as Part of a National Health Care Takedown",
+        "body": "U.S. Citizenship and Immigration Services played a key role in an investigation resulting in federal charges against Eduardo Javier Ibarra Arrowsmith, 61, of Miami.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/miami-man-charged-with-defrauding-us-immigration-system-as-part-of-a-national-health-care-takedown"
+      },
+      {
+        "tag": "USCIS",
+        "date": "11 Aug 2026",
+        "headline": "Justice Department Files Record 25 Denaturalization Cases Against Naturalized Criminals Including Attempted Murderers, Spousal Abusers, and Child Sex Offenders",
+        "body": "U.S. Citizenship and Immigration Services partnered with the Department of Justice in its filing of denaturalization actions against 25 individuals accused of serious offenses, including attempted first-degree murder and assault with a deadly weapon with intent to kill, assault and battery of a high and aggravated nature, and aggravated sexual assault of a child.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/justice-department-files-record-25-denaturalization-cases-against-naturalized-criminals-including"
+      },
       {
         "tag": "USCIS",
         "date": "6 Aug 2026",
@@ -25,22 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services played a critical role in an investigation that resulted in the sentencing of Cuban alien Erik Ventura-Castro, 24, of Hialeah, Florida, to 30 months in prison for his role in an international alien smuggling, asylum fraud, and money laundering conspiracy.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/cuban-alien-sentenced-for-role-in-international-alien-smuggling-asylum-fraud-and-money-laundering"
-      },
-      {
-        "tag": "USCIS",
-        "date": "27 Jul 2026",
-        "headline": "USCIS Announces Rule Change to Asylum System to Reduce Backlog",
-        "body": "The United States Department of Homeland Security (DHS) released the following statement after U.S. Citizenship and Immigration Services (USCIS) announced a rule change designed to reduce the backlog in the asylum system.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-announces-rule-change-to-asylum-system-to-reduce-backlog"
-      },
-      {
-        "tag": "USCIS",
-        "date": "22 Jul 2026",
-        "headline": "DHS and Department of Justice Announce Move to Revoke U.S. Citizenship from 10 Naturalized Criminals Including Child Molesters, Scammers, and Drug Dealers",
-        "body": "U.S. Citizenship and Immigration Services assisted the Department of Justice (DOJ) with several recent denaturalization actions in U.S. district courts to revoke citizenship from 10 individuals accused of serious crimes, including sexual abuse of a child, health care and wire fraud, immigration fraud, and conspiracy to possess cocaine with intent to distribute.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/dhs-and-department-of-justice-announce-move-to-revoke-us-citizenship-from-10-naturalized-criminals"
       }
     ],
     "jobs": [
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "11 Aug 2026",
+        "headline": "Government of Canada invests over $3.21 million to support employment and skills training opportunities for First Nations youth in Treaty 7 territory",
+        "body": "Government of Canada invests over $3.21 million to support employment and skills training opportunities for First Nations youth in Treaty 7 territory",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-invests-over-321-million-to-support-employment-and-skills-training-opportunities-for-first-nations-youth-in-treaty-7-territory.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "10 Aug 2026",
         "headline": "Government of Canada launches new initiative to support early childhood educators",
         "body": "Government of Canada launches new initiative to support early childhood educators",
@@ -171,14 +179,6 @@
         "body": "Minister Robertson represents Canada at the United Nations High-Level Political Forum on Sustainable Development",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/minister-robertson-represents-canada-at-the-united-nations-high-level-political-forum-on-sustainable-development.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "17 Jul 2026",
-        "headline": "The Canada Child Benefit payments increasing in 2026-2027",
-        "body": "The Canada Child Benefit payments increasing in 2026-2027",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/the-canada-child-benefit-payments-increasing-in-2026-2027-nearly-892000-families-in-quebec-benefiting-from-more-generous-payments-starting-this-month.html"
       }
     ],
     "finance": [
