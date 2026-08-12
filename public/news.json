@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-08-12T16:00:33.744Z",
+  "generatedAt": "2026-08-12T22:41:53.968Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "12 Aug 2026",
+        "headline": "USCIS Plays Key Role in Takedown of Decade-Long  Marriage Fraud Ring",
+        "body": "U.S. Citizenship and Immigration Services played a key role in the indictment unsealed today charging 11 individuals with conspiring, over the course of more than a decade, to orchestrate more than 1,000 sham marriages.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-plays-key-role-in-takedown-of-decade-long-marriage-fraud-ring"
+      },
+      {
+        "tag": "USCIS",
+        "date": "12 Aug 2026",
+        "headline": "Denaturalization Case Filed Against Man Who Procured U.S. Citizenship Under False Identity",
+        "body": "U.S. Citizenship and Immigration Services provided crucial support to an investigation resulting in charges to denaturalize a man born in India for using a false identity to become a U.S. citizen.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/denaturalization-case-filed-against-man-who-procured-us-citizenship-under-false-identity"
+      },
       {
         "tag": "USCIS",
         "date": "11 Aug 2026",
@@ -25,22 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services’ robust screening and vetting uncovered an illegal alien and former reality TV contestant from Latvia with a criminal history that includes sexual battery, aggravated assault, and drug possession.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/uscis-identity-checks-lead-to-arrest-of-former-latvian-reality-tv-contestant-with-violent-criminal"
-      },
-      {
-        "tag": "USCIS",
-        "date": "4 Aug 2026",
-        "headline": "Mexican Alien Sentenced for Fraud Conspiracy",
-        "body": "A Mexican alien in the Kansas City area was sentenced in federal court for his role in helping illegal aliens fraudulently obtain visas allowing them to reside and work in the United States.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/mexican-alien-sentenced-for-fraud-conspiracy"
-      },
-      {
-        "tag": "USCIS",
-        "date": "30 Jul 2026",
-        "headline": "Cuban Alien Sentenced for Role in International Alien Smuggling, Asylum Fraud, and Money Laundering Conspiracy",
-        "body": "U.S. Citizenship and Immigration Services played a critical role in an investigation that resulted in the sentencing of Cuban alien Erik Ventura-Castro, 24, of Hialeah, Florida, to 30 months in prison for his role in an international alien smuggling, asylum fraud, and money laundering conspiracy.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/cuban-alien-sentenced-for-role-in-international-alien-smuggling-asylum-fraud-and-money-laundering"
       }
     ],
     "jobs": [
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "12 Aug 2026",
+        "headline": "Secretary of State Zerucelli highlights additional funding to support Alberta’s skilled trades workforce",
+        "body": "Building a strong economy starts with a strong workforce. As the economy continues to evolve, demand for skilled workers is growing. Across Canada, skilled trades workers are driving economic growth, supporting key industries, strengthening supply chains and building the homes and infrastructure Canadians rely on every day.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/secretary-of-state-zerucelli-highlights-additional-funding-to-support-albertas-skilled-trades-workforce.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "11 Aug 2026",
         "headline": "Government of Canada invests over $3.21 million to support employment and skills training opportunities for First Nations youth in Treaty 7 territory",
         "body": "Government of Canada invests over $3.21 million to support employment and skills training opportunities for First Nations youth in Treaty 7 territory",
@@ -171,14 +179,6 @@
         "body": "The Government of Canada is lowering costs for families by strengthening the Canada Child Benefit (CCB). The CCB is a monthly tax-free payment to help them with the costs of raising children.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/canada-child-benefit-payments-increasing-in-2026-2027.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "17 Jul 2026",
-        "headline": "Minister Robertson represents Canada at the United Nations High-Level Political Forum on Sustainable Development",
-        "body": "Minister Robertson represents Canada at the United Nations High-Level Political Forum on Sustainable Development",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/minister-robertson-represents-canada-at-the-united-nations-high-level-political-forum-on-sustainable-development.html"
       }
     ],
     "finance": [
