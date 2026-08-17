@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T22:21:58.684Z",
+  "generatedAt": "2026-08-17T15:27:15.556Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "17 Aug 2026",
+        "headline": "The Government of Canada announces the launch of the Advanced Manufacturing Workforce Alliance",
+        "body": "The world is changing fast, and Canada’s advanced manufacturing sector is facing increasing workforce challenges from tariffs, skills shortages, supply chain disruptions and a workplace being reshaped by artificial intelligence.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/the-government-of-canada-announces-the-launch-of-the-advanced-manufacturing-workforce-alliance.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "12 Aug 2026",
         "headline": "Secretary of State Zerucelli highlights additional funding to support Alberta’s skilled trades workforce",
         "body": "Building a strong economy starts with a strong workforce. As the economy continues to evolve, demand for skilled workers is growing. Across Canada, skilled trades workers are driving economic growth, supporting key industries, strengthening supply chains and building the homes and infrastructure Canadians rely on every day.",
@@ -171,14 +179,6 @@
         "body": "A strong Canadian economy relies on an inclusive workforce where everyone has the opportunity to participate and succeed. However, many Canadians still face barriers to meaningful employment and prevent them from fully contributing their talents and skills.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-invests-over-15-million-to-help-remove-employment-barriers-for-youth-and-persons-with-disabilities.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "20 Jul 2026",
-        "headline": "Canada Child Benefit payments increasing in 2026-2027",
-        "body": "The Government of Canada is lowering costs for families by strengthening the Canada Child Benefit (CCB). The CCB is a monthly tax-free payment to help them with the costs of raising children.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/canada-child-benefit-payments-increasing-in-2026-2027.html"
       }
     ],
     "finance": [
