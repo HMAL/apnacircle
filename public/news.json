@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T15:33:38.118Z",
+  "generatedAt": "2026-08-19T22:25:41.592Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "19 Aug 2026",
+        "headline": "Minutes of the Federal Open Market Committee, July 28–29, 2026",
+        "body": "Minutes of the Federal Open Market Committee, July 28–29, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260819a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "13 Aug 2026",
         "headline": "Federal Reserve Board issues enforcement action with former employee of Regions Bank",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board announces approval of the application by Banco Santander, S.A. and Santander Holdings USA, Inc.",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "31 Jul 2026",
-        "headline": "Federal Reserve Board requests comment on a proposal to modernize its rule governing the extension of credit to bank \"insiders\"—bank executives, board members and major shareholders who could potentially influence a bank's lending decisions",
-        "body": "Federal Reserve Board requests comment on a proposal to modernize its rule governing the extension of credit to bank \"insiders\"—bank executives, board members and major shareholders who could potentially influence a bank's lending decisions",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260731b.htm"
       }
     ]
   },
@@ -142,6 +142,22 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "19 Aug 2026",
+        "headline": "Minister Hajdu invites organizations to apply for funding to help persons with disabilities access benefits",
+        "body": "Every Canadian deserves access to the benefits and services they are eligible for, especially those who face the greatest barriers. That is why the Government of Canada is taking action to improve access to these supports and make it easier for community organizations to help people with complex needs apply for disability benefits.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/minister-hajdu-invites-organizations-to-apply-for-funding-to-help-persons-with-disabilities-access-benefits.html"
+      },
+      {
+        "tag": "Work Permit",
+        "date": "19 Aug 2026",
+        "headline": "Minister Hajdu appoints new members to the National Advisory Committee for Canada’s Volunteer Awards",
+        "body": "Minister Hajdu appoints new members to the National Advisory Committee for Canada’s Volunteer Awards",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/minister-hajdu-appoints-new-members-to-the-national-advisory-committee-for-canadas-volunteer-awards.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "17 Aug 2026",
         "headline": "The Government of Canada announces the launch of the Advanced Manufacturing Workforce Alliance",
         "body": "The world is changing fast, and Canada’s advanced manufacturing sector is facing increasing workforce challenges from tariffs, skills shortages, supply chain disruptions and a workplace being reshaped by artificial intelligence.",
@@ -163,22 +179,6 @@
         "body": "Government of Canada invests over $3.21 million to support employment and skills training opportunities for First Nations youth in Treaty 7 territory",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-invests-over-321-million-to-support-employment-and-skills-training-opportunities-for-first-nations-youth-in-treaty-7-territory.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "10 Aug 2026",
-        "headline": "Government of Canada launches new initiative to support early childhood educators",
-        "body": "Government of Canada launches new initiative to support early childhood educators",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-launches-new-initiative-to-support-early-childhood-educators.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "22 Jul 2026",
-        "headline": "Government of Canada invests over $1.5 million to help remove employment barriers for youth and persons with disabilities",
-        "body": "A strong Canadian economy relies on an inclusive workforce where everyone has the opportunity to participate and succeed. However, many Canadians still face barriers to meaningful employment and prevent them from fully contributing their talents and skills.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/07/government-of-canada-invests-over-15-million-to-help-remove-employment-barriers-for-youth-and-persons-with-disabilities.html"
       }
     ],
     "finance": [
