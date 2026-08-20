@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T15:36:07.826Z",
+  "generatedAt": "2026-08-20T22:28:58.681Z",
   "us": {
     "immigration": [
       {
@@ -57,6 +57,14 @@
       {
         "tag": "Fed Rate",
         "date": "20 Aug 2026",
+        "headline": "Federal Reserve Board announces approval of application by National Westminster Bank Plc",
+        "body": "Federal Reserve Board announces approval of application by National Westminster Bank Plc",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260820a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "20 Aug 2026",
         "headline": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
         "body": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
         "source": "Federal Reserve",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board issues enforcement action with former employee of Regions Bank",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260813a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "4 Aug 2026",
-        "headline": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
-        "body": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm"
       }
     ]
   },
