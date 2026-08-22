@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T15:23:43.676Z",
+  "generatedAt": "2026-08-22T22:22:38.857Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "22 Aug 2026",
+        "headline": "Government of Canada announces Peter Ballantyne Cree Nation as an Indigenous Skills and Employment Training Program agreement holder",
+        "body": "Government of Canada announces Peter Ballantyne Cree Nation as an Indigenous Skills and Employment Training Program agreement holder",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-announces-peter-ballantyne-cree-nation-as-an-indigenous-skills-and-employment-training-program-agreement-holder.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "19 Aug 2026",
         "headline": "Minister Hajdu invites organizations to apply for funding to help persons with disabilities access benefits",
         "body": "Every Canadian deserves access to the benefits and services they are eligible for, especially those who face the greatest barriers. That is why the Government of Canada is taking action to improve access to these supports and make it easier for community organizations to help people with complex needs apply for disability benefits.",
@@ -171,14 +179,6 @@
         "body": "Building a strong economy starts with a strong workforce. As the economy continues to evolve, demand for skilled workers is growing. Across Canada, skilled trades workers are driving economic growth, supporting key industries, strengthening supply chains and building the homes and infrastructure Canadians rely on every day.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/secretary-of-state-zerucelli-highlights-additional-funding-to-support-albertas-skilled-trades-workforce.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "11 Aug 2026",
-        "headline": "Government of Canada invests over $3.21 million to support employment and skills training opportunities for First Nations youth in Treaty 7 territory",
-        "body": "Government of Canada invests over $3.21 million to support employment and skills training opportunities for First Nations youth in Treaty 7 territory",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-invests-over-321-million-to-support-employment-and-skills-training-opportunities-for-first-nations-youth-in-treaty-7-territory.html"
       }
     ],
     "finance": [
