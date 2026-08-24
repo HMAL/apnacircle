@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-08-24T15:41:16.638Z",
+  "generatedAt": "2026-08-24T22:27:46.316Z",
   "us": {
     "immigration": [
+      {
+        "tag": "H-1B",
+        "date": "24 Aug 2026",
+        "headline": "DHS Proposes Additional H-1B Fee",
+        "body": "The Department of Homeland Security (DHS) is proposing to establish a $103,265 fee for all H-1B cap-subject petitions, including those eligible for the advanced degree exemption.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/dhs-proposes-additional-h-1b-fee"
+      },
       {
         "tag": "USCIS",
         "date": "21 Aug 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services provided crucial support to an investigation resulting in charges to denaturalize a man born in India for using a false identity to become a U.S. citizen.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/denaturalization-case-filed-against-man-who-procured-us-citizenship-under-false-identity"
-      },
-      {
-        "tag": "USCIS",
-        "date": "11 Aug 2026",
-        "headline": "Miami Man Charged With Defrauding U.S. Immigration System as Part of a National Health Care Takedown",
-        "body": "U.S. Citizenship and Immigration Services played a key role in an investigation resulting in federal charges against Eduardo Javier Ibarra Arrowsmith, 61, of Miami.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/miami-man-charged-with-defrauding-us-immigration-system-as-part-of-a-national-health-care-takedown"
       }
     ],
     "jobs": [
@@ -142,6 +142,22 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "24 Aug 2026",
+        "headline": "Government of Canada launches engagement process on the 2030 Agenda and the Sustainable Development Goals",
+        "body": "Government of Canada launches engagement process on the 2030 Agenda and the Sustainable Development Goals",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-launches-engagement-process-on-the-2030-agenda-and-the-sustainable-development-goals0.html"
+      },
+      {
+        "tag": "Work Permit",
+        "date": "24 Aug 2026",
+        "headline": "Minister Hajdu launches the Transportation and Supply Chain Workforce Alliance",
+        "body": "Minister Hajdu launches the Transportation and Supply Chain Workforce Alliance",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/minister-hajdu-launches-the-transportation-and-supply-chain-workforce-alliance0.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "22 Aug 2026",
         "headline": "Government of Canada announces Peter Ballantyne Cree Nation as an Indigenous Skills and Employment Training Program agreement holder",
         "body": "Government of Canada announces Peter Ballantyne Cree Nation as an Indigenous Skills and Employment Training Program agreement holder",
@@ -163,22 +179,6 @@
         "body": "Minister Hajdu appoints new members to the National Advisory Committee for Canada’s Volunteer Awards",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/minister-hajdu-appoints-new-members-to-the-national-advisory-committee-for-canadas-volunteer-awards.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "17 Aug 2026",
-        "headline": "The Government of Canada announces the launch of the Advanced Manufacturing Workforce Alliance",
-        "body": "The world is changing fast, and Canada’s advanced manufacturing sector is facing increasing workforce challenges from tariffs, skills shortages, supply chain disruptions and a workplace being reshaped by artificial intelligence.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/the-government-of-canada-announces-the-launch-of-the-advanced-manufacturing-workforce-alliance.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "12 Aug 2026",
-        "headline": "Secretary of State Zerucelli highlights additional funding to support Alberta’s skilled trades workforce",
-        "body": "Building a strong economy starts with a strong workforce. As the economy continues to evolve, demand for skilled workers is growing. Across Canada, skilled trades workers are driving economic growth, supporting key industries, strengthening supply chains and building the homes and infrastructure Canadians rely on every day.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/secretary-of-state-zerucelli-highlights-additional-funding-to-support-albertas-skilled-trades-workforce.html"
       }
     ],
     "finance": [
