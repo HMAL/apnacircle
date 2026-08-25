@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T15:44:01.550Z",
+  "generatedAt": "2026-08-25T22:28:30.606Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "25 Aug 2026",
+        "headline": "Minutes of the Board's discount rate meetings on July 20 and July 29, 2026",
+        "body": "Minutes of the Board's discount rate meetings on July 20 and July 29, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260825a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "20 Aug 2026",
         "headline": "Federal Reserve Board announces approval of application by National Westminster Bank Plc",
@@ -65,18 +73,18 @@
       {
         "tag": "Fed Rate",
         "date": "20 Aug 2026",
-        "headline": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
-        "body": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260820b.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "20 Aug 2026",
         "headline": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of United Community Bank",
         "body": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of United Community Bank",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260820a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "20 Aug 2026",
+        "headline": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
+        "body": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260820b.htm"
       },
       {
         "tag": "Markets",
@@ -85,14 +93,6 @@
         "body": "Minutes of the Federal Open Market Committee, July 28–29, 2026",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260819a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "13 Aug 2026",
-        "headline": "Federal Reserve Board issues enforcement action with former employee of Regions Bank",
-        "body": "Federal Reserve Board issues enforcement action with former employee of Regions Bank",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260813a.htm"
       }
     ]
   },
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "25 Aug 2026",
+        "headline": "Government of Canada invests in workforce training to support the life sciences and biomanufacturing sector",
+        "body": "Government of Canada invests in workforce training to support the life sciences and biomanufacturing sector",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-invests-in-workforce-training-to-support-the-life-sciences-and-biomanufacturing-sector.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "24 Aug 2026",
         "headline": "Government of Canada launches engagement process on the 2030 Agenda and the Sustainable Development Goals",
         "body": "Government of Canada launches engagement process on the 2030 Agenda and the Sustainable Development Goals",
@@ -171,14 +179,6 @@
         "body": "Every Canadian deserves access to the benefits and services they are eligible for, especially those who face the greatest barriers. That is why the Government of Canada is taking action to improve access to these supports and make it easier for community organizations to help people with complex needs apply for disability benefits.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/minister-hajdu-invites-organizations-to-apply-for-funding-to-help-persons-with-disabilities-access-benefits.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "19 Aug 2026",
-        "headline": "Minister Hajdu appoints new members to the National Advisory Committee for Canada’s Volunteer Awards",
-        "body": "Minister Hajdu appoints new members to the National Advisory Committee for Canada’s Volunteer Awards",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/minister-hajdu-appoints-new-members-to-the-national-advisory-committee-for-canadas-volunteer-awards.html"
       }
     ],
     "finance": [
