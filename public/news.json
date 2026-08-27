@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T16:19:49.224Z",
+  "generatedAt": "2026-08-27T02:59:12.127Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "26 Aug 2026",
+        "headline": "Secretary of State McLean announces funding for 12 projects in Vancouver Granville through the New Horizons for Seniors Program",
+        "body": "Secretary of State McLean announces funding for 12 projects in Vancouver Granville through the New Horizons for Seniors Program",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/secretary-of-state-mclean-announces-funding-for-12-projects-in-vancouver-granville-through-the-new-horizons-for-seniors-program.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "25 Aug 2026",
         "headline": "Government of Canada invests in workforce training to support the life sciences and biomanufacturing sector",
         "body": "Government of Canada invests in workforce training to support the life sciences and biomanufacturing sector",
@@ -171,14 +179,6 @@
         "body": "Government of Canada announces Peter Ballantyne Cree Nation as an Indigenous Skills and Employment Training Program agreement holder",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-announces-peter-ballantyne-cree-nation-as-an-indigenous-skills-and-employment-training-program-agreement-holder.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "19 Aug 2026",
-        "headline": "Minister Hajdu invites organizations to apply for funding to help persons with disabilities access benefits",
-        "body": "Every Canadian deserves access to the benefits and services they are eligible for, especially those who face the greatest barriers. That is why the Government of Canada is taking action to improve access to these supports and make it easier for community organizations to help people with complex needs apply for disability benefits.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/minister-hajdu-invites-organizations-to-apply-for-funding-to-help-persons-with-disabilities-access-benefits.html"
       }
     ],
     "finance": [
