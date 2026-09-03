@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-09-03T18:24:10.902Z",
+  "generatedAt": "2026-09-03T23:49:57.062Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "3 Sept 2026",
+        "headline": "Naturalized U.S. Citizen Indicted for Lying to Obtain U.S. Citizenship After Committing Felonies",
+        "body": "A naturalized U.S. citizen made his initial appearance in court Sept. 2 for allegedly lying about his prior criminal acts to obtain U.S. citizenship. The U.S. Attorney's Office for the District of Nevada announced the charges.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/naturalized-us-citizen-indicted-for-lying-to-obtain-us-citizenship-after-committing-felonies"
+      },
       {
         "tag": "USCIS",
         "date": "3 Sept 2026",
@@ -33,14 +41,6 @@
         "body": "A Chinese alien residing in Andover, Mass., was arrested for submitting a fraudulent voter registration and ballot in the 2024 presidential election using the name of another Chinese alien.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/chinese-alien-charged-with-voter-fraud-in-massachusetts"
-      },
-      {
-        "tag": "USCIS",
-        "date": "18 Aug 2026",
-        "headline": "Cuban Alien Pleads Guilty to Role in International Alien Smuggling, Asylum Fraud, and Money Laundering Conspiracy",
-        "body": "U.S. Citizenship and Immigration Services played a critical role in an investigation that resulted in a Cuban national pleading guilty to alien smuggling, asylum fraud, and money laundering.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/cuban-alien-pleads-guilty-to-role-in-international-alien-smuggling-asylum-fraud-and-money-laundering"
       }
     ],
     "jobs": [
