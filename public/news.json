@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T18:22:34.582Z",
+  "generatedAt": "2026-09-09T23:52:11.633Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,30 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "9 Sept 2026",
+        "headline": "Secretary of State McLean announces funding for Alberta seniors",
+        "body": "As the cost of living continues to rise, the Government of Canada is taking action to make life more affordable for seniors, and to help them stay active and connected to their communities.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/secretary-of-state-mclean-announces-funding-for-alberta-seniors0.html"
+      },
+      {
+        "tag": "Work Permit",
+        "date": "9 Sept 2026",
+        "headline": "National School Food Program helps students and families in Alberta as a new school year begins",
+        "body": "As students return to the classroom, the Honourable Anna Gainey, Secretary of State (Children and Youth) visited RancheView School in Cochrane to mark the start of the new school year and highlight how federal and provincial investments are helping more children access nutritious food at school.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/national-school-food-program-helps-students-and-families-in-alberta-as-a-new-school-year-begins.html"
+      },
+      {
+        "tag": "Work Permit",
+        "date": "9 Sept 2026",
+        "headline": "Secretary of State Zerucelli highlights funding to support Edmonton’s skilled trades workforce",
+        "body": "Secretary of State Zerucelli highlights funding to support Edmonton’s skilled trades workforce",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/secretary-of-state-zerucelli-highlights-funding-to-support-edmontons-skilled-trades-workforce.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "8 Sept 2026",
         "headline": "Secretary of State McLean highlights the extension of the federal fuel excise tax relief on gasoline, diesel, and aviation fuels for Canadians",
         "body": "The world is changing rapidly. The United States is imposing new tariffs on Canada, designed to hurt and divide us. At the same time, conflicts in Europe and the Middle East are driving up prices around the world. In response, Canada’s government is focused on what we can control: building a stronger, more independent, and…",
@@ -155,30 +179,6 @@
         "body": "Minister Hajdu establishes the Energy & Electricity Workforce Alliance",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/minister-hajdu-establishes-the-energy--electricity-workforce-alliance.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "28 Aug 2026",
-        "headline": "The Government of Canada is launching a call for proposals under the Sectoral Workforce Innovation Fund to support workforce projects across key sectors",
-        "body": "Workers and employers across the country are facing increasing pressure from tariffs, skilled labour shortages, supply chain disruptions and broader economic uncertainty. The Government of Canada is focused on what we can control: investing in the people and sectors that will drive our economic future. Through major projects in housing, clean electricity and defence, the…",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/the-government-of-canada-is-launching-a-call-for-proposals-under-the-sectoral-workforce-innovation-fund-to-support-workforce-projects-across-key-se.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "28 Aug 2026",
-        "headline": "Canada announces targeted countermeasures and substantive support for workers and businesses in response to U.S. tariffs",
-        "body": "The Government of Canada has negotiated intensively and in good faith with the United States (U.S.) toward a fair and comprehensive trade agreement that would protect Canadian workers and their families, strengthen the economy, provide greater certainty for businesses, and respect Canada’s sovereignty.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/canada-announces-targeted-countermeasures-and-substantive-support-for-workers-and-businesses-in-response-to-us-tariffs.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "26 Aug 2026",
-        "headline": "Secretary of State McLean announces funding for 12 projects in Vancouver Granville through the New Horizons for Seniors Program",
-        "body": "Secretary of State McLean announces funding for 12 projects in Vancouver Granville through the New Horizons for Seniors Program",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/secretary-of-state-mclean-announces-funding-for-12-projects-in-vancouver-granville-through-the-new-horizons-for-seniors-program.html"
       }
     ],
     "finance": [
