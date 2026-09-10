@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T18:11:56.108Z",
+  "generatedAt": "2026-09-10T23:48:54.010Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "10 Sept 2026",
+        "headline": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
+        "body": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260910a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "4 Sept 2026",
         "headline": "Federal Reserve Board announces termination of enforcement actions with United Texas Bank, Quontic Bank Acquisition Corp., and Quontic Bank Holdings Corp.",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board announces approval of application by National Westminster Bank Plc",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260820a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "20 Aug 2026",
-        "headline": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
-        "body": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260820b.htm"
       }
     ]
   },
