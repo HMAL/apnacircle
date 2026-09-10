@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T23:52:11.633Z",
+  "generatedAt": "2026-09-10T18:11:56.108Z",
   "us": {
     "immigration": [
       {
@@ -46,9 +46,9 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "9 Sept 2026",
+        "date": "10 Sept 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.1% in Jul 2026 News Release Historical Data Unemployment Rate: 4.1% in Aug 2026 News Release Historical Data Payroll Employment: +162,000(p) in Aug 2026 News Release Historical Data Average Hourly Earnings: +$0.10(p) in Aug 2026 News Release Historical Data Producer Price Index - Final Demand: unchanged in Jul 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.1% in Jul 2026 News Release Historical Data Unemployment Rate: 4.1% in Aug 2026 News Release Historical Data Payroll Employment: +162,000(p) in Aug 2026 News Release Historical Data Average Hourly Earnings: +$0.10(p) in Aug 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "10 Sept 2026",
+        "headline": "Supplemental Canada Disability Benefit payments to begin in September",
+        "body": "Canada is stronger when everyone has the chance to contribute and thrive. Persons with disabilities are more likely to face barriers to financial and economic security than Canadians without disabilities. The Government of Canada is focused on reducing barriers to accessing support so that persons with disabilities have greater opportunities to participate fully in their…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/supplemental-canada-disability-benefit-payments-to-begin-in-september.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "9 Sept 2026",
         "headline": "Secretary of State McLean announces funding for Alberta seniors",
         "body": "As the cost of living continues to rise, the Government of Canada is taking action to make life more affordable for seniors, and to help them stay active and connected to their communities.",
@@ -171,14 +179,6 @@
         "body": "The world is changing rapidly. The United States is imposing new tariffs on Canada, designed to hurt and divide us. At the same time, conflicts in Europe and the Middle East are driving up prices around the world. In response, Canada’s government is focused on what we can control: building a stronger, more independent, and…",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/secretary-of-state-mclean-highlights-the-extension-of-the-federal-fuel-excise-tax-relief-on-gasoline-diesel-and-aviation-fuels-for-canadians.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "2 Sept 2026",
-        "headline": "Minister Hajdu establishes the Energy & Electricity Workforce Alliance",
-        "body": "Minister Hajdu establishes the Energy & Electricity Workforce Alliance",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/minister-hajdu-establishes-the-energy--electricity-workforce-alliance.html"
       }
     ],
     "finance": [
