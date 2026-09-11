@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T23:48:54.010Z",
+  "generatedAt": "2026-09-11T18:15:46.425Z",
   "us": {
     "immigration": [
       {
@@ -46,14 +46,22 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "10 Sept 2026",
+        "date": "11 Sept 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.1% in Jul 2026 News Release Historical Data Unemployment Rate: 4.1% in Aug 2026 News Release Historical Data Payroll Employment: +162,000(p) in Aug 2026 News Release Historical Data Average Hourly Earnings: +$0.10(p) in Aug 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.4% in Aug 2026 News Release Historical Data Unemployment Rate: 4.1% in Aug 2026 News Release Historical Data Payroll Employment: +162,000(p) in Aug 2026 News Release Historical Data Average Hourly Earnings: +$0.10(p) in Aug 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
     ],
     "finance": [
+      {
+        "tag": "Markets",
+        "date": "11 Sept 2026",
+        "headline": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
+        "body": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260911a.htm"
+      },
       {
         "tag": "Markets",
         "date": "10 Sept 2026",
@@ -85,14 +93,6 @@
         "body": "Minutes of the Board's discount rate meetings on July 20 and July 29, 2026",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260825a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "20 Aug 2026",
-        "headline": "Federal Reserve Board announces approval of application by National Westminster Bank Plc",
-        "body": "Federal Reserve Board announces approval of application by National Westminster Bank Plc",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260820a.htm"
       }
     ]
   },
