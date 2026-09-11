@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-09-11T18:15:46.425Z",
+  "generatedAt": "2026-09-11T23:55:51.254Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "11 Sept 2026",
+        "headline": "Department of Justice Removes Alien Terrorist in First Use of United States Alien Terrorist Removal Court",
+        "body": "In the first-ever case before the United States Alien Terrorist Removal Court (ATRC), Nazira Haji Zada, 47, an Afghan national previously residing in Fort Worth, Texas, was removed from the United States after conceding that she is an alien terrorist.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/department-of-justice-removes-alien-terrorist-in-first-use-of-united-states-alien-terrorist-removal"
+      },
       {
         "tag": "USCIS",
         "date": "3 Sept 2026",
@@ -33,14 +41,6 @@
         "body": "The Department of Homeland Security (DHS) is proposing to establish a $103,265 fee for all H-1B cap-subject petitions, including those eligible for the advanced degree exemption.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/dhs-proposes-additional-h-1b-fee"
-      },
-      {
-        "tag": "USCIS",
-        "date": "21 Aug 2026",
-        "headline": "Chinese Alien Charged with Voter Fraud in Massachusetts",
-        "body": "A Chinese alien residing in Andover, Mass., was arrested for submitting a fraudulent voter registration and ballot in the 2024 presidential election using the name of another Chinese alien.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/chinese-alien-charged-with-voter-fraud-in-massachusetts"
       }
     ],
     "jobs": [
