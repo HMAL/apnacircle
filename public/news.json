@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T23:55:30.358Z",
+  "generatedAt": "2026-09-14T19:45:33.264Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "14 Sept 2026",
+        "headline": "Canada Employment Insurance Commission confirms 2027 Employment Insurance premium rate",
+        "body": "Today, the Canada Employment Insurance Commission made available the actuarial report and its summary for the 2027 Employment Insurance (EI) premium rate. The rate for 2027 is set at $1.64 per $100 of insurable earnings for employees and $2.30 for employers, who pay 1.4 times the employee rate. This rate will come into effect on…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/canada-employment-insurance-commission-confirms-2027-employment-insurance-premium-rate.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "10 Sept 2026",
         "headline": "Supplemental Canada Disability Benefit payments to begin in September",
         "body": "Canada is stronger when everyone has the chance to contribute and thrive. Persons with disabilities are more likely to face barriers to financial and economic security than Canadians without disabilities. The Government of Canada is focused on reducing barriers to accessing support so that persons with disabilities have greater opportunities to participate fully in their…",
@@ -171,14 +179,6 @@
         "body": "Secretary of State Zerucelli highlights funding to support Edmonton’s skilled trades workforce",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/secretary-of-state-zerucelli-highlights-funding-to-support-edmontons-skilled-trades-workforce.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "8 Sept 2026",
-        "headline": "Secretary of State McLean highlights the extension of the federal fuel excise tax relief on gasoline, diesel, and aviation fuels for Canadians",
-        "body": "The world is changing rapidly. The United States is imposing new tariffs on Canada, designed to hurt and divide us. At the same time, conflicts in Europe and the Middle East are driving up prices around the world. In response, Canada’s government is focused on what we can control: building a stronger, more independent, and…",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/secretary-of-state-mclean-highlights-the-extension-of-the-federal-fuel-excise-tax-relief-on-gasoline-diesel-and-aviation-fuels-for-canadians.html"
       }
     ],
     "finance": [
