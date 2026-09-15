@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T00:22:17.125Z",
+  "generatedAt": "2026-09-15T18:45:39.578Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,22 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "15 Sept 2026",
+        "headline": "Government of Canada invests in lasting change through fourth call for proposals under Black-led Philanthropic Endowment Fund",
+        "body": "Government of Canada invests in lasting change through fourth call for proposals under Black-led Philanthropic Endowment Fund",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/government-of-canada-invests-in-lasting-change-through-fourth-call-for-proposals-under-black-led-philanthropic-endowment-fund.html"
+      },
+      {
+        "tag": "Work Permit",
+        "date": "15 Sept 2026",
+        "headline": "Government of Canada expands passport service offerings at Charlottetown Service Canada Centre",
+        "body": "Government of Canada expands passport service offerings at Charlottetown Service Canada Centre",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/government-of-canada-expands-passport-service-offerings-at-charlottetown-service-canada-centre.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "14 Sept 2026",
         "headline": "Canada Employment Insurance Commission confirms 2027 Employment Insurance premium rate",
         "body": "Today, the Canada Employment Insurance Commission made available the actuarial report and its summary for the 2027 Employment Insurance (EI) premium rate. The rate for 2027 is set at $1.64 per $100 of insurable earnings for employees and $2.30 for employers, who pay 1.4 times the employee rate. This rate will come into effect on…",
@@ -163,22 +179,6 @@
         "body": "As the cost of living continues to rise, the Government of Canada is taking action to make life more affordable for seniors, and to help them stay active and connected to their communities.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/secretary-of-state-mclean-announces-funding-for-alberta-seniors0.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "9 Sept 2026",
-        "headline": "National School Food Program helps students and families in Alberta as a new school year begins",
-        "body": "As students return to the classroom, the Honourable Anna Gainey, Secretary of State (Children and Youth) visited RancheView School in Cochrane to mark the start of the new school year and highlight how federal and provincial investments are helping more children access nutritious food at school.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/national-school-food-program-helps-students-and-families-in-alberta-as-a-new-school-year-begins.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "9 Sept 2026",
-        "headline": "Secretary of State Zerucelli highlights funding to support Edmonton’s skilled trades workforce",
-        "body": "Secretary of State Zerucelli highlights funding to support Edmonton’s skilled trades workforce",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/secretary-of-state-zerucelli-highlights-funding-to-support-edmontons-skilled-trades-workforce.html"
       }
     ],
     "finance": [
