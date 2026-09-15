@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-09-14T19:45:33.264Z",
+  "generatedAt": "2026-09-15T00:22:17.125Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "14 Sept 2026",
+        "headline": "Peruvian Alien Indicted for Illegally Voting",
+        "body": "A federal grand jury in Wichita indicted a Peruvian alien with multiple criminal offenses arising from allegedly voting in a federal election despite not being a U.S. citizen.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/peruvian-alien-indicted-for-illegally-voting"
+      },
       {
         "tag": "USCIS",
         "date": "11 Sept 2026",
@@ -33,14 +41,6 @@
         "body": "Defendants allegedly lied about their relationship to obtain immigration benefits",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/aunt-and-us-airman-nephew-arrested-in-immigration-fraud-scheme"
-      },
-      {
-        "tag": "H-1B",
-        "date": "24 Aug 2026",
-        "headline": "DHS Proposes Additional H-1B Fee",
-        "body": "The Department of Homeland Security (DHS) is proposing to establish a $103,265 fee for all H-1B cap-subject petitions, including those eligible for the advanced degree exemption.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/dhs-proposes-additional-h-1b-fee"
       }
     ],
     "jobs": [
