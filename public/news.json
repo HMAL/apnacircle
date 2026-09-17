@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-09-17T18:52:00.761Z",
+  "generatedAt": "2026-09-17T23:57:24.079Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "17 Sept 2026",
+        "headline": "Immigration Attorney Arrested in Alleged Fraud Scheme",
+        "body": "U.S. Citizenship and Immigration Services provided pivotal assistance to an investigation leading to the indictment and arrest of a Houston area immigration attorney.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/immigration-attorney-arrested-in-alleged-fraud-scheme"
+      },
       {
         "tag": "USCIS",
         "date": "14 Sept 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services played a critical role in the investigation that led to the indictment of Miguel Angel Olivera‑Borda, 38, a Peruvian alien illegally present in the United States, after federal prosecutors presented evidence to a grand jury.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/illegal-alien-indicted-in-marriage-related-immigration-fraud"
-      },
-      {
-        "tag": "USCIS",
-        "date": "2 Sept 2026",
-        "headline": "Aunt and U.S. Airman Nephew Arrested in Immigration Fraud Scheme",
-        "body": "Defendants allegedly lied about their relationship to obtain immigration benefits",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/aunt-and-us-airman-nephew-arrested-in-immigration-fraud-scheme"
       }
     ],
     "jobs": [
