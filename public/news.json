@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-09-18T18:08:45.367Z",
+  "generatedAt": "2026-09-18T23:56:14.439Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "18 Sept 2026",
+        "headline": "Five Defendants Charged with Defrauding and Exploiting H-2A Visa Program to Smuggle Aliens into the United States",
+        "body": "U.S. Citizenship and Immigration Services (USCIS) supported a federal investigation that resulted in the indictment of five people for their roles in a scheme to exploit a nonimmigrant visa worker program. The defendants fraudulently obtained worker visas and smuggled aliens into the United States. The U.S. Attorney for Southern District of Georgia made the announcement.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/five-defendants-charged-with-defrauding-and-exploiting-h-2a-visa-program-to-smuggle-aliens-into-the"
+      },
       {
         "tag": "USCIS",
         "date": "17 Sept 2026",
@@ -33,14 +41,6 @@
         "body": "A naturalized U.S. citizen made his initial appearance in court Sept. 2 for allegedly lying about his prior criminal acts to obtain U.S. citizenship. The U.S. Attorney's Office for the District of Nevada announced the charges.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/naturalized-us-citizen-indicted-for-lying-to-obtain-us-citizenship-after-committing-felonies"
-      },
-      {
-        "tag": "USCIS",
-        "date": "3 Sept 2026",
-        "headline": "Illegal Alien Indicted in Marriage-Related Immigration Fraud",
-        "body": "U.S. Citizenship and Immigration Services played a critical role in the investigation that led to the indictment of Miguel Angel Olivera‑Borda, 38, a Peruvian alien illegally present in the United States, after federal prosecutors presented evidence to a grand jury.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/illegal-alien-indicted-in-marriage-related-immigration-fraud"
       }
     ],
     "jobs": [
@@ -53,7 +53,48 @@
         "url": "https://www.bls.gov/bls/"
       }
     ],
-    "finance": []
+    "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "18 Sept 2026",
+        "headline": "Federal Reserve Board announces termination of enforcement action with SNB Bancshares and Bank of Eufaula",
+        "body": "Federal Reserve Board announces termination of enforcement action with SNB Bancshares and Bank of Eufaula",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260918b.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "18 Sept 2026",
+        "headline": "Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank",
+        "body": "Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260918a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "16 Sept 2026",
+        "headline": "Federal Reserve issues FOMC statement",
+        "body": "Federal Reserve issues FOMC statement",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "16 Sept 2026",
+        "headline": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
+        "body": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm"
+      },
+      {
+        "tag": "Markets",
+        "date": "11 Sept 2026",
+        "headline": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
+        "body": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260911a.htm"
+      }
+    ]
   },
   "ca": {
     "immigration": [
