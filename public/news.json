@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T23:57:24.079Z",
+  "generatedAt": "2026-09-18T18:08:45.367Z",
   "us": {
     "immigration": [
       {
@@ -46,55 +46,14 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "16 Sept 2026",
+        "date": "18 Sept 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): +0.4% in Aug 2026 News Release Historical Data Unemployment Rate: 4.1% in Aug 2026 News Release Historical Data Payroll Employment: +162,000(p) in Aug 2026 News Release Historical Data Average Hourly Earnings: +$0.10(p) in Aug 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
     ],
-    "finance": [
-      {
-        "tag": "Fed Rate",
-        "date": "16 Sept 2026",
-        "headline": "Federal Reserve issues FOMC statement",
-        "body": "Federal Reserve issues FOMC statement",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "16 Sept 2026",
-        "headline": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
-        "body": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "11 Sept 2026",
-        "headline": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
-        "body": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260911a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "10 Sept 2026",
-        "headline": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
-        "body": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260910a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "4 Sept 2026",
-        "headline": "Federal Reserve Board announces termination of enforcement actions with United Texas Bank, Quontic Bank Acquisition Corp., and Quontic Bank Holdings Corp.",
-        "body": "Federal Reserve Board announces termination of enforcement actions with United Texas Bank, Quontic Bank Acquisition Corp., and Quontic Bank Holdings Corp.",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260904a.htm"
-      }
-    ]
+    "finance": []
   },
   "ca": {
     "immigration": [
@@ -142,6 +101,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "18 Sept 2026",
+        "headline": "Minister Hajdu outlines progress in implementing Team Canada Strong to recruit, train, and hire the next generation of skilled trades workers",
+        "body": "As Canada responds to a rapidly changing global economy and evolving trade relationships, the Government of Canada is focused on what it can control. From the beginning, that has meant building a stronger, more resilient country by investing in the people, skills and industries that will drive Canada’s future prosperity. Young people are an essential…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/minister-hajdu-outlines-progress-in-implementing-team-canada-strong-to-recruit-train-and-hire-the-next-generation-of-skilled-trades-workers.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "15 Sept 2026",
         "headline": "Government of Canada invests in lasting change through fourth call for proposals under Black-led Philanthropic Endowment Fund",
         "body": "Government of Canada invests in lasting change through fourth call for proposals under Black-led Philanthropic Endowment Fund",
@@ -171,14 +138,6 @@
         "body": "Canada is stronger when everyone has the chance to contribute and thrive. Persons with disabilities are more likely to face barriers to financial and economic security than Canadians without disabilities. The Government of Canada is focused on reducing barriers to accessing support so that persons with disabilities have greater opportunities to participate fully in their…",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/supplemental-canada-disability-benefit-payments-to-begin-in-september.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "9 Sept 2026",
-        "headline": "Secretary of State McLean announces funding for Alberta seniors",
-        "body": "As the cost of living continues to rise, the Government of Canada is taking action to make life more affordable for seniors, and to help them stay active and connected to their communities.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/secretary-of-state-mclean-announces-funding-for-alberta-seniors0.html"
       }
     ],
     "finance": [
