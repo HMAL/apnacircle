@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T23:56:21.426Z",
+  "generatedAt": "2026-09-20T18:05:50.656Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "20 Sept 2026",
+        "headline": "Government of Canada launches Black Canadian Communities Program",
+        "body": "Canada is stronger when everyone has the opportunity to contribute to their communities. Black-led, Black-serving and Black-focused organizations are driving meaningful change across the country, yet many still face barriers to getting the resources they need to maintain and grow their work. That is why the Government of Canada is investing in these organisations so…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/government-of-canada-launches-black-canadian-communities-program.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "18 Sept 2026",
         "headline": "Minister Hajdu outlines progress in implementing Team Canada Strong to recruit, train, and hire the next generation of skilled trades workers",
         "body": "As Canada responds to a rapidly changing global economy and evolving trade relationships, the Government of Canada is focused on what it can control. From the beginning, that has meant building a stronger, more resilient country by investing in the people, skills and industries that will drive Canada’s future prosperity. Young people are an essential…",
@@ -171,14 +179,6 @@
         "body": "Today, the Canada Employment Insurance Commission made available the actuarial report and its summary for the 2027 Employment Insurance (EI) premium rate. The rate for 2027 is set at $1.64 per $100 of insurable earnings for employees and $2.30 for employers, who pay 1.4 times the employee rate. This rate will come into effect on…",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/canada-employment-insurance-commission-confirms-2027-employment-insurance-premium-rate.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "10 Sept 2026",
-        "headline": "Supplemental Canada Disability Benefit payments to begin in September",
-        "body": "Canada is stronger when everyone has the chance to contribute and thrive. Persons with disabilities are more likely to face barriers to financial and economic security than Canadians without disabilities. The Government of Canada is focused on reducing barriers to accessing support so that persons with disabilities have greater opportunities to participate fully in their…",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/supplemental-canada-disability-benefit-payments-to-begin-in-september.html"
       }
     ],
     "finance": [
