@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-09-22T00:37:50.705Z",
+  "generatedAt": "2026-09-22T18:36:07.267Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "22 Sept 2026",
+        "headline": "Chinese Aliens Indicted on Naturalization and Firearms Charges",
+        "body": "Two Chinese aliens turned themselves in Sept. 17 on charges that accuse one of a naturalization crime and both of a firearm crime. The U.S. Attorney’s Office for the Eastern District of Missouri made the announcement.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/chinese-aliens-indicted-on-naturalization-and-firearms-charges"
+      },
+      {
+        "tag": "USCIS",
+        "date": "22 Sept 2026",
+        "headline": "Bosnian Prisoner Abuser Charged with Lying to Get US Citizenship",
+        "body": "U.S. Citizenship and Immigration Services provided vital assistance to an investigation that lead to the indictment of Miran Kostic, an alien and accused war criminal from Bosnia and Herzegovina.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/bosnian-prisoner-abuser-charged-with-lying-to-get-us-citizenship"
+      },
       {
         "tag": "USCIS",
         "date": "18 Sept 2026",
@@ -25,22 +41,6 @@
         "body": "A federal grand jury in Wichita indicted a Peruvian alien with multiple criminal offenses arising from allegedly voting in a federal election despite not being a U.S. citizen.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/peruvian-alien-indicted-for-illegally-voting"
-      },
-      {
-        "tag": "USCIS",
-        "date": "11 Sept 2026",
-        "headline": "Department of Justice Removes Alien Terrorist in First Use of United States Alien Terrorist Removal Court",
-        "body": "In the first-ever case before the United States Alien Terrorist Removal Court (ATRC), Nazira Haji Zada, 47, an Afghan national previously residing in Fort Worth, Texas, was removed from the United States after conceding that she is an alien terrorist.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/department-of-justice-removes-alien-terrorist-in-first-use-of-united-states-alien-terrorist-removal"
-      },
-      {
-        "tag": "USCIS",
-        "date": "3 Sept 2026",
-        "headline": "Naturalized U.S. Citizen Indicted for Lying to Obtain U.S. Citizenship After Committing Felonies",
-        "body": "A naturalized U.S. citizen made his initial appearance in court Sept. 2 for allegedly lying about his prior criminal acts to obtain U.S. citizenship. The U.S. Attorney's Office for the District of Nevada announced the charges.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/naturalized-us-citizen-indicted-for-lying-to-obtain-us-citizenship-after-committing-felonies"
       }
     ],
     "jobs": [
