@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-09-23T18:54:52.408Z",
+  "generatedAt": "2026-09-24T00:16:52.289Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "23 Sept 2026",
+        "headline": "Haitian Alien Pleads Guilty to Illegally Voting in 2024 Election",
+        "body": "A Haitian alien pleaded guilty Sept. 22 in federal court to falsely claiming U.S. citizenship to register to vote and casting a ballot in the 2024 general election.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/haitian-alien-pleads-guilty-to-illegally-voting-in-2024-election"
+      },
+      {
+        "tag": "USCIS",
+        "date": "23 Sept 2026",
+        "headline": "Man Charged with Naturalization Fraud; Three Others Face Denaturalization",
+        "body": "A federal grand jury in Charlotte returned a criminal indictment charging Sha Bahadur Ghaley, 42, a naturalized citizen from Bhutan, with naturalization fraud.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/man-charged-with-naturalization-fraud-three-others-face-denaturalization"
+      },
       {
         "tag": "USCIS",
         "date": "22 Sept 2026",
@@ -25,22 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services (USCIS) supported a federal investigation that resulted in the indictment of five people for their roles in a scheme to exploit a nonimmigrant visa worker program. The defendants fraudulently obtained worker visas and smuggled aliens into the United States. The U.S. Attorney for Southern District of Georgia made the announcement.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/five-defendants-charged-with-defrauding-and-exploiting-h-2a-visa-program-to-smuggle-aliens-into-the"
-      },
-      {
-        "tag": "USCIS",
-        "date": "17 Sept 2026",
-        "headline": "Immigration Attorney Arrested in Alleged Fraud Scheme",
-        "body": "U.S. Citizenship and Immigration Services provided pivotal assistance to an investigation leading to the indictment and arrest of a Houston area immigration attorney.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/immigration-attorney-arrested-in-alleged-fraud-scheme"
-      },
-      {
-        "tag": "USCIS",
-        "date": "14 Sept 2026",
-        "headline": "Peruvian Alien Indicted for Illegally Voting",
-        "body": "A federal grand jury in Wichita indicted a Peruvian alien with multiple criminal offenses arising from allegedly voting in a federal election despite not being a U.S. citizen.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/peruvian-alien-indicted-for-illegally-voting"
       }
     ],
     "jobs": [
