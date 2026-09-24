@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T00:16:52.289Z",
+  "generatedAt": "2026-09-24T18:52:10.391Z",
   "us": {
     "immigration": [
       {
@@ -56,6 +56,22 @@
     "finance": [
       {
         "tag": "Fed Rate",
+        "date": "24 Sept 2026",
+        "headline": "Federal Reserve Board requests public comment on two proposals related to establishing a regulatory framework for Board-supervised payment stablecoin issuers under the GENIUS Act",
+        "body": "Federal Reserve Board requests public comment on two proposals related to establishing a regulatory framework for Board-supervised payment stablecoin issuers under the GENIUS Act",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260924a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "24 Sept 2026",
+        "headline": "Federal Reserve Board issues enforcement action with former employee of Sandy Spring Bank",
+        "body": "Federal Reserve Board issues enforcement action with former employee of Sandy Spring Bank",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260924a.htm"
+      },
+      {
+        "tag": "Fed Rate",
         "date": "22 Sept 2026",
         "headline": "Federal Reserve Board announces approval of application by BancFirst Corporation",
         "body": "Federal Reserve Board announces approval of application by BancFirst Corporation",
@@ -77,22 +93,6 @@
         "body": "Federal Reserve Board announces termination of enforcement action with SNB Bancshares and Bank of Eufaula",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260918b.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "16 Sept 2026",
-        "headline": "Federal Reserve issues FOMC statement",
-        "body": "Federal Reserve issues FOMC statement",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "16 Sept 2026",
-        "headline": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
-        "body": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm"
       }
     ]
   },
