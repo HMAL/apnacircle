@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-09-28T00:21:37.099Z",
+  "generatedAt": "2026-09-28T21:07:24.485Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "28 Sept 2026",
+        "headline": "Cuban Alien Convicted for International Alien Smuggling and Money Laundering Conspiracy",
+        "body": "U.S. Citizenship and Immigration Services played a critical role in the investigation that led to the conviction of Lazaro Alain Cabrera-Rodriguez, 28, of Hialeah, Florida, for his role in an international alien smuggling and money laundering conspiracy.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/cuban-alien-convicted-for-international-alien-smuggling-and-money-laundering-conspiracy"
+      },
       {
         "tag": "USCIS",
         "date": "25 Sept 2026",
@@ -33,14 +41,6 @@
         "body": "A Haitian alien pleaded guilty Sept. 22 in federal court to falsely claiming U.S. citizenship to register to vote and casting a ballot in the 2024 general election.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/haitian-alien-pleads-guilty-to-illegally-voting-in-2024-election"
-      },
-      {
-        "tag": "USCIS",
-        "date": "23 Sept 2026",
-        "headline": "Man Charged with Naturalization Fraud; Three Others Face Denaturalization",
-        "body": "A federal grand jury in Charlotte returned a criminal indictment charging Sha Bahadur Ghaley, 42, a naturalized citizen from Bhutan, with naturalization fraud.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/man-charged-with-naturalization-fraud-three-others-face-denaturalization"
       }
     ],
     "jobs": [
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "28 Sept 2026",
+        "headline": "Minister Hajdu meets with Italian counterpart and stakeholders to highlight international collaboration to advance disability inclusion",
+        "body": "Canada is stronger when everyone has the chance to contribute and thrive. That is why Canada continues to work with partners at home and around the world to promote inclusion and break down barriers for persons with disabilities.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/minister-hajdu-meets-with-italian-counterpart-and-stakeholders-to-highlight-international-collaboration-to-advance-disability-inclusion-.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "20 Sept 2026",
         "headline": "Government of Canada launches Black Canadian Communities Program",
         "body": "Canada is stronger when everyone has the opportunity to contribute to their communities. Black-led, Black-serving and Black-focused organizations are driving meaningful change across the country, yet many still face barriers to getting the resources they need to maintain and grow their work. That is why the Government of Canada is investing in these organisations so…",
@@ -171,14 +179,6 @@
         "body": "Government of Canada expands passport service offerings at Charlottetown Service Canada Centre",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/government-of-canada-expands-passport-service-offerings-at-charlottetown-service-canada-centre.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "14 Sept 2026",
-        "headline": "Canada Employment Insurance Commission confirms 2027 Employment Insurance premium rate",
-        "body": "Today, the Canada Employment Insurance Commission made available the actuarial report and its summary for the 2027 Employment Insurance (EI) premium rate. The rate for 2027 is set at $1.64 per $100 of insurable earnings for employees and $2.30 for employers, who pay 1.4 times the employee rate. This rate will come into effect on…",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/canada-employment-insurance-commission-confirms-2027-employment-insurance-premium-rate.html"
       }
     ],
     "finance": [
