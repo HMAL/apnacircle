@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-09-29T01:32:23.963Z",
+  "generatedAt": "2026-09-29T19:51:30.962Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "29 Sept 2026",
+        "headline": "USCIS Assists Florida Investigation Leading to Charges for Unlawful Voting",
+        "body": "U.S. Citizenship and Immigration Services provided critical assistance to investigations that resulted in charges against 16 aliens accused of unlawfully voting in Florida elections.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-assists-florida-investigation-leading-to-charges-for-unlawful-voting"
+      },
       {
         "tag": "USCIS",
         "date": "28 Sept 2026",
@@ -33,20 +41,12 @@
         "body": "A Romanian alien admitted to conspiring with an American citizen to enter into a sham marriage so that she could obtain U.S. citizenship. U.S. Citizenship and Immigration Services assisted the investigation.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/romanian-alien-admits-conspiring-to-commit-marriage-fraud"
-      },
-      {
-        "tag": "USCIS",
-        "date": "23 Sept 2026",
-        "headline": "Haitian Alien Pleads Guilty to Illegally Voting in 2024 Election",
-        "body": "A Haitian alien pleaded guilty Sept. 22 in federal court to falsely claiming U.S. citizenship to register to vote and casting a ballot in the 2024 general election.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/haitian-alien-pleads-guilty-to-illegally-voting-in-2024-election"
       }
     ],
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "25 Sept 2026",
+        "date": "29 Sept 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): +0.4% in Aug 2026 News Release Historical Data Unemployment Rate: 4.1% in Aug 2026 News Release Historical Data Payroll Employment: +162,000(p) in Aug 2026 News Release Historical Data Average Hourly Earnings: +$0.10(p) in Aug 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
         "source": "Bureau of Labor Statistics",
@@ -100,6 +100,14 @@
     "immigration": [
       {
         "tag": "IRCC",
+        "date": "29 Sept 2026",
+        "headline": "Canada is supporting new projects to promote Francophone immigration and strengthen Francophone minority communities",
+        "body": "Collaboration is essential to addressing Canada’s workforce needs and responding to the realities facing Francophone communities. Given the challenges posed by labour shortages and the ongoing need to attract and retain talent, Canada is joining forces with its partners and reinforcing its commitment to Francophone immigration.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/09/canada-is-supporting-new-projects-to-promote-francophone-immigration-and-strengthen-francophone-minority-communities.html"
+      },
+      {
+        "tag": "IRCC",
         "date": "8 Sept 2026",
         "headline": "The Government of Canada extends the federal fuel excise tax relief on gasoline, diesel and aviation fuels for Canadians",
         "body": "The world is changing rapidly. The United States is imposing new tariffs on Canada, designed to hurt and divide us. At the same time, conflicts in Europe and the Middle East are driving up prices around the world. In response, Canada’s government is focused on what we can control: building a stronger, more independent and…",
@@ -129,17 +137,25 @@
         "body": "The Government of Canada is committed to making life simpler and more convenient for Canadians. This includes a modern passport program that delivers secure, user‑friendly digital services that save time, reduce in‑person visits and make passport renewal easier.",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-expands-online-passport-renewal-to-all-eligible-adults.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "20 Jul 2026",
-        "headline": "Minister Metlege Diab highlights Canada Child Benefit payments increasing in 2026–2027",
-        "body": "The Government of Canada is lowering costs for families by strengthening the Canada Child Benefit (CCB). The CCB is a monthly tax-free payment to help them with the costs of raising children.",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/minister-metlege-diab-highlights-canada-child-benefit-payments-increasing-in-20262027.html"
       }
     ],
     "jobs": [
+      {
+        "tag": "Work Permit",
+        "date": "29 Sept 2026",
+        "headline": "The Government of Canada introduces new Productivity Mega Deduction to help businesses invest, grow and create jobs in Canada",
+        "body": "Canada has what the world wants: abundant energy and critical minerals, the most educated workforce in the world, access to 1.5 billion consumers through our free trade agreements, and the strongest fiscal position in the G7. We are building on these advantages to make Canada the best place in the world to invest, build, and…",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/the-government-of-canada-introduces-new-productivity-mega-deduction-to-help-businesses-invest-grow-and-create-jobs-in-canada.html"
+      },
+      {
+        "tag": "Work Permit",
+        "date": "29 Sept 2026",
+        "headline": "Canada and Ontario agree to four-year extension of Canada–Ontario Canada-wide Early Learning and Child Care Agreement",
+        "body": "Affordable child care is essential to Canada’s economy. Every child deserves the best possible start in life, and every parent deserves the peace of mind that comes from knowing their child is cared for, in a safe and inclusive environment.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/canada-and-ontario-agree-to-four-year-extension-of-canadaontario-canada-wide-early-learning-and-child-care-agreement.html"
+      },
       {
         "tag": "Work Permit",
         "date": "28 Sept 2026",
@@ -163,22 +179,6 @@
         "body": "As Canada responds to a rapidly changing global economy and evolving trade relationships, the Government of Canada is focused on what it can control. From the beginning, that has meant building a stronger, more resilient country by investing in the people, skills and industries that will drive Canada’s future prosperity. Young people are an essential…",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/minister-hajdu-outlines-progress-in-implementing-team-canada-strong-to-recruit-train-and-hire-the-next-generation-of-skilled-trades-workers.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "15 Sept 2026",
-        "headline": "Government of Canada invests in lasting change through fourth call for proposals under Black-led Philanthropic Endowment Fund",
-        "body": "Government of Canada invests in lasting change through fourth call for proposals under Black-led Philanthropic Endowment Fund",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/government-of-canada-invests-in-lasting-change-through-fourth-call-for-proposals-under-black-led-philanthropic-endowment-fund.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "15 Sept 2026",
-        "headline": "Government of Canada expands passport service offerings at Charlottetown Service Canada Centre",
-        "body": "Government of Canada expands passport service offerings at Charlottetown Service Canada Centre",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/government-of-canada-expands-passport-service-offerings-at-charlottetown-service-canada-centre.html"
       }
     ],
     "finance": [
