@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T19:51:30.962Z",
+  "generatedAt": "2026-09-30T01:07:58.247Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "29 Sept 2026",
+        "headline": "Agencies publish resolution plan feedback letters for 15 banking organizations",
+        "body": "Agencies publish resolution plan feedback letters for 15 banking organizations",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260929a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "25 Sept 2026",
         "headline": "Federal Reserve Board announces approval of application by Peoples Bancorp Inc.",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board announces approval of application by BancFirst Corporation",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260922a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "18 Sept 2026",
-        "headline": "Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank",
-        "body": "Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260918a.htm"
       }
     ]
   },
