@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-10-02T01:21:24.116Z",
+  "generatedAt": "2026-10-02T19:48:31.896Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "2 Oct 2026",
+        "headline": "Federal Grand Jury Indicts Ten Aliens for Voter Fraud in Minnesota Elections",
+        "body": "Defendants illegally voted in the November 2022 and 2024 general elections and the August 2026 primary election",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/federal-grand-jury-indicts-ten-aliens-for-voter-fraud-in-minnesota-elections"
+      },
       {
         "tag": "USCIS",
         "date": "29 Sept 2026",
@@ -33,27 +41,27 @@
         "body": "A federal grand jury in Topeka returned an indictment charging a Nigerian alien with falsely claiming to be a U.S. citizen to illegally vote in elections.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/nigerian-alien-indicted-for-illegally-voting"
-      },
-      {
-        "tag": "USCIS",
-        "date": "25 Sept 2026",
-        "headline": "Romanian Alien Admits Conspiring to Commit Marriage Fraud",
-        "body": "A Romanian alien admitted to conspiring with an American citizen to enter into a sham marriage so that she could obtain U.S. citizenship. U.S. Citizenship and Immigration Services assisted the investigation.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/romanian-alien-admits-conspiring-to-commit-marriage-fraud"
       }
     ],
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "30 Sept 2026",
+        "date": "2 Oct 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.4% in Aug 2026 News Release Historical Data Unemployment Rate: 4.1% in Aug 2026 News Release Historical Data Payroll Employment: +162,000(p) in Aug 2026 News Release Historical Data Average Hourly Earnings: +$0.10(p) in Aug 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.4% in Aug 2026 News Release Historical Data Unemployment Rate: 4.2% in Sep 2026 News Release Historical Data Payroll Employment: +29,000(p) in Sep 2026 News Release Historical Data Average Hourly Earnings: +$0.05(p) in Sep 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
     ],
     "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "2 Oct 2026",
+        "headline": "Federal Reserve Board issues enforcement action with Ontario Bancorporation, Inc.",
+        "body": "Federal Reserve Board issues enforcement action with Ontario Bancorporation, Inc.",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261002a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "30 Sept 2026",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board requests public comment on two proposals related to establishing a regulatory framework for Board-supervised payment stablecoin issuers under the GENIUS Act",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260924a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "24 Sept 2026",
-        "headline": "Federal Reserve Board issues enforcement action with former employee of Sandy Spring Bank",
-        "body": "Federal Reserve Board issues enforcement action with former employee of Sandy Spring Bank",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260924a.htm"
       }
     ]
   },
