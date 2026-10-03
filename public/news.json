@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-10-02T19:48:31.896Z",
+  "generatedAt": "2026-10-03T00:58:33.050Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "2 Oct 2026",
+        "headline": "Former Syrian Prison Official Sentenced for Torture and Immigration Fraud",
+        "body": "U.S. Citizenship and Immigration Services assisted with the case that led to the sentencing of Samir Ousman Alsheikh, 74, a former Syrian prison warden and provincial governor.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/former-syrian-prison-official-sentenced-for-torture-and-immigration-fraud"
+      },
       {
         "tag": "USCIS",
         "date": "2 Oct 2026",
@@ -33,14 +41,6 @@
         "body": "An Essex County man and a Middlesex County woman, both aliens, were charged with illegally voting in a federal election and making false statements while applying for U.S. citizenship.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/aliens-charged-with-illegally-voting-and-making-false-statements-while-applying-for-us-citizenship"
-      },
-      {
-        "tag": "USCIS",
-        "date": "25 Sept 2026",
-        "headline": "Nigerian Alien Indicted for Illegally Voting",
-        "body": "A federal grand jury in Topeka returned an indictment charging a Nigerian alien with falsely claiming to be a U.S. citizen to illegally vote in elections.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/nigerian-alien-indicted-for-illegally-voting"
       }
     ],
     "jobs": [
@@ -54,6 +54,22 @@
       }
     ],
     "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "2 Oct 2026",
+        "headline": "Federal Reserve Board announces approval of application by Fleur Capital Corporation",
+        "body": "Federal Reserve Board announces approval of application by Fleur Capital Corporation",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261002a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "2 Oct 2026",
+        "headline": "Federal Reserve Board announces it will extend, until November 4, the comment period on its proposal to modernize Regulation O",
+        "body": "Federal Reserve Board announces it will extend, until November 4, the comment period on its proposal to modernize Regulation O",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20261002a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "2 Oct 2026",
@@ -77,22 +93,6 @@
         "body": "Agencies publish resolution plan feedback letters for 15 banking organizations",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260929a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "25 Sept 2026",
-        "headline": "Federal Reserve Board announces approval of application by Peoples Bancorp Inc.",
-        "body": "Federal Reserve Board announces approval of application by Peoples Bancorp Inc.",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260925a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "24 Sept 2026",
-        "headline": "Federal Reserve Board requests public comment on two proposals related to establishing a regulatory framework for Board-supervised payment stablecoin issuers under the GENIUS Act",
-        "body": "Federal Reserve Board requests public comment on two proposals related to establishing a regulatory framework for Board-supervised payment stablecoin issuers under the GENIUS Act",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260924a.htm"
       }
     ]
   },
