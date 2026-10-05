@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T00:31:10.948Z",
+  "generatedAt": "2026-10-05T21:53:04.073Z",
   "us": {
     "immigration": [
       {
@@ -56,6 +56,14 @@
     "finance": [
       {
         "tag": "Fed Rate",
+        "date": "5 Oct 2026",
+        "headline": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
+        "body": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261005a.htm"
+      },
+      {
+        "tag": "Fed Rate",
         "date": "2 Oct 2026",
         "headline": "Federal Reserve Board announces approval of application by Fleur Capital Corporation",
         "body": "Federal Reserve Board announces approval of application by Fleur Capital Corporation",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board finalizes changes to enhance the transparency and public accountability of its stress test and reduce volatility in its stress test-related capital requirements",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260930a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "29 Sept 2026",
-        "headline": "Agencies publish resolution plan feedback letters for 15 banking organizations",
-        "body": "Agencies publish resolution plan feedback letters for 15 banking organizations",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260929a.htm"
       }
     ]
   },
