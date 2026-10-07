@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-10-07T01:14:34.179Z",
+  "generatedAt": "2026-10-07T20:29:02.904Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "7 Oct 2026",
+        "headline": "Italian Alien Charged With Voting in 2024 General Election and Lying About It",
+        "body": "U.S. Citizenship and Immigration Services provided critical assistance in the investigation that led to a federal indictment charging Andrea Catanese, 60, an Italian national, with voting by an alien, attempting to unlawfully procure naturalization, and making a false statement in connection with naturalization.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/italian-alien-charged-with-voting-in-2024-general-election-and-lying-about-it"
+      },
       {
         "tag": "USCIS",
         "date": "2 Oct 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services played a critical role in the investigation that led to the conviction of Lazaro Alain Cabrera-Rodriguez, 28, of Hialeah, Florida, for his role in an international alien smuggling and money laundering conspiracy.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/cuban-alien-convicted-for-international-alien-smuggling-and-money-laundering-conspiracy"
-      },
-      {
-        "tag": "USCIS",
-        "date": "25 Sept 2026",
-        "headline": "Aliens Charged with Illegally Voting and Making False Statements While Applying for US Citizenship",
-        "body": "An Essex County man and a Middlesex County woman, both aliens, were charged with illegally voting in a federal election and making false statements while applying for U.S. citizenship.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/aliens-charged-with-illegally-voting-and-making-false-statements-while-applying-for-us-citizenship"
       }
     ],
     "jobs": [
@@ -54,6 +54,14 @@
       }
     ],
     "finance": [
+      {
+        "tag": "Markets",
+        "date": "7 Oct 2026",
+        "headline": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
+        "body": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261007a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "5 Oct 2026",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board issues enforcement action with Ontario Bancorporation, Inc.",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261002a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "30 Sept 2026",
-        "headline": "Federal Reserve Board finalizes changes to enhance the transparency and public accountability of its stress test and reduce volatility in its stress test-related capital requirements",
-        "body": "Federal Reserve Board finalizes changes to enhance the transparency and public accountability of its stress test and reduce volatility in its stress test-related capital requirements",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260930a.htm"
       }
     ]
   },
