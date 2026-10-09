@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-10-09T01:47:14.341Z",
+  "generatedAt": "2026-10-09T20:01:37.456Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "9 Oct 2026",
+        "headline": "Former Medical Doctor Convicted of Naturalization Fraud",
+        "body": "U.S. Citizenship and Immigration Services provided critical assistance to the investigation leading to the conviction of a former medical doctor for naturalization fraud.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/former-medical-doctor-convicted-of-naturalization-fraud"
+      },
       {
         "tag": "USCIS",
         "date": "7 Oct 2026",
@@ -33,20 +41,12 @@
         "body": "U.S. Citizenship and Immigration Services provided critical assistance to investigations that resulted in charges against 16 aliens accused of unlawfully voting in Florida elections.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/uscis-assists-florida-investigation-leading-to-charges-for-unlawful-voting"
-      },
-      {
-        "tag": "USCIS",
-        "date": "28 Sept 2026",
-        "headline": "Cuban Alien Convicted for International Alien Smuggling and Money Laundering Conspiracy",
-        "body": "U.S. Citizenship and Immigration Services played a critical role in the investigation that led to the conviction of Lazaro Alain Cabrera-Rodriguez, 28, of Hialeah, Florida, for his role in an international alien smuggling and money laundering conspiracy.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/cuban-alien-convicted-for-international-alien-smuggling-and-money-laundering-conspiracy"
       }
     ],
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "2 Oct 2026",
+        "date": "9 Oct 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): +0.4% in Aug 2026 News Release Historical Data Unemployment Rate: 4.2% in Sep 2026 News Release Historical Data Payroll Employment: +29,000(p) in Sep 2026 News Release Historical Data Average Hourly Earnings: +$0.05(p) in Sep 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
         "source": "Bureau of Labor Statistics",
@@ -54,6 +54,14 @@
       }
     ],
     "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "9 Oct 2026",
+        "headline": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
+        "body": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "8 Oct 2026",
@@ -85,19 +93,19 @@
         "body": "Federal Reserve Board announces approval of application by Fleur Capital Corporation",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261002a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "2 Oct 2026",
-        "headline": "Federal Reserve Board announces it will extend, until November 4, the comment period on its proposal to modernize Regulation O",
-        "body": "Federal Reserve Board announces it will extend, until November 4, the comment period on its proposal to modernize Regulation O",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20261002a.htm"
       }
     ]
   },
   "ca": {
     "immigration": [
+      {
+        "tag": "IRCC",
+        "date": "9 Oct 2026",
+        "headline": "Minister Metlege Diab highlights new Productivity Mega Deduction to help businesses invest, grow, and create jobs in Canada",
+        "body": "Canada has what the world wants: abundant energy and critical minerals, the most educated workforce in the world, access to 1.5 billion consumers through our free trade agreements and the strongest fiscal position in the G7. We are building on these advantages to make Canada the best place in the world to invest, build and…",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/10/minister-metlege-diab-highlights-new-productivity-mega-deduction-to-help-businesses-invest-grow-and-create-jobs-in-canada.html"
+      },
       {
         "tag": "IRCC",
         "date": "29 Sept 2026",
@@ -129,14 +137,6 @@
         "body": "The Government of Canada is committed to making life simpler and more convenient for Canadians. This includes a modern passport program that delivers secure user‑friendly digital services that save time, reduce in‑person visits and make passport renewal easier.",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-expands-online-passport-renewal-to-all-eligible-adults0.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "28 Jul 2026",
-        "headline": "Canada expands online passport renewal to all eligible adults",
-        "body": "The Government of Canada is committed to making life simpler and more convenient for Canadians. This includes a modern passport program that delivers secure, user‑friendly digital services that save time, reduce in‑person visits and make passport renewal easier.",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-expands-online-passport-renewal-to-all-eligible-adults.html"
       }
     ],
     "jobs": [
