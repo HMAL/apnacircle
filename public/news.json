@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-10-09T20:01:37.456Z",
+  "generatedAt": "2026-10-10T01:33:28.337Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "9 Oct 2026",
+        "headline": "Cuban Alien Arrested for Unlawfully Voting",
+        "body": "A Cuban alien was arrested after being charged with unlawful voting by an alien. U.S. Citizenship and Immigration Services assisted the investigation.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/cuban-alien-arrested-for-unlawfully-voting"
+      },
       {
         "tag": "USCIS",
         "date": "9 Oct 2026",
@@ -33,14 +41,6 @@
         "body": "Defendants illegally voted in the November 2022 and 2024 general elections and the August 2026 primary election",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/federal-grand-jury-indicts-ten-aliens-for-voter-fraud-in-minnesota-elections"
-      },
-      {
-        "tag": "USCIS",
-        "date": "29 Sept 2026",
-        "headline": "USCIS Assists Florida Investigation Leading to Charges for Unlawful Voting",
-        "body": "U.S. Citizenship and Immigration Services provided critical assistance to investigations that resulted in charges against 16 aliens accused of unlawfully voting in Florida elections.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/uscis-assists-florida-investigation-leading-to-charges-for-unlawful-voting"
       }
     ],
     "jobs": [
