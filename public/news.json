@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T02:52:47.937Z",
+  "generatedAt": "2026-10-13T20:32:33.911Z",
   "us": {
     "immigration": [
       {
@@ -55,6 +55,14 @@
     ],
     "finance": [
       {
+        "tag": "Markets",
+        "date": "13 Oct 2026",
+        "headline": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
+        "body": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261013a.htm"
+      },
+      {
         "tag": "Fed Rate",
         "date": "9 Oct 2026",
         "headline": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261005a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "2 Oct 2026",
-        "headline": "Federal Reserve Board announces approval of application by Fleur Capital Corporation",
-        "body": "Federal Reserve Board announces approval of application by Fleur Capital Corporation",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261002a.htm"
       }
     ]
   },
