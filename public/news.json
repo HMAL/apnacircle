@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T00:55:29.799Z",
+  "generatedAt": "2026-10-14T19:13:20.062Z",
   "us": {
     "immigration": [
       {
@@ -46,14 +46,55 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "9 Oct 2026",
+        "date": "14 Oct 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.4% in Aug 2026 News Release Historical Data Unemployment Rate: 4.2% in Sep 2026 News Release Historical Data Payroll Employment: +29,000(p) in Sep 2026 News Release Historical Data Average Hourly Earnings: +$0.05(p) in Sep 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.6% in Sep 2026 News Release Historical Data Unemployment Rate: 4.2% in Sep 2026 News Release Historical Data Payroll Employment: +29,000(p) in Sep 2026 News Release Historical Data Average Hourly Earnings: +$0.05(p) in Sep 2026 News Release Historical Data Producer Price Index - Final Demand: +0.4%(p) in Aug 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
     ],
-    "finance": []
+    "finance": [
+      {
+        "tag": "Markets",
+        "date": "13 Oct 2026",
+        "headline": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
+        "body": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261013a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "9 Oct 2026",
+        "headline": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
+        "body": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "8 Oct 2026",
+        "headline": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
+        "body": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261008a.htm"
+      },
+      {
+        "tag": "Markets",
+        "date": "7 Oct 2026",
+        "headline": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
+        "body": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261007a.htm"
+      },
+      {
+        "tag": "Fed Rate",
+        "date": "5 Oct 2026",
+        "headline": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
+        "body": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261005a.htm"
+      }
+    ]
   },
   "ca": {
     "immigration": [
