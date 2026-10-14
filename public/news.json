@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-10-13T20:32:33.911Z",
+  "generatedAt": "2026-10-14T00:55:29.799Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "13 Oct 2026",
+        "headline": "Justice Department Moves to Strip Citizenship from 40 Criminals in Largest Single-Period Filing Under the Trump Administration",
+        "body": "U.S. Citizenship and Immigration Services partnered with the Department of Justice in its filing of denaturalization actions against dozens of individuals accused of serious offenses, including acting as an agent for a foreign government, committing voluntary manslaughter, and aggravated sodomy against a special‑needs man.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/justice-department-moves-to-strip-citizenship-from-40-criminals-in-largest-single-period-filing"
+      },
       {
         "tag": "USCIS",
         "date": "9 Oct 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services assisted with the case that led to the sentencing of Samir Ousman Alsheikh, 74, a former Syrian prison warden and provincial governor.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/former-syrian-prison-official-sentenced-for-torture-and-immigration-fraud"
-      },
-      {
-        "tag": "USCIS",
-        "date": "2 Oct 2026",
-        "headline": "Federal Grand Jury Indicts Ten Aliens for Voter Fraud in Minnesota Elections",
-        "body": "Defendants illegally voted in the November 2022 and 2024 general elections and the August 2026 primary election",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/federal-grand-jury-indicts-ten-aliens-for-voter-fraud-in-minnesota-elections"
       }
     ],
     "jobs": [
@@ -53,48 +53,7 @@
         "url": "https://www.bls.gov/bls/"
       }
     ],
-    "finance": [
-      {
-        "tag": "Markets",
-        "date": "13 Oct 2026",
-        "headline": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
-        "body": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261013a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "9 Oct 2026",
-        "headline": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
-        "body": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "8 Oct 2026",
-        "headline": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
-        "body": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261008a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "7 Oct 2026",
-        "headline": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
-        "body": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261007a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "5 Oct 2026",
-        "headline": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
-        "body": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261005a.htm"
-      }
-    ]
+    "finance": []
   },
   "ca": {
     "immigration": [
