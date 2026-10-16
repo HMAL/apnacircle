@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T00:07:21.785Z",
+  "generatedAt": "2026-10-16T18:40:21.481Z",
   "us": {
     "immigration": [
       {
@@ -46,7 +46,7 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "15 Oct 2026",
+        "date": "16 Oct 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): +0.6% in Sep 2026 News Release Historical Data Unemployment Rate: 4.2% in Sep 2026 News Release Historical Data Payroll Employment: +29,000(p) in Sep 2026 News Release Historical Data Average Hourly Earnings: +$0.05(p) in Sep 2026 News Release Historical Data Producer Price Index - Final Demand: +1.3%(p) in Sep 2026 News Release…",
         "source": "Bureau of Labor Statistics",
@@ -54,6 +54,14 @@
       }
     ],
     "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "16 Oct 2026",
+        "headline": "Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank",
+        "body": "Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261016a.htm"
+      },
       {
         "tag": "Markets",
         "date": "13 Oct 2026",
@@ -85,19 +93,19 @@
         "body": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261007a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "5 Oct 2026",
-        "headline": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
-        "body": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261005a.htm"
       }
     ]
   },
   "ca": {
     "immigration": [
+      {
+        "tag": "Express Entry",
+        "date": "16 Oct 2026",
+        "headline": "Canada refocusing Express Entry on top talent that drives economic growth",
+        "body": "October 16, 2026—Kitchener, Ontario—Building a stronger Canada means restoring confidence in a well-managed immigration system that meets our economic needs. This includes attracting and retaining skilled talent to complement the Canadian workforce and drive economic growth.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/10/canada-refocusing-express-entry-on-top-talent-that-drives-economic-growth.html"
+      },
       {
         "tag": "IRCC",
         "date": "9 Oct 2026",
@@ -129,17 +137,17 @@
         "body": "The world is changing rapidly. The United States is imposing new tariffs on Canada, designed to hurt and divide us. At the same time, conflicts in Europe and the Middle East are driving up prices around the world. In response, Canada’s government is focused on what we can control: building a stronger, more independent and…",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/09/minister-metlege-diab-highlights-the-extension-of-federal-fuel-excise-tax-relief-on-gasoline-diesel-and-aviation-fuels-for-canadians.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "29 Jul 2026",
-        "headline": "Canada expands online passport renewal to all eligible adults (Toronto)",
-        "body": "The Government of Canada is committed to making life simpler and more convenient for Canadians. This includes a modern passport program that delivers secure user‑friendly digital services that save time, reduce in‑person visits and make passport renewal easier.",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/07/canada-expands-online-passport-renewal-to-all-eligible-adults0.html"
       }
     ],
     "jobs": [
+      {
+        "tag": "Work Permit",
+        "date": "16 Oct 2026",
+        "headline": "The Government of Canada highlights workforce investments and measures to lower energy costs and reduce emissions",
+        "body": "The world is changing rapidly, and Canada is choosing to build. Major projects across the country will strengthen our economy, diversify trade and create good jobs across the country. Delivering these projects and supporting continued economic growth will require a skilled workforce ready to meet growing demand.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/10/the-government-of-canada-highlights-workforce-investments-and-measures-to-lower-energy-costs-and-reduce-emissions.html"
+      },
       {
         "tag": "Work Permit",
         "date": "15 Oct 2026",
@@ -171,14 +179,6 @@
         "body": "Affordable child care is essential to Canada’s economy. Every child deserves the best possible start in life, and every parent deserves the peace of mind that comes from knowing their child is cared for, in a safe and inclusive environment.",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/canada-and-ontario-agree-to-four-year-extension-of-canadaontario-canada-wide-early-learning-and-child-care-agreement.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "28 Sept 2026",
-        "headline": "Minister Hajdu meets with Italian counterpart and stakeholders to highlight international collaboration to advance disability inclusion",
-        "body": "Canada is stronger when everyone has the chance to contribute and thrive. That is why Canada continues to work with partners at home and around the world to promote inclusion and break down barriers for persons with disabilities.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/minister-hajdu-meets-with-italian-counterpart-and-stakeholders-to-highlight-international-collaboration-to-advance-disability-inclusion-.html"
       }
     ],
     "finance": [
