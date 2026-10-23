@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T00:26:07.291Z",
+  "generatedAt": "2026-10-23T18:55:15.764Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "23 Oct 2026",
+        "headline": "Government of Canada will be accepting applications for $5,000 Team Canada Strong Red Seal Completion Bonus as of November 16",
+        "body": "Canada needs more skilled trades workers to build homes, strengthen critical infrastructure and support major economic and defence projects. To help meet this growing demand, the Government of Canada is making a generational investment in supports for the skilled trades.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/10/government-of-canada-will-be-accepting-applications-for-5000-team-canada-strong-red-seal-completion-bonus-as-of-november-16.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "22 Oct 2026",
         "headline": "Workforce Retention and Retraining Program launched to help employers keep their workforce while facing economic challenges",
         "body": "Canada's businesses and workers continue to adapt to evolving global trade pressures, including the impacts of tariffs, while building the foundation for future growth.",
@@ -171,14 +179,6 @@
         "body": "Government of Canada releases What We Heard reports on fighting forced labour",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/10/government-of-canada-releases-what-we-heard-reports-on-fighting-forced-labour.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "29 Sept 2026",
-        "headline": "The Government of Canada introduces new Productivity Mega Deduction to help businesses invest, grow and create jobs in Canada",
-        "body": "Canada has what the world wants: abundant energy and critical minerals, the most educated workforce in the world, access to 1.5 billion consumers through our free trade agreements, and the strongest fiscal position in the G7. We are building on these advantages to make Canada the best place in the world to invest, build, and…",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/09/the-government-of-canada-introduces-new-productivity-mega-deduction-to-help-businesses-invest-grow-and-create-jobs-in-canada.html"
       }
     ],
     "finance": [
