@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T01:14:40.730Z",
+  "generatedAt": "2026-10-27T19:55:06.493Z",
   "us": {
     "immigration": [
       {
@@ -142,6 +142,14 @@
     "jobs": [
       {
         "tag": "Work Permit",
+        "date": "27 Oct 2026",
+        "headline": "Canada Summer Jobs 2027: Application period for employers open now until December 3, 2026",
+        "body": "Canada Summer Jobs 2027: Application period for employers open now until December 3, 2026",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/10/canada-summer-jobs-2027-application-period-for-employers-open-now-until-december-3-2026.html"
+      },
+      {
+        "tag": "Work Permit",
         "date": "23 Oct 2026",
         "headline": "Government of Canada will be accepting applications for $5,000 Team Canada Strong Red Seal Completion Bonus as of November 16",
         "body": "Canada needs more skilled trades workers to build homes, strengthen critical infrastructure and support major economic and defence projects. To help meet this growing demand, the Government of Canada is making a generational investment in supports for the skilled trades.",
@@ -171,14 +179,6 @@
         "body": "Government of Canada announces major investment in apprenticeship training to build Team Canada Strong",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/10/government-of-canada-announces-major-investment-in-apprenticeship-training-to-build-team-canada-strong.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "8 Oct 2026",
-        "headline": "Government of Canada releases What We Heard reports on fighting forced labour",
-        "body": "Government of Canada releases What We Heard reports on fighting forced labour",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/10/government-of-canada-releases-what-we-heard-reports-on-fighting-forced-labour.html"
       }
     ],
     "finance": [
