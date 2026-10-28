@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-10-28T01:00:46.006Z",
+  "generatedAt": "2026-10-28T20:07:24.636Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "28 Oct 2026",
+        "headline": "Suburban Chicago Man Sentenced for Staging Robberies to Help Others Fraudulently Apply for Immigration Visas",
+        "body": "A suburban Chicago man has been sentenced to two years in federal prison for conspiring to stage armed robberies so purported victims could apply for U.S. immigration visas reserved for crime victims.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/suburban-chicago-man-sentenced-for-staging-robberies-to-help-others-fraudulently-apply-for"
+      },
       {
         "tag": "USCIS",
         "date": "22 Oct 2026",
@@ -33,20 +41,12 @@
         "body": "A South African alien and lawful permanent resident was charged with unlawfully voting in the November 2024 federal election. U.S. Citizenship and Immigration Services provided valuable assistance during the investigation.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/alien-from-south-africa-charged-with-unlawful-voting"
-      },
-      {
-        "tag": "USCIS",
-        "date": "20 Oct 2026",
-        "headline": "Canadian Alien Charged with Illegal Voting",
-        "body": "A grand jury returned an indictment charging Sandra Madeline Watson, 59, of Louisville, with illegal voting by an alien in a federal election.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/canadian-alien-charged-with-illegal-voting"
       }
     ],
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "20 Oct 2026",
+        "date": "28 Oct 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): +0.6% in Sep 2026 News Release Historical Data Unemployment Rate: 4.2% in Sep 2026 News Release Historical Data Payroll Employment: +29,000(p) in Sep 2026 News Release Historical Data Average Hourly Earnings: +$0.05(p) in Sep 2026 News Release Historical Data Producer Price Index - Final Demand: +1.3%(p) in Sep 2026 News Release…",
         "source": "Bureau of Labor Statistics",
@@ -54,6 +54,14 @@
       }
     ],
     "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "28 Oct 2026",
+        "headline": "Federal Reserve issues FOMC statement",
+        "body": "Federal Reserve issues FOMC statement",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "16 Oct 2026",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261008a.htm"
-      },
-      {
-        "tag": "Markets",
-        "date": "7 Oct 2026",
-        "headline": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
-        "body": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261007a.htm"
       }
     ]
   },
