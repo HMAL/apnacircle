@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T20:07:24.636Z",
+  "generatedAt": "2026-10-29T01:37:01.809Z",
   "us": {
     "immigration": [
       {
@@ -99,6 +99,14 @@
   "ca": {
     "immigration": [
       {
+        "tag": "IRCC",
+        "date": "28 Oct 2026",
+        "headline": "New penalties for fraudulent and unauthorized immigration and citizenship representatives",
+        "body": "The Government of Canada is committed to upholding the integrity of its immigration and citizenship systems and protecting applicants from fraud and exploitation. To help safeguard applicants from those who would take advantage of them, new penalties of up to $1.5 million are now in force for those who break the law when providing paid…",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/10/new-penalties-for-fraudulent-and-unauthorized-immigration-and-citizenship-representatives.html"
+      },
+      {
         "tag": "Express Entry",
         "date": "16 Oct 2026",
         "headline": "Canada refocusing Express Entry on top talent that drives economic growth",
@@ -129,14 +137,6 @@
         "body": "The world is changing rapidly. The United States is imposing new tariffs on Canada, designed to hurt and divide us. At the same time, conflicts in Europe and the Middle East are driving up prices around the world. In response, Canada’s government is focused on what we can control: building a stronger, more independent and…",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/09/the-government-of-canada-extends-the-federal-fuel-excise-tax-relief-on-gasoline-diesel-and-aviation-fuels-for-canadians.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "8 Sept 2026",
-        "headline": "Minister Metlege Diab highlights the extension of federal fuel excise tax relief on gasoline, diesel and aviation fuels for Canadians",
-        "body": "The world is changing rapidly. The United States is imposing new tariffs on Canada, designed to hurt and divide us. At the same time, conflicts in Europe and the Middle East are driving up prices around the world. In response, Canada’s government is focused on what we can control: building a stronger, more independent and…",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/09/minister-metlege-diab-highlights-the-extension-of-federal-fuel-excise-tax-relief-on-gasoline-diesel-and-aviation-fuels-for-canadians.html"
       }
     ],
     "jobs": [
