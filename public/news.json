@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-10-29T01:37:01.809Z",
+  "generatedAt": "2026-10-29T20:05:54.193Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "29 Oct 2026",
+        "headline": "Under President Trump’s Leadership, USCIS Takes Unprecedented 2.2 Million Enforcement Actions Protecting Americans Across the Nation",
+        "body": "Under the leadership of President Donald J. Trump and Secretary of Homeland Security Markwayne Mullin, U.S. Citizenship and Immigration Services is delivering on the Administration’s agenda and putting the American people first.",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/under-president-trumps-leadership-uscis-takes-unprecedented-22-million-enforcement-actions"
+      },
       {
         "tag": "USCIS",
         "date": "28 Oct 2026",
@@ -33,14 +41,6 @@
         "body": "Six individuals in Massachusetts have been charged with allegedly arranging sham marriages to fraudulently obtain immigration status for illegal aliens.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/six-charged-in-large-scale-marriage-fraud-ring"
-      },
-      {
-        "tag": "USCIS",
-        "date": "22 Oct 2026",
-        "headline": "Alien from South Africa Charged with Unlawful Voting",
-        "body": "A South African alien and lawful permanent resident was charged with unlawfully voting in the November 2024 federal election. U.S. Citizenship and Immigration Services provided valuable assistance during the investigation.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/alien-from-south-africa-charged-with-unlawful-voting"
       }
     ],
     "jobs": [
