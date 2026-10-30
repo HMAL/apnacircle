@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T20:05:54.193Z",
+  "generatedAt": "2026-10-30T01:38:37.904Z",
   "us": {
     "immigration": [
       {
@@ -56,6 +56,14 @@
     "finance": [
       {
         "tag": "Fed Rate",
+        "date": "29 Oct 2026",
+        "headline": "Federal Reserve Board announces approval of application by The Bank of Nova Scotia",
+        "body": "Federal Reserve Board announces approval of application by The Bank of Nova Scotia",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261029a.htm"
+      },
+      {
+        "tag": "Fed Rate",
         "date": "28 Oct 2026",
         "headline": "Federal Reserve issues FOMC statement",
         "body": "Federal Reserve issues FOMC statement",
@@ -85,14 +93,6 @@
         "body": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "8 Oct 2026",
-        "headline": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
-        "body": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261008a.htm"
       }
     ]
   },
