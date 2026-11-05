@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-05T02:01:28.401Z",
+  "generatedAt": "2026-11-05T21:22:31.091Z",
   "us": {
     "immigration": [],
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "3 Nov 2026",
+        "date": "5 Nov 2026",
         "headline": "Major Economic Indicators Latest Numbers",
         "body": "Consumer Price Index (CPI): +0.6% in Sep 2026 News Release Historical Data Unemployment Rate: 4.2% in Sep 2026 News Release Historical Data Payroll Employment: +29,000(p) in Sep 2026 News Release Historical Data Average Hourly Earnings: +$0.05(p) in Sep 2026 News Release Historical Data Producer Price Index - Final Demand: +1.3%(p) in Sep 2026 News Release…",
         "source": "Bureau of Labor Statistics",
@@ -13,6 +13,14 @@
       }
     ],
     "finance": [
+      {
+        "tag": "Fed Rate",
+        "date": "5 Nov 2026",
+        "headline": "Federal Reserve Board announces termination of enforcement action with Allegiant United Holdings, LLC, Nano Financial Holdings, Inc., and Nano Banc",
+        "body": "Federal Reserve Board announces termination of enforcement action with Allegiant United Holdings, LLC, Nano Financial Holdings, Inc., and Nano Banc",
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261105a.htm"
+      },
       {
         "tag": "Fed Rate",
         "date": "29 Oct 2026",
@@ -44,14 +52,6 @@
         "body": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
         "source": "Federal Reserve",
         "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261013a.htm"
-      },
-      {
-        "tag": "Fed Rate",
-        "date": "9 Oct 2026",
-        "headline": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
-        "body": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm"
       }
     ]
   },
