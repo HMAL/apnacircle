@@ -1,7 +1,15 @@
 {
-  "generatedAt": "2026-11-06T20:43:50.202Z",
+  "generatedAt": "2026-11-07T01:41:31.405Z",
   "us": {
     "immigration": [
+      {
+        "tag": "USCIS",
+        "date": "6 Nov 2026",
+        "headline": "Cuban Aliens and Florida Man Sentenced for Their Roles in an International Alien Smuggling, Asylum Fraud, and Money Laundering Conspiracy",
+        "body": "Defendants Responsible for Over 1,700 Fraudulent Asylum Claims",
+        "source": "USCIS",
+        "url": "https://www.uscis.gov/newsroom/news-releases/cuban-aliens-and-florida-man-sentenced-for-their-roles-in-an-international-alien-smuggling-asylum"
+      },
       {
         "tag": "USCIS",
         "date": "3 Nov 2026",
@@ -33,14 +41,6 @@
         "body": "U.S. Citizenship and Immigration Services assisted an investigation that resulted in charges against two Canadian aliens residing in eastern Idaho for unlawfully voting in the 2022 general election.",
         "source": "USCIS",
         "url": "https://www.uscis.gov/newsroom/news-releases/aliens-in-idaho-charged-for-illegal-voting"
-      },
-      {
-        "tag": "USCIS",
-        "date": "22 Oct 2026",
-        "headline": "Grocery Store Manager Convicted of Immigration Document Fraud, Obstruction of Two Federal Labor Investigations, and Conspiracy",
-        "body": "U.S. Citizenship and Immigration Services provided pivotal assistance to the case resulting in the conviction of Karla Montoya, 45, of Sacramento.",
-        "source": "USCIS",
-        "url": "https://www.uscis.gov/newsroom/news-releases/grocery-store-manager-convicted-of-immigration-document-fraud-obstruction-of-two-federal-labor"
       }
     ],
     "jobs": [
