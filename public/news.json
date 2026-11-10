@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T03:58:22.262Z",
+  "generatedAt": "2026-11-10T21:13:19.817Z",
   "us": {
     "immigration": [
       {
@@ -46,9 +46,9 @@
     "jobs": [
       {
         "tag": "H-1B",
-        "date": "6 Nov 2026",
+        "date": "10 Nov 2026",
         "headline": "Major Economic Indicators Latest Numbers",
-        "body": "Consumer Price Index (CPI): +0.6% in Sep 2026 News Release Historical Data Unemployment Rate: 4.1% in Oct 2026 News Release Historical Data Payroll Employment: +165,000(p) in Oct 2026 News Release Historical Data Average Hourly Earnings: +$0.14(p) in Oct 2026 News Release Historical Data Producer Price Index - Final Demand: +1.3%(p) in Sep 2026 News Release…",
+        "body": "Consumer Price Index (CPI): +0.4% in Oct 2026 News Release Historical Data Unemployment Rate: 4.1% in Oct 2026 News Release Historical Data Payroll Employment: +165,000(p) in Oct 2026 News Release Historical Data Average Hourly Earnings: +$0.14(p) in Oct 2026 News Release Historical Data Producer Price Index - Final Demand: +1.3%(p) in Sep 2026 News Release…",
         "source": "Bureau of Labor Statistics",
         "url": "https://www.bls.gov/bls/"
       }
@@ -100,6 +100,22 @@
     "immigration": [
       {
         "tag": "IRCC",
+        "date": "10 Nov 2026",
+        "headline": "Canada takes action to efficiently process existing permanent residence applications for Ukrainians and Hong Kongers",
+        "body": "Canada’s 2027–2029 Immigration Levels Plan builds on the government’s progress to take back control over the immigration system and return immigration to sustainable levels. It also ensures the efficiency and integrity of the immigration system and provides greater certainty for applicants.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/11/canada-takes-action-to-efficiently-process-existing-permanent-residence-applications-for-ukrainians-and-hong-kongers.html"
+      },
+      {
+        "tag": "IRCC",
+        "date": "10 Nov 2026",
+        "headline": "Minister Metlege Diab highlights Budget 2026 investments in culture, creativity, and access to the arts",
+        "body": "In an increasingly turbulent world, Canada is determining its future. Budget 2026 aims to make Canadians masters of their own destiny, build our sovereignty and give us the freedom to live our lives as we choose. Being sovereign means building a country where Canadian culture thrives in all its diversity and creativity.",
+        "source": "IRCC — Canada.ca",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/11/minister-metlege-diab-highlights-budget-2026-investments-in-culture-creativity-and-access-to-the-arts.html"
+      },
+      {
+        "tag": "IRCC",
         "date": "9 Nov 2026",
         "headline": "Peter Fragiskatos highlights Government of Canada’s investments from Budget 2026: Masters of our destiny",
         "body": "In a world reshaped by geopolitical competition, protectionism and rapidly evolving technologies, Canada stands apart. Our abundant natural resources, clean and reliable energy, world-class talent, strong public finances, and access to global markets give us a clear competitive advantage.",
@@ -121,25 +137,17 @@
         "body": "Canada modernizes the asylum system to support timely decisions",
         "source": "IRCC — Canada.ca",
         "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/11/canada-modernizes-the-asylum-system-to-support-timely-decisions0.html"
-      },
-      {
-        "tag": "IRCC",
-        "date": "28 Oct 2026",
-        "headline": "New penalties for fraudulent and unauthorized immigration and citizenship representatives",
-        "body": "The Government of Canada is committed to upholding the integrity of its immigration and citizenship systems and protecting applicants from fraud and exploitation. To help safeguard applicants from those who would take advantage of them, new penalties of up to $1.5 million are now in force for those who break the law when providing paid…",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/10/new-penalties-for-fraudulent-and-unauthorized-immigration-and-citizenship-representatives.html"
-      },
-      {
-        "tag": "Express Entry",
-        "date": "16 Oct 2026",
-        "headline": "Canada refocusing Express Entry on top talent that drives economic growth",
-        "body": "October 16, 2026—Kitchener, Ontario—Building a stronger Canada means restoring confidence in a well-managed immigration system that meets our economic needs. This includes attracting and retaining skilled talent to complement the Canadian workforce and drive economic growth.",
-        "source": "IRCC — Canada.ca",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/10/canada-refocusing-express-entry-on-top-talent-that-drives-economic-growth.html"
       }
     ],
     "jobs": [
+      {
+        "tag": "Work Permit",
+        "date": "10 Nov 2026",
+        "headline": "Secretary of State McLean highlights Government of Canada’s investments from Budget 2026: Masters of our destiny to support Canadian culture, strengthen creative industries, and improve access to arts and heritage across the country",
+        "body": "In an increasingly turbulent world, Canada is determining its future. The federal Budget 2026 aims to make Canadians masters of their own destiny, build our sovereignty, and give us the freedom to live our lives as we choose. Being sovereign means building a country where Canadian culture thrives in all its diversity and creativity.",
+        "source": "ESDC — Canada.ca",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/11/secretary-of-state-mclean-highlights-government-of-canadas-investments-from-budget-2026-masters-of-our-destiny-to-support-canadian-culture-strength.html"
+      },
       {
         "tag": "Work Permit",
         "date": "9 Nov 2026",
@@ -171,14 +179,6 @@
         "body": "Government of Canada announces targeted reforms to the Temporary Foreign Worker Program to respond to labour market needs",
         "source": "ESDC — Canada.ca",
         "url": "https://www.canada.ca/en/employment-social-development/news/2026/11/government-of-canada-announces-targeted-reforms-to-the-temporary-foreign-worker-program-to-respond-to-labour-market-needs.html"
-      },
-      {
-        "tag": "Work Permit",
-        "date": "30 Oct 2026",
-        "headline": "Government of Canada tables the 2026 Report of the National Advisory Council on Poverty and announces Council appointments and reappointments",
-        "body": "The Government of Canada is working to build a stronger, more inclusive economy where everyone has the opportunity to succeed. Reducing poverty and improving affordability remain key priorities in supporting the well-being of people and communities across the country.",
-        "source": "ESDC — Canada.ca",
-        "url": "https://www.canada.ca/en/employment-social-development/news/2026/10/government-of-canada-tables-the-2026-report-of-the-national-advisory-council-on-poverty-and-announces-council-appointments-and-reappointments.html"
       }
     ],
     "finance": [
